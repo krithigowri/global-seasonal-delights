@@ -1,1 +1,3491 @@
-{"_note":"SAMPLE DATA — Phase 1 layout placeholder. Real recipe packets from the content waves replace this file. Schema: name, aliases[{name,region}], region, season, seasonWhy, category (food|snack|drink), veg, kidFriendly, festive, story, sources[{name,url}], ingredients{groups[{title,items[]}]}, method[], kidVersion{title,text}.","recipes":[{"aliases":[{"name":"Mysuru Pak","region":"Karnataka"}],"category":"snack","festive":true,"id":"mysore-pak","ingredients":{"groups":[{"items":["1 cup sugar (200 g)","½ cup water"],"title":"For the sugar syrup"},{"items":["1 cup besan (gram flour / chickpea flour), sieved","1 cup ghee, plus ¼ cup neutral oil","A pinch of cardamom powder (optional)"],"title":"For the besan mixture"}]},"kidFriendly":true,"kidVersion":{"text":"Mysore pak is already vegetarian and nut-free. For young cooks: let an adult handle the hot sugar syrup and the pouring — kids can grease the tray, sieve the besan, and press the cardamom. Cut into small bite-size squares; the rich ghee means a little goes a long way.","title":"Kids love it"},"method":["Grease a tray or plate generously with ghee and keep it ready — the mixture sets fast.","In a heavy pan, dissolve the sugar in the water and boil to one-string consistency: a drop pressed between thumb and finger pulls a single thread.","Lower the flame and add the sieved besan a spoonful at a time, stirring constantly so no lumps form.","Heat the ghee and oil together until very hot. Pour a ladleful into the besan mixture and stir; it will froth and bubble. Keep stirring until the fat is absorbed, then repeat 4–5 times.","When the mixture turns pale gold, smells nutty, and leaves the sides of the pan, pour it into the greased tray immediately. Level gently.","After 5 minutes, cut into squares while still warm. Let cool fully (about 30 minutes) before separating. Store airtight."],"name":"Mysore Pak","page":"recipe-mysore-pak.html","region":"South India","season":"Autumn","seasonWhy":"Diwali season (Nov 6–10): ghee-rich sweets are made for Lakshmi puja prasad and gifting.","sources":[{"name":"Hebbar's Kitchen","url":"https://hebbarskitchen.com/mysore-pak-recipe-easy-homemade/comment-page-1/"},{"name":"Tarla Dalal","url":"https://www.tarladalal.com/mysore-pak-2043r"}],"story":"In 1935, Kakasura Madappa, the chief cook of the Mysore Palace, was asked by King Krishna Raja Wadiyar IV for a new sweet. With gram flour, ghee and sugar on hand, he improvised — and the melt-in-the-mouth fudge that emerged was named “Mysuru paka,” a sweet from Mysore. It remains the Diwali sweet of Tamil Nadu and Karnataka.","veg":true},{"aliases":[{"name":"Ahuacamolli","region":"Nahuatl tradition"}],"category":"snack","festive":true,"id":"guacamole","ingredients":{"groups":[{"items":["3 ripe avocados","1 small white onion (pyaaz), finely diced","1 jalapeño (green chili), seeded and minced","½ cup fresh coriander (cilantro) leaves, chopped","Juice of 1 lime (nimbu)","¾ tsp salt, or to taste"],"title":"For the guacamole"},{"items":["Tortilla chips or warm corn tortillas"],"title":"To serve"}]},"kidFriendly":true,"kidVersion":{"text":"Skip the jalapeño entirely for a mild version kids love — the lime and creamy avocado carry it. Let kids do the mashing (great fork practice) and the lime squeezing with a grown-up nearby.","title":"Kids love it"},"method":["Halve the avocados, remove the pits, and scoop the flesh into a bowl.","Mash with a fork until creamy but still a little chunky — texture is the point.","Fold in the onion, jalapeño, coriander, and lime juice. Season with salt.","Taste and adjust: more lime for brightness, more chili for heat.","Serve immediately with tortilla chips. To hold briefly, press plastic wrap directly onto the surface to slow browning."],"name":"Guacamole","page":"recipe-guacamole.html","region":"Central Mexico","season":"Summer","seasonWhy":"Summer: avocados are at their creamy peak and the fresh version needs no cooking.","sources":[{"name":"Isabel Eats","url":"https://www.isabeleats.com/wprm_print/guacamole-recipe"},{"name":"JZ-Eats","url":"https://jz-eats.com/authentic-guacamole-recipe/"}],"story":"From the Nahuatl “ahuacamolli” — avocado sauce — guacamole has been pounded in volcanic-stone molcajetes since Aztec times. It is laid on Día de los Muertos ofrendas (Nov 1–2) among the favorite foods of returning souls, and eaten by the living with equal ceremony.","veg":true},{"aliases":[{"name":"Cutting Chai","region":"Mumbai"}],"category":"drink","festive":false,"id":"masala-chai","ingredients":{"groups":[{"items":["4 green cardamom pods (chhoti elaichi), crushed","1-inch cinnamon stick (dalchini)","4 cloves (laung)","1-inch fresh ginger (adrak), sliced"],"title":"For the spice mix"},{"items":["2 cups water","2 tsp Assam black tea leaves","1 cup milk","Sugar to taste"],"title":"For the chai (2 cups)"}]},"kidFriendly":true,"kidVersion":{"text":"Caffeine-free “chai” for kids: swap the black tea for rooibos leaves (same dark color, no caffeine), keep the spices and milk, and go light on the sugar. Always let an adult handle the boiling and pouring.","title":"Kids love it"},"method":["Crush the cardamom, cinnamon, cloves, and ginger coarsely with a mortar and pestle.","Bring the water to a rolling boil, add the crushed spices, and simmer 2–3 minutes until fragrant.","Add the tea leaves and boil 1 minute more for strength.","Pour in the milk and sugar; bring back to a boil, then simmer 2 minutes until the color turns a rich caramel brown.","Strain into cups and serve piping hot."],"name":"Masala Chai","page":"recipe-masala-chai.html","region":"India","season":"Winter","seasonWhy":"Winter: warming spices for cold mornings; chai stalls do their best business in the cool months.","sources":[{"name":"Sanjeev Kapoor","url":"https://www.sanjeevkapoor.com/Recipe/masala-chai-12437258"},{"name":"EkNazar","url":"https://www.eknazar.com/indianapolis/Topics/Recipes/mviewrecipe-id-2456/masala-chai-video.htm"}],"story":"Tea arrived in India on British plantations, but Indians made the bitter colonial brew their own — simmered with milk, sugar, and the spice box: ginger (adrak), cardamom (elaichi), cloves. The half-glass “cutting chai” of Mumbai's trains and street corners turned it into the country's everyday ritual.","veg":true}]}
+{
+ "_note": "Live recipe data: 45 recipes (28 GSD-Instagram migration + 17 ChatGPT collection wave, 2026-10-01). Schema: id, name, aliases, region, season, seasonWhy, category (food|snack|drink), veg, vegNote, kidFriendly, festive, festival, vratCompatible, story, sources[{name,url}], ingredients[{group,items[]}], method[], kidVersion{title,text}, page.",
+ "recipes": [
+  {
+   "id": "baingan-bharta",
+   "name": "Baingan Bharta (smoky roasted eggplant mash) with whole-wheat roti",
+   "aliases": [],
+   "region": "Punjab, India",
+   "season": "Monsoon",
+   "seasonWhy": "Brinjal/eggplant is a rainy-season crop in India — planted Jun–Jul, harvested through late monsoon Sep/Oct; abundant in markets Aug–Sep. Tomatoes, onions, green chilies, fresh coriander also monsoon-season staples.",
+   "category": "food",
+   "festive": false,
+   "festival": null,
+   "veg": true,
+   "kidFriendly": true,
+   "kidVersion": {
+    "title": "Kids love it",
+    "text": "Naturally soft-mashed — just skip the green chilies, use a little less Kashmiri chili powder, and mash it extra smooth. The roasted-garlic sweetness comes through for little ones, and the scoop-and-dip format with roti is one kids love."
+   },
+   "ingredients": {
+    "groups": [
+     {
+      "title": "Roasting (before any pot)",
+      "items": [
+       "1 large brinjal/baingan (eggplant), ~450–500 g — choose one with shiny smooth skin, relatively light for its size (fewer seeds, less bitterness)",
+       "1 tsp oil, for greasing the skin (chars evenly, peels easier)",
+       "3 garlic cloves, peeled + 1 green chili (to stuff into the slits)"
+      ]
+     },
+     {
+      "title": "Tadka / tempering (oil first, then seeds)",
+      "items": [
+       "2½ tbsp mustard oil (or neutral oil for a milder flavor) — heat till it just smokes, then cool a minute to tame the pungency",
+       "1 tsp cumin seeds (jeera)",
+       "1 dried red chili, broken in half"
+      ]
+     },
+     {
+      "title": "Aromatics (into the crackling oil)",
+      "items": [
+       "1-inch piece ginger, finely chopped",
+       "3 garlic cloves, finely chopped",
+       "1 large onion, finely chopped (~150 g)",
+       "1–2 green chilies, slit lengthwise (use 1 or skip for a milder bharta)"
+      ]
+     },
+     {
+      "title": "Tomato + spice base",
+      "items": [
+       "2 medium tomatoes, finely chopped (~280 g)",
+       "1 tsp salt (draws juices out of the tomatoes so they break down faster)",
+       "½ tsp turmeric powder (haldi)",
+       "1 tsp coriander powder (dhania)",
+       "½ tsp Kashmiri red chili powder",
+       "½ tsp cumin powder (jeera)"
+      ]
+     },
+     {
+      "title": "Main body (last big addition)",
+      "items": [
+       "Roasted eggplant pulp from Stage 0 (~350 g mashed flesh)"
+      ]
+     },
+     {
+      "title": "Finishing (off/after heat)",
+      "items": [
+       "½ tsp garam masala",
+       "1 tsp kasuri methi (dried fenugreek leaves) — crush between palms",
+       "2 tbsp fresh coriander leaves (cilantro), chopped, plus more to garnish",
+       "1 tsp lemon juice"
+      ]
+     }
+    ]
+   },
+   "method": [
+    "Rinse, dry, and grease the brinjal with the 1 tsp oil. Make 4 deep slits around it and tuck the garlic cloves and green chili inside. Place directly over a gas flame (or under a very hot grill/broiler) and roast 10–12 min, turning every 2–3 min with tongs, until the skin is blackened all over and the flesh collapses when pressed. (Oven/air-fryer works but loses the signature smoky flavor.)",
+    "Rest 10 min — covering the hot brinjal steams the skin loose. Peel off the charred skin (leave a few charred flecks for smokiness). Scoop the pulp into a bowl and mash with a fork; chop the roasted garlic and chili in with it.",
+    "Heat the mustard oil in a heavy kadai/pan over medium-high until it just begins to smoke lightly; take off the heat for a minute to cool slightly, then return to medium.",
+    "Add the cumin seeds and dried red chili. When the cumin crackles and darkens (~20 sec), add the chopped ginger and garlic; sauté ~1 min until the raw smell disappears.",
+    "Add the onion and slit green chilies; sauté 3–4 min until the onion softens and turns golden at the edges.",
+    "Add the tomatoes and salt; cook 4–5 min until the tomatoes turn soft and mushy and oil begins to glisten at the edges. Add the turmeric, coriander powder, Kashmiri chili, and cumin powder; fry 1 min until the masala darkens and smells aromatic.",
+    "Add the mashed eggplant; mix and mash together 4–5 min, until one smoky, glossy, well-combined mash. Adjust salt.",
+    "Off the heat: stir in the garam masala, crushed kasuri methi, coriander leaves, and lemon juice. Rest 2 min, garnish, and serve hot with whole-wheat roti."
+   ],
+   "story": "Baingan bharta was born in Punjab's villages, where farmers buried whole eggplants in the dying embers of the clay tandoor after the day's bread was baked — the slow char giving the flesh its signature smokiness. The roasted pulp was mashed (\"bharta\" literally means \"mashed\") with mustard oil, onion, and village-ground spices for a hearty farmer's meal. It's still the dish Punjabis make when they want the taste of an open fire at the lunch table.",
+   "sources": [
+    {
+     "name": "Tarla Dalal — Smoky Baingan Bharta Recipe (Punjabi Style)",
+     "url": null
+    },
+    {
+     "name": "Hebbar's Kitchen — Baingan Ka Bharta",
+     "url": null
+    }
+   ],
+   "page": "recipe-baingan-bharta.html"
+  },
+  {
+   "id": "bruschetta-al-pomodoro",
+   "name": "Bruschetta al Pomodoro",
+   "aliases": [],
+   "region": "Tuscany, Italy",
+   "season": "Autumn",
+   "seasonWhy": "September in Tuscany — vine-ripe tomatoes in their final flush (good April through end of September), fresh basil still harvestable before fall frosts, garlic year-round, olive oil pantry-available year-round.",
+   "category": "snack",
+   "festive": false,
+   "festival": null,
+   "veg": true,
+   "kidFriendly": true,
+   "kidVersion": {
+    "title": "Kids love it",
+    "text": "Mild, finger-friendly, and eaten with hands the authentic way — just keep the garlic rub light. Make mini bruschette on small toast rounds for little hands."
+   },
+   "ingredients": {
+    "groups": [
+     {
+      "title": "Bread prep",
+      "items": [
+       "12 slices rustic Tuscan-style bread (pane toscano — plain Tuscan bread made from just flour, water, and yeast; classically unsalted, \"pane sciocco\" — egg-free and dairy-free), about ½-inch thick (from roughly a 500 g loaf)",
+       "1 large garlic clove, halved crosswise (for rubbing the toast)",
+       "2 tbsp extra virgin olive oil, for the bread"
+      ]
+     },
+     {
+      "title": "Tomato topping",
+      "items": [
+       "900 g (about 2 lb / 6 medium) ripe vine-ripe or Roma tomatoes — firm but fully ripe, cored, cut into ¼-inch dice",
+       "8–10 large fresh basil leaves, torn by hand or cut chiffonade",
+       "3 tbsp extra virgin olive oil",
+       "¾ tsp fine sea salt",
+       "1 small garlic clove, peeled and lightly smashed (marinates with the tomatoes, removed before serving)"
+      ]
+     },
+     {
+      "title": "Finish",
+      "items": [
+       "Extra virgin olive oil, for drizzling",
+       "Flaky sea salt"
+      ]
+     }
+    ]
+   },
+   "method": [
+    "Toss diced tomatoes in a bowl with 3 tbsp olive oil, fine salt, torn basil, and the smashed garlic clove. Rest at room temperature 20–30 min (up to 4 hours) so the juices gather.",
+    "Toast bread slices on a grill, griddle pan, or under a hot broiler, 1–3 min per side, until golden — crisp outside, still soft inside.",
+    "While each slice is still hot, rub one side gently with the cut face of the halved garlic clove (light pressure — flavor, not chunks).",
+    "Drizzle toasted slices with 2 tbsp olive oil.",
+    "Fish the smashed garlic clove out of the tomato mix. Spoon marinated tomatoes generously over each slice.",
+    "Finish with flaky sea salt and a final thread of olive oil. Serve immediately, on a board or plate, not stacked."
+   ],
+   "story": "Bruschetta takes its name from the Italian verb bruscare — \"to roast or toast,\" referring to bread roasted over coals. It began in Ancient Rome as simple toasted bread with local olive oil; tomatoes only joined the topping after the 15th century, when they arrived from the Americas. In Tuscany it has its own name, fettunta (\"oily slice\"), and the custom of rubbing grilled bread with raw garlic grew out of farmers tasting each autumn's first pressing of new olive oil on hot bread.",
+   "sources": [
+    {
+     "name": "Eating Around Italy",
+     "url": null
+    },
+    {
+     "name": "Memorie di Angelina",
+     "url": null
+    },
+    {
+     "name": "Gourmet Project / chef Claudia Rinaldi",
+     "url": null
+    }
+   ],
+   "page": "recipe-bruschetta-al-pomodoro.html"
+  },
+  {
+   "id": "kuri-gohan",
+   "name": "Kuri Gohan",
+   "aliases": [],
+   "region": "Kansai, Japan",
+   "season": "Autumn",
+   "seasonWhy": "Fresh Japanese chestnuts (kuri) harvest Sep–Nov — mid-September is when the first fresh crop appears in Kansai markets; the Tamba region in northern Kansai is one of Japan's most famous chestnut-growing areas. New-harvest rice (shinmai) arrives in autumn too (late Sep/Oct) — seasonally ideal pairing.",
+   "category": "food",
+   "festive": false,
+   "festival": null,
+   "veg": true,
+   "kidFriendly": true,
+   "kidVersion": {
+    "title": "Kids love it",
+    "text": "Already a beloved kids' dish in Japan — sweet, mild, and soft. Omit the sake (flavor unchanged — salt and kombu carry it), halve large chestnuts, and skip the sesame for little ones. It packs well as chestnut rice balls (onigiri) for lunchboxes."
+   },
+   "ingredients": {
+    "groups": [
+     {
+      "title": "Rice prep",
+      "items": [
+       "2 cups (400 g) Japanese short-grain white rice",
+       "⅓ cup (60 g) sweet/glutinous rice (mochigome — sticky Japanese rice; or substitute extra short-grain rice)",
+       "Water for rinsing + 2¼ cups (540 ml) for cooking"
+      ]
+     },
+     {
+      "title": "Chestnuts",
+      "items": [
+       "20–25 fresh chestnuts (~400 g; halve large ones after peeling)"
+      ]
+     },
+     {
+      "title": "Seasoning (added with rice, before cooking)",
+      "items": [
+       "One 5 cm (2 in) square kombu (dried kelp seaweed — used for umami; removed before serving)",
+       "¾ tsp salt",
+       "1 tbsp sake (Japanese rice wine), optional — omit for kid version"
+      ]
+     },
+     {
+      "title": "Finishing",
+      "items": [
+       "1 tbsp toasted black sesame seeds, to sprinkle"
+      ]
+     }
+    ]
+   },
+   "method": [
+    "Prep chestnuts. Soak in warm water 30 min to soften shells. With a paring knife, cut off the flat bottom, peel the hard outer shell in strips base-to-tip, then peel the thin papery brown inner skin. Drop peeled chestnuts into a bowl of water, changing water 2–3 times; soak 30 min. Shortcut: vacuum-packed pre-peeled chestnuts — skip peeling, rinse and soak 15 min.",
+    "Rinse rice. Both rices in a bowl, cover with cold water, swirl with hand, pour off cloudy water; repeat 3–4 times until nearly clear. Drain well (or rest in strainer 15 min).",
+    "Load the pot. Drained rice + 2¼ cups water in a heavy pot or rice cooker. Add salt, sake (if using), and kombu; stir gently. Lay chestnuts on top in a single layer. Rest 20–30 min so rice absorbs water evenly.",
+    "Cook. Bring to boil over medium heat, reduce to low, cover, cook 12–13 min until water is absorbed. (Rice cooker: regular setting.)",
+    "Steam. Remove from heat, rest with lid on 15–20 min. Do not skip — this finishes the chestnuts.",
+    "Serve. Discard kombu. Fluff gently with a rice paddle, folding chestnuts in; sprinkle with black sesame seeds."
+   ],
+   "story": "Kuri gohan is one of Japan's quintessential autumn rice dishes — when the first chestnuts (kuri) appear in markets from September, families steam them with new-harvest rice to celebrate the season. In Kansai, home of the famed Tamba chestnuts, it's a classic autumn table dish, often served during the moon-viewing (tsukimi) season when autumn's harvest is at its fullest.",
+   "sources": [
+    {
+     "name": "Just One Cookbook",
+     "url": null
+    },
+    {
+     "name": "MAFF Japan \"Our Regional Cuisines\" via Fukuchiyama City Rural Women's Council",
+     "url": null
+    },
+    {
+     "name": "Takashi Miyazaki's Kuri Gohan (TheTaste.ie)",
+     "url": null
+    }
+   ],
+   "page": "recipe-kuri-gohan.html"
+  },
+  {
+   "id": "empanadas-de-espinaca",
+   "name": "Empanadas de Espinaca y Queso",
+   "aliases": [],
+   "region": "Mendoza, Argentina",
+   "season": "Spring",
+   "seasonWhy": "September = early spring in the Southern Hemisphere; Mendoza's cool spring markets carry fresh cool-season greens — spinach (espinaca) and acelga (Swiss chard, the classic Argentine leafy green) are both at home in an early-spring filling.",
+   "category": "food",
+   "festive": false,
+   "festival": null,
+   "veg": true,
+   "kidFriendly": true,
+   "kidVersion": {
+    "title": "Kids love it",
+    "text": "Naturally kid-friendly: hand-held, no knife needed, mild. Chop the spinach very fine (no visible green bits for picky eaters) and go light on the nutmeg; optionally make 18 mini empanadas for smaller portions."
+   },
+   "ingredients": {
+    "groups": [
+     {
+      "title": "Dough (masa criolla, egg-free)",
+      "items": [
+       "400 g plain wheat flour (harina común)",
+       "70 ml neutral oil (or melted butter)",
+       "1 tsp fine salt (8 g)",
+       "~200 ml warm water",
+       "(No egg — verified egg-free across all dough sources)"
+      ]
+     },
+     {
+      "title": "Filling: greens",
+      "items": [
+       "500 g fresh spinach, washed — or acelga (Swiss chard; stems removed, leaves used)",
+       "1 large onion, finely diced",
+       "2 cloves garlic, minced"
+      ]
+     },
+     {
+      "title": "Salsa blanca (thick white-sauce binder)",
+      "items": [
+       "30 g butter",
+       "20 g cornstarch (maicena) or plain flour",
+       "200 ml whole milk",
+       "60 g hard cheese, finely grated (Parmesan-style)"
+      ]
+     },
+     {
+      "title": "Cheeses + seasoning",
+      "items": [
+       "250 g mozzarella or queso cremoso, cut into 12 cubes",
+       "Salt and black pepper, to taste",
+       "½ tsp freshly grated nutmeg"
+      ]
+     }
+    ]
+   },
+   "method": [
+    "Make the dough. Mix flour and salt in a large bowl. Make a well, add the oil, then pour in warm water gradually while working the flour in. Knead 8–10 min until smooth, soft, and elastic. Cover and rest 30 min at room temperature.",
+    "Blanch the greens. Plunge spinach (or acelga leaves) into boiling salted water 1 min, drain, rinse under cold water, squeeze out ALL the water with your hands, chop finely.",
+    "Sauté the base. Melt butter in a saucepan over medium heat; sauté onion 5–6 min until soft and translucent; add garlic, cook 1 min.",
+    "Build the salsa blanca. Stir cornstarch into the onion mixture until coated (paste). Pour in the milk all at once and whisk constantly over medium-low heat until thick enough to hold its shape, 3–4 min.",
+    "Finish the filling. Stir in the grated hard cheese, fold in the chopped greens. Season with salt, pepper, nutmeg. Cool completely.",
+    "Roll the discs. Divide dough into 12 balls; roll each ~14 cm wide, ~3 mm thick — not paper-thin, or the juicy filling bursts through.",
+    "Assemble. ~2 tbsp filling per disc, one mozzarella/queso cremoso cube on top, moisten edge with water, fold, press, and finish with a repulgue (the classic Argentine rope-twist crimp) or press with a fork.",
+    "Bake. 200°C (390°F), 18–22 min, until deep golden. Rest 5 min — the cheese center is molten."
+   ],
+   "story": "Empanadas came to Argentina with Spanish colonizers, who brought the medieval Iberian tradition of savory filled pastries to the Río de la Plata centuries ago. Each Argentine province then made the empanada its own: Mendoza — in the Cuyo region at the foot of the Andes — claims la mendocina, traditionally a beef-and-onion empanada judged at empanada festivals as a symbol of provincial identity. The signature crimped edge, the repulgue, is itself a craft: a rope-twist seal that locks in the filling and, in street stalls, signals what's inside. Spinach-and-cheese fillings grew out of Argentina's broader tradition — early Italian immigration made greens and soft cheese a staple filling — and today they're among the most popular vegetarian empanadas nationwide, sold in Mendoza's street stalls alongside the classic beef ones.",
+   "sources": [
+    {
+     "name": "Cookpad Argentina — Norali, Empanadas de espinaca, salsa blanca y queso",
+     "url": null
+    },
+    {
+     "name": "La Rusa Cocina — Spinach empanadas",
+     "url": null
+    },
+    {
+     "name": "jenyu.net (adapted from userealbutter.com)",
+     "url": null
+    }
+   ],
+   "page": "recipe-empanadas-de-espinaca.html"
+  },
+  {
+   "id": "gudeg",
+   "name": "Gudeg",
+   "aliases": [],
+   "region": "Java, Indonesia",
+   "season": "Summer",
+   "seasonWhy": "Java's dry season runs Apr–Oct, so September is the dry-season tail. Young jackfruit (nangka muda) fruits year-round, but the long-braised pot favors dry-season staples — coconut, palm sugar, long-storing produce — making this slow-simmered comfort dish a natural dry-season dinner.",
+   "category": "food",
+   "festive": false,
+   "festival": null,
+   "veg": true,
+   "kidFriendly": true,
+   "kidVersion": {
+    "title": "Kids love it",
+    "text": "Natural — sweet, mild, and soft-simmered for hours until the jackfruit goes spoon-tender. No adaptation needed; just keep the sambal away from their portion."
+   },
+   "ingredients": {
+    "groups": [
+     {
+      "title": "Pre-boil",
+      "items": [
+       "1 kg young jackfruit (nangka muda — young green jackfruit; unripe, firm, starchy flesh), peeled, seeded, cut into 2-inch pieces — or 2 cans (800 g) green jackfruit in brine, drained and rinsed",
+       "Water to cover"
+      ]
+     },
+     {
+      "title": "Bumbu halus (ground spice paste)",
+      "items": [
+       "8 shallots, peeled",
+       "5 cloves garlic, peeled",
+       "4 candlenuts (kemiri — rich, oily nut used as a thickener; substitute raw macadamia if unavailable), toasted 2 min",
+       "1 tbsp coriander seeds, dry-toasted",
+       "1 tsp salt",
+       "¼ tsp white pepper",
+       "2 tbsp neutral oil, for sautéing",
+       "(Blend everything to a smooth paste with 2–3 tbsp water.)"
+      ]
+     },
+     {
+      "title": "Braise",
+      "items": [
+       "5 daun salam (Indonesian bay leaves)",
+       "3 cm fresh galangal (lengkuas), bruised",
+       "2 lemongrass stalks, bruised and knotted",
+       "1 L thin coconut milk (santan encer)",
+       "400 ml thick coconut milk (santan kental)",
+       "150–200 g palm sugar (gula aren/gula jawa), shaved",
+       "1½ tsp salt, plus more to taste",
+       "2 black tea bags (color substitute for daun jati teak leaves — tea gives the color; teak leaves give the tradition)"
+      ]
+     },
+     {
+      "title": "To serve",
+      "items": [
+       "Steamed jasmine rice",
+       "Fried shallots",
+       "Optional sambal on the side (adults only for kids' portions)"
+      ]
+     }
+    ]
+   },
+   "method": [
+    "Boil the jackfruit pieces in plenty of water 20–30 min to soften and remove the raw edge. Drain. (Canned: rinse well, boil 10 min.) Lightly bruise pieces with a pestle or knife handle — helps the spices penetrate.",
+    "Blend the bumbu halus components to a smooth paste with 2–3 tbsp water.",
+    "Heat the oil in a heavy pot or Dutch oven over medium heat. Sauté the paste 5–7 min until deep golden and fragrant, oil glistening at the edges.",
+    "Add jackfruit, daun salam, galangal, and lemongrass; toss 3 min to coat.",
+    "Pour in the thin coconut milk plus enough water to just submerge everything. Add palm sugar, salt, and tea bags. Bring to a gentle boil, then reduce to the lowest simmer.",
+    "Simmer 3–4 hr, partially covered, stirring every 30 min. The liquid reduces; the jackfruit turns reddish-brown and silky.",
+    "Remove tea bags and leaves. Pour in the thick coconut milk; simmer 30–45 min more until the sauce is nearly dry and everything is coated in a glossy, dark braise. Taste: sweet first, gently savory after, salt to finish.",
+    "Rest 15 min. Serve warm over steamed rice with fried shallots and sambal on the side."
+   ],
+   "story": "Gudeg was born in the 16th century during the founding of the Islamic Mataram kingdom at Alas Mentaok, the forest clearing that became Kotagede — the seed of modern Yogyakarta. As the forest was cut down to build the new court, workers were surrounded by felled young jackfruit trees — fruit considered too ordinary to sell — plus coconut palms at the forest's edge. They cooked the young jackfruit, called gori, in huge cauldrons with coconut milk and spices, stirring for hours with long wooden spoons so a meal could feed hundreds. In Javanese that constant stirring is called hangudeg — and the name stuck. Over centuries it rose from workers' food to the court's table, and the Javanese read meaning into it: the long, patient cooking stands for perseverance (alon-alon asal kelakon — slowly but surely it gets done), and the dominant sweetness for the gentleness and hospitality of Yogyakarta's people. The signature deep brown color comes from teak leaves simmered in the pot — no soy sauce, no caramel.",
+   "sources": [
+    {
+     "name": "indonesia.travel (official Indonesian tourism board)",
+     "url": null
+    },
+    {
+     "name": "bisnisrakyat.id (Indonesian food press)",
+     "url": null
+    },
+    {
+     "name": "East Culinary",
+     "url": null
+    },
+    {
+     "name": "ivebeen.cooking",
+     "url": null
+    },
+    {
+     "name": "CookSifu",
+     "url": null
+    }
+   ],
+   "page": "recipe-gudeg.html"
+  },
+  {
+   "id": "quesadillas-de-huitlacoche",
+   "name": "Quesadillas de Huitlacoche",
+   "aliases": [],
+   "region": "Oaxaca, Mexico",
+   "season": "Monsoon",
+   "seasonWhy": "Huitlacoche (Mexican corn truffle) grows on corn ears during the rainy season and is harvested fresh roughly June–October — September is peak season, when it fills Oaxacan market stalls and street comals.",
+   "category": "food",
+   "festive": false,
+   "festival": null,
+   "veg": true,
+   "kidFriendly": true,
+   "kidVersion": {
+    "title": "Kids love it",
+    "text": "Naturally kid-friendly: hand-held, mild, cheesy. Keep the serrano/jalapeño out entirely for kids; chop the huitlacoche fine (the dark color is the \"spooky-cool\" selling point — call it the Mexican truffle). Halve the epazote in their portion; queso Oaxaca + corn tortilla is universally kid-approved."
+   },
+   "ingredients": {
+    "groups": [
+     {
+      "title": "The filling base (sauté first)",
+      "items": [
+       "2 tbsp neutral oil (or butter)",
+       "1 medium white onion, finely chopped",
+       "2 cloves garlic, minced",
+       "1 poblano chile, roasted, peeled, and cut into thin strips",
+       "½ jalapeño or serrano chile, seeded and finely chopped (optional; keep it mild for kids)"
+      ]
+     },
+     {
+      "title": "Huitlacoche (the star)",
+      "items": [
+       "500 g fresh huitlacoche (Mexican corn truffle), cleaned and roughly chopped — or 2 cans (~400 g drained), liquid drained",
+       "1 tsp fine salt, plus more to taste",
+       "Splash of water (only if using canned and the pan is dry)"
+      ]
+     },
+     {
+      "title": "Herb + cheese (added last)",
+      "items": [
+       "6–8 fresh epazote leaves, chopped — or 1 tbsp dried",
+       "300 g queso Oaxaca (Oaxacan string cheese), pulled into strings (fresh mozzarella works)"
+      ]
+     },
+     {
+      "title": "Tortillas (made fresh, de comal style)",
+      "items": [
+       "250 g masa harina (nixtamalized corn flour)",
+       "½ tsp fine salt",
+       "~300 ml warm water"
+      ]
+     },
+     {
+      "title": "To serve",
+      "items": [
+       "Salsa verde or roja on the side",
+       "Lime wedges",
+       "Pickled red onion (cebollas encurtidas)"
+      ]
+     }
+    ]
+   },
+   "method": [
+    "Make the tortilla dough. Mix masa harina and salt; pour in warm water gradually, kneading to a soft, pliable dough (like play-dough, not crumbly). Rest 10 min covered with a damp towel.",
+    "Start the filling. Heat oil in a wide pan over medium heat. Sauté onion 4–5 min until golden-soft but not browned; add garlic and poblano strips, cook 1 min until fragrant.",
+    "Add the huitlacoche. Add huitlacoche and salt. Cook 10–15 min, stirring, until most of the moisture has evaporated and the mixture goes glossy and almost black. Keep some tenderness — moist, never mushy.",
+    "Finish with epazote. Stir in the chopped epazote, cook 2 min more, taste for salt. Set aside warm.",
+    "Press the tortillas. Divide dough into 8 balls. Press each to ~14 cm rounds, ~3 mm thick.",
+    "Cook de comal (on the griddle). Heat a dry comal or cast-iron skillet over medium-high. Lay a tortilla on; after ~40 sec flip. On the second side, immediately spread a handful of queso Oaxaca on one half, spoon over the huitlacoche filling, and fold the tortilla closed. Cook 1–2 min per side, pressing gently, until the cheese melts and the tortilla is blistered and golden in spots.",
+    "Serve. Hot, with salsa, lime, and pickled onion alongside."
+   ],
+   "story": "Huitlacoche is a fungus that swells grey-blue ears of corn during the rainy season. Where most of the world saw a blight and burned it, Mexico saw a delicacy: the Aztecs were eating it centuries ago, and today it sells for more than the corn it grows on — the \"Mexican truffle.\" In Oaxaca, it rides the rainy-season wave onto the comals: market vendors and street quesadilla-makers stir it with epazote and poblano, fold it into fresh corn tortillas with a tangle of queso Oaxaca, and hand it over blistering hot. There's a quiet poetry to it — the rains that feed the milpa also feed the fungus, and the same epazote that seasons beans seasons huitlacoche. Nothing wasted, everything in season.",
+   "sources": [
+    {
+     "name": "astray.com — Huitlacoche para quesadillas",
+     "url": null
+    },
+    {
+     "name": "food.com — Huitlacoche Filling",
+     "url": null
+    },
+    {
+     "name": "bakinghermann.com — Quesadillas de Huitlacoche",
+     "url": null
+    },
+    {
+     "name": "sabordemex.mx",
+     "url": null
+    }
+   ],
+   "page": "recipe-quesadillas-de-huitlacoche.html"
+  },
+  {
+   "id": "ratatouille",
+   "name": "Ratatouille Niçoise",
+   "aliases": [],
+   "region": "Provence, France",
+   "season": "Autumn",
+   "seasonWhy": "September = autumn harvest in Provence; tomatoes, eggplant, zucchini, and peppers all peak at once — ratatouille is the dish Provençal households make when the garden overflows with \"légumes du soleil\" (vegetables of the sun).",
+   "category": "food",
+   "festive": false,
+   "festival": null,
+   "veg": true,
+   "kidFriendly": true,
+   "kidVersion": {
+    "title": "Kids love it",
+    "text": "Natural — soft, mild, sweet, colorful, with no heat anywhere in the dish. For picky eaters: peel the peppers (skins can be tough) or chop everything smaller; kids love it over rice or with bread for dipping."
+   },
+   "ingredients": {
+    "groups": [
+     {
+      "title": "Vegetables (cut and prepped, salted first)",
+      "items": [
+       "1 medium eggplant (~350 g), cut into 2 cm cubes — salt the cubes, rest 15 min, rinse, pat very dry",
+       "2 medium zucchini (~400 g), cut into 2 cm cubes",
+       "1 red bell pepper + 1 yellow bell pepper, cut into 2 cm pieces",
+       "500 g ripe tomatoes, peeled, seeded, and diced (or halved cherry tomatoes)",
+       "1 large onion, chopped",
+       "3 cloves garlic, thinly sliced"
+      ]
+     },
+     {
+      "title": "Fat + aromatics (go into the pot)",
+      "items": [
+       "6–8 tbsp extra-virgin olive oil, added in stages",
+       "1 bouquet garni: 2–3 sprigs fresh thyme + 1 sprig rosemary + 2 bay leaves, tied together — or 2 tsp dried herbes de Provence",
+       "1½ tsp fine salt, plus more to taste",
+       "Freshly ground black pepper"
+      ]
+     },
+     {
+      "title": "Finish (stirred in off the heat)",
+      "items": [
+       "1 handful fresh basil leaves, torn"
+      ]
+     },
+     {
+      "title": "To serve",
+      "items": [
+       "Thick slices of rustic sourdough bread",
+       "Extra olive oil",
+       "Optional: crumbled goat cheese or grated Parmesan-style hard cheese"
+      ]
+     }
+    ]
+   },
+   "method": [
+    "Salt the eggplant. Toss the cubes with 1 tsp salt, rest 15 min, rinse, and pat very dry — the key to golden (not soggy) eggplant.",
+    "Sauté each vegetable separately in a large heavy pot with 1–2 tbsp olive oil each: eggplant 5 min until golden → lift out; zucchini 4 min until lightly colored → lift out; peppers 6 min until softened → lift out.",
+    "Build the base. Add the onion with a little more oil; cook 6–8 min until soft and sweet. Add garlic, cook 1 min. Add the tomatoes and cook 5 min until they break into a sauce.",
+    "Combine and simmer. Return all vegetables to the pot. Tuck in the bouquet garni (or herbes de Provence), season with salt and pepper. Cover, lower the heat, and simmer gently 30 min, stirring occasionally — the vegetables should be tender and glazed, not falling apart.",
+    "Finish. Fish out the bouquet garni. Fold in the torn basil. Rest 10 min — ratatouille is better after a short rest, and it's genuinely wonderful at room temperature the next day."
+   ],
+   "story": "Ratatouille comes from the Niçois word ratatouiller — to stir and toss together — and it was born as pure harvest logic: in late summer and early autumn, Provençal gardens produce everything at once, and this was the pot that caught it all. The rustic wisdom is in the method, not the ingredients — each vegetable sautéed separately so the eggplant doesn't mush into the zucchini, then married slowly under a bundle of thyme and bay. It's peasant food that never apologized: eaten warm, at room temperature, or the next day when the flavors have deepened, always with bread. Autumn in Provence smells like this pot.",
+   "sources": [
+    {
+     "name": "saveur.com — The Best Ratatouille Recipe",
+     "url": null
+    },
+    {
+     "name": "Chef Philippe Batton (video recipe)",
+     "url": null
+    },
+    {
+     "name": "Asahi Press French-language textbook (Unité 8, La Provence)",
+     "url": null
+    }
+   ],
+   "page": "recipe-ratatouille.html"
+  },
+  {
+   "id": "locro-de-zapallo",
+   "name": "Locro de Zapallo",
+   "aliases": [],
+   "region": "Andes, Peru",
+   "season": "Spring",
+   "seasonWhy": "September in the high Andes is the dry tail before the spring rains — the highland pantry runs on stored harvests, and this is the dish that turns them into a meal. Potato and choclo harvests peak Jan–Jun, quinoa Apr–Jul, starchy maize May–Jul — all stored and sold in highland markets year-round.",
+   "category": "food",
+   "festive": false,
+   "festival": null,
+   "veg": true,
+   "kidFriendly": true,
+   "kidVersion": {
+    "title": "Kids love it",
+    "text": "Naturally kid-friendly: soft, cheesy, sweet from the squash. Keep the ají amarillo at 1 tbsp (mild and fruity, not fiery); chop the huacatay fine and use half in their bowl. Kids love the queso fresco cubes melting into the rice."
+   },
+   "ingredients": {
+    "groups": [
+     {
+      "title": "Sofrito base (fry first)",
+      "items": [
+       "2 tbsp neutral oil",
+       "1 medium red onion, finely chopped",
+       "3 cloves garlic, minced",
+       "1–2 tbsp ají amarillo paste (Peruvian yellow hot pepper paste; 1 tbsp = mild, 2 = warming)",
+       "1 tsp fine salt, plus more to taste"
+      ]
+     },
+     {
+      "title": "The stew (go in together)",
+      "items": [
+       "900 g zapallo (Andean pumpkin) — kabocha or butternut, peeled, seeded, cut in ~2.5 cm cubes",
+       "2 medium floury potatoes (~400 g), peeled, cut in ~2.5 cm cubes",
+       "1½ cups choclo (large-kernel Andean corn) kernels (frozen, thawed) — or 1 cob cut into 2 cm discs",
+       "2 cups water or vegetable stock"
+      ]
+     },
+     {
+      "title": "Beans (added near the end)",
+      "items": [
+       "½ cup green peas (fresh or frozen)",
+       "½ cup habas (broad beans), shelled (frozen, thawed; fresh if in season)"
+      ]
+     },
+     {
+      "title": "Dairy + herb (off the heat)",
+      "items": [
+       "½ cup unsweetened evaporated milk",
+       "1 cup queso fresco (fresh white cheese), cut in cubes",
+       "2 tbsp fresh huacatay (black mint) leaves, chopped — or 2 tbsp mint + cilantro mixed",
+       "Freshly ground black pepper"
+      ]
+     },
+     {
+      "title": "To serve",
+      "items": [
+       "Cooked long-grain white rice",
+       "Salsa criolla (Peruvian onion-lime relish) on the side, if liked"
+      ]
+     }
+    ]
+   },
+   "method": [
+    "Build the sofrito. Heat the oil in a large heavy pot over medium heat. Add the onion and cook 4–5 min until very soft but not browned. Add the garlic and ají amarillo paste; cook 3–4 min more, stirring — the paste should fry in the oil, not scorch.",
+    "Add the harvest. Add the zapallo, potatoes, choclo, salt, and water/stock. Bring to a gentle boil, lower the heat, and cook partially covered 25–30 min, until the squash starts to soften and the liquid thickens. Fold, don't stir — keep some cubes intact (locro is a thick stew, not a soup).",
+    "Add the beans. Add the peas and habas; cook 5 min more until tender. If the pot dries out, splash in more water — if too thin, cook uncovered a few minutes to reduce.",
+    "Finish off the heat. Turn off the heat. Pour in the evaporated milk, add the queso fresco cubes, and fold through — the cheese warms but stays in cubes. Scatter the huacatay, season with pepper and more salt, and serve immediately over rice."
+   ],
+   "story": "\"Locro\" comes from the Quechua ruqru — stew — and this pot is older than the Inca Empire: the high Andes learned long ago how to keep harvests alive through the dry months (freeze-dried chuño potatoes, stored grains, dried beans), and locro is the dish that turns the stored harvest into comfort. Zapallo, papa, choclo, habas — the four pillars of the highland pantry — melted down with ají amarillo and finished with huacatay, the herb that makes a Peruvian nose recognize home. On the September table, before the spring rains begin, this is what the Andes taste like: sweet squash, starchy corn, and patience.",
+   "sources": [
+    {
+     "name": "perudelights.com — Locro de Zapallo",
+     "url": null
+    },
+    {
+     "name": "eatperu.com — Locro de Zapallo",
+     "url": null
+    },
+    {
+     "name": "chewinghappiness.com — Locro de Zapallo",
+     "url": null
+    },
+    {
+     "name": "kahloseyes.com — Locro de Zapallo",
+     "url": null
+    }
+   ],
+   "page": "recipe-locro-de-zapallo.html"
+  },
+  {
+   "id": "moqueca-de-palmito",
+   "name": "Moqueca de Palmito",
+   "aliases": [],
+   "region": "Bahia, Brazil",
+   "season": "Spring",
+   "seasonWhy": "Bahia is tropical — moqueca's ingredients (palmito, coconut, dendê, peppers, tomato, coentro) are year-round market staples, not seasonal visitors. Late September marks the end of the dry season as spring arrives: the comfort of a slow, coconut-creamy stew lands exactly right on the cusp.",
+   "category": "food",
+   "festive": false,
+   "festival": null,
+   "veg": true,
+   "kidFriendly": true,
+   "kidVersion": {
+    "title": "Kids love it",
+    "text": "Natural — mild, creamy, no heat: the peppers cook down sweet and the coconut milk softens everything. Go light on the dendê in their bowl (its flavor is intense); palmito is soft and artichoke-mild, and kids tend to love it over rice."
+   },
+   "ingredients": {
+    "groups": [
+     {
+      "title": "Sauté base (go in first)",
+      "items": [
+       "1 tbsp dendê (red palm oil) + 1 tbsp neutral oil (or olive oil)",
+       "1 large onion, sliced into half-rings",
+       "3 cloves garlic, minced",
+       "1 red pimentão (bell pepper) + 1 green pimentão (bell pepper), sliced into rings",
+       "1 tsp fine salt, plus more to taste",
+       "1 tsp sweet paprika"
+      ]
+     },
+     {
+      "title": "The stew (go in together)",
+      "items": [
+       "1 can (400 g) palmito (hearts of palm), drained and sliced into 1 cm rounds",
+       "2 medium tomatoes, sliced into rings (or 1 can diced tomatoes, drained)",
+       "1 can (400 ml) leite de coco (coconut milk), well shaken",
+       "½ tsp ground cumin (optional)"
+      ]
+     },
+     {
+      "title": "Finish (added last, off or near-off the heat)",
+      "items": [
+       "1 tbsp fresh lime juice",
+       "½ cup coentro (coriander leaf/cilantro) leaves, roughly chopped",
+       "A drizzle more dendê (optional, for color)"
+      ]
+     },
+     {
+      "title": "To serve",
+      "items": [
+       "Cooked long-grain white rice",
+       "Optional pirão (cassava-flour porridge): whisk 3 tbsp fine manioc flour into 1 cup of the hot stew broth off the heat until it thickens to a soft porridge"
+      ]
+     }
+    ]
+   },
+   "method": [
+    "Start the base. Heat the dendê and oil in a large heavy pot or Dutch oven over medium heat. Add the onion and cook 4–5 min until soft and translucent; add the garlic and cook 1 min more.",
+    "Soften the peppers. Add the pimentões, salt, and paprika; cook 4–5 min, stirring, until the peppers soften and the oil turns sunset-orange.",
+    "Layer the stew. Add the palmito rounds and tomato rings, nestling them in. Pour the leite de coco evenly over everything; add the cumin if using. Bring to the barest simmer — never a vigorous boil, which can split the coconut milk.",
+    "Simmer gently. Reduce the heat to low, partially cover, and cook 15–20 min, until the peppers and tomatoes are fully tender and the sauce has thickened slightly. Taste for salt.",
+    "Finish Bahian-style. Take off the heat. Stir in the lime juice and most of the coentro; drizzle the extra dendê if you like the color. Rest 5 min, then serve over rice with pirão alongside and the remaining coentro on top."
+   ],
+   "story": "Moqueca is Bahia's soul dish — an Afro-Brazilian inheritance cooked in a clay panela de barro, built on three pillars that all came across the Atlantic from West Africa: dendê, coconut, and coentro. The classic is fish, caught that morning in the Baía de Todos os Santos; moqueca de palmito is the vegetarian answer, and a proud one — the tender palm hearts soak up the dendê-coconut broth the way fish never could. In Salvador, moqueca is Friday food, eaten slowly, with rice and pirão and lime. This is dinner as the Bahians do it: golden, fragrant, and unhurried.",
+   "sources": [
+    {
+     "name": "flavorsofbrazil.blogspot.com (Flavors of Brazil)",
+     "url": null
+    },
+    {
+     "name": "cozydelicious.com",
+     "url": null
+    },
+    {
+     "name": "recipesfull.net — Moqueca de Palmito",
+     "url": null
+    }
+   ],
+   "page": "recipe-moqueca-de-palmito.html"
+  },
+  {
+   "id": "espinacas-con-garbanzos",
+   "name": "Espinacas con Garbanzos",
+   "aliases": [],
+   "region": "Seville, Andalusia, Spain",
+   "season": "Autumn",
+   "seasonWhy": "Spinach is an autumn leafy green in southern Spain; chickpeas are the dried-pulse staple of autumn stews — this is the dish of cuaresma (Lent), when Seville's tavern cooks lean on chickpeas, greens, and the ancient bread-cumin-vinegar paste.",
+   "category": "food",
+   "festive": false,
+   "festival": null,
+   "veg": true,
+   "kidFriendly": true,
+   "kidVersion": {
+    "title": "Kids love it",
+    "text": "Skip the guindilla and use only sweet paprika — the soft chickpeas and mild spinach are toddler-friendly. Lightly mash a portion of the chickpeas for under-5s."
+   },
+   "ingredients": {
+    "groups": [
+     {
+      "title": "Chickpeas (garbanzos)",
+      "items": [
+       "3 cups cooked chickpeas (~2 × 400 g cans, drained and rinsed), OR 180 g dried chickpeas soaked overnight and simmered 60–90 min until tender",
+       "1 bay leaf (laurel) — optional"
+      ]
+     },
+     {
+      "title": "Greens",
+      "items": [
+       "450 g (1 lb) fresh spinach (espinacas), washed",
+       "Salted water for blanching"
+      ]
+     },
+     {
+      "title": "The majado (flavor paste — every component pounded together)",
+      "items": [
+       "3 tbsp extra-virgin olive oil (aceite de oliva virgen extra)",
+       "4 whole garlic cloves (dientes de ajo)",
+       "2 thick slices day-old rustic bread (pan de pueblo)",
+       "1 tsp ground cumin (comino)",
+       "1 tsp sweet smoked paprika (pimentón dulce)",
+       "1–2 tbsp sherry vinegar (vinagre de Jerez)",
+       "~120 ml warm water or the spinach-blanching water"
+      ]
+     },
+     {
+      "title": "Finish",
+      "items": [
+       "1 dried guindilla (small Spanish red chili) — optional",
+       "Salt to taste",
+       "Extra olive oil to drizzle"
+      ]
+     }
+    ]
+   },
+   "method": [
+    "If using dried chickpeas: soak overnight; next day simmer with the bay leaf until creamy-tender (60–90 min); drain. If canned: rinse well.",
+    "Blanch the spinach in well-salted boiling water for 2–3 min until just wilted; drain, rinse with cold water, squeeze out as much water as possible with your hands, and chop roughly.",
+    "Heat the olive oil in a wide pan over medium heat. Fry the whole garlic cloves until golden (not dark), then fry the bread slices until crisp. Lift both out.",
+    "In a mortar, pound the fried garlic and bread with the cumin, paprika, and a splash of sherry vinegar; loosen with a little warm water or spinach water until you have a thick, rustic paste (the majado).",
+    "In the same pan, add the chickpeas with a ladle of warm water (and the guindilla, if using); stir in the majado and simmer 10 min so the chickpeas drink up the flavor.",
+    "Fold in the chopped spinach; simmer 5 min more until the stew is thick and glossy. Taste and salt.",
+    "Rest 10 min off the heat. Serve warm in bowls with a drizzle of olive oil and crusty bread for mopping."
+   ],
+   "story": "In Seville, espinacas con garbanzos is the dish of cuaresma (Lent) — the meat-free weeks when tavern cooks lean on chickpeas, greens, and that ancient bread-cumin-vinegar paste (a technique carried through centuries of Andalusian kitchens). It is now a year-round tapas-bar staple, and autumn is when the spinach is at its best.",
+   "sources": [
+    {
+     "name": "spanishsabores.com",
+     "url": null
+    },
+    {
+     "name": "veganvvocals.com",
+     "url": null
+    },
+    {
+     "name": "directoalpaladar — Sevillian video recipe",
+     "url": null
+    }
+   ],
+   "page": "recipe-espinacas-con-garbanzos.html"
+  },
+  {
+   "id": "aceitunas-alinadas",
+   "name": "Aceitunas Aliñadas",
+   "aliases": [],
+   "region": "Andalusia, Spain",
+   "season": "Autumn",
+   "seasonWhy": "The Spanish table-olive verdeo (early green) harvest begins in September — and Andalusia grows roughly four out of every five of Spain's table olives, so September is when families and bars dress the year's first olives.",
+   "category": "snack",
+   "festive": false,
+   "festival": null,
+   "veg": true,
+   "kidFriendly": true,
+   "kidVersion": {
+    "title": "Kids love it",
+    "text": "A natural lunchbox or after-school snack — just use pitted olives for small kids."
+   },
+   "ingredients": {
+    "groups": [
+     {
+      "title": "Marinade (one bowl, layered into the jar)",
+      "items": [
+       "500 g green table olives (aceitunas) — verdial or gordal varieties are classic, pitted or unpitted",
+       "Zest strips of 1 orange (naranja) and 1 lemon (limón) — thin strips of the colored peel only, no white pith",
+       "4 garlic cloves (dientes de ajo), lightly smashed",
+       "2 sprigs fresh thyme (tomillo), or 1 tsp dried",
+       "1 tsp fennel seeds (semillas de hinojo)",
+       "1 bay leaf (laurel) — remove before serving",
+       "1 tsp dried oregano (orégano)",
+       "1 tsp sweet paprika (pimentón) — optional",
+       "60 ml extra-virgin olive oil",
+       "2 tbsp sherry vinegar (vinagre de Jerez)",
+       "1 tsp salt"
+      ]
+     }
+    ]
+   },
+   "method": [
+    "Place the olives in a clean glass jar or bowl.",
+    "Add the orange and lemon zest strips, smashed garlic, thyme, fennel seeds, bay leaf, and oregano (and paprika, if using).",
+    "Pour over the olive oil and sherry vinegar; sprinkle with the salt. Toss everything together so the olives are evenly coated.",
+    "Cover and refrigerate. Marinate at least 24 hours (up to 3 days), shaking or tossing once a day.",
+    "Bring to room temperature before serving; serve in a small bowl with a spoonful of the marinade drizzled over."
+   ],
+   "story": "Andalusia grows roughly four out of every five of Spain's table olives, and the verdeo (green-harvest) season opens in September — exactly when families and bars dress the year's first olives with orange peel, fennel, and thyme for the pre-dinner vermouth ritual. Marinated olives are the first thing set on a tapas-bar counter; they are the opening note of Andalusian eating.",
+   "sources": [
+    {
+     "name": "Andalucía recetario aliño tradition",
+     "url": null
+    },
+    {
+     "name": "Gordal-citrus variant",
+     "url": null
+    },
+    {
+     "name": "Quick-marinate orange-lemon-garlic approach",
+     "url": null
+    }
+   ],
+   "page": "recipe-aceitunas-alinadas.html"
+  },
+  {
+   "id": "spring-pea-risotto",
+   "name": "Spring Pea, Asparagus & Broad Bean Risotto with Lemon & Mint",
+   "aliases": [],
+   "region": "Victoria, Australia",
+   "season": "Spring",
+   "seasonWhy": "Victoria spring = Sep–Nov; the Koo Wee Rup–Dalmore asparagus harvest typically starts in September, fresh peas are abundant in spring, and broad beans are widely available at spring farmers' markets.",
+   "category": "food",
+   "festive": false,
+   "festival": null,
+   "veg": true,
+   "kidFriendly": true,
+   "kidVersion": {
+    "title": "Kids love it",
+    "text": "Naturally kid-friendly: creamy rice and sweet peas. Omit the wine (use stock) and chop the asparagus small, cooking it until fully tender for under-5s."
+   },
+   "ingredients": {
+    "groups": [
+     {
+      "title": "Broth",
+      "items": [
+       "1.25 L (5 cups) vegetable stock — keep at a bare simmer in a saucepan throughout"
+      ]
+     },
+     {
+      "title": "Aromatics + rice",
+      "items": [
+       "2 tbsp olive oil",
+       "1 brown onion, finely chopped",
+       "2 garlic cloves, finely minced",
+       "1½ cups (300 g) arborio rice",
+       "½ cup dry white wine (optional — replace with extra stock)"
+      ]
+     },
+     {
+      "title": "Spring vegetables (added late so they stay green)",
+      "items": [
+       "1 bunch asparagus (~250 g), woody ends snapped off, spears cut into 3 cm pieces",
+       "1½ cups fresh spring peas (shelled) or frozen peas, thawed",
+       "1 cup broad beans, podded and peeled",
+       "Reserved asparagus tips (a few, blanched 2 min, for garnish)"
+      ]
+     },
+     {
+      "title": "Finish",
+      "items": [
+       "40 g cold butter, diced",
+       "½ cup finely grated parmesan",
+       "Zest and juice of 1 lemon",
+       "⅓ cup torn fresh mint leaves",
+       "80 g Meredith goat's cheese (tangy soft goat's cheese from Victoria), crumbled",
+       "Sea salt and cracked black pepper"
+      ]
+     }
+    ]
+   },
+   "method": [
+    "Keep the stock at a bare simmer in a saucepan. In a large heavy pan, heat the olive oil over medium heat; soften the onion 4–5 min until translucent, then stir in the garlic for 30 seconds.",
+    "Add the arborio rice and toast 1–2 min, stirring, until the grains are glossy with translucent edges.",
+    "Pour in the wine (if using) and stir until absorbed. Then add the warm stock one ladle at a time, stirring often and letting each addition absorb before the next — about 18 min total.",
+    "When the rice is nearly al dente (about 5 min of stock left to go), stir in the asparagus pieces, peas, and broad beans. Continue ladling stock until the rice is creamy and just tender.",
+    "Take off the heat. Beat in the cold butter, parmesan, lemon zest and juice until glossy. Season boldly with salt and pepper. Rest 2 min with the lid on.",
+    "Spoon into warm bowls, scatter with mint, crumbled goat's cheese, and the reserved asparagus tips. Finish with a thread of olive oil."
+   ],
+   "story": "The Koo Wee Rup–Dalmore region southeast of Melbourne grows roughly 93% of Australia's asparagus; the main harvest runs mid-August to mid-December, typically starting in September. In ideal spring conditions spears can grow 1–2 cm in an hour — growers harvest in the cool of the night so the tender spears don't cook in the field. Risotto is an Italian technique, but this green version is the dish Victorian cooks make to mark the first spears of the season: spring on a plate.",
+   "sources": [
+    {
+     "name": "wineselectors.com.au — Manu Feildel pea & asparagus risotto",
+     "url": null
+    },
+    {
+     "name": "dairyfarmers.com.au — asparagus, pea & lemon risotto",
+     "url": null
+    }
+   ],
+   "page": "recipe-spring-pea-risotto.html"
+  },
+  {
+   "id": "bush-damper",
+   "name": "Bush Damper with Lemon Myrtle Butter",
+   "aliases": [],
+   "region": "Victoria, Australia",
+   "season": "Spring",
+   "seasonWhy": "Evergreen traditional staple — a bread, not a seasonal crop; spring campfire/picnic season makes it timely.",
+   "category": "snack",
+   "festive": false,
+   "festival": null,
+   "veg": true,
+   "kidFriendly": true,
+   "kidVersion": {
+    "title": "Kids love it",
+    "text": "A natural after-school snack — serve warm torn wedges with golden syrup or jam alongside the lemon myrtle butter (kids may prefer plain butter or honey, since the myrtle butter is strong)."
+   },
+   "ingredients": {
+    "groups": [
+     {
+      "title": "The dough",
+      "items": [
+       "4 cups (500 g) self-raising flour",
+       "1 tsp fine salt",
+       "60 g cold butter, cubed"
+      ]
+     },
+     {
+      "title": "The liquid",
+      "items": [
+       "1 cup milk",
+       "½ cup water (plus a splash more if the dough is dry)"
+      ]
+     },
+     {
+      "title": "Lemon myrtle butter (whipped while the damper bakes)",
+      "items": [
+       "100 g soft butter",
+       "½ tsp dried ground lemon myrtle (or 1 tsp fresh, very finely chopped)",
+       "Pinch of sea salt"
+      ]
+     }
+    ]
+   },
+   "method": [
+    "Heat the oven to 180°C (350°F). Lightly flour a baking tray.",
+    "Rub the cold butter into the flour and salt with your fingertips until it looks like breadcrumbs.",
+    "Make a well in the centre; pour in the milk and water and mix with a wooden spoon (or your hands) to a soft, slightly sticky dough. Knead gently for 1–2 min on a floured surface — don't overwork it.",
+    "Shape into a round loaf about 20 cm across. Slash a deep cross on top with a sharp knife (the traditional damper mark, and it helps the loaf cook through).",
+    "Bake 40–50 min until deep golden and the loaf sounds hollow when tapped underneath. (Traditionally it was buried in campfire ashes with the fire damped down — an oven or camp oven does the same job at home.)",
+    "Meanwhile, beat the soft butter with the lemon myrtle and salt until pale and fluffy.",
+    "Cool the damper on a wire rack for 10 min, tear it open while warm, and spread thickly with lemon myrtle butter."
+   ],
+   "story": "Damper was first mentioned in print in 1825, in memoirs edited by Barron Field, judge of the Supreme Court of NSW. The name likely comes either from a Lancashire expression meaning \"something that damps the appetite\" or from the cook's trick of damping down the campfire and burying the dough in the hot ashes. It became the staple of swagmen, drovers, and stockmen because flour and salt were easy to carry and all it needed was water. In 1946 the Sydney Morning Herald printed Bill Beatty's bush recipe: a pound of flour, water, a pinch of salt, kneaded long and cooked in a foot of hot ashes. Lemon myrtle adds the native twist: an Australian rainforest leaf dubbed the \"queen of the herbs,\" with more citral than lemon itself.",
+   "sources": [
+    {
+     "name": "campandtravel.com.au — Bill Beatty SMH recipe (1946)",
+     "url": null
+    },
+    {
+     "name": "recipewise.net",
+     "url": null
+    },
+    {
+     "name": "lovewithrecipes.com",
+     "url": null
+    },
+    {
+     "name": "terrablendz.com.au — lemon myrtle flavour/use",
+     "url": null
+    }
+   ],
+   "page": "recipe-bush-damper.html"
+  },
+  {
+   "id": "mapo-tofu",
+   "name": "Vegetarian Mapo Tofu",
+   "aliases": [],
+   "region": "Sichuan, China",
+   "season": "Autumn",
+   "seasonWhy": "Autumn in Sichuan = fresh tofu, late-summer shiitake, autumn green scallions; the Sichuan autumn harvest table centers on warming mala dishes as nights cool.",
+   "category": "food",
+   "festive": true,
+   "festival": "Mid-Autumn Festival",
+   "veg": true,
+   "kidFriendly": true,
+   "kidVersion": {
+    "title": "Kids love it",
+    "text": "Halve the doubanjiang and skip the chili flakes/oil; keep the Sichuan-pepper garnish on the side so grown-ups add it. Kids love the glossy red sauce on rice."
+   },
+   "ingredients": {
+    "groups": [
+     {
+      "title": "Tofu (goes in last)",
+      "items": [
+       "400 g (1 block) medium-soft tofu, cut into 2 cm cubes",
+       "Lightly salted water, for blanching"
+      ]
+     },
+     {
+      "title": "Mushroom \"mince\" (fried first, replaces the ground pork)",
+      "items": [
+       "6–8 dried shiitake mushrooms, soaked 30 min in warm water, squeezed dry and finely minced (reserve the soaking liquid)",
+       "2 tbsp neutral oil (for the mince)"
+      ]
+     },
+     {
+      "title": "Aromatics (the flavor base)",
+      "items": [
+       "2 tbsp neutral oil",
+       "1 thumb-sized piece fresh ginger, minced",
+       "2 cloves garlic, minced",
+       "2 scallions — whites minced (greens chopped for garnish)",
+       "1½ tbsp doubanjiang (Pixian fermented chili-bean paste — check label: no meat/fish)",
+       "1 tbsp douchi (fermented black beans), lightly rinsed and chopped",
+       "1 tsp chili powder or dried chili flakes (optional, for extra heat)"
+      ]
+     },
+     {
+      "title": "Braising liquid + finishing",
+      "items": [
+       "1½ cups water or the reserved mushroom soaking liquid",
+       "1 tsp light soy sauce",
+       "1 tsp Shaoxing wine (optional)",
+       "½ tsp sugar",
+       "1½ tsp cornstarch mixed with 3 tbsp cold water (slurry)",
+       "1–2 tsp ground Sichuan peppercorns, toasted and ground",
+       "1 tsp toasted sesame oil",
+       "Chopped scallion greens, to garnish"
+      ]
+     }
+    ]
+   },
+   "method": [
+    "Blanch tofu cubes in lightly salted boiling water 2–3 minutes (firms them so they don't break). Drain and set aside.",
+    "Heat a dry pan and toast the Sichuan peppercorns until fragrant and slightly darker; grind to a powder. Set aside.",
+    "Heat 2 tbsp oil in a wok over medium-high. Fry the mushroom mince until golden and slightly crisp, 5–6 minutes. Remove.",
+    "Same wok: 2 tbsp oil, medium heat. Add ginger, garlic, scallion whites; sauté 20 seconds. Add doubanjiang and douchi; fry until the oil turns brick-red and smells deeply fragrant (~2 min). Add chili flakes if using.",
+    "Deglaze with Shaoxing wine. Pour in the mushroom soaking liquid (or water). Stir in soy sauce and sugar.",
+    "Slide in the tofu cubes and the browned mushroom mince. Simmer gently 5 minutes so the tofu absorbs the sauce.",
+    "Drizzle in the cornstarch slurry, stirring gently, until the sauce thickens and clings.",
+    "Finish with sesame oil and half the ground Sichuan pepper. Plate, dust with remaining pepper, scatter scallion greens. Serve over steamed jasmine rice."
+   ],
+   "story": "In the 1860s in Chengdu, a woman everyone called Chen Mapo (\"Pockmarked Grandmother Chen\") ran a tiny tofu shop near a busy dock. Porters and oil haulers would stop in for her tofu simmered with the fiery chili-bean paste of her kitchen. The dish was so famous it took her name — Mapo Tofu. On Mid-Autumn night, Chinese families across the world sit down to reunion dinners under the full moon, and this is exactly the kind of loud, numbing-spicy, everybody-at-the-table dish that belongs there.",
+   "sources": [
+    {
+     "name": "YouTube — Mapo Tofu – Vegetarian Spicy Sichuan Classic",
+     "url": null
+    },
+    {
+     "name": "YouTube — Sichuan Native Makes Authentic Mapo Tofu (100% Vegan)",
+     "url": null
+    },
+    {
+     "name": "YouTube — The secret to Mapo tofu",
+     "url": null
+    }
+   ],
+   "page": "recipe-mapo-tofu.html"
+  },
+  {
+   "id": "osmanthus-rice-cake",
+   "name": "Osmanthus Steamed Rice Cake (Guihua Gao)",
+   "aliases": [],
+   "region": "Sichuan, China",
+   "season": "Autumn",
+   "seasonWhy": "Sweet-scented osmanthus flowers bloom only in September–October — this snack is literally a taste of right now, and osmanthus pairs with the Mid-Autumn full moon in Chinese poetry and folklore.",
+   "category": "snack",
+   "festive": true,
+   "festival": "Mid-Autumn Festival",
+   "veg": true,
+   "kidFriendly": true,
+   "kidVersion": {
+    "title": "Kids love it",
+    "text": "It's already perfect — sweet, bouncy, honey-fragrant. Cut into fun squares and let kids scatter the dried flowers on top before steaming."
+   },
+   "ingredients": {
+    "groups": [
+     {
+      "title": "Osmanthus syrup (made first, cools while you mix)",
+      "items": [
+       "150 g rock sugar (or white sugar)",
+       "200 ml water",
+       "2 tbsp dried osmanthus flowers (sweet-scented osmanthus blossoms)"
+      ]
+     },
+     {
+      "title": "Batter (mixed second)",
+      "items": [
+       "200 g rice flour",
+       "80 g glutinous rice flour",
+       "1 tsp osmanthus honey (optional but lovely)",
+       "A few extra dried osmanthus flowers, for the top"
+      ]
+     }
+    ]
+   },
+   "method": [
+    "Syrup: simmer water + rock sugar until fully dissolved. Off the heat, stir in the dried osmanthus flowers and steep 10 minutes. Strain (or leave the flowers in for extra fragrance). Let cool.",
+    "Batter: whisk both flours in a bowl. Pour in the cooled osmanthus syrup (plus osmanthus honey if using) and whisk to a smooth, pourable batter — no lumps.",
+    "Oil a shallow heatproof dish or line a bamboo steamer with muslin. Pour batter no more than ~2 cm deep. Scatter a few dried osmanthus flowers on top.",
+    "Steam over high heat 20–25 minutes until set and springy (a skewer comes out clean).",
+    "Cool completely, then slice into small squares. Serve at room temperature with tea."
+   ],
+   "story": "In September and October, the osmanthus trees of Sichuan bloom all at once and the whole street smells like peaches and apricots — the Chinese call it \"fragrance you can taste.\" Old Chengdu families gather osmanthus blossoms, candy them in honey, and steam this jade-white cake to eat with tea while the full Mid-Autumn moon rises. The poet Li Qingzhao wrote that the moon and the osmanthus belong to each other — tonight they do.",
+   "sources": [
+    {
+     "name": "YouTube — Osmanthus Rice Cake",
+     "url": null
+    },
+    {
+     "name": "YouTube — The osmanthus cake is delicate, soft and sweet",
+     "url": null
+    },
+    {
+     "name": "asianinspirations.com.au — Chinese Steamed Osmanthus Rice Cake",
+     "url": null
+    }
+   ],
+   "page": "recipe-osmanthus-rice-cake.html"
+  },
+  {
+   "id": "sichuan-mooncake",
+   "name": "Sichuan-Style Five-Kernel Mooncake",
+   "aliases": [],
+   "region": "Sichuan, China",
+   "season": "Autumn",
+   "seasonWhy": "Autumn nut harvest — walnuts, peanuts, sunflower and pumpkin kernels, sesame — all at their freshest in September; this is the Mid-Autumn Festival's signature sweet.",
+   "category": "snack",
+   "festive": true,
+   "festival": "Mid-Autumn Festival",
+   "veg": true,
+   "kidFriendly": true,
+   "kidVersion": {
+    "title": "Kids love it",
+    "text": "Reduce the Sichuan pepper powder to a pinch (or omit) for the kids' batch; let kids press the moulds — the flower patterns are the fun part. Serve 1 wedge with tea."
+   },
+   "ingredients": {
+    "groups": [
+     {
+      "title": "Filling — dry mix (toasted first)",
+      "items": [
+       "40 g walnuts, coarsely chopped",
+       "40 g almonds, coarsely chopped",
+       "40 g peanuts",
+       "25 g sunflower kernels",
+       "25 g pumpkin kernels",
+       "25 g white sesame seeds + 15 g black sesame seeds",
+       "25 g candied winter melon, diced",
+       "40 g candied citrus/orange peel, diced"
+      ]
+     },
+     {
+      "title": "Filling — binding paste (stirred in second)",
+      "items": [
+       "40 g sugared rose petals / rose sauce (tangmeigui)",
+       "40 ml golden syrup (or honey)",
+       "1 tbsp neutral oil + 1 tsp toasted sesame oil",
+       "2 tbsp white sugar",
+       "½ tsp salt",
+       "½ tsp ground Sichuan peppercorns (the Sichuan signature!)",
+       "60 g cooked glutinous rice flour (kao fen — dry-toast raw flour in a pan until lightly golden)",
+       "1–2 tbsp warm water, as needed to bind"
+      ]
+     },
+     {
+      "title": "Crust (rested, then wraps the filling)",
+      "items": [
+       "100 g cake flour / low-protein flour",
+       "60 ml golden syrup",
+       "30 ml peanut or neutral oil",
+       "1 tsp lye/alkaline water (jianshui) — skip if unavailable"
+      ]
+     }
+    ]
+   },
+   "method": [
+    "Toast: spread all nuts, seeds, and sesame on a tray; bake 150°C / 300°F for 12–15 minutes until fragrant. Cool, then chop coarsely (keep texture — no powder).",
+    "Filling: combine the toasted mix + diced candied fruits in a bowl. Stir in rose sauce, syrup, oils, sugar, salt, and Sichuan pepper powder. Add the cooked glutinous rice flour gradually, tossing until everything binds into a pressable mass (drizzle warm water if dry). Divide into 65 g balls.",
+    "Crust: mix syrup, oil, and lye water; fold in the flour until just smooth. Cover and rest 2 hours at room temperature.",
+    "Wrap: divide crust into 35 g pieces. Flatten each into a disc, cup a filling ball, and seal fully (filling : crust ≈ 2 : 1).",
+    "Mould: dust a 100 g mooncake mould lightly with flour. Press each wrapped ball firmly into the mould and knock it out onto a lined tray.",
+    "Bake: 205°C / 400°F for 5 minutes to set the pattern. Remove, lightly mist or brush with water (no egg wash — egg-free), return at 165°C / 325°F for 15–20 minutes until golden. Cool completely.",
+    "Rest 2–3 days in a sealed container (\"回油\" — the crust softens and turns glossy). Slice into wedges and share — mooncakes are for cutting and passing around."
+   ],
+   "story": "On Mid-Autumn night, the moon is the roundest of the year — and everything on the table goes round to match: pomelos, mooncakes, the whole family gathered in a circle. Sichuan makes its mooncakes the Sichuan way: a thin crisp crust around five kinds of nuts, candied winter melon, and — unmistakably — a breath of rose and Sichuan pepper. The round cake and the round moon wish the same thing: 团圆 (tuanyuan) — that everyone you love comes home whole.",
+   "sources": [
+    {
+     "name": "YouTube — Five-nut Mooncakes (椒盐五仁月饼)",
+     "url": null
+    },
+    {
+     "name": "YouTube — How To Make Mixed Nuts Mooncakes 五仁月饼 (@WOKNOVENbySarah)",
+     "url": null
+    },
+    {
+     "name": "YouTube — 素五仁馅 (100% plant-based five-kernel filling)",
+     "url": null
+    }
+   ],
+   "page": "recipe-sichuan-mooncake.html"
+  },
+  {
+   "id": "waterblommetjie-bredie",
+   "name": "Vegetarian Waterblommetjie Bredie",
+   "aliases": [],
+   "region": "Western Cape, South Africa",
+   "season": "Spring",
+   "seasonWhy": "Waterblommetjie (Cape water flower) seasonal window is June–September; late September is the tail of the season — fresh punnets still available at Cape markets, tinned flowers are a documented backup. (Do not claim peak season.)",
+   "category": "food",
+   "festive": false,
+   "festival": null,
+   "veg": true,
+   "kidFriendly": true,
+   "kidVersion": {
+    "title": "Kids love it",
+    "text": "Omit the chilli entirely; add 1 extra potato cut smaller so it nearly melts into the stew; serve as \"flower stew\" over rice — kids love spotting the tiny white flowers. Start with half a lemon for little palates."
+   },
+   "ingredients": {
+    "groups": [
+     {
+      "title": "Morning prep (first entry)",
+      "items": [
+       "800 g–1 kg fresh waterblommetjies (Cape water flowers; 2 punnets; or 2 × 140 g tins, drained)",
+       "Cold water + 2 Tbsp salt, for soaking"
+      ]
+     },
+     {
+      "title": "Pot entry 1 — hard aromatics",
+      "items": [
+       "3 Tbsp olive oil (or vegan margarine)",
+       "2 large onions, chopped",
+       "3 garlic cloves, crushed",
+       "1 tsp coriander seeds (koljana), crushed",
+       "4 whole cloves",
+       "1 small green chilli, slit (optional; omit for kids)"
+      ]
+     },
+     {
+      "title": "Pot entry 2 — hard vegetables",
+      "items": [
+       "500 g potatoes, peeled and cut into chunky blocks",
+       "250 g brown mushrooms, quartered (meaty body of the stew)",
+       "500 ml vegetable stock"
+      ]
+     },
+     {
+      "title": "Pot entry 3 — delicate finish",
+      "items": [
+       "Juice of 1 lemon + a little zest (or a handful of suring [wild sorrel], well washed and chopped — the traditional Cape souring herb)",
+       "Salt and cracked black pepper",
+       "Pinch of ground nutmeg",
+       "Fresh parsley, chopped, to garnish"
+      ]
+     },
+     {
+      "title": "To serve",
+      "items": [
+       "Steamed white rice"
+      ]
+     }
+    ]
+   },
+   "method": [
+    "Morning: trim stalks and browned edges from the flowers, wash well, and soak in cold salted water for at least 3 hours (or overnight). Rinse thoroughly, swirl to dislodge grit, drain.",
+    "Heat the oil in a heavy pot. Fry the onions with the cloves until translucent and golden at the edges. Add garlic, crushed coriander seeds and chilli; stir 1 minute until fragrant.",
+    "Add the potatoes and mushrooms, toss to coat. Pour in the vegetable stock, cover, and simmer gently 25–30 minutes until the potatoes are nearly tender.",
+    "Add the drained waterblommetjies, stir through, cover and simmer 15–20 minutes more — done when the flowers still have a soft crunch, \"resembling miniature artichoke leaves\". Don't overcook.",
+    "Stir in the lemon juice and zest (or suring), nutmeg, salt and pepper. Rest 10 minutes off the heat. Serve over steamed rice with parsley."
+   ],
+   "story": "Waterblommetjies were gathered and eaten by the indigenous Khoikhoi long before Jan van Riebeeck arrived in 1652; early settlers and their enslaved workers learnt from the Khoikhoi that these pond flowers were edible. The dish is a three-culture fusion: the Dutch slow-stewing method, the spices of enslaved people from the East, and the indigenous Khoisan ingredient. It remains the Boland's beloved late-winter/early-spring ritual, celebrated at the annual Waterblommetjie Festival.",
+   "sources": [
+    {
+     "name": "MyKitchen — Waterblommetjie bredie and beer bread",
+     "url": "https://mykitchen.co.za/waterblommetjie-bredie-beer-bread/"
+    },
+    {
+     "name": "Green Monday SA — Waterblommetjie Bredie",
+     "url": "https://greenmonday.co.za/recipes/waterblommetjie-bredie/"
+    },
+    {
+     "name": "Food & Home Magazine — Waterblommetjie, mushroom and biltong bredie",
+     "url": "https://staging.foodandhome.co.za/recipes/waterblommetjie-mushroom-and-biltong-bredie"
+    }
+   ],
+   "page": "recipe-waterblommetjie-bredie.html"
+  },
+  {
+   "id": "cape-malay-samoosas",
+   "name": "Cape Malay Potato & Pea Samoosas",
+   "aliases": [],
+   "region": "Western Cape, South Africa",
+   "season": "Spring",
+   "seasonWhy": "Peas are a spring vegetable (Sep–Nov per Crush chart); potatoes, onions, garlic are year-round staples.",
+   "category": "snack",
+   "festive": false,
+   "festival": null,
+   "veg": true,
+   "kidFriendly": true,
+   "kidVersion": {
+    "title": "Kids love it",
+    "text": "Skip the chillies completely; make the triangles smaller (bite-size, 25–30 minis) so little hands can hold them — the filling is already mild and sweet from the peas. Lighter version: brush with oil and bake at 200°C for 18–20 minutes instead of frying."
+   },
+   "ingredients": {
+    "groups": [
+     {
+      "title": "Pastry (egg-free — make first, rests while filling cooks)",
+      "items": [
+       "2 cups (250 g) plain flour",
+       "1 tsp salt",
+       "3 Tbsp sunflower or canola oil",
+       "~¾ cup warm water, as needed",
+       "(Rub oil into flour + salt until crumbly; add water a little at a time and knead 8–10 minutes to a stiff, smooth dough; oil lightly, cover, rest 30 minutes.)"
+      ]
+     },
+     {
+      "title": "Sealing paste (egg-free fix)",
+      "items": [
+       "3 Tbsp flour whisked smooth with 3–4 Tbsp water"
+      ]
+     },
+     {
+      "title": "Pot entry 1 — hard aromatics",
+      "items": [
+       "2 Tbsp oil",
+       "1 large onion, finely chopped",
+       "1 tsp whole jeera (cumin seeds)",
+       "1 tsp whole koljana (coriander seeds)",
+       "2–3 small green chillies, crushed (or 1 tsp crushed dried chillies; omit for kids)",
+       "1 Tbsp grated fresh ginger",
+       "2 garlic cloves, grated"
+      ]
+     },
+     {
+      "title": "Pot entry 2 — hard vegetables",
+      "items": [
+       "500 g potatoes, peeled and cut into small cubes, parboiled 5 minutes and drained"
+      ]
+     },
+     {
+      "title": "Pot entry 3 — soft finish",
+      "items": [
+       "100 g fresh or frozen peas (spring peas!)",
+       "1 tsp ground turmeric",
+       "Salt to taste",
+       "2 Tbsp chopped fresh coriander leaves (dhania)",
+       "1 tsp lemon juice"
+      ]
+     },
+     {
+      "title": "Mint-coriander yoghurt dip (optional)",
+      "items": [
+       "½ cup plain yoghurt + ½ cup mint leaves + 2 Tbsp coriander + 1 tsp lemon juice + pinch of salt, blended smooth"
+      ]
+     }
+    ]
+   },
+   "method": [
+    "Make pastry; rest 30 min.",
+    "Braise the onion in oil until deep golden (5–10 min). Add whole jeera and koljana; let them sizzle 30 seconds. Add chillies, ginger, garlic; cook 1 minute.",
+    "Add the parboiled potato cubes and turmeric with a splash of water; cook, stirring, until the potatoes are soft and the mixture is dry (the Cape Malay rule: the filling must be dry so the pastry stays crisp). Stir in the peas and cook 5 minutes. Cool completely, then fold in coriander and lemon juice.",
+    "Divide dough into 10 balls; roll each into a thin circle, cut in half. Form each half into a cone, seal the seam with flour paste, fill with a spoonful of filling, seal the top. Keep covered with a damp cloth so the pastry doesn't dry.",
+    "Fry in medium-hot oil (170–180°C) in batches, turning, until deep golden and crisp, 4–5 minutes. Drain on paper towel. Serve hot with the mint yoghurt dip or atjar (Cape pickle relish)."
+   ],
+   "story": "The samosa arrived in India as the sambosa with Arab traders in the 13th–14th centuries, then travelled to the Cape with enslaved people shipped from the East Indies by the Dutch. In the Bo-Kaap it became the samoosa — smaller and more delicate than its Indian cousin — folded by hand into triangles, a staple of Cape Malay tables alongside koesisters and daltjies. Potato-and-pea is one of the classic vegetarian fillings, folded in batches for Ramadan evenings and family gatherings.",
+   "sources": [
+    {
+     "name": "Cape Malay Cooking for Ramadan cookbook (PDF) — classic potato & pea filling",
+     "url": "https://www.scribd.com/document/96737658/Cookbook-5"
+    },
+    {
+     "name": "FarmersWeekly SA — How to make samoosas with potato filling",
+     "url": "https://www.farmersweekly.co.za/lifestyle/recipes/how-to-make-samoosas-with-potato-filling/"
+    },
+    {
+     "name": "FoodBlogDBN — Mushroom, Pea & Potato Samoosas with mint & yoghurt dipping sauce",
+     "url": "https://www.food-blog.co.za/durban/eid-al-fitr-samfa-pea-potato-samoosas-with-mint-yoghurt-dipping-sauce/"
+    }
+   ],
+   "page": "recipe-cape-malay-samoosas.html"
+  },
+  {
+   "id": "tom-kha-hed",
+   "name": "Tom Kha Hed",
+   "aliases": [],
+   "region": "Thailand",
+   "season": "Monsoon",
+   "seasonWhy": "Thailand's rainy (green) season runs Jun–Sep — late September is the tail of the rains; wild mushrooms are the defining rainy-season produce, foraged from the forests after continuous rains.",
+   "category": "food",
+   "festive": false,
+   "festival": null,
+   "veg": true,
+   "kidFriendly": true,
+   "kidVersion": {
+    "title": "Kids love it",
+    "text": "Naturally mild and creamy — keep the chilies whole or on the side so kids get the gentle version."
+   },
+   "ingredients": {
+    "groups": [
+     {
+      "title": "Group 1 — aromatic simmer base (in first)",
+      "items": [
+       "Thin coconut milk — 2 cups (500 ml)",
+       "Galangal (kha — peppery, piney rhizome) — 3-inch piece, thinly sliced",
+       "Lemongrass (takhrai) — 2 stalks, bruised, cut into 2-inch pieces",
+       "Kaffir lime leaves (bai makrut) — 4, torn",
+       "Thai bird's eye chilies (phrik khi nu) — 3–4, lightly crushed (optional; leave whole for a milder soup)"
+      ]
+     },
+     {
+      "title": "Group 2 — vegetables (in second)",
+      "items": [
+       "Mixed mushrooms (hed) — 400 g, halved or sliced: straw mushrooms, oyster mushrooms, shiitake (use wild rainy-season mushrooms such as hed thop if available)",
+       "Cabbage — 1 cup, bite-size chunks",
+       "Tomato — 1 medium, cut into wedges"
+      ]
+     },
+     {
+      "title": "Group 3 — finishing (in last, mostly off the heat)",
+      "items": [
+       "Thick coconut cream (hua kati — first-press coconut cream) — 1 cup (250 ml)",
+       "Lime juice (nam manao) — 2–3 tbsp",
+       "Light soy sauce (si-iw khao) — 2 tbsp",
+       "Palm sugar (nam tan) — 1 tbsp",
+       "Salt — to taste",
+       "Garnish: coriander leaves (phak chi), sliced spring onions (ton hom)"
+      ]
+     }
+    ]
+   },
+   "method": [
+    "Pour the thin coconut milk into a pot; add galangal, lemongrass, kaffir lime leaves, and chilies. Bring to a gentle simmer (never a hard boil — coconut milk splits) and simmer 5 minutes until fragrant.",
+    "Add mushrooms, cabbage, and tomato. Simmer 5–7 minutes until the mushrooms are tender.",
+    "Stir in the thick coconut cream; warm through for 1 minute.",
+    "Off the heat, season: lime juice, light soy sauce, palm sugar, salt — balance the Thai sour-salty-sweet triangle to taste.",
+    "Ladle into bowls; garnish with coriander and spring onion. Serve with steamed jasmine rice."
+   ],
+   "story": "In Thailand's green season the rains wake the forests and wild mushrooms — hed thop, termite mushrooms — push through the soil. Foragers head out before dawn and the morning markets fill with baskets of them. Tom kha hed tastes like that season: a galangal-lemongrass broth, coconut, and a tangle of mushrooms.",
+   "sources": [
+    {
+     "name": "Chiang Mai Citylife — September green season markets",
+     "url": null
+    },
+    {
+     "name": "Thai news report, Sept 2026 — foraging termite mushrooms in the rains",
+     "url": null
+    },
+    {
+     "name": "WorldVeg/JIRCAS Thailand notes — rainy season June–September",
+     "url": null
+    }
+   ],
+   "page": "recipe-tom-kha-hed.html"
+  },
+  {
+   "id": "khanom-krok",
+   "name": "Khanom Krok",
+   "aliases": [],
+   "region": "Thailand",
+   "season": "Monsoon",
+   "seasonWhy": "Late rainy season = sweet corn and young coconut at their best in Thai markets; khanom krok is the classic Thai market snack, cooked to order in cast-iron dimpled pans.",
+   "category": "snack",
+   "festive": false,
+   "festival": null,
+   "veg": true,
+   "kidFriendly": true,
+   "kidVersion": {
+    "title": "Kids love it",
+    "text": "A natural kid favorite: bite-size, sweet-salty, crisp outside and custardy inside."
+   },
+   "ingredients": {
+    "groups": [
+     {
+      "title": "Group 1 — crisp shell batter (blend first)",
+      "items": [
+       "Rice flour (paeng khao chao) — 1 cup",
+       "Cooked jasmine rice — ¼ cup (the traditional crispness trick)",
+       "Thin coconut milk — 1 cup",
+       "Water — 1 cup",
+       "Sugar — 1 tbsp; salt — ½ tsp",
+       "Oil — 1 tbsp, plus more for greasing the pan"
+      ]
+     },
+     {
+      "title": "Group 2 — custard filling (whisk second)",
+      "items": [
+       "Thick coconut cream (hua kati — first-press coconut cream) — 1 cup",
+       "Rice flour — 2 tbsp (or tapioca starch)",
+       "Sugar — 2 tbsp; salt — ¼ tsp"
+      ]
+     },
+     {
+      "title": "Group 3 — toppings (sprinkle last)",
+      "items": [
+       "Sweet corn kernels (khao phot), cooked — ½ cup",
+       "Taro (pheuak), steamed and diced — ¼ cup",
+       "Scallions (ton hom), thinly sliced — 2 tbsp (savory option)",
+       "Shredded coconut — ¼ cup"
+      ]
+     }
+    ]
+   },
+   "method": [
+    "Blend the shell-batter ingredients until completely smooth — thin, like crepe batter. Rest 10 minutes.",
+    "Whisk the filling ingredients until no lumps remain; it should be noticeably thicker than the shell batter.",
+    "Heat a khanom krok pan (an aebleskiver / takoyaki / paniyaram pan works) over medium heat and oil each cup well — the batter must sizzle on contact.",
+    "Pour shell batter ⅔ full into each cup; swirl gently so it coats the walls.",
+    "After ~1 minute, spoon filling into the center of each; sprinkle with toppings.",
+    "Cover with a lid and cook 3–6 minutes, until the edges are golden-crisp and the center is set but still soft and custardy.",
+    "Lift out with a small spoon; serve in pairs, hot."
+   ],
+   "story": "Sold from bicycle carts and market stalls across Thailand, khanom krok is cooked to order in a cast-iron pan full of dimples — crisp shell outside, molten coconut custard inside, always served in pairs. The sizzle when the batter hits the hot pan is the sound of a Thai morning market.",
+   "sources": [
+    {
+     "name": "Pepper Teigen/Parade",
+     "url": null
+    },
+    {
+     "name": "eathealthy365",
+     "url": null
+    },
+    {
+     "name": "Raks Kitchen",
+     "url": null
+    },
+    {
+     "name": "Zesty South Indian Kitchen",
+     "url": null
+    },
+    {
+     "name": "House of Goodness",
+     "url": null
+    }
+   ],
+   "page": "recipe-khanom-krok.html"
+  },
+  {
+   "id": "humita",
+   "name": "Humita en chala",
+   "aliases": [],
+   "region": "Salta & Jujuy, Argentina",
+   "season": "Spring",
+   "seasonWhy": "Early spring in the Northwest is NOT fresh-choclo season (maíz is sown in September, harvested in summer); the recipe uses frozen choclo kernels and keeps the traditional chalas (corn husks) for wrapping. Onion, morrón, basil and queso criollo are all available now.",
+   "category": "food",
+   "festive": false,
+   "festival": null,
+   "veg": true,
+   "kidFriendly": true,
+   "kidVersion": {
+    "title": "Kids love it",
+    "text": "Natural — the filling is a soft, sweet corn pudding. For kids: skip the ají molido, double the cheese square, and make mini humitas (half size)."
+   },
+   "ingredients": {
+    "groups": [
+     {
+      "title": "Husks (wrap)",
+      "items": [
+       "12–14 fresh ears of choclo (tender white corn) — if fresh with good husks is available, reserve the largest inner husks; otherwise 1.2 kg frozen choclo kernels + dried corn husks (chalas secas, rehydrated in hot water)"
+      ]
+     },
+     {
+      "title": "Sofrito (into the hot oil first)",
+      "items": [
+       "2 large onions (cebollas), finely diced",
+       "1 red bell pepper (morrón rojo), finely diced",
+       "3 tbsp neutral oil (traditional versions sometimes use beef tallow — oil keeps it vegetarian)",
+       "1 tsp pimentón dulce (sweet smoked paprika)",
+       "½ tsp ají molido (ground chili) — omit for kids",
+       "Salt to taste"
+      ]
+     },
+     {
+      "title": "Corn body",
+      "items": [
+       "1.2 kg grated or processed choclo kernels (grated = traditional texture)",
+       "½ cup (120 ml) milk",
+       "10–12 fresh basil leaves (albahaca fresca)"
+      ]
+     },
+     {
+      "title": "Cheese core",
+      "items": [
+       "300 g queso criollo salteño (Salta creole cheese), or goat cheese / firm mozzarella, sliced into small squares — one square per humita"
+      ]
+     }
+    ]
+   },
+   "method": [
+    "Prep the chalas: peel husks from fresh ears without tearing; wash and soak in hot water 10 min to soften. If using dried husks, rehydrate in hot water.",
+    "Grate the corn: grate kernels (or pulse in a food processor to a creamy coarse texture; strain off excess liquid if very wet).",
+    "Sofrito: heat oil, sauté onion + morrón until translucent (7–8 min). Stir in pimentón, ají molido, salt.",
+    "Corn body: add grated corn, milk, and torn basil to the sofrito. Cook on low 15 min, stirring, until thick and creamy. Taste for salt. Let cool slightly.",
+    "Wrap: cross two chalas, spoon 2–3 tbsp filling into the center, place one cheese square on top, fold into a square parcel, tie with strips of chala.",
+    "Steam: line the pot bottom with the leftover cobs (keeps parcels off the base), add parcels, cover with salted boiling water, and simmer 1 hour.",
+    "Serve hot, in the chala — guests unwrap at the table."
+   ],
+   "story": "Humita's name comes from the Quechua \"huminta\" — this is pre-Columbian cooking: corn, ground on stone, steamed in its own leaves. In Salta it is the dish of Semana Santa (Holy Week), when families gather to grate dozens of choclos and wrap hundreds of little parcels together — unwrapping a hot humita at the table is half the ritual.",
+   "sources": [
+    {
+     "name": "El Tribuno (Salta daily) — Semana Santa: humita salteña en chala",
+     "url": "https://www.eltribuno.com/vida-y-tendencia/2025-4-15-18-28-0-semana-santa-humita-saltena-en-chala-la-receta-tradicional-del-norte-argentino"
+    },
+    {
+     "name": "Canal Encuentro (Argentine public TV) — Comidas regionales",
+     "url": "https://www.youtube.com/watch?v=AhyvZJivtxM"
+    },
+    {
+     "name": "elgourmet.com — Humita en chala",
+     "url": "https://elgourmet.com/recetas/humita-en-chala/pdf"
+    },
+    {
+     "name": "recetas.com — Receta de Humita en chala",
+     "url": "https://www.recetas.com/receta-de-Humita-en-chala-5004.html"
+    }
+   ],
+   "page": "recipe-humita.html"
+  },
+  {
+   "id": "quesillo-con-dulce",
+   "name": "Quesillo con dulce de cayote y nueces",
+   "aliases": [],
+   "region": "Salta & Jujuy, Argentina",
+   "season": "Spring",
+   "seasonWhy": "Cayote is an autumn/winter harvest that stores for months; the dulce is a pantry preserve — genuinely available and traditional in early spring. Walnuts and quesillo are year-round.",
+   "category": "snack",
+   "festive": false,
+   "festival": null,
+   "veg": true,
+   "kidFriendly": true,
+   "kidVersion": {
+    "title": "Kids love it",
+    "text": "Natural — kids love sweet cheese + jam. For kids: serve the dulce over quesillo in a small bowl with a spoon; it is already mild, nothing to change."
+   },
+   "ingredients": {
+    "groups": [
+     {
+      "title": "Dulce (jam — into the pot first)",
+      "items": [
+       "1 kg cayote pulp (fig-leaf gourd, Cucurbita ficifolia — looks like a watermelon outside; from ~1 medium cayote, ~1.5 kg whole)",
+       "500 g sugar (half the weight of the peeled, seeded pulp)",
+       "1 clavo de olor (clove)",
+       "Zest of 1 lemon (optional, adds a bright note — traditionalists use it)"
+      ]
+     },
+     {
+      "title": "To serve",
+      "items": [
+       "400 g quesillo salteño (Salta stretched-curd cheese; or fresh mozzarella / queso de cabra), sliced",
+       "80 g walnuts (nueces), roughly broken"
+      ]
+     }
+    ]
+   },
+   "method": [
+    "Open the cayote: warm the whole cayote in a moderate oven 10 min — the heat loosens the tough skin. Tap with a rolling pin and peel it off easily.",
+    "Shred by hand: scoop out the seeds, then pull the pulp into threads with your fingers, never a knife — the fibers are the whole point of this jam.",
+    "Macerate: toss the fibers with the sugar in a glass bowl, cover, and rest overnight (~10 hours). The fruit releases its own juice — no water added, ever.",
+    "Slow cook: transfer to a heavy pot (copper if you have it), add the clove and lemon zest, and cook on the lowest heat, stirring with a wooden spoon, until the fibers turn translucent amber and the syrup thickens enough that a spoon dragged across the pot bottom leaves a trail. About 1–1.5 hours.",
+    "Jar: cool and keep in glass jars (keeps weeks refrigerated).",
+    "Plate: lay quesillo slices on a plate, spoon warm dulce de cayote over them, scatter the walnuts on top."
+   ],
+   "story": "Cayote is one of the Northwest's heritage foods — a gourd whose pulp naturally shreds into silk-like threads, made into jam since colonial times. Paired with quesillo, the hand-stretched cheese of the Valles Calchaquíes, it is the dessert plate of Salta and Jujuy: sweet fibers, salty cheese, crunchy walnuts. The same dulce fills the region's famous empanadillas de cayote.",
+   "sources": [
+    {
+     "name": "El Arte de Amasar — Quesillo con dulce de cayote y nueces",
+     "url": "https://www.elartedeamasar.com/2012/04/quesillo-con-dulce-de-cayote-y-nueces-desde-jujuy-una-exquisitez/"
+    },
+    {
+     "name": "El Tribuno de Jujuy",
+     "url": "https://eltribunodejujuy.com/nota/2015-5-31-12-29-0-dulce-de-cayote-jujeno-cayote-dulce-de-cayote"
+    },
+    {
+     "name": "elgourmet.com — Dulce de cayote",
+     "url": "https://elgourmet.com/recetas/dulce-de-cayote/pdf"
+    },
+    {
+     "name": "Prensa Mercosur — dulce de cayote master notes",
+     "url": "https://prensamercosur.org/2025/07/30/42405/"
+    }
+   ],
+   "page": "recipe-quesillo-con-dulce.html"
+  },
+  {
+   "id": "pho-chay",
+   "name": "Phở Chay",
+   "aliases": [],
+   "region": "Vietnam",
+   "season": "Monsoon",
+   "seasonWhy": "Late September = tail of the rainy season (monsoon May–Oct); fresh herbs, mushrooms, and leafy greens abundant; the northern early-autumn rice harvest is underway.",
+   "category": "food",
+   "festive": false,
+   "festival": null,
+   "veg": true,
+   "kidFriendly": true,
+   "kidVersion": {
+    "title": "Kids love it",
+    "text": "Serve a milder bowl — fewer chilies, shorter noodle lengths for little hands, extra tofu cubes, lime only. No separate recipe needed, just assembly tweaks."
+   },
+   "ingredients": {
+    "groups": [
+     {
+      "title": "Broth vegetables (simmer first)",
+      "items": [
+       "1 large yellow onion, halved (char on open flame or under broiler until blackened in spots)",
+       "4-inch piece ginger (gừng), sliced and charred alongside the onion",
+       "1 small daikon (củ cải trắng), peeled, cut into chunks",
+       "2 carrots, cut into chunks",
+       "¼ head green cabbage or Napa cabbage, roughly chopped",
+       "1 apple or Asian pear, quartered (natural sweetness)",
+       "5–6 dried shiitake mushrooms (nấm hương), rinsed",
+       "12 cups (3 L) water"
+      ]
+     },
+     {
+      "title": "Spice blend (dry-toast, then bag in cheesecloth)",
+      "items": [
+       "4 star anise (hoa hồi)",
+       "1 cassia cinnamon stick (quế)",
+       "1 black cardamom pod (thảo quả)",
+       "1 tsp whole cloves (đinh hương)",
+       "1 tbsp coriander seeds (hạt ngò)",
+       "1 tsp fennel seeds",
+       "½ tsp white peppercorns"
+      ]
+     },
+     {
+      "title": "Broth seasoning (added after straining)",
+      "items": [
+       "1 tbsp rock sugar (đường phèn)",
+       "1½ tbsp salt, to taste",
+       "2 tbsp mushroom seasoning powder or vegetarian fish sauce (nước mắm chay)"
+      ]
+     },
+     {
+      "title": "Bowls",
+      "items": [
+       "400 g (14 oz) dried flat rice noodles (bánh phở)",
+       "300 g firm tofu (đậu hũ), cut in slabs and pan-seared golden",
+       "200 g mixed mushrooms — shiitake caps + king oyster (nấm đùi gà), sliced and sautéed",
+       "2 baby bok choy (cải thìa), halved"
+      ]
+     },
+     {
+      "title": "Herb plate (đĩa rau thơm) — at the table",
+      "items": [
+       "Thai basil (húng quế), culantro (ngò gai), cilantro (ngò rí)",
+       "Bean sprouts (giá đỗ), thinly sliced white onion",
+       "Lime (chanh) wedges, sliced bird's-eye chilies (ớt hiểm), scallion greens"
+      ]
+     }
+    ]
+   },
+   "method": [
+    "Char the onion and ginger until blackened in spots; rinse off loose char.",
+    "Dry-toast the spice blend 2–3 minutes until fragrant; tie in cheesecloth.",
+    "Simmer broth vegetables + charred aromatics in water 30 min; add the spice bag for the last 15 min. Strain, pressing solids gently. (Optional: return reserved shiitake and daikon to the broth.)",
+    "Season the clear broth with rock sugar, salt, and mushroom seasoning / nước mắm chay to taste; keep at a bare simmer.",
+    "Blanch bánh phở until just tender; rinse in cool water. Sear tofu slabs; sauté mushrooms until browned. Blanch bok choy 1 min.",
+    "Assemble: noodles in deep bowls, tofu, mushrooms, bok choy; ladle over steaming broth. Serve with the herb plate — everyone finishes their own bowl."
+   ],
+   "story": "Phở chay was born in Vietnam's Buddhist vegetarian kitchens: on the full and new moon each lunar month, temples and chay restaurants in Huế and Saigon ladle out this spice-perfumed noodle soup. All the ceremony of phở — charred aromatics, toasted spice, a tableside herb plate — with a broth built entirely from vegetables, fruit, and mushrooms.",
+   "sources": [
+    {
+     "name": "Helen's Recipes — pho-chay-vegetarian-pho",
+     "url": null
+    },
+    {
+     "name": "Vicky Pham — vegetarian-pho",
+     "url": null
+    },
+    {
+     "name": "Woon Heng — vegan pho chay",
+     "url": null
+    },
+    {
+     "name": "Feed the Pudge — pho chay",
+     "url": null
+    }
+   ],
+   "page": "recipe-pho-chay.html"
+  },
+  {
+   "id": "banh-cuon-chay",
+   "name": "Bánh Cuốn Chay",
+   "aliases": [],
+   "region": "Vietnam",
+   "season": "Monsoon",
+   "seasonWhy": "Late September = tail of the rainy season (monsoon May–Oct); fresh herbs, mushrooms, and leafy greens abundant.",
+   "category": "snack",
+   "festive": false,
+   "festival": null,
+   "veg": true,
+   "kidFriendly": true,
+   "kidVersion": {
+    "title": "Kids love it",
+    "text": "Plain unfilled rolls (kids love the pan-rolling theatre) with a mild sweet-soy dip and cucumber ribbons."
+   },
+   "ingredients": {
+    "groups": [
+     {
+      "title": "Batter (whisk, rest 30 min–2 hr)",
+      "items": [
+       "100 g rice flour (bột gạo)",
+       "40 g tapioca starch (bột năng)",
+       "30 g cornstarch (bột bắp)",
+       "550 ml water",
+       "½ tsp salt",
+       "1 tbsp neutral oil"
+      ]
+     },
+     {
+      "title": "Filling (sauté in order)",
+      "items": [
+       "50 g dried wood ear mushrooms (mộc nhĩ), soaked and finely chopped — goes in first",
+       "1 small carrot, julienned",
+       "½ jicama (củ sắn), julienned",
+       "150 g fried tofu (đậu hũ chiên), sliced thin",
+       "1 tbsp white part of leek (hành boaro phần trắng), minced",
+       "Seasoning: 1 tbsp soy sauce (nước tương), 1 tsp vegetarian stock powder, salt and black pepper to taste"
+      ]
+     },
+     {
+      "title": "Dipping sauce — nước chấm chay",
+      "items": [
+       "120 ml fresh coconut juice (or water)",
+       "1–2 tsp sugar, ½ tsp salt",
+       "1 tsp soy sauce, 1 tsp lime juice",
+       "Sliced bird's-eye chili to taste"
+      ]
+     },
+     {
+      "title": "To finish",
+      "items": [
+       "Crispy fried shallots (hành phi)",
+       "Scallion oil (mỡ hành) — sliced scallions wilted in hot oil",
+       "Cucumber (dưa leo) ribbons, blanched bean sprouts, fresh herbs, crushed roasted peanuts (đậu phộng rang)"
+      ]
+     }
+    ]
+   },
+   "method": [
+    "Whisk batter smooth; rest 30 min–2 hr (stir before each use).",
+    "Sauté filling: leek in oil until golden; add wood ear, carrot, jicama — cook until crisp-tender; add tofu and seasonings; finish with pepper.",
+    "Steam the sheets: brush a nonstick skillet with a whisper of oil over medium heat; ladle in batter, swirl thin, cover 15–20 seconds until translucent; slide out onto an oiled plate.",
+    "Place filling down the center of each sheet and roll. Repeat until batter is used (~16 rolls).",
+    "Plate rolls with a drizzle of scallion oil, crispy shallots, cucumber, bean sprouts, herbs, and peanuts. Serve with nước chấm chay."
+   ],
+   "story": "At dawn in Hanoi, bánh cuốn vendors spread rice batter paper-thin over a cloth stretched above a steamer, lift each translucent sheet in seconds, and roll it around wood ear mushrooms and tofu. On vegetarian-eating days the same stalls serve bánh cuốn chay — the full street-food theatre, no meat involved.",
+   "sources": [
+    {
+     "name": "Cookpad Vietnam / Hai Thuy Tran — bánh cuốn chay đổ chảo",
+     "url": null
+    },
+    {
+     "name": "Helen's Recipes — vegetarian steamed rice rolls",
+     "url": null
+    },
+    {
+     "name": "vietnamfamousdestinations.com — bánh cuốn chay",
+     "url": null
+    }
+   ],
+   "page": "recipe-banh-cuon-chay.html"
+  },
+  {
+   "id": "porotos-granados",
+   "name": "Porotos Granados",
+   "aliases": [],
+   "region": "Central Chile",
+   "season": "Spring",
+   "seasonWhy": "Classically a late-summer harvest dish, cooked year-round from dried beans; zapallo stores months post-harvest, frozen choclo works outside summer, and fresh albahaca returns in October.",
+   "category": "food",
+   "festive": false,
+   "festival": null,
+   "veg": true,
+   "kidFriendly": true,
+   "kidVersion": {
+    "title": "Kids love it",
+    "text": "Everyday Chilean family food, routinely served to children — for kids omit the ají de color dusting and keep seasoning mild; the mazamorra (ground-corn) version is smoother for small kids."
+   },
+   "ingredients": {
+    "groups": [
+     {
+      "title": "Pot-entry group 1 (the long simmer — beans first)",
+      "items": [
+       "500 g (2½ cups) dried porotos granados (mature cranberry beans) — look for pale beans with red streaks; soak overnight 8–12 h, drain",
+       "12 cups water, plus salt"
+      ]
+     },
+     {
+      "title": "Pot-entry group 2 (added once beans are nearly tender)",
+      "items": [
+       "400 g zapallo (pumpkin/winter squash, the sweet Chilean variety), peeled, cut into medium cubes",
+       "1½ cups choclo (fresh corn) kernels — frozen is fine outside summer",
+       "1 cup choclo ground to a coarse paste (the mazamorra variation — this paste thickens the stew)"
+      ]
+     },
+     {
+      "title": "Sofrito (cooked separately, stirred in at the end)",
+      "items": [
+       "¼ cup mild vegetable oil",
+       "1 large cebolla (onion), diced small",
+       "2 dientes de ajo (garlic cloves), minced",
+       "1 tsp ají de color (Chilean smoked-chili powder; sweet-paprika style) — for the red color",
+       "½ tsp ground comino (cumin)",
+       "1 cup fresh albahaca (basil) leaves, finely chopped (reserve a few whole leaves for garnish)",
+       "Salt and black pepper to taste"
+      ]
+     }
+    ]
+   },
+   "method": [
+    "Beans in a large pot with 12 cups fresh water. Bring to a boil, skim any foam, then simmer half-covered 45–60 min until almost tender. (Pressure cooker: 20 min after pressure.)",
+    "Add the zapallo cubes and both portions of choclo (whole kernels + ground paste). Simmer 20–25 min, stirring now and then so the ground corn doesn't stick, until the zapallo is soft and breaking down — this is what makes the stew creamy. Season with salt.",
+    "Meanwhile make the sofrito: heat the oil, soften the onion 8–10 min until translucent, add garlic 1 min, then stir in ají de color, comino, and chopped albahaca; cook 1 min until fragrant.",
+    "Stir the sofrito into the bean pot. Simmer 10 min more so flavors marry. Mash a few beans against the pot wall for extra creaminess. Adjust salt and pepper.",
+    "Rest 5 min. Serve in deep bowls, garnished with whole albahaca leaves and a dusting of ají de color. Traditional accompaniment: sliced tomato or pebre (Chilean fresh tomato-cilantro salsa)."
+   ],
+   "story": "The name \"porotos granados\" comes from the ripeness of the beans in their pod — granado means plump/mature — and summer was the season families gathered in the Chilean countryside to desgranar (shell) beans together. It's the dish behind the saying \"más chileno que los porotos\" (more Chilean than beans): a University of Chile heritage project (La Gran Porotada) documents how deeply the bean is woven into Chilean identity, collecting citizen recipes from Arica to Punta Arenas.",
+   "sources": [
+    {
+     "name": "Recetinas (Chilean recipe site)",
+     "url": null
+    },
+    {
+     "name": "Gourmet.cl",
+     "url": null
+    },
+    {
+     "name": "Irene Mercadal (Chilean chef/blogger)",
+     "url": null
+    },
+    {
+     "name": "Cookpad Chile",
+     "url": null
+    }
+   ],
+   "page": "recipe-porotos-granados.html"
+  },
+  {
+   "id": "mote-con-huesillos",
+   "name": "Mote con Huesillos",
+   "aliases": [],
+   "region": "Central Chile",
+   "season": "Spring",
+   "seasonWhy": "A documented spring classic — \"perfecta para la época de primavera y verano\" (Kitchen Center): late September's first warm weeks are exactly when Chile's streets reach for this cold refreshment.",
+   "category": "drink",
+   "festive": false,
+   "festival": null,
+   "veg": true,
+   "kidFriendly": true,
+   "kidVersion": {
+    "title": "Kids love it",
+    "text": "This is a non-alcoholic sweet drink Chilean kids buy from street carts; kids' adaptation: less syrup (dilute with water), fewer cloves."
+   },
+   "ingredients": {
+    "groups": [
+     {
+      "title": "The syrup pot (huesillos first — they need the longest time)",
+      "items": [
+       "250 g huesillos (dried peaches with the pit left in — \"little bones,\" hence the name)",
+       "1.5 L water, for soaking + cooking",
+       "100 g sugar + 75 g chancaca (unrefined cane sugar / piloncillo) — the chancaca gives the signature amber color",
+       "1 stick of canela (cinnamon)",
+       "1 strip of orange peel (no white pith)",
+       "Optional: 2 clavos de olor (whole cloves)"
+      ]
+     },
+     {
+      "title": "The mote pot (separate pot)",
+      "items": [
+       "250 g mote (cooked wheat berries — husked wheat grains, sold ready to cook)",
+       "Plenty of water"
+      ]
+     },
+     {
+      "title": "To serve",
+      "items": [
+       "2 heaping tablespoons mote per glass + 2 huesillos + syrup to fill; serve very cold with a big spoon"
+      ]
+     }
+    ]
+   },
+   "method": [
+    "Night before: rinse the huesillos, cover with the 1.5 L water, and soak overnight (minimum 3 h).",
+    "Syrup: tip the huesillos with their soaking water into a pot. Add chancaca, sugar, cinnamon, orange peel, cloves. Simmer gently 45–60 min until the peaches are plump and tender. Cool completely, then refrigerate at least 4 h (overnight is better) — the syrup deepens as it chills.",
+    "Mote: rinse mote under cold water, boil in a separate pot of unsalted water 30–45 min until the grains are tender but still chewy. Drain, cool, refrigerate (spoon a little cold syrup over it so it stays moist and picks up flavor).",
+    "Assembly: spoon mote into a tall glass, add 2 huesillos, fill with the cold syrup. Serve ice-cold with a spoon."
+   ],
+   "story": "The motero (street wheat-seller) is one of Chile's oldest street professions, dating to colonial times: vendors carried baskets of mote on their heads with their jars and spoons and sold it by the cuartillo — historical accounts record \"tres centavos el cuartillo.\" Moteros and huesillo sellers eventually merged into the single iconic street drink. In the 1950s–60s there was a boom of mote-con-huesillo cart vendors; formal health permits only came in 1978. Pablo de Rokha reportedly chose a glass of jugo con huesillos as his final meal.",
+   "sources": [
+    {
+     "name": "Cocina en Casa (Chilean recipe site)",
+     "url": null
+    },
+    {
+     "name": "Kitchen Center (Chilean cooking blog, Sept 2023)",
+     "url": null
+    },
+    {
+     "name": "RedGol (Chilean news)",
+     "url": null
+    },
+    {
+     "name": "Cravings Journal / Lorena Salinas (Chilean blogger)",
+     "url": null
+    }
+   ],
+   "page": "recipe-mote-con-huesillos.html"
+  },
+  {
+   "id": "moi-moi",
+   "name": "Moi Moi",
+   "aliases": [
+    {
+     "name": "Moin Moin",
+     "region": "Nigeria"
+    }
+   ],
+   "region": "Southwest Nigeria (Yoruba)",
+   "season": "Monsoon",
+   "seasonWhy": "Wet season May–Oct; October = tail of the wet season. Plantain is a year-round staple of southwestern Nigeria, plentiful in the wet season; black-eyed peas / honey beans are everyday Nigerian staples.",
+   "category": "food",
+   "festive": false,
+   "festival": null,
+   "veg": true,
+   "kidFriendly": true,
+   "kidVersion": {
+    "title": "Kids love it",
+    "text": "Make a mild batch (1/2 scotch bonnet, kid-size leaf parcels); sweet dodo is a natural kid-pleaser."
+   },
+   "ingredients": {
+    "groups": [
+     {
+      "title": "A. Bean base (first in — blended)",
+      "items": [
+       "2 cups dried black-eyed peas (cowpeas; also called honey beans / ewa oloyin)",
+       "2 tatashe (red bell peppers), roughly chopped",
+       "2 scotch bonnet peppers (atarodo) — reduce to 1 for a milder pudding",
+       "1 large onion, roughly chopped",
+       "Water for blending (about 1 cup)"
+      ]
+     },
+     {
+      "title": "B. Folded into the batter",
+      "items": [
+       "1/3 cup red palm oil",
+       "2 vegetable stock cubes, crumbled",
+       "Salt to taste"
+      ]
+     },
+     {
+      "title": "C. For wrapping",
+      "items": [
+       "Fresh banana leaves or ewe eran (Thaumatococcus daniellii) leaves (traditional), or heat-safe ramekins / foil pouches"
+      ]
+     },
+     {
+      "title": "D. Dodo (fried sweet plantain — served alongside)",
+      "items": [
+       "2 ripe (yellow with black spots) plantains, sliced diagonally",
+       "Vegetable oil for shallow frying",
+       "Pinch of salt"
+      ]
+     }
+    ]
+   },
+   "method": [
+    "Soak the beans 4 hours or overnight; rub off the skins and rinse until clean.",
+    "Blend the peeled beans with tatashe, scotch bonnet, onion and just enough water to a smooth, creamy paste (like light cake batter).",
+    "Turn into a bowl; stir in the red palm oil, crumbled stock cubes and salt until evenly combined. Thin with a splash of hot water if too thick.",
+    "Wilt the banana leaves briefly over a flame (or rinse the ramekins). Scoop the batter in (fill 3/4), fold and tie the leaves or cover the ramekins with foil.",
+    "Set the parcels upright in a pot lined with leftover leaves or a steaming rack; add 1 inch of water, cover tightly and steam 45–60 minutes. A knife inserted comes out clean when done.",
+    "Dodo: heat oil, fry the plantain slices until golden on both sides; drain, salt lightly. Serve beside the moi moi."
+   ],
+   "story": "Moi moi is a protein-rich Yoruba classic — street food, party (owambe) staple and breakfast plate all in one, traditionally steamed in ewe eran leaves folded into cone parcels. Peel-and-blend is the labor; the steam does the rest.",
+   "sources": [
+    {
+     "name": "Wikipedia — Moin_moin",
+     "url": "en.wikipedia.org/wiki/Moin_moin"
+    },
+    {
+     "name": "rexclarkeadventures.com",
+     "url": null
+    },
+    {
+     "name": "bellanaija.com — 2023 moimoi",
+     "url": null
+    }
+   ],
+   "page": "recipe-moi-moi.html"
+  },
+  {
+   "id": "boli",
+   "name": "Boli",
+   "aliases": [],
+   "region": "Southwest Nigeria (Yoruba)",
+   "season": "Monsoon",
+   "seasonWhy": "Wet season May–Oct; plantain is the everyday southwestern staple.",
+   "category": "snack",
+   "festive": false,
+   "festival": null,
+   "veg": true,
+   "kidFriendly": true,
+   "kidVersion": {
+    "title": "Kids love it",
+    "text": "Naturally mild and kid-friendly (roasted, not fried); serve plain or with groundnuts."
+   },
+   "ingredients": {
+    "groups": [
+     {
+      "title": "A. On the grill",
+      "items": [
+       "3 semi-ripe plantains (yellow with a little black — too ripe goes mushy)",
+       "A pinch of salt",
+       "1 tbsp vegetable oil (light brush, optional)"
+      ]
+     },
+     {
+      "title": "B. Served alongside",
+      "items": [
+       "1 cup roasted groundnuts (peanuts)",
+       "Optional: quick pepper sauce — blended tatashe (red bell pepper) + onion + a little palm oil, simmered 10 min (fully vegetarian; no fish)"
+      ]
+     }
+    ]
+   },
+   "method": [
+    "Wash the plantains; slit one side and peel.",
+    "Rub with salt and brush lightly with oil.",
+    "Charcoal grill or oven grill at ~200°C: roast 15–20 minutes, turning often, until golden with dark char marks and soft inside.",
+    "Serve hot with roasted groundnuts (the classic pairing) or the pepper sauce."
+   ],
+   "story": "Boli is a Nigerian street-food icon — roadside vendors fanning charcoal in Lagos, Port Harcourt and Ibadan; students' favorite, \"no class, just pure enjoyment.\" Traditionally eaten with roasted groundnuts.",
+   "sources": [
+    {
+     "name": "nigerianfoodtv.com",
+     "url": null
+    },
+    {
+     "name": "9jafoods.com",
+     "url": null
+    },
+    {
+     "name": "wikimd.org",
+     "url": null
+    }
+   ],
+   "page": "recipe-boli.html"
+  },
+  {
+   "id": "kabocha-no-nimono",
+   "name": "Kabocha no Nimono",
+   "region": "Japan — Miyazaki Prefecture (Miyazaki City), regional version",
+   "season": "Autumn",
+   "seasonWhy": "Kabocha is strongly associated with Japanese autumn cooking; Japanese seasonal-cooking sources specifically identify kabocha no nimono as an autumn dish. Although kabocha is harvested in summer, it develops greater sweetness after storage and reaches particularly good eating quality around October–December.",
+   "category": "food",
+   "festive": false,
+   "festival": null,
+   "vratCompatible": null,
+   "veg": true,
+   "vegNote": "VEGETARIAN: YES, provided vegetarian dashi is used. The Miyazaki regional recipe itself uses pumpkin, water and plant-based seasonings and contains no meat or fish. For a generic Japanese version, ordinary dashi may contain bonito, so kombu/shiitake or vegetable dashi should be explicitly specified.",
+   "kidVersion": {
+    "title": "Kids love it",
+    "text": "The Miyazaki regional version is served on elementary- and middle-school menus. For a children's serving, keep the kabocha soft and use the less salty end of the seasoning range; its naturally sweet, soft flesh is approachable without needing a separate “kids recipe.”"
+   },
+   "ingredients": {
+    "groups": [
+     {
+      "title": "Vegetarian adaptation, 4 servings",
+      "items": [
+       "2½ lb / 1.1 kg kabocha squash",
+       "3 cups / 720 ml vegetarian dashi (kombu-shiitake dashi or vegetable stock)",
+       "2 Tbsp sugar",
+       "1½ Tbsp soy sauce",
+       "1 Tbsp sake",
+       "¼ tsp salt"
+      ]
+     }
+    ]
+   },
+   "method": [
+    "Wash the kabocha and scoop out the seeds and fibrous center.",
+    "Cut into roughly 3-inch / 7–8 cm pieces. Carefully trim away sharp corners; the skin can remain on.",
+    "Bring the vegetarian dashi to a boil in a wide pot.",
+    "Add the kabocha, cover, and simmer over medium heat for about 20–30 minutes, until tender when pierced with a fork.",
+    "Add the sugar, soy sauce, sake and salt.",
+    "Reduce the heat and cook another 15–20 minutes, allowing some of the broth to reduce and season the squash.",
+    "Turn off the heat and let the kabocha rest covered for several minutes. As it cools, it absorbs more of the seasoned broth.",
+    "Serve warm or at room temperature."
+   ],
+   "story": "Kabocha has an interesting “second season”: Japanese Cooking 101 notes that freshly harvested kabocha is starchier and less sweet, but two to three months of storage allows moisture to decrease and starches to convert into sugars. That's one reason a squash harvested earlier can become particularly delicious in the autumn months. The Miyazaki Kurokawa variety has an even more distinctive history: the region's first pumpkin cultivation dates to 1907, while a black-skinned variety introduced from Chiba in 1924 eventually became a local specialty.",
+   "sources": [
+    {
+     "name": "Japan Ministry of Agriculture, Forestry and Fisheries — Hyuuga Kurokawa Kabocha No Nimono",
+     "url": "https://www.maff.go.jp/e/policies/market/k_ryouri/search_menu/4224/index.html"
+    },
+    {
+     "name": "Japanese Cooking 101 — Kabocha no Nimono",
+     "url": "https://japanesecooking101.com/kabocha-no-nimono-simmered-pumpkin-recipe/"
+    },
+    {
+     "name": "Just One Cookbook — Classic Japanese Fall Recipes",
+     "url": "https://www.justonecookbook.com/classic-japanese-fall-recipes/"
+    }
+   ],
+   "page": "recipe-kabocha-no-nimono.html",
+   "aliases": [],
+   "kidFriendly": true
+  },
+  {
+   "id": "hobakjuk",
+   "name": "Hobakjuk",
+   "region": "Korea (Chungcheongbuk-do, per Korean Traditional Local Food record)",
+   "season": "Autumn",
+   "seasonWhy": "Korean sources describe hobakjuk as a fall-and-winter comfort food; Maangchi recalls her grandmother harvesting Korean pumpkins in fall and storing them for later use in hobakjuk — a harvest → storage → cool-weather porridge pattern.",
+   "category": "food",
+   "festive": false,
+   "festival": null,
+   "vratCompatible": null,
+   "veg": true,
+   "vegNote": "VEGETARIAN: YES. The basic recipe consists of squash, sweet rice flour, water, sugar and salt; the optional rice balls and plant-based garnishes are also vegetarian.",
+   "kidVersion": {
+    "title": "Kids love it",
+    "text": "Serve the smooth pumpkin porridge slightly warm, use 2 Tbsp sugar initially and adjust to taste, and omit nuts/garnishes for younger children. A Korean recipe source describes the dish as soft enough for children and older people — naturally mild, smooth and sweet."
+   },
+   "ingredients": {
+    "groups": [
+     {
+      "title": "Simple vegetarian version, about 6 servings",
+      "items": [
+       "3¾ lb / 1.7 kg kabocha, Korean pumpkin or butternut squash, unpeeled weight",
+       "3 cups / 720 ml water",
+       "¼ cup / about 40 g sweet rice flour (glutinous rice flour)",
+       "3 Tbsp water, for the flour slurry",
+       "3 Tbsp sugar, or to taste",
+       "½ tsp fine sea salt"
+      ]
+     },
+     {
+      "title": "Optional traditional rice-cake balls",
+      "items": [
+       "½ cup sweet rice flour",
+       "¼ tsp salt",
+       "4–5 Tbsp hot water"
+      ]
+     },
+     {
+      "title": "Optional garnishes",
+      "items": [
+       "cooked red beans, pine nuts, pumpkin seeds or jujubes"
+      ]
+     }
+    ]
+   },
+   "method": [
+    "Cut the squash into quarters and remove the seeds and stringy interior.",
+    "Steam the squash until completely tender. Cool enough to handle, then remove the skin and cut the flesh into chunks.",
+    "Blend the cooked squash with the 3 cups water, sugar and salt until smooth.",
+    "Pour the mixture into a saucepan and bring to a gentle boil. Cook for about 10 minutes, stirring periodically.",
+    "Mix the ¼ cup sweet rice flour with 3 Tbsp water to make a smooth slurry.",
+    "Slowly pour the slurry into the pumpkin mixture while stirring continuously so it doesn't form lumps.",
+    "Reduce the heat and simmer for about 3 minutes, until the porridge thickens.",
+    "If using rice-cake balls, make them separately from sweet rice flour, salt and hot water; boil them until they float, then add them to the porridge.",
+    "Serve warm or chilled, with optional red beans, pine nuts, pumpkin seeds or jujube."
+   ],
+   "story": "The dish has a beautiful preservation story: Maangchi describes her grandmother harvesting large Korean pumpkins in the fall and storing them in the pantry for winter, pulling one out whenever she wanted to make hobakjuk. There's also a neat linguistic detail: hobak is a broad Korean term covering pumpkin, squash and even some squash-like vegetables; danhobak, literally “sweet pumpkin,” is one of the varieties commonly used for hobakjuk.",
+   "sources": [
+    {
+     "name": "Korea Traditional Local Food — Hobak Juk",
+     "url": "https://koreantk.com/ktkp2014/food/food-view.view?foodCd=TF10003412"
+    },
+    {
+     "name": "Visit Korea — Pumpkin Porridge (Hobakjuk)",
+     "url": "https://english.visitkorea.or.kr/svc/contents/contentsView.do?vcontsId=178124"
+    },
+    {
+     "name": "Maangchi — Pumpkin Porridge (Hobakjuk)",
+     "url": "https://www.maangchi.com/recipe/hobakjuk"
+    },
+    {
+     "name": "Korean Bapsang — Hobakjuk",
+     "url": "https://www.koreanbapsang.com/hobakjuk-kabocha-porridge-and-winners/"
+    }
+   ],
+   "page": "recipe-hobakjuk.html",
+   "aliases": [],
+   "kidFriendly": true
+  },
+  {
+   "id": "parangikai-kootu",
+   "name": "Parangikai Kootu",
+   "region": "South India, especially Tamil Nadu",
+   "season": "Autumn",
+   "seasonWhy": "Seasonal-library placement based on the pumpkin ingredient: October seasonal-produce guidance identifies pumpkin/winter squash as an autumn vegetable and specifically recommends pumpkin in kootu, curries, poriyal and dal preparations. The dish itself is usable year-round — “Autumn seasonal collection” ≠ “autumn-exclusive traditional dish.”",
+   "category": "food",
+   "festive": false,
+   "festival": null,
+   "vratCompatible": null,
+   "veg": true,
+   "vegNote": "VEGETARIAN: YES. The cited recipe contains pumpkin, moong dal, coconut, cumin and plant-based tempering ingredients, with no meat, fish or eggs.",
+   "kidVersion": {
+    "title": "Kids love it",
+    "text": "There isn't a distinct traditional children's parangikai kootu; the dish is naturally adaptable — make the coconut-cumin paste without chili, keep the pumpkin very soft, and mash some of the pumpkin and dal together before serving over rice. Record as “Kid-friendly adaptation: yes; established separate kid version: no.”"
+   },
+   "ingredients": {
+    "groups": [
+     {
+      "title": "3–4 servings",
+      "items": [
+       "3 cups / about 450–500 g yellow pumpkin, peeled and cubed",
+       "¼ cup moong dal, cooked",
+       "¼ cup freshly grated coconut",
+       "½ tsp cumin seeds",
+       "¼ tsp turmeric powder",
+       "Salt, to taste",
+       "Water, as needed"
+      ]
+     },
+     {
+      "title": "For tempering",
+      "items": [
+       "1 tsp neutral oil or coconut oil",
+       "½ tsp black mustard seeds",
+       "1 dried red chili",
+       "1 tsp urad dal",
+       "1 sprig curry leaves"
+      ]
+     }
+    ]
+   },
+   "method": [
+    "Cook the moong dal until soft but not completely watery; set aside.",
+    "Peel and cube the pumpkin.",
+    "Put the pumpkin in a saucepan with enough water to almost cover it. Add turmeric and salt.",
+    "Cook until the pumpkin is soft but still holds its shape.",
+    "Grind the grated coconut and cumin seeds with a little water into a smooth or slightly coarse paste.",
+    "Add the cooked moong dal and coconut-cumin paste to the pumpkin.",
+    "Stir gently and simmer for about 2 minutes.",
+    "Heat the oil in a small pan.",
+    "Add mustard seeds and let them crackle. Add the urad dal, dried chili and curry leaves.",
+    "When the tempering is fragrant and the dal is lightly golden, pour it over the kootu.",
+    "Mix gently and serve hot with rice."
+   ],
+   "story": "“Kootu” is less a single fixed recipe than a family of South Indian vegetable-and-lentil preparations. The vegetable can change while the basic idea remains: a vegetable is combined with dal and a coconut/spice mixture. And parangikai is particularly useful for a seasonal library because the same yellow pumpkin can move across the meal in very different forms — from savory kootu and sambar to sweets and halwa.",
+   "sources": [
+    {
+     "name": "Raks Kitchen — Parangikai Kootu",
+     "url": "https://rakskitchen.net/parangikai-kootu-recipe-yellow-pumpkin-kootu/"
+    },
+    {
+     "name": "Edible Garden — Pumpkin Kootu",
+     "url": "https://www.cookingandme.com/pumpkin-kootu-recipe-kootu-recipes/"
+    },
+    {
+     "name": "Veg Recipes of India — South Indian Kootu background",
+     "url": "https://www.vegrecipesofindia.com/poricha-kootu-recipe/"
+    },
+    {
+     "name": "October Seasonal Produce Guide — Indian Fall Cooking",
+     "url": "https://stirredbyspice.com/seasonal/october-seasonal-produce-guide"
+    }
+   ],
+   "page": "recipe-parangikai-kootu.html",
+   "aliases": [],
+   "kidFriendly": true
+  },
+  {
+   "id": "ribollita",
+   "name": "Ribollita",
+   "region": "Tuscany, Italy",
+   "season": "Autumn",
+   "seasonWhy": "Ribollita is strongly associated with cool-weather Tuscan cooking, and contemporary Tuscan sources explicitly describe it as an autumn dish. Its ingredients also fit the season particularly well: beans, cavolo nero, root vegetables, tomatoes preserved from summer and sturdy stale bread.",
+   "category": "food",
+   "festive": false,
+   "festival": null,
+   "vratCompatible": null,
+   "veg": true,
+   "vegNote": "VEGETARIAN: YES. The traditional versions cited here are vegetable-and-bean based. Some modern variations add meat or meat stock, so vegetable stock / bean cooking liquid should be specifically specified and meat additions omitted.",
+   "kidVersion": {
+    "title": "Kids love it",
+    "text": "An easy adaptation exists for children: use mild vegetable stock rather than strongly seasoned broth, omit the fennel seeds if their flavor is unfamiliar, chop the vegetables finely, cook until everything is very soft, mash some of the beans into the soup, and use small pieces of soft bread rather than large crusty pieces. The resulting soup is thick, mild and spoonable rather than brothy."
+   },
+   "ingredients": {
+    "groups": [
+     {
+      "title": "4 generous servings",
+      "items": [
+       "300 g / 10½ oz dried cannellini beans",
+       "2 bay leaves",
+       "3 Tbsp extra-virgin olive oil, plus more to serve",
+       "1 large onion, finely diced",
+       "1 large carrot, finely diced",
+       "1 large celery stalk, finely diced",
+       "1 garlic clove, finely chopped",
+       "1 tsp fennel seeds, crushed",
+       "1 small handful fresh thyme leaves",
+       "400 g / 14 oz canned chopped tomatoes",
+       "½ loaf / about 250 g stale rustic or sourdough bread, torn into chunks",
+       "1 bunch cavolo nero, stalks removed and leaves shredded",
+       "Salt and black pepper",
+       "Water as needed"
+      ]
+     }
+    ]
+   },
+   "method": [
+    "Soak the cannellini beans overnight in plenty of cold water.",
+    "Drain them, place them in a large pot with one bay leaf, cover with fresh water and cook until tender.",
+    "Drain, reserving some of the cooking liquid.",
+    "Heat the olive oil in a large heavy pot.",
+    "Add onion, carrot, celery and garlic. Cook gently until softened.",
+    "Add fennel seeds, thyme, tomatoes and the remaining bay leaf.",
+    "Add the cooked beans and enough bean-cooking water to make a thick soup.",
+    "Add the shredded cavolo nero and simmer until the greens are tender.",
+    "Stir in the stale bread. Let it soften and absorb the broth, producing the characteristic thick, almost stew-like consistency.",
+    "Season with salt and pepper.",
+    "Traditionally, the soup can be cooled and reheated again — the “reboiling” that gives ribollita its name.",
+    "Serve generously drizzled with extra-virgin olive oil."
+   ],
+   "story": "Ribollita is essentially an early zero-waste recipe. Stale bread wasn't thrown away: it was added to leftover bean-and-vegetable soup, and the whole thing was reheated. The bread transforms the soup into something thick and filling. The name literally means “reboiled,” reflecting the traditional practice of reheating/reboiling leftover vegetable-and-bean soup with stale bread.",
+   "sources": [
+    {
+     "name": "The Guardian — How to make the perfect ribollita",
+     "url": "https://www.theguardian.com/food/2022/oct/12/how-to-make-the-perfect-ribollita-soup-recipe-felicity-cloake"
+    },
+    {
+     "name": "The Guardian — Russell Norman's Tuscan ribollita",
+     "url": "https://www.theguardian.com/food/2021/oct/02/russell-norman-recipes-brutto-tuscan-trattoria-borlotti-rosemary-crostini-autumn-ribollita-lamb-chop-parcels-cartoccio"
+    },
+    {
+     "name": "Great British Chefs — Tuscan Ribollita",
+     "url": "https://www.greatbritishchefs.com/recipes/tuscan-ribollita-recipe"
+    }
+   ],
+   "page": "recipe-ribollita.html",
+   "aliases": [],
+   "kidFriendly": true
+  },
+  {
+   "id": "goguma-bap",
+   "name": "Goguma-bap",
+   "region": "Korea",
+   "season": "Autumn",
+   "seasonWhy": "Sweet potatoes are a classic autumn harvest ingredient, and the dish provides a particularly good example of how a seasonal crop can become an ordinary staple meal, rather than a special-occasion dish. The autumn connection is therefore ingredient- and harvest-based rather than a claim that goguma-bap is eaten only in autumn.",
+   "category": "food",
+   "festive": false,
+   "festival": null,
+   "vratCompatible": null,
+   "veg": true,
+   "vegNote": "VEGETARIAN: YES. Maangchi explicitly categorizes goguma-bap as vegetarian, and identifies it as an easy, non-spicy, vegetarian one-bowl meal.",
+   "kidVersion": {
+    "title": "Kids love it",
+    "text": "The base recipe is already non-spicy. For children: use a naturally sweet sweet potato, omit gochugaru, serve the rice and sweet potato plain or with a tiny amount of soy-sesame sauce, and cut the sweet potato into small, soft pieces. Because the sweet potato cooks directly with the rice, it becomes soft and naturally sweet."
+   },
+   "ingredients": {
+    "groups": [
+     {
+      "title": "For the rice (about 2–3 servings)",
+      "items": [
+       "1½ cups short-grain white rice",
+       "1 medium Korean/Japanese sweet potato, about 250–300 g",
+       "1½ cups water, approximately, adjusted for the rice and soaking"
+      ]
+     },
+     {
+      "title": "Seasoning sauce",
+      "items": [
+       "2 Tbsp soy sauce",
+       "1 Tbsp finely chopped Asian chives or scallions",
+       "1 small garlic clove, finely minced",
+       "1 tsp honey",
+       "½ tsp rice vinegar",
+       "1 tsp toasted sesame seeds",
+       "Optional: ½ tsp gochugaru for adults"
+      ]
+     }
+    ]
+   },
+   "method": [
+    "Rinse the rice several times until the water becomes relatively clear.",
+    "Put the rice in a pot and add water. Let it soak for about 30 minutes.",
+    "Peel the sweet potato and rinse it.",
+    "Cut it into roughly ½-inch / 1.25-cm cubes.",
+    "Scatter the sweet-potato cubes evenly over the soaked rice.",
+    "Bring the pot to a boil over medium heat.",
+    "Cook for about 10 minutes in a regular pot.",
+    "Open the lid and gently turn the rice and sweet potato together.",
+    "Cover again and reduce the heat.",
+    "Simmer another 10–15 minutes, until the rice and sweet potato are fully cooked.",
+    "Mix the soy sauce, chives/scallions, garlic, honey, vinegar and sesame seeds to make the seasoning sauce.",
+    "Serve the sweet-potato rice with the sauce on the side, allowing each person to season their own bowl."
+   ],
+   "story": "The clever part is that the sweet potato isn't treated as a separate side dish. It cooks right on top of the rice, so its sweetness and moisture become part of the finished bowl. It's also a nice example for Rasalaya of a seasonal ingredient crossing into an everyday staple: the same harvest crop can be eaten simply rather than transformed into a complicated autumn recipe.",
+   "sources": [
+    {
+     "name": "Maangchi — Sweet Potato Rice (Goguma-bap)",
+     "url": "https://www.maangchi.com/recipe/gogumabap/comment-page-2"
+    },
+    {
+     "name": "Maangchi — Korean recipes made with sweet potato",
+     "url": "https://www.maangchi.com/made-with/sweet-potato"
+    }
+   ],
+   "page": "recipe-goguma-bap.html",
+   "aliases": [],
+   "kidFriendly": true
+  },
+  {
+   "id": "chinese-lotus-root-soup",
+   "name": "Chinese Lotus Root Soup",
+   "region": "China — particularly southern Chinese home cooking",
+   "season": "Autumn",
+   "seasonWhy": "Lotus root is strongly associated with autumn harvest cooking in China, and its crisp texture and availability make it particularly suited to seasonal soups. Lotus root brings a distinctly Asian autumn ingredient and visual identity to the collection — autumn doesn't have to mean only orange squash and warming spices.",
+   "category": "food",
+   "festive": false,
+   "festival": null,
+   "vratCompatible": null,
+   "veg": true,
+   "vegNote": "VEGETARIAN: YES; VEGAN: YES for the version specified here. This is important because some Chinese lotus-root soups traditionally use pork ribs, chicken or other meat. The Rasalaya version should explicitly use mushrooms and peanuts for body and flavor rather than meat. Food Network Kitchen identifies its lotus-root soup as vegan.",
+   "kidVersion": {
+    "title": "Kids love it",
+    "text": "With a simple adaptation: slice the lotus root thinly so it is easier to chew, use fewer ginger slices, keep the broth lightly salted, serve soft carrots, peanuts only if age-appropriate, and tender lotus root; for younger children, strain the broth and serve the soft vegetables separately. Because the soup is mild and slightly sweet from the carrots and dates, it does not need chili or strong seasoning."
+   },
+   "ingredients": {
+    "groups": [
+     {
+      "title": "4 servings, vegetarian/vegan",
+      "items": [
+       "1 lb / 450 g fresh lotus root",
+       "2 medium carrots",
+       "6–8 dried shiitake mushrooms",
+       "½ cup raw peanuts",
+       "6–8 dried red dates (jujubes)",
+       "1-inch / 2.5-cm piece fresh ginger, sliced",
+       "8 cups / 1.9 L water",
+       "1–1½ tsp salt, or to taste"
+      ]
+     }
+    ]
+   },
+   "method": [
+    "Soak the dried shiitake mushrooms in warm water until softened, usually 20–30 minutes. Reserve the soaking liquid if it is clean.",
+    "Soak the peanuts for several hours or overnight if desired.",
+    "Peel the lotus root and slice it into rounds.",
+    "Peel the carrots and cut them into thick pieces.",
+    "Slice the ginger.",
+    "Put the lotus root, carrots, mushrooms, peanuts, red dates and ginger into a large soup pot.",
+    "Add about 8 cups water.",
+    "Bring to a boil, then reduce to a gentle simmer.",
+    "Cover partially and cook until the lotus root, peanuts and carrots are tender — about 1½–2 hours for a deeply flavored soup.",
+    "Season with salt toward the end.",
+    "Taste and adjust the seasoning.",
+    "Serve hot, with the lotus-root slices and other ingredients in the bowl along with the broth."
+   ],
+   "story": "The cross-section of lotus root has a distinctive pattern of holes, which makes it immediately recognizable in the bowl. Those holes aren't just decorative: they are part of the lotus plant's internal air-channel system. It also gives Rasalaya a nice cultural counterpoint to the first five dishes: autumn seasonal cooking can be based on harvest availability and traditional food culture without relying on Western “fall” flavor conventions.",
+   "sources": [
+    {
+     "name": "Food Network Kitchen — Chinese Lotus Root Soup",
+     "url": "https://www.foodnetwork.com/recipes/food-network-kitchen/chinese-lotus-root-soup-19486670"
+    },
+    {
+     "name": "Encyclopaedia Britannica / botanical references (plant background)",
+     "url": null
+    }
+   ],
+   "page": "recipe-chinese-lotus-root-soup.html",
+   "aliases": [],
+   "kidFriendly": true
+  },
+  {
+   "id": "castagnaccio",
+   "name": "Castagnaccio",
+   "region": "Tuscany, Italy",
+   "season": "Autumn",
+   "seasonWhy": "Chestnuts are traditionally harvested in autumn in Tuscany and other Italian mountain regions; chestnut flour was historically made from the autumn harvest and stored through the year. The rosemary, nuts and dried-fruit flavours fit the cooler-season pantry. Best months: October–November.",
+   "category": "snack",
+   "festive": false,
+   "festival": null,
+   "vratCompatible": null,
+   "veg": true,
+   "vegNote": "VEGETARIAN: YES — also vegan, dairy-free, egg-free and naturally gluten-free. Traditional castagnaccio contains no butter, eggs or milk.",
+   "kidVersion": {
+    "title": "Kids love it",
+    "text": "An easy adaptation exists for children: reduce the rosemary slightly, chop the walnuts finely, use extra raisins for natural sweetness, and serve in small squares like snack bars. Note the texture is unusual for children expecting cake — it is more like a dense chestnut brownie or polenta slice."
+   },
+   "ingredients": {
+    "groups": [
+     {
+      "title": "Batter (serves 6–8)",
+      "items": [
+       "300 g chestnut flour (about 2½ cups)",
+       "380–400 ml water (about 1⅔ cups)",
+       "½ tsp fine sea salt",
+       "2 Tbsp extra-virgin olive oil"
+      ]
+     },
+     {
+      "title": "Add-ins",
+      "items": [
+       "50 g raisins (⅓ cup)",
+       "30 g pine nuts (¼ cup)",
+       "50 g walnuts, roughly chopped (½ cup)",
+       "Fresh rosemary needles, from 1–2 small sprigs"
+      ]
+     },
+     {
+      "title": "Finishing",
+      "items": [
+       "1–2 Tbsp extra-virgin olive oil, for drizzling"
+      ]
+     }
+    ]
+   },
+   "method": [
+    "Place the raisins in warm water and soak for 10 minutes until softened.",
+    "Preheat the oven to 180°C / 350°F.",
+    "Sift the chestnut flour into a large mixing bowl.",
+    "Add the salt.",
+    "Slowly pour in the water while whisking continuously to prevent lumps.",
+    "Add the olive oil and mix until the batter is smooth.",
+    "Drain the raisins and squeeze out excess water.",
+    "Stir half the raisins, half the pine nuts and half the walnuts into the batter.",
+    "Oil a shallow baking pan generously.",
+    "Pour the batter into the pan — it should be relatively thin, about 1–2 cm deep.",
+    "Scatter the remaining nuts and raisins over the top.",
+    "Sprinkle the rosemary needles over the surface.",
+    "Drizzle with olive oil.",
+    "Bake for approximately 30–35 minutes, until the surface develops characteristic cracks.",
+    "Cool before slicing."
+   ],
+   "story": "Castagnaccio is a beautiful example of “poor cuisine” becoming heritage cuisine. For centuries, chestnuts were called the “bread tree” in some mountain regions, because chestnut flour could provide calories when wheat was scarce — the original dish was a practical way to turn stored chestnut flour into nourishing food, not a luxury dessert. A traditional Tuscan belief also associated rosemary with romance and courtship, giving the herb a folkloric role beyond flavour.",
+   "sources": [
+    {
+     "name": "Visit Tuscany — Castagnaccio recipe",
+     "url": "https://www.visittuscany.com/en/recipes/castagnaccio-recipe/"
+    },
+    {
+     "name": "Recipes from Italy — Traditional Tuscan Castagnaccio",
+     "url": "https://www.recipesfromitaly.com/castagnaccio-recipe/"
+    },
+    {
+     "name": "Memorie di Angelina — Castagnaccio",
+     "url": "https://memoriediangelina.com/2025/11/14/castagnaccio/"
+    }
+   ],
+   "page": "recipe-castagnaccio.html",
+   "aliases": [],
+   "kidFriendly": true
+  },
+  {
+   "id": "krupnik",
+   "name": "Krupnik",
+   "region": "Poland",
+   "season": "Autumn",
+   "seasonWhy": "Uses barley, a traditional cool-weather grain, and dried mushrooms historically gathered in autumn and preserved for winter soups; root vegetables make it a hearty cold-weather soup. Peak season: October–February.",
+   "category": "food",
+   "festive": false,
+   "festival": null,
+   "vratCompatible": null,
+   "veg": true,
+   "vegNote": "VEGETARIAN VERSION: YES — uses vegetable stock instead of meat stock, mushrooms for depth, and no meat products. Traditional versions may contain meat or meat broth, so Rasalaya labels this specifically “Vegetarian Krupnik (mushroom-barley version)”.",
+   "kidVersion": {
+    "title": "Kids love it",
+    "text": "An easy adaptation exists for children: chop the vegetables very finely, use mild mushrooms such as cremini, reduce the pepper, and add a little sour cream or yogurt swirl if dairy is used. The barley texture makes it similar to familiar rice soups."
+   },
+   "ingredients": {
+    "groups": [
+     {
+      "title": "Mushroom base (serves 6)",
+      "items": [
+       "20 g dried porcini mushrooms",
+       "250 ml hot water, for soaking",
+       "200 g fresh mushrooms, sliced"
+      ]
+     },
+     {
+      "title": "Vegetables",
+      "items": [
+       "2 Tbsp olive oil or butter",
+       "1 large onion (150 g), diced",
+       "2 medium carrots, diced",
+       "2 celery stalks, diced",
+       "2 medium potatoes (300 g), cubed",
+       "2 garlic cloves, minced (optional)"
+      ]
+     },
+     {
+      "title": "Soup",
+      "items": [
+       "150 g pearl barley (¾ cup)",
+       "1.5 litres vegetable stock",
+       "1 bay leaf",
+       "½ tsp black pepper",
+       "Salt, to taste"
+      ]
+     },
+     {
+      "title": "Finish",
+      "items": [
+       "2 Tbsp fresh dill or parsley",
+       "Sour cream, optional"
+      ]
+     }
+    ]
+   },
+   "method": [
+    "Soak the dried mushrooms in hot water for 20–30 minutes.",
+    "Remove the mushrooms and chop finely.",
+    "Strain the soaking liquid to remove grit.",
+    "Heat the olive oil or butter in a soup pot.",
+    "Add the onion and cook until soft.",
+    "Add the carrots and celery; cook for 5 minutes.",
+    "Add the fresh mushrooms and dried mushrooms.",
+    "Cook until the mushrooms release their aroma.",
+    "Add the barley and stir briefly.",
+    "Add the vegetable stock and the mushroom soaking liquid.",
+    "Add the bay leaf and pepper.",
+    "Simmer for 30–40 minutes, until the barley becomes tender.",
+    "Add the potatoes halfway through cooking so they remain intact.",
+    "Adjust the seasoning.",
+    "Finish with dill or parsley.",
+    "Serve warm with optional sour cream."
+   ],
+   "story": "Krupnik shows how Eastern European cuisines preserved forest foods. Wild mushrooms were traditionally gathered in autumn, dried, and saved for soups during winter when fresh produce was limited — the dried mushrooms provide the deep savoury flavour that makes the vegetarian version satisfying without meat broth.",
+   "sources": [
+    {
+     "name": "The Nosher — Vegetarian Mushroom Barley Soup",
+     "url": "https://www.myjewishlearning.com/the-nosher/vegetarian-mushroom-barley-soup-recipe/"
+    },
+    {
+     "name": "Food.com — Krupnik (Polish Mushroom Barley Soup)",
+     "url": "https://www.food.com/recipe/krupnik-polish-mushroom-barley-soup-49654"
+    },
+    {
+     "name": "Everyday Healthy Recipes — Polish Krupnik Barley Soup",
+     "url": "https://www.everydayhealthyrecipes.com/polish-krupnik-barley-soup/"
+    }
+   ],
+   "page": "recipe-krupnik.html",
+   "aliases": [],
+   "kidFriendly": true
+  },
+  {
+   "id": "pumpkin-gnocchi",
+   "name": "Pumpkin Gnocchi",
+   "region": "Northern Italy — Lombardy (Mantua)",
+   "season": "Autumn",
+   "seasonWhy": "Pumpkin is an iconic autumn harvest ingredient; the dish traditionally uses winter squash harvested in late summer and autumn. Warm sage, butter and cheese pair naturally with cooler weather.",
+   "category": "food",
+   "festive": false,
+   "festival": null,
+   "vratCompatible": null,
+   "veg": true,
+   "vegNote": "VEGETARIAN: YES — with an important note: use vegetarian-certified Parmesan or vegetarian hard cheese, because many traditional Parmesan cheeses use animal-derived rennet. The recipe below assumes vegetarian-certified Parmesan.",
+   "kidVersion": {
+    "title": "Kids love it",
+    "text": "An easy adaptation exists for children: use sweeter pumpkin varieties, reduce the nutmeg, serve with a simple butter or olive-oil sauce, and cut the gnocchi smaller. Children often enjoy the soft dumpling texture and mild sweetness."
+   },
+   "ingredients": {
+    "groups": [
+     {
+      "title": "Gnocchi dough (serves 4)",
+      "items": [
+       "500 g pumpkin or butternut squash purée",
+       "250 g potato, boiled and mashed",
+       "250–300 g all-purpose flour (add gradually)",
+       "1 egg",
+       "1 tsp salt",
+       "¼ tsp nutmeg"
+      ]
+     },
+     {
+      "title": "Sauce",
+      "items": [
+       "4 Tbsp butter",
+       "10–12 fresh sage leaves",
+       "60 g vegetarian-certified Parmesan, grated",
+       "Black pepper, optional"
+      ]
+     }
+    ]
+   },
+   "method": [
+    "Roast the pumpkin pieces until tender and the moisture has evaporated.",
+    "Mash or purée the pumpkin.",
+    "Combine the pumpkin with the mashed potato.",
+    "Add the egg, salt and nutmeg.",
+    "Add the flour gradually until a soft dough forms.",
+    "Avoid adding too much flour — the gnocchi should remain tender.",
+    "Divide the dough into portions.",
+    "Roll each portion into ropes about 2 cm thick.",
+    "Cut into small pillow-shaped pieces.",
+    "Optional: press lightly with a fork to create ridges.",
+    "Bring a large pot of salted water to a gentle boil.",
+    "Cook the gnocchi in batches.",
+    "When they float to the surface, remove with a slotted spoon.",
+    "Melt the butter in a pan.",
+    "Add the sage leaves and warm until fragrant.",
+    "Toss the cooked gnocchi in the sage butter.",
+    "Finish with vegetarian-certified Parmesan and black pepper.",
+    "Serve immediately."
+   ],
+   "story": "Pumpkin gnocchi reflects northern Italy’s tradition of transforming inexpensive seasonal crops into comforting dishes. Mantua’s cuisine is especially famous for pumpkin preparations — including pumpkin-filled pasta and pumpkin gnocchi — where the sweetness of pumpkin is traditionally balanced with savoury cheese, nutmeg and herbs.",
+   "sources": [
+    {
+     "name": "Pasta Fantasy — Pumpkin Gnocchi",
+     "url": "https://pastafantasy.com/pumpkin-gnocchi-from-scratch/"
+    },
+    {
+     "name": "Tesco Recipes — Pumpkin Gnocchi",
+     "url": "https://www.tesco.com/recipes/en-GB/recipe/pumpkin-gnocchi"
+    },
+    {
+     "name": "Food.com — Northern Italian Pumpkin Gnocchi with Sage Butter",
+     "url": "https://www.food.com/recipe/northern-italian-pumpkin-gnocchi-with-sage-butter-491363?ref=amp&ftab=reviews"
+    }
+   ],
+   "page": "recipe-pumpkin-gnocchi.html",
+   "aliases": [],
+   "kidFriendly": true
+  },
+  {
+   "id": "sabudana-khichdi",
+   "name": "Sabudana Khichdi",
+   "region": "Maharashtra, India",
+   "season": "Autumn",
+   "seasonWhy": "Festival: Sharad Navratri / vrat — especially appropriate October 11–19, 2026. Sabudana khichdi is one of the most recognizable vrat foods associated with Navratri, as well as Ekadashi and Maha Shivratri. Its importance comes from the fasting-food system in which sabudana is treated as an acceptable non-grain ingredient.",
+   "category": "food",
+   "festive": true,
+   "festival": "Navratri",
+   "vratCompatible": true,
+   "veg": true,
+   "vegNote": "VEGETARIAN: YES. The standard vrat formulation uses sabudana, potato, peanuts, cumin, lemon and vegetable oil or ghee, with no meat, fish or eggs. It is also gluten-free and grain-free in the culinary sense relevant to vrat cooking. Vegan: potentially yes if prepared with oil rather than ghee.",
+   "kidVersion": {
+    "title": "Kids love it",
+    "text": "Naturally kid-adaptable, but no distinct historical “children's version” is necessary. For children: omit green chili, reduce sendha namak, use finely diced, very soft potatoes, keep the peanut pieces coarse enough to retain texture but appropriately prepared for the child's age, and serve with plain yogurt. The naturally mild, slightly chewy pearls and soft potato make the basic dish approachable to children."
+   },
+   "ingredients": {
+    "groups": [
+     {
+      "title": "Serves 3–4",
+      "items": [
+       "1 cup / approximately 150–200 g medium sabudana (tapioca pearls)",
+       "About ¾ cup / 180 ml water, for soaking",
+       "½ cup / 75 g raw peanuts, roasted and coarsely crushed",
+       "2 medium potatoes, peeled and diced small",
+       "2 Tbsp peanut oil or ghee",
+       "1 tsp cumin seeds",
+       "2 green chilies, finely chopped — optional",
+       "1 tsp sugar",
+       "1 tsp sendha namak (rock salt), or to taste",
+       "1 Tbsp lemon juice",
+       "2 Tbsp chopped fresh coriander, optional"
+      ]
+     }
+    ]
+   },
+   "method": [
+    "Rinse the sabudana several times until the water is mostly clear.",
+    "Put it in a bowl and add enough water to just wet/cover the pearls rather than leaving them submerged in a large volume.",
+    "Soak for about 4–8 hours or overnight, depending on the sabudana. A pearl should crush easily between your fingers when properly hydrated.",
+    "Drain very thoroughly and allow the sabudana to rest for about 20–30 minutes.",
+    "Dry-roast the peanuts until fragrant. Cool and crush them coarsely.",
+    "Mix the drained sabudana with the crushed peanuts, sugar and sendha namak.",
+    "Heat oil or ghee in a wide pan.",
+    "Add cumin seeds and let them sizzle.",
+    "Add diced potato and cook until tender and lightly golden.",
+    "Add green chili if using.",
+    "Add the sabudana-peanut mixture.",
+    "Toss gently over medium-low heat. Don't mash or aggressively stir the pearls.",
+    "Cook until the sabudana becomes translucent and glossy, generally about 5–8 minutes.",
+    "Turn off the heat.",
+    "Add lemon juice and coriander.",
+    "Serve hot, traditionally with plain or sweetened yogurt."
+   ],
+   "story": "The deceptively simple dish has a reputation for being technically tricky: the soak determines the texture. Too much water and the pearls become sticky; correctly hydrated pearls remain separate, translucent and pleasantly chewy. It is also interesting that sabudana isn't a grain at all: the pearls are made from tapioca/cassava starch. That helps explain its place in many fasting-food traditions.",
+   "sources": [
+    {
+     "name": "Raks Kitchen — Sabudana Khichdi, Vrat Recipe",
+     "url": "https://rakskitchen.net/sabudana-khichdi-recipe-how-to-make-sabudana-khichdi/"
+    },
+    {
+     "name": "NDTV Food — Sabudana Khichdi",
+     "url": "https://food.ndtv.com/recipe-sabudana-khichdi-280328"
+    },
+    {
+     "name": "Easy Indian Cookbook — Maharashtrian Sabudana Khichdi",
+     "url": "https://easyindiancookbook.com/sabudana-khichdi-recipe/"
+    }
+   ],
+   "page": "recipe-sabudana-khichdi.html",
+   "aliases": [],
+   "kidFriendly": true
+  },
+  {
+   "id": "sabudana-vada",
+   "name": "Sabudana Vada",
+   "region": "Maharashtra, India",
+   "season": "Autumn",
+   "seasonWhy": "Festival: Sharad Navratri / vrat. Sabudana vada is explicitly documented as a fasting food, including during Navratri. It is also associated with other Hindu fasting occasions such as Ekadashi and Maha Shivratri. Sharad Navratri: October 11–19, 2026; Dussehra/Vijayadashami: October 20, 2026.",
+   "category": "snack",
+   "festive": true,
+   "festival": "Navratri",
+   "vratCompatible": true,
+   "veg": true,
+   "vegNote": "VEGETARIAN: YES. The documented fasting recipe contains sabudana, potato, peanuts, herbs, spices, lemon and frying oil and is explicitly described as vegan. Vegan: yes, when fried in vegetable/peanut oil rather than ghee.",
+   "kidVersion": {
+    "title": "Kids love it",
+    "text": "Adaptation rather than a separate traditional children's recipe. For children: omit green chili, omit ginger if desired, use finely mashed potato, make smaller, thinner patties, and serve with plain yogurt instead of spicy chutney. The interior becomes soft and potato-rich while the outside remains crisp."
+   },
+   "ingredients": {
+    "groups": [
+     {
+      "title": "Makes approximately 12–14 vadas",
+      "items": [
+       "1 cup / 200 g sabudana",
+       "Water, for soaking",
+       "3 medium potatoes / about 350 g, boiled, peeled and mashed",
+       "½ cup / 75 g roasted peanuts, skinned and coarsely ground",
+       "2 green chilies, finely chopped",
+       "1 tsp grated fresh ginger — optional depending on fasting practice",
+       "1 tsp cumin seeds",
+       "1 tsp sendha namak, or to taste",
+       "1 tsp sugar",
+       "1 Tbsp lemon juice",
+       "2 Tbsp chopped fresh coriander",
+       "Peanut oil or another suitable frying oil, for deep-frying"
+      ]
+     }
+    ]
+   },
+   "method": [
+    "Rinse the sabudana.",
+    "Soak it for approximately 4–5 hours, using only enough water to hydrate it.",
+    "Drain it extremely well and leave it in a colander for at least 20 minutes.",
+    "Boil the potatoes until completely tender.",
+    "Peel and mash them while warm.",
+    "Roast the peanuts and grind them coarsely.",
+    "Combine sabudana, mashed potato and peanuts.",
+    "Add cumin, sendha namak, sugar, lemon juice, coriander and optional ginger and green chili.",
+    "Mix gently until the mixture holds together when pressed.",
+    "Grease your hands.",
+    "Take a small portion and flatten it into a patty about 1 cm thick.",
+    "Shape all the vadas before beginning to fry.",
+    "Heat the oil over medium heat.",
+    "Test with a tiny piece of mixture: it should rise steadily without immediately browning.",
+    "Fry 4–5 vadas at a time.",
+    "Leave them undisturbed initially so the exterior firms up.",
+    "Turn once and fry until crisp and deep golden.",
+    "Drain on paper towels.",
+    "Serve hot, traditionally with vrat-style chutney or yogurt."
+   ],
+   "story": "Sabudana vada is a great example of how texture is engineered without wheat or another flour. Potato starch and ground peanuts bind the hydrated tapioca pearls together, so the mixture can be shaped into patties without a conventional flour binder. Its texture is deliberately contrasting: crisp outside, soft and chewy inside.",
+   "sources": [
+    {
+     "name": "Dassana's Veg Recipes — Sabudana Vada for Fasting",
+     "url": "https://www.vegrecipesofindia.com/sabudana-vada-recipe-how-to-make-sabudana-vada-recipe/"
+    },
+    {
+     "name": "Panchangya — Sabudana Vada Vrat Recipe",
+     "url": "https://panchangya.com/en/recipe/sabudana-vada"
+    },
+    {
+     "name": "Raks Kitchen — Sabudana Vada",
+     "url": "https://rakskitchen.net/sabudana-vada-recipe-navratri-vrat-ka-khana-snacks/"
+    }
+   ],
+   "page": "recipe-sabudana-vada.html",
+   "aliases": [],
+   "kidFriendly": true
+  },
+  {
+   "id": "kuttu-ki-puri",
+   "name": "Kuttu Ki Puri",
+   "region": "North India",
+   "season": "Autumn",
+   "seasonWhy": "Festival: Sharad Navratri / vrat. Kuttu is one of the principal flours used in North Indian fasting cuisine. Kuttu puri is specifically documented as a food prepared during Sharad Navratri, as well as other fasting occasions. It illustrates an important principle of vrat cuisine: buckwheat is botanically a seed rather than a conventional cereal grain, yet its flour can be turned into a bread-like food.",
+   "category": "food",
+   "festive": true,
+   "festival": "Navratri",
+   "vratCompatible": true,
+   "veg": true,
+   "vegNote": "VEGETARIAN: YES. The documented fasting versions contain buckwheat flour, potato, rock salt and either ghee or vegetable/peanut oil. Vegan: only if fried in vegetable/peanut oil rather than ghee. Gluten-free: buckwheat itself is gluten-free, but certified gluten-free flour is recommended for people with celiac disease because cross-contamination can occur.",
+   "kidVersion": {
+    "title": "Kids love it",
+    "text": "Simple adaptation. For children: omit green chili, use a little less pepper, make small puris, roll them slightly thicker so they remain soft inside, and serve with plain yogurt or mild potato curry. Because kuttu can have a distinctive earthy flavor, the potato-rich dough is generally the gentler introduction for children."
+   },
+   "ingredients": {
+    "groups": [
+     {
+      "title": "Makes approximately 10–12 puris",
+      "items": [
+       "240–250 g / about 2 cups kuttu atta (buckwheat flour)",
+       "125–250 g boiled potato, mashed very smooth (about 200 g for a flexible dough)",
+       "1 tsp sendha namak",
+       "½ tsp freshly ground black pepper",
+       "½ tsp ajwain (carom seeds), optional",
+       "1 green chili, finely minced, optional",
+       "2–3 Tbsp warm water, only if necessary",
+       "Ghee or peanut oil, for deep-frying",
+       "Additional kuttu flour or greased parchment, for shaping"
+      ]
+     }
+    ]
+   },
+   "method": [
+    "Boil the potatoes until completely soft.",
+    "Peel and mash them until smooth, with no large lumps.",
+    "Sift the kuttu flour into a wide bowl.",
+    "Add sendha namak and optional pepper/ajwain.",
+    "Add the mashed potato.",
+    "Mix and knead gently with your fingers.",
+    "Add a little warm water only if necessary. The dough should be soft enough to shape but not wet.",
+    "Cover and rest for about 20–30 minutes.",
+    "Divide into small balls.",
+    "Because kuttu dough is fragile and gluten-free, flatten each ball carefully between lightly greased sheets or on a lightly greased surface.",
+    "Roll into small rounds, roughly 3–4 inches across.",
+    "Heat ghee or peanut oil in a deep pan.",
+    "Test the temperature with a small piece of dough; it should rise promptly.",
+    "Slide one puri carefully into the hot fat.",
+    "Gently press the center with a slotted spoon to encourage puffing.",
+    "Turn once and fry until cooked and lightly golden.",
+    "Drain.",
+    "Repeat with the remaining puris.",
+    "Serve hot with vrat-friendly potato curry, yogurt or another permitted accompaniment."
+   ],
+   "story": "The most interesting technical fact is that kuttu flour has no gluten, so a normal wheat-style dough technique doesn't work. The boiled potato supplies the binding structure that lets cooks roll and fry the puris. That also explains why kuttu puris can be challenging for beginners: the dough is much more fragile than ordinary atta dough.",
+   "sources": [
+    {
+     "name": "Panchangya — Kuttu Ki Puri, Vrat Recipe",
+     "url": "https://panchangya.com/en/recipe/kuttu-ki-puri"
+    },
+    {
+     "name": "NDTV Food — Kuttu Ki Puri",
+     "url": "https://food.ndtv.com/recipe-kuttu-ki-puri-281512"
+    },
+    {
+     "name": "Dassana's Veg Recipes — Kuttu Ki Puri / Vrat Ki Poori",
+     "url": "https://www.vegrecipesofindia.com/kuttu-ki-poori-recipe/"
+    }
+   ],
+   "page": "recipe-kuttu-ki-puri.html",
+   "aliases": [],
+   "kidFriendly": true
+  },
+  {
+   "id": "samak-rice-khichdi",
+   "name": "Samak Rice Khichdi",
+   "region": "North and western India (Maharashtra and Gujarat)",
+   "season": "Autumn",
+   "seasonWhy": "Sharad Navratri / Navratri vrat — October 11–19, 2026; associated with the wider Dussehra period culminating October 20. Samak is one of the traditional foods used in Hindu fasting when ordinary cereal grains and pulses are avoided. Database note: the festival connection is stronger than a seasonal/harvest connection here — its place in the collection comes from religious fasting tradition, not from October being the natural harvest season for samak.",
+   "category": "food",
+   "festive": true,
+   "festival": "Navratri",
+   "vratCompatible": true,
+   "veg": true,
+   "vegNote": "YES — vegetarian. It can also be vegan if ghee is replaced with vegetable or peanut oil.",
+   "kidVersion": {
+    "title": "Kids love it",
+    "text": "For children: omit green chili and ginger if desired, use soft, small potato cubes, reduce black pepper, make the khichdi softer with a little additional water, and serve with plain yogurt if dairy is permitted. This is naturally a fairly approachable children's dish because it is soft and spoonable."
+   },
+   "ingredients": {
+    "groups": [
+     {
+      "title": "Makes about 3 servings",
+      "items": [
+       "1 cup / 180 g samak (barnyard millet), rinsed and soaked for 20 minutes",
+       "1 medium potato, about 120 g, peeled and diced",
+       "⅓ cup / 50 g raw peanuts",
+       "2 Tbsp ghee",
+       "1 tsp cumin seeds",
+       "1 tsp grated fresh ginger",
+       "1 green chili, finely chopped — optional",
+       "3 cups / 720 ml hot water",
+       "1 tsp sendha namak, or to taste",
+       "½ tsp ground black pepper",
+       "2 Tbsp fresh coriander, chopped",
+       "1 Tbsp lemon juice"
+      ]
+     },
+     {
+      "title": "Optional",
+      "items": [
+       "1 small tomato, diced, if permitted by the household's fasting tradition"
+      ]
+     }
+    ]
+   },
+   "method": [
+    "Rinse the samak thoroughly and soak for about 20 minutes. Drain.",
+    "Heat the ghee in a heavy pan or pressure cooker.",
+    "Add the peanuts and sauté for about 2 minutes until lightly toasted.",
+    "Add cumin seeds; once fragrant, add ginger and optional green chili.",
+    "Add the diced potato and sauté for about 3 minutes.",
+    "Add the drained samak, sendha namak and black pepper. Stir gently for about a minute.",
+    "Add the hot water.",
+    "Pressure-cooker method: cook for 1 whistle over medium heat, then allow the pressure to release naturally.",
+    "Stovetop method: cover and simmer for roughly 12–15 minutes, until the millet is tender and the mixture is soft and spoonable.",
+    "Stir gently and adjust the consistency with a little hot water if needed.",
+    "Finish with lemon juice and coriander. Serve hot, traditionally with vrat-friendly yogurt/curd."
+   ],
+   "story": "The name “samak rice” is misleading: samak is barnyard millet, not rice. The “rice” terminology comes from its use as a rice substitute during fasting. Different regions give the same little grain different names — sama, samak, samvat, bhagar, moraiyo, sanwa and others.",
+   "sources": [
+    {
+     "name": "Panchangya — Samak Khichdi",
+     "url": "https://panchangya.com/en/recipe/samak-khichdi"
+    },
+    {
+     "name": "Dassana's Veg Recipes — Samak Rice Pulao / Barnyard Millet",
+     "url": "https://www.vegrecipesofindia.com/vrat-ke-chawal-ka-pulao-samvat-pulao/"
+    },
+    {
+     "name": "Orggu — Samak Khichdi",
+     "url": "https://www.orggu.com/recipes/samak-khichdi/"
+    }
+   ],
+   "page": "recipe-samak-rice-khichdi.html",
+   "aliases": [],
+   "kidFriendly": true
+  },
+  {
+   "id": "singhara-atta-cheela",
+   "name": "Singhara Atta Cheela",
+   "region": "North India",
+   "season": "Autumn",
+   "seasonWhy": "Sharad Navratri / Navratri vrat — October 11–19, 2026. Singhara atta is a classic fasting flour used when wheat and other ordinary grains are avoided. The seasonal classification here is festival-based rather than agricultural-season-based: it belongs in the autumn collection because Sharad Navratri falls in October 2026.",
+   "category": "food",
+   "festive": true,
+   "festival": "Navratri",
+   "vratCompatible": true,
+   "veg": true,
+   "vegNote": "YES — vegetarian. It can be vegan when cooked with oil rather than ghee and served without dairy. It is also naturally gluten-free, although anyone with celiac disease should use appropriately certified flour to avoid cross-contact.",
+   "kidVersion": {
+    "title": "Kids love it",
+    "text": "A child-friendly version can: omit green chili, use very little black pepper, make smaller, thicker pancakes, serve with mild plain yogurt, and optionally add finely grated potato for a softer texture. This is particularly easy to adapt because the basic batter contains no inherently spicy ingredients."
+   },
+   "ingredients": {
+    "groups": [
+     {
+      "title": "Makes about 4 medium cheelas",
+      "items": [
+       "¾ cup / about 90 g singhara atta (water chestnut flour)",
+       "½ tsp cumin powder",
+       "½ tsp black pepper, freshly ground",
+       "½–1 green chili, finely chopped — optional",
+       "1 Tbsp fresh coriander, finely chopped",
+       "½ tsp sendha namak, or to taste",
+       "About ¾–1 cup water, as needed",
+       "2–3 tsp ghee or neutral oil for cooking"
+      ]
+     },
+     {
+      "title": "Optional additions",
+      "items": [
+       "a little grated potato or other vrat-permitted vegetable, depending on household practice"
+      ]
+     }
+    ]
+   },
+   "method": [
+    "Put the singhara atta into a mixing bowl.",
+    "Add cumin, black pepper, coriander, optional green chili and sendha namak.",
+    "Gradually add water while whisking to form a smooth, pourable batter.",
+    "Let the batter rest for about 10 minutes; add a little more water if it thickens.",
+    "Heat a lightly greased tawa or nonstick pan over medium heat.",
+    "Pour a ladleful of batter onto the pan.",
+    "Gently spread it into a round shape. Don't make it excessively thin because singhara batter is more fragile than wheat-based batter.",
+    "Drizzle a little ghee/oil around the edges.",
+    "Cook for roughly 2–3 minutes until the underside is set and lightly browned.",
+    "Carefully flip and cook the second side for another 1–2 minutes.",
+    "Serve hot with plain yogurt or a fasting-compatible chutney."
+   ],
+   "story": "The interesting ingredient here is water chestnut flour rather than a conventional grain flour. During Navratri, singhara atta provides a way to make something resembling a pancake/flatbread while observing fasting food restrictions.",
+   "sources": [
+    {
+     "name": "Archana's Kitchen — Singhara Atta Cheela",
+     "url": "https://www.archanaskitchen.com/recipe/singhara-atta-cheela-recipe-no-onion-no-garlic-navratri-fasting-vrat-recipe"
+    },
+    {
+     "name": "Healthically Kitchen — Singhara Atta Chilla",
+     "url": "https://www.healthicallykitchen.com/singhara-atta-chilla-fasting-vrat-special-recipe/"
+    },
+    {
+     "name": "Hindustan Times — Singhara Atta Cheela for Navratri fasting",
+     "url": "https://www.hindustantimes.com/lifestyle/recipe/navratri-fasting-recipes-2022-5-delicious-singhara-atta-recipes-to-relish-101664677264078.html"
+    }
+   ],
+   "page": "recipe-singhara-atta-cheela.html",
+   "aliases": [],
+   "kidFriendly": true
+  },
+  {
+   "id": "dahi-aloo",
+   "name": "Dahi Aloo",
+   "region": "Rajasthan and western Uttar Pradesh (documented vrat preparation)",
+   "season": "Autumn",
+   "seasonWhy": "Sharad Navratri / Navratri vrat — October 11–19, 2026. Dahi Aloo fits the festival collection because its vrat form is specifically used on Navratri fasting days and uses ingredients accepted within common phalahar/vrat traditions: potatoes, yogurt, sendha namak and fasting flours rather than ordinary besan or grain-based ingredients. It is also used during other fasting observances such as Ekadashi and Chaitra Navratri, so it should not be labeled as exclusively a Sharad Navratri dish.",
+   "category": "food",
+   "festive": true,
+   "festival": "Navratri",
+   "vratCompatible": true,
+   "veg": true,
+   "vegNote": "YES — vegetarian. It can be made vegan with unsweetened plant yogurt and oil instead of ghee, although that becomes a modern adaptation rather than the traditional dairy-based version.",
+   "kidVersion": {
+    "title": "Kids love it",
+    "text": "For children: omit green chili, reduce black pepper, use mild, fresh yogurt, keep potato pieces soft and relatively large, retain the small amount of sugar, which balances the yogurt's tang, and serve with a mild vrat flatbread or plain rice substitute."
+   },
+   "ingredients": {
+    "groups": [
+     {
+      "title": "Serves about 4",
+      "items": [
+       "500 g / 5–6 medium potatoes",
+       "1 cup / 250 g fresh plain yogurt/curd",
+       "1 Tbsp singhara atta or kuttu atta",
+       "2 Tbsp ghee",
+       "1 tsp cumin seeds",
+       "1 tsp fresh ginger, grated",
+       "2 green chilies, chopped — optional",
+       "½ tsp black pepper, ground",
+       "1 tsp sendha namak, or to taste",
+       "½ tsp sugar",
+       "1½ cups / 360 ml water",
+       "2 Tbsp fresh coriander, chopped"
+      ]
+     }
+    ]
+   },
+   "method": [
+    "Boil the potatoes until tender but not falling apart.",
+    "Peel them and break them into rough chunks rather than finely chopping them.",
+    "Whisk the yogurt until smooth.",
+    "Whisk the singhara or kuttu flour into the yogurt with about ½ cup of the water until completely lump-free.",
+    "Heat the ghee in a kadhai over medium heat.",
+    "Add cumin seeds.",
+    "Add ginger and optional green chili; sauté briefly.",
+    "Add the potatoes and cook for 3–4 minutes, lightly pressing a few pieces so some potato thickens the gravy.",
+    "Lower the heat.",
+    "Slowly pour in the yogurt mixture while stirring continuously in one direction. This helps prevent the yogurt from splitting.",
+    "Once it reaches a gentle boil, add the remaining water, sendha namak, black pepper and sugar.",
+    "Simmer uncovered for about 8–10 minutes, until the gravy thickens enough to coat a spoon.",
+    "Garnish with coriander and serve hot, traditionally alongside kuttu puri, rajgira paratha or samak rice."
+   ],
+   "story": "The interesting culinary trick is that fasting rules change the thickener. On an ordinary preparation, gram flour (besan) may be used, but in this vrat version, singhara or kuttu flour takes over that job. The flour also helps stabilize the yogurt so the gravy doesn't split as easily.",
+   "sources": [
+    {
+     "name": "Panchangya — Dahi Aloo vrat recipe",
+     "url": "https://panchangya.com/en/recipe/dahi-aloo"
+    },
+    {
+     "name": "NDTV Food — Vratwale Dahi Aloo",
+     "url": "https://food.ndtv.com/recipe-vratwale-dahi-aloo-951127"
+    },
+    {
+     "name": "Hetal Kamdar — Vrat Ke Dahi Aloo",
+     "url": "https://hetalkamdar.com/vrat-ke-dahi-aloo/"
+    }
+   ],
+   "page": "recipe-dahi-aloo.html",
+   "aliases": [],
+   "kidFriendly": true
+  },
+  {
+   "id": "makhana-kheer",
+   "name": "Makhana Kheer",
+   "region": "North India / broader North and Central Indian festive cuisine",
+   "season": "Autumn",
+   "seasonWhy": "Sharad Navratri / Navratri vrat — October 11–19, 2026. Makhana kheer is explicitly documented as a food for Sharad Navratri fasting, as well as other Hindu fasting observances such as Ekadashi, Janmashtami and Mahashivaratri. For the 2026 collection, its October placement is festival-based rather than harvest-season-based.",
+   "category": "snack",
+   "festive": true,
+   "festival": "Navratri",
+   "vratCompatible": true,
+   "veg": true,
+   "vegNote": "YES — vegetarian. It is traditionally made with milk and ghee. A vegan adaptation can use plant milk and vegan fat, although that is a modern adaptation rather than the classic preparation.",
+   "kidVersion": {
+    "title": "Kids love it",
+    "text": "Naturally kid-friendly. Possible adaptation: reduce or omit saffron if children don't like it, use finely crushed makhana for a smoother texture, reduce the nuts or grind them finely for younger children, serve chilled if preferred, and keep the sweetness moderate. For very young children, nuts should of course be prepared in an age-appropriate form."
+   },
+   "ingredients": {
+    "groups": [
+     {
+      "title": "Makes about 4 servings",
+      "items": [
+       "2 cups / approximately 50 g makhana (fox nuts)",
+       "1 litre / about 4¼ cups full-fat milk",
+       "1 Tbsp ghee",
+       "⅓ cup / about 70 g sugar, or to taste",
+       "½ tsp ground green cardamom",
+       "10 almonds, slivered",
+       "10 cashews, chopped",
+       "1 Tbsp raisins",
+       "8–10 pistachios, slivered",
+       "Pinch of saffron, optional",
+       "1 Tbsp warm milk for soaking saffron, if using"
+      ]
+     }
+    ]
+   },
+   "method": [
+    "Heat the ghee in a heavy-bottomed pan over low heat.",
+    "Add the makhana and roast for about 5–6 minutes, stirring frequently, until crisp.",
+    "Test one: it should crush easily between your fingers.",
+    "Remove from the pan and allow to cool slightly.",
+    "Coarsely crush about half of the makhana, leaving the rest whole or in large pieces. This gives the finished kheer contrasting textures.",
+    "In the same pan, lightly sauté the almonds and cashews for about a minute.",
+    "In a separate heavy-bottomed saucepan, bring the milk to a boil.",
+    "Reduce the heat and add the roasted makhana.",
+    "Simmer gently for about 15–20 minutes, stirring periodically so the milk doesn't scorch.",
+    "Add the sugar and cardamom.",
+    "Add the raisins, pistachios and optional saffron.",
+    "Continue simmering until the milk thickens and the makhana becomes soft.",
+    "Serve warm or chilled. Remember that kheer thickens further as it cools."
+   ],
+   "story": "Makhana behaves surprisingly like a grain in kheer: when roasted, crushed and simmered in milk, it releases enough starchiness to help the pudding become creamy. That's why it can stand in for rice in a kheer even though it isn't rice. A particularly nice Rasalaya fact is that one ingredient can appear in both savory and sweet vrat dishes: roasted makhana is eaten as a snack, while the same ingredient becomes a creamy festival dessert.",
+   "sources": [
+    {
+     "name": "Panchangya — Makhana Kheer",
+     "url": "https://panchangya.com/en/recipe/makhana-kheer"
+    },
+    {
+     "name": "Raks Kitchen — Makhane Ki Kheer",
+     "url": "https://rakskitchen.net/makhane-kheer-recipe/"
+    },
+    {
+     "name": "Dassana's Veg Recipes — Makhane Ki Kheer",
+     "url": "https://www.vegrecipesofindia.com/makhane-ki-kheer/"
+    }
+   ],
+   "page": "recipe-makhana-kheer.html",
+   "aliases": [],
+   "kidFriendly": true
+  },
+  {
+   "id": "jalebi",
+   "name": "Jalebi",
+   "region": "North India / Indian subcontinent",
+   "season": "Autumn",
+   "seasonWhy": "Dussehra / Vijayadashami — October 20, 2026. Jalebi has a particularly strong Dussehra/festival association in contemporary Indian food culture. Important classification: this is a Dussehra festive sweet, not a standard Navratri vrat food. Traditional jalebi contains maida, so it should not be placed in the same fasting-food category as sabudana, kuttu, singhara or samak.",
+   "category": "snack",
+   "festive": true,
+   "festival": "Dussehra",
+   "vratCompatible": false,
+   "veg": true,
+   "vegNote": "YES — vegetarian. The traditional recipe contains flour, gram flour, sugar and oil/ghee and contains no meat or fish. The cited recipe also identifies its jalebi as vegetarian/vegan when made with plant oil rather than ghee.",
+   "kidVersion": {
+    "title": "Kids love it",
+    "text": "Jalebi is naturally appealing to children, although it is a high-sugar fried sweet. For a kid-friendly serving: make smaller spirals, make them slightly less thick and easier to bite, allow excess syrup to drain, and serve as a small festive portion rather than an everyday snack. There is no separate historical “children's jalebi” version."
+   },
+   "ingredients": {
+    "groups": [
+     {
+      "title": "Batter (makes approximately 18–20 jalebis)",
+      "items": [
+       "1 cup / 125 g maida (all-purpose flour)",
+       "2 Tbsp besan (gram flour)",
+       "⅛ tsp turmeric powder, for natural color",
+       "Pinch baking soda",
+       "¾–1 cup water, as needed",
+       "Additional 1–2 Tbsp maida after fermentation, if necessary"
+      ]
+     },
+     {
+      "title": "Sugar syrup",
+      "items": [
+       "1 cup / 150 g sugar",
+       "½ cup / 120 ml water",
+       "¼ tsp saffron strands",
+       "¼ tsp lemon juice"
+      ]
+     },
+     {
+      "title": "For frying",
+      "items": [
+       "Neutral high-heat oil or ghee, as required"
+      ]
+     }
+    ]
+   },
+   "method": [
+    "Combine maida, besan, turmeric and baking soda.",
+    "Gradually add water to make a smooth, flowing but moderately thick batter.",
+    "Whisk/stir vigorously for several minutes to aerate it.",
+    "Cover and leave somewhere warm to ferment.",
+    "Depending on temperature, fermentation may take roughly 6–24 hours; a moderate room temperature commonly takes around 12–15 hours.",
+    "Once fermented, stir the batter. Add a little additional maida if it has become too thin.",
+    "Transfer the batter to a squeeze bottle, piping bag or similar container with a small opening.",
+    "For the syrup, combine sugar and water in a saucepan.",
+    "Add saffron and cook until the syrup reaches approximately one-string consistency.",
+    "Stir in the lemon juice and keep the syrup warm.",
+    "Heat the frying oil/ghee to approximately 350°F / 176°C.",
+    "Carefully squeeze the batter into the hot fat in concentric spirals.",
+    "Fry until crisp and lightly golden, turning as necessary.",
+    "Remove and drain briefly.",
+    "Immediately transfer the jalebi into the warm sugar syrup.",
+    "Turn once so both sides are coated and soak for roughly 2–3 minutes.",
+    "Remove and drain excess syrup.",
+    "Serve warm, at room temperature, or with milk/rabri."
+   ],
+   "story": "One of jalebi's defining characteristics is the contrast between crisp fried batter and liquid sugar syrup. The batter is fried into spirals and then soaked while the syrup is still warm. The fermentation also gives traditional jalebi its characteristic slight tang, which balances the sweetness. Jalebi vs. Imarti: both are spiral-shaped, syrup-soaked Indian sweets, but jalebi is flour-based, while imarti/jangiri is made from urad-dal batter. So they should be linked but not treated as aliases.",
+   "sources": [
+    {
+     "name": "Dassana's Veg Recipes — Jalebi",
+     "url": "https://www.vegrecipesofindia.com/jalebi-recipe-how-to-make-jalebi/"
+    },
+    {
+     "name": "NDTV Food — Celebrate Dussehra With Jalebi",
+     "url": "https://food.ndtv.com/food-drinks/celebrate-this-dussehra-with-mouthwatering-jalebis-as-shown-by-chef-saransh-goila-2575306"
+    },
+    {
+     "name": "Indian Express — Dussehra Jalebi",
+     "url": "https://gujarati.indianexpress.com/web-stories/health/dussehra-2025-jalebi-recipe-in-gujarati-step-by-step-halwai-style-ag/"
+    }
+   ],
+   "page": "recipe-jalebi.html",
+   "aliases": [],
+   "kidFriendly": true
+  }
+ ]
+}

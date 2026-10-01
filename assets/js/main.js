@@ -551,6 +551,14 @@ function initHeroSearch(){
    its season color) · rel-same = has recipes in this season (full color) ·
    rel-diff = has recipes, different season (faded) · rel-none/grey = no recipes yet
    (tap notes the region's current season + logs interest). */
+
+/* Season vs festival rule (her call 2026-10-01): festive dishes live under festival
+   collections; season pages list everyday dishes only and cross-link the festivals. */
+var FESTIVAL_PAGE={"Navratri":"festival-navratri.html","Dussehra":"festival-dussehra.html",
+  "Mid-Autumn Festival":"festival-mid-autumn-festival.html","Diwali":"festival-diwali.html",
+  "Thanksgiving":"festival-thanksgiving.html","Hanukkah":"festival-hanukkah.html",
+  "Christmas":"festival-christmas.html"};
+
 var REGION_META={
   'South India':{lat:13,lon:77,hemi:'N'},
   'India':{lat:22,lon:78,hemi:'N'},
@@ -590,7 +598,14 @@ function initSeasonPage(){
   var season=document.body.getAttribute('data-season');if(!season)return;
   var mapBox=$('#season-map'),grid=$('#season-grid');if(!mapBox||!grid)return;
   var all=(window.RASALAYA_RECIPES||[]);
-  var data=all.filter(function(r){return r.season===season;});
+  /* Season vs festival rule (her call 2026-10-01): festive dishes are NOT seasonal
+     mains — they live under festival collections. Season pages list everyday only. */
+  var data=all.filter(function(r){return r.season===season&&!r.festive;});
+  var festThisSeason={};
+  all.filter(function(r){return r.season===season&&r.festive&&r.festival;}).forEach(function(r){
+    if(!festThisSeason[r.festival])festThisSeason[r.festival]=[];
+    festThisSeason[r.festival].push(r);
+  });
   var selected=null;
   function regionInfo(name){
     var has=all.filter(function(r){return r.region===name;}).length>0;
@@ -648,6 +663,22 @@ function initSeasonPage(){
         '<button class="btn btn-outline btn-sm" id="clear-region">Show all '+escapeHtml(season)+' recipes</button>';
       $('#clear-region').addEventListener('click',function(){selected=null;renderMap();renderList(null);});
     }else{chip.hidden=true;chip.innerHTML='';}
+    /* Festival cross-link: festive dishes never appear as seasonal mains, but the
+       season page points visitors at the festival collections (her rule 2026-10-01). */
+    var fl=$('#season-fest-link');
+    if(fl){
+      var fests=Object.keys(festThisSeason);
+      if(!region&&fests.length){
+        var links=fests.map(function(fn){
+          var n=festThisSeason[fn].length,h=FESTIVAL_PAGE[fn]||'festivals.html';
+          return '<a class="chip" href="'+h+'">'+escapeHtml(fn)+' · '+n+' dish'+(n===1?'':'es')+' →</a>';
+        }).join('');
+        fl.innerHTML='<section class="section"><div class="wrap"><div class="section-head">'+
+          '<div><p class="kicker">Celebrate with food</p><h2>Festival dishes this season</h2></div>'+
+          '<p>Festive specials live in their festival collections — not in the seasonal mains.</p></div>'+
+          '<div class="chips">'+links+'</div></div></section>';
+      }else{fl.innerHTML='';}
+    }
   }
   function selectRegion(name){
     var info=regionInfo(name);
