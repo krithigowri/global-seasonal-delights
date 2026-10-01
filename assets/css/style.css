@@ -116,6 +116,9 @@ h1,h2,h3,.display{font-family:var(--font-d);line-height:1.2;color:var(--espresso
 .tag.veg{background:#e7f0e2;color:var(--leaf-dark);border-color:#cfe0c6}
 .tag.festive{background:#fbeedf;color:var(--terra-dark);border-color:#f3d3ae}
 .tag.kid{background:#e9f0f7;color:#3c5a7a;border-color:#c9dcee}
+.tag.base{background:#efe8f5;color:#5b3f7a;border-color:#d5c5e8}
+.card-meta{font-size:12.5px;color:var(--muted);margin-top:6px}
+.recipe-meta{font-size:14px;color:var(--muted);margin:10px 0 0}
 .fav-btn{position:absolute;top:12px;right:12px;z-index:2;width:40px;height:40px;border-radius:50%;
   border:0;cursor:pointer;display:flex;align-items:center;justify-content:center;
   background:rgba(255,253,246,.94);box-shadow:0 4px 12px rgba(0,0,0,.18)}
@@ -233,6 +236,7 @@ h1,h2,h3,.display{font-family:var(--font-d);line-height:1.2;color:var(--espresso
   box-shadow:inset 0 1px 0 #fff}
 .badge.veg{background:linear-gradient(180deg,#f2f8ee,#e2eedb);border-color:#bcd6ae;color:var(--leaf-dark)}
 .badge.festive{background:linear-gradient(180deg,#fdf3e4,#fbe6c8);border-color:#eec98f;color:#96500f}
+.badge.base{background:linear-gradient(180deg,#f3edf9,#e6daf2);border-color:#c9b3e0;color:#5b3f7a}
 .action-row{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin:20px 0 30px}
 .action-note{font-size:13px;color:var(--muted)}
 .recipe-hero-img{border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow-lg);margin-bottom:30px;max-height:420px}
@@ -367,6 +371,13 @@ h1,h2,h3,.display{font-family:var(--font-d);line-height:1.2;color:var(--espresso
   .grid-3,.grid-2{grid-template-columns:1fr}
   .hero-inner{padding:64px 20px 70px}
   .filter-row .field{min-width:100%}
+  /* mobile header: keep brand + actions on one line, no horizontal overflow (2026-10-01) */
+  .nav-inner{gap:12px;padding:0 16px}
+  .brand img{height:38px;width:38px}
+  .brand-name{font-size:22px}
+  .brand-tag{display:none}
+  .nav-actions{gap:8px}
+  .acct-chip span:last-child{display:none}
 }
 
 /* ---------- season map: region picker ---------- */

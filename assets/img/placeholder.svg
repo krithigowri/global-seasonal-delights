@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+  <rect width="800" height="600" fill="#f4ecda"/>
+  <rect x="24" y="24" width="752" height="552" fill="none" stroke="#c9a227" stroke-width="3" opacity="0.5"/>
+  <g fill="none" stroke="#8a6a1c" stroke-width="10" stroke-linecap="round">
+    <path d="M400 190 a110 110 0 0 1 110 110 H290 a110 110 0 0 1 110 -110"/>
+    <line x1="400" y1="150" x2="400" y2="178"/>
+    <circle cx="400" cy="142" r="10" fill="#8a6a1c" stroke="none"/>
+    <line x1="250" y1="300" x2="550" y2="300"/>
+    <line x1="280" y1="330" x2="520" y2="330" opacity="0.4"/>
+  </g>
+  <text x="400" y="420" text-anchor="middle" font-family="Georgia, serif" font-size="44" fill="#4a3520">Rasalaya</text>
+  <text x="400" y="470" text-anchor="middle" font-family="Georgia, serif" font-size="24" font-style="italic" fill="#8a6a1c">Photo coming soon</text>
+</svg>
