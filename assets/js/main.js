@@ -298,8 +298,10 @@ function initBrowse(){
   var grid=$('#browse-grid');if(!grid)return;
   var data=(window.RASALAYA_RECIPES||[]).slice();
   var q=(new URLSearchParams(location.search).get('q')||'').toLowerCase();
-  var state={q:q,region:'',season:'',cats:[],kid:false,veg:false,festive:false,sort:'loved'};
+  var rq=(new URLSearchParams(location.search).get('region')||'');
+  var state={q:q,region:rq,season:'',cats:[],kid:false,veg:false,festive:false,sort:'loved'};
   var si=$('#f-search');if(si&&q)si.value=q;
+  var fr0=$('#f-region');if(fr0&&rq)fr0.value=rq;
   function apply(){
     var list=data.filter(function(r){
       if(state.q){var hay=(r.name+' '+r.region+' '+r.season+' '+r.category+' '+
@@ -378,11 +380,116 @@ function initHeroSearch(){
     location.href='browse.html'+(q?'?q='+encodeURIComponent(q):'');});
 }
 
+
+/* ---------- season map: pick a region for the season (her spec, 2026-10-01) ----------
+   Flow is one-way: season card -> season page -> world map. Three pin states:
+   glow = has recipes IN this season · dim = has recipes, but a different season ·
+   grey = no recipes yet (tap notes the region's current season + logs interest). */
+var REGION_META={
+  'South India':{lat:13,lon:77,hemi:'N'},
+  'India':{lat:22,lon:78,hemi:'N'},
+  'Central Mexico':{lat:20,lon:-102,hemi:'N'},
+  'Ethiopia':{lat:9,lon:40,hemi:'N'},
+  'Nigeria':{lat:9,lon:8,hemi:'N'},
+  'Italy':{lat:42,lon:12,hemi:'N'},
+  'Japan':{lat:36,lon:138,hemi:'N'},
+  'Thailand':{lat:15,lon:101,hemi:'N'},
+  'Middle East':{lat:25,lon:45,hemi:'N'},
+  'Peru':{lat:-10,lon:-75,hemi:'S'},
+  'Brazil':{lat:-12,lon:-52,hemi:'S'},
+  'Australia':{lat:-25,lon:133,hemi:'S'}
+};
+function regionXY(m){return [((m.lon+180)/360*1000).toFixed(1),((90-m.lat)/180*500).toFixed(1)];}
+function seasonForHemi(season,hemi){
+  var map={Autumn:{N:'Autumn',S:'Spring'},Winter:{N:'Winter',S:'Summer'},
+           Spring:{N:'Spring',S:'Autumn'},Summer:{N:'Summer',S:'Winter'}};
+  return (map[season]||{})[hemi]||season;
+}
+var WORLD_LAND='M33,67L111,56L194,47L264,60L300,50L375,42L389,83L340,110L306,125L292,153L275,178L250,169L231,178L208,194L225,205L264,217L278,228L250,220L236,206L222,195L194,183L167,153L153,117L125,89L83,78L42,83Z '+
+'M365,45L390,40L395,60L375,70L360,60Z '+
+'M278,228L292,250L306,278L319,306L333,333L319,361L306,389L297,397L319,403L333,375L347,347L361,319L375,292L389,264L375,250L347,236L319,222Z '+
+'M472,150L475,131L494,111L514,97L528,89L550,83L569,56L597,61L611,83L583,97L569,111L556,125L542,139L528,144L500,144L486,150Z '+
+'M488,108L496,104L498,96L490,92L484,100Z '+
+'M472,153L500,153L528,147L556,158L589,164L611,208L633,219L617,250L606,278L597,306L583,328L561,344L542,333L533,306L528,278L522,250L500,236L478,236L458,217L453,194L467,172Z '+
+'M610,290L618,285L620,300L612,315L606,305Z '+
+'M597,61L639,56L694,50L778,42L861,50L944,61L994,69L972,83L939,106L889,125L861,144L839,167L819,189L800,217L778,228L764,206L750,189L736,194L722,208L717,228L708,217L694,194L681,181L661,178L644,172L633,167L617,153L597,144L583,139L578,125L589,111L611,97L611,83Z '+
+'M880,140L890,135L895,150L885,160L878,150Z '+
+'M814,311L839,297L867,283L894,281L917,306L925,328L911,356L883,347L861,339L833,344L814,328Z';
+function initSeasonPage(){
+  var season=document.body.getAttribute('data-season');if(!season)return;
+  var mapBox=$('#season-map'),grid=$('#season-grid');if(!mapBox||!grid)return;
+  var all=(window.RASALAYA_RECIPES||[]);
+  var data=all.filter(function(r){return r.season===season;});
+  var selected=null;
+  function regionState(name){
+    if(data.filter(function(r){return r.region===name;}).length>0)return 'glow';
+    if(all.filter(function(r){return r.region===name;}).length>0)return 'dim';
+    return 'grey';
+  }
+  function logInterest(name){
+    try{
+      var k='rasalaya_region_interest',l=JSON.parse(localStorage.getItem(k)||'[]');
+      l.push({region:name,season:season,at:new Date().toISOString()});
+      localStorage.setItem(k,JSON.stringify(l));
+    }catch(e){}
+  }
+  function renderMap(){
+    var pins=Object.keys(REGION_META).map(function(name){
+      var xy=regionXY(REGION_META[name]),st=regionState(name);
+      return '<g class="pin st-'+st+(selected===name?' sel':'')+'" data-region="'+escapeHtml(name)+'" tabindex="0" role="button" aria-label="'+escapeHtml(name)+'">'+
+        '<title>'+escapeHtml(name)+'</title><circle class="hit" cx="'+xy[0]+'" cy="'+xy[1]+'" r="18"/>'+
+        '<circle class="dot" cx="'+xy[0]+'" cy="'+xy[1]+'" r="7"/></g>';
+    }).join('');
+    mapBox.innerHTML='<svg class="worldmap" viewBox="0 0 1000 500" role="img" aria-label="World map — pick a region for '+escapeHtml(season)+' recipes">'+
+      '<path class="land" d="'+WORLD_LAND+'"/>'+pins+'</svg>'+
+      '<div class="map-legend"><span><i class="legend-dot lg-glow"></i>Has '+escapeHtml(season)+' recipes</span>'+
+      '<span><i class="legend-dot lg-dim"></i>Recipes, different season</span>'+
+      '<span><i class="legend-dot lg-grey"></i>Not yet — tap to request</span></div>';
+    mapBox.querySelectorAll('.pin').forEach(function(p){
+      function go(){selectRegion(p.getAttribute('data-region'));}
+      p.addEventListener('click',go);
+      p.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();go();}});
+    });
+  }
+  function renderList(region){
+    var chip=$('#active-selection'),empty=$('#season-empty'),count=$('#season-count');
+    var list=region?data.filter(function(r){return r.region===region;}):data;
+    grid.innerHTML='';
+    list.forEach(function(r){grid.appendChild(recipeCard(r));});
+    initHearts();
+    if(count)count.textContent=list.length+(list.length===1?' recipe':' recipes')+(region?' in '+region:' this '+season.toLowerCase());
+    if(!list.length&&region){
+      var their=seasonForHemi(season,REGION_META[region].hemi);
+      empty.innerHTML='<h3>No '+escapeHtml(season.toLowerCase())+' recipes from '+escapeHtml(region)+' yet</h3>'+
+        '<p>It\u2019s '+escapeHtml(their.toLowerCase())+' there right now. <a href="browse.html?region='+encodeURIComponent(region)+'">See all '+escapeHtml(region)+' recipes &rarr;</a></p>';
+      empty.hidden=false;
+    }else{empty.hidden=true;empty.innerHTML='';}
+    if(region){
+      chip.hidden=false;
+      chip.innerHTML='<span class="sel-chip">You\u2019ve selected <strong>'+escapeHtml(season)+' + '+escapeHtml(region)+'</strong></span>'+
+        '<button class="btn btn-outline btn-sm" id="clear-region">Show all '+escapeHtml(season)+' recipes</button>';
+      $('#clear-region').addEventListener('click',function(){selected=null;renderMap();renderList(null);});
+    }else{chip.hidden=true;chip.innerHTML='';}
+  }
+  function selectRegion(name){
+    var st=regionState(name);
+    if(st==='grey'){
+      var their=seasonForHemi(season,REGION_META[name].hemi);
+      toast(name+' doesn\u2019t have '+season.toLowerCase()+' recipes yet \u2014 it\u2019s '+their.toLowerCase()+' there right now. We\u2019ve noted your interest!');
+      logInterest(name);
+      return;
+    }
+    selected=name;renderMap();renderList(name);
+    $('#season-grid').scrollIntoView({behavior:'smooth',block:'start'});
+  }
+  renderMap();renderList(null);
+}
+
 /* ---------- boot ---------- */
 document.addEventListener('DOMContentLoaded',function(){
   seed();initNav();initCookies();initCookiePage();refreshNavAuth();
   initSignup();initSignin();initAccount();initHearts();initShare();
   initNewsletter();initContact();initFeedback();initBrowse();initKidToggle();
-  initCopyPrevention();initHeroSearch();
+  initCopyPrevention();initHeroSearch();initSeasonPage();
 });
 })();

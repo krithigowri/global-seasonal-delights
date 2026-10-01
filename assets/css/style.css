@@ -367,3 +367,25 @@ h1,h2,h3,.display{font-family:var(--font-d);line-height:1.2;color:var(--espresso
   .hero-inner{padding:64px 20px 70px}
   .filter-row .field{min-width:100%}
 }
+
+/* ---------- season map: region picker ---------- */
+.map-section{margin:6px 0 4px}
+.map-sub{color:var(--muted);max-width:660px}
+.worldmap{width:100%;height:auto;display:block;background:linear-gradient(180deg,#f8f2e2,#eee1c6);border-radius:18px;border:1px solid rgba(120,84,40,.18);box-shadow:var(--shadow)}
+.worldmap .land{fill:#d9c9a8;opacity:.55}
+.pin{cursor:pointer;outline:none}
+.pin .hit{fill:transparent}
+.pin .dot{stroke:#fff;stroke-width:2}
+.pin.st-glow .dot{fill:#58b368;filter:drop-shadow(0 0 6px rgba(88,179,104,.9));animation:pinPulse 2.2s ease-in-out infinite}
+.pin.st-glow.sel .dot{stroke:#2c6e31;stroke-width:3;animation:none}
+.pin.st-dim .dot{fill:#58b368;opacity:.35}
+.pin.st-grey .dot{fill:#b9b2a6}
+.pin:focus-visible .hit{stroke:#7a4a1e;stroke-width:2}
+@keyframes pinPulse{0%,100%{opacity:1}50%{opacity:.55}}
+.map-legend{display:flex;gap:18px;flex-wrap:wrap;margin:10px 2px 0;color:var(--muted);font-size:13px}
+.legend-dot{display:inline-block;width:11px;height:11px;border-radius:50%;margin-right:6px}
+.lg-glow{background:#58b368;box-shadow:0 0 6px rgba(88,179,104,.9)}
+.lg-dim{background:#58b368;opacity:.35}
+.lg-grey{background:#b9b2a6}
+.sel-chip-row{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:20px 0 6px}
+.sel-chip{background:#fffdf6;border:1px solid rgba(120,84,40,.25);border-radius:999px;padding:8px 18px;font-size:14px;box-shadow:var(--shadow)}
