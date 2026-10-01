@@ -544,16 +544,19 @@ function initHeroSearch(){
 }
 
 
-/* ---------- season map: pick a region for the season (her spec, 2026-10-01) ----------
-   Flow is one-way: season card -> season page -> world map. Three pin states:
-   glow = has recipes IN this season · dim = has recipes, but a different season ·
-   grey = no recipes yet (tap notes the region's current season + logs interest). */
+/* ---------- season map: pick a region for the season (her spec, refined 2026-10-01) ----------
+   Flow is one-way: season card -> season page -> world map. Pin color = the season
+   in that region right now (Spring green · Summer yellow · Autumn orange ·
+   Winter white · Monsoon cloudy blue). Four states: sel = user-selected (glowing in
+   its season color) · rel-same = has recipes in this season (full color) ·
+   rel-diff = has recipes, different season (faded) · rel-none/grey = no recipes yet
+   (tap notes the region's current season + logs interest). */
 var REGION_META={
   'South India':{lat:13,lon:77,hemi:'N'},
   'India':{lat:22,lon:78,hemi:'N'},
   'Central Mexico':{lat:20,lon:-102,hemi:'N'},
   'Ethiopia':{lat:9,lon:40,hemi:'N'},
-  'Nigeria':{lat:9,lon:8,hemi:'N'},
+  'Nigeria':{lat:9,lon:8,hemi:'N',season:'Monsoon'},
   'Italy':{lat:42,lon:12,hemi:'N'},
   'Japan':{lat:36,lon:138,hemi:'N'},
   'Thailand':{lat:15,lon:101,hemi:'N'},
@@ -563,10 +566,15 @@ var REGION_META={
   'Australia':{lat:-25,lon:133,hemi:'S'}
 };
 function regionXY(m){return [((m.lon+180)/360*1000).toFixed(1),((90-m.lat)/180*500).toFixed(1)];}
+var SEASON_COLORS={Spring:'#43a047',Summer:'#f2c230',Autumn:'#e8830c',Winter:'#ffffff',Monsoon:'#6fa8c9'};
 function seasonForHemi(season,hemi){
   var map={Autumn:{N:'Autumn',S:'Spring'},Winter:{N:'Winter',S:'Summer'},
            Spring:{N:'Spring',S:'Autumn'},Summer:{N:'Summer',S:'Winter'}};
   return (map[season]||{})[hemi]||season;
+}
+function regionSeason(name,season){
+  var m=REGION_META[name]||{};
+  return m.season||seasonForHemi(season,m.hemi);
 }
 var WORLD_LAND='M33,67L111,56L194,47L264,60L300,50L375,42L389,83L340,110L306,125L292,153L275,178L250,169L231,178L208,194L225,205L264,217L278,228L250,220L236,206L222,195L194,183L167,153L153,117L125,89L83,78L42,83Z '+
 'M365,45L390,40L395,60L375,70L360,60Z '+
@@ -584,10 +592,10 @@ function initSeasonPage(){
   var all=(window.RASALAYA_RECIPES||[]);
   var data=all.filter(function(r){return r.season===season;});
   var selected=null;
-  function regionState(name){
-    if(data.filter(function(r){return r.region===name;}).length>0)return 'glow';
-    if(all.filter(function(r){return r.region===name;}).length>0)return 'dim';
-    return 'grey';
+  function regionInfo(name){
+    var has=all.filter(function(r){return r.region===name;}).length>0;
+    var inSeason=data.filter(function(r){return r.region===name;}).length>0;
+    return {has:has,inSeason:inSeason,season:regionSeason(name,season)};
   }
   function logInterest(name){
     try{
@@ -598,16 +606,23 @@ function initSeasonPage(){
   }
   function renderMap(){
     var pins=Object.keys(REGION_META).map(function(name){
-      var xy=regionXY(REGION_META[name]),st=regionState(name);
-      return '<g class="pin st-'+st+(selected===name?' sel':'')+'" data-region="'+escapeHtml(name)+'" tabindex="0" role="button" aria-label="'+escapeHtml(name)+'">'+
+      var xy=regionXY(REGION_META[name]),info=regionInfo(name);
+      var rel=info.has?(info.inSeason?' rel-same':' rel-diff'):' rel-none';
+      return '<g class="pin season-'+info.season+rel+(selected===name?' sel':'')+'" data-region="'+escapeHtml(name)+'" tabindex="0" role="button" aria-label="'+escapeHtml(name)+'">'+
         '<title>'+escapeHtml(name)+'</title><circle class="hit" cx="'+xy[0]+'" cy="'+xy[1]+'" r="18"/>'+
         '<circle class="dot" cx="'+xy[0]+'" cy="'+xy[1]+'" r="7"/></g>';
     }).join('');
+    var pageColor=SEASON_COLORS[season]||'#e8830c';
+    var key=['Spring','Summer','Autumn','Winter','Monsoon'].map(function(s){
+      return '<span><i style="background:'+SEASON_COLORS[s]+'"></i>'+s+'</span>';
+    }).join('');
     mapBox.innerHTML='<svg class="worldmap" viewBox="0 0 1000 500" role="img" aria-label="World map — pick a region for '+escapeHtml(season)+' recipes">'+
       '<path class="land" d="'+WORLD_LAND+'"/>'+pins+'</svg>'+
-      '<div class="map-legend"><span><i class="legend-dot lg-glow"></i>Has '+escapeHtml(season)+' recipes</span>'+
-      '<span><i class="legend-dot lg-dim"></i>Recipes, different season</span>'+
-      '<span><i class="legend-dot lg-grey"></i>Not yet — tap to request</span></div>';
+      '<div class="map-legend"><span><i class="legend-dot lg-sel"></i>Selected</span>'+
+      '<span><i class="legend-dot" style="background:'+pageColor+'"></i>Has '+escapeHtml(season)+' recipes</span>'+
+      '<span><i class="legend-dot" style="background:'+pageColor+';opacity:.38"></i>Recipes, different season</span>'+
+      '<span><i class="legend-dot lg-grey"></i>Not yet — tap to request</span></div>'+
+      '<div class="season-key"><span>Pin color = the season there now:</span>'+key+'</div>';
     mapBox.querySelectorAll('.pin').forEach(function(p){
       function go(){selectRegion(p.getAttribute('data-region'));}
       p.addEventListener('click',go);
@@ -622,7 +637,7 @@ function initSeasonPage(){
     initHearts();
     if(count)count.textContent=list.length+(list.length===1?' recipe':' recipes')+(region?' in '+region:' this '+season.toLowerCase());
     if(!list.length&&region){
-      var their=seasonForHemi(season,REGION_META[region].hemi);
+      var their=regionSeason(region,season);
       empty.innerHTML='<h3>No '+escapeHtml(season.toLowerCase())+' recipes from '+escapeHtml(region)+' yet</h3>'+
         '<p>It\u2019s '+escapeHtml(their.toLowerCase())+' there right now. <a href="browse.html?region='+encodeURIComponent(region)+'">See all '+escapeHtml(region)+' recipes &rarr;</a></p>';
       empty.hidden=false;
@@ -635,9 +650,9 @@ function initSeasonPage(){
     }else{chip.hidden=true;chip.innerHTML='';}
   }
   function selectRegion(name){
-    var st=regionState(name);
-    if(st==='grey'){
-      var their=seasonForHemi(season,REGION_META[name].hemi);
+    var info=regionInfo(name);
+    if(!info.has){
+      var their=regionSeason(name,season);
       toast(name+' doesn\u2019t have '+season.toLowerCase()+' recipes yet \u2014 it\u2019s '+their.toLowerCase()+' there right now. We\u2019ve noted your interest!');
       logInterest(name);
       return;
