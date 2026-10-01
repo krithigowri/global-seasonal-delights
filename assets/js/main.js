@@ -357,7 +357,7 @@ function recipeCard(r){
   var tags='<div class="tag-row"><span class="tag">'+escapeHtml(r.region)+'</span>'+
     '<span class="tag">'+escapeHtml(r.season)+'</span><span class="tag">'+escapeHtml(cap(r.category))+'</span>'+
     (r.veg?'<span class="tag veg">Vegetarian</span>':'')+
-    (r.festive?'<span class="tag festive">Festive</span>':'')+
+    (r.festive?'<span class="tag festive">Festive · '+escapeHtml(r.festival||'seasonal')+'</span>':'')+
     (r.kidFriendly?'<span class="tag kid">Kids love it</span>':'')+'</div>';
   a.innerHTML='<button class="fav-btn" data-recipe="'+r.id+'" aria-label="Save to favorites" aria-pressed="false">'+
     '<svg viewBox="0 0 24 24"><path d="M12 21s-7.5-4.9-10-9.5C.5 8 2.5 4.5 6 4.5c2.2 0 3.9 1.3 6 4 2.1-2.7 3.8-4 6-4 3.5 0 5.5 3.5 4 7-2.5 4.6-10 9.5-10 9.5z"/></svg></button>'+
@@ -571,8 +571,46 @@ var REGION_META={
   'Middle East':{lat:25,lon:45,hemi:'N'},
   'Peru':{lat:-10,lon:-75,hemi:'S'},
   'Brazil':{lat:-12,lon:-52,hemi:'S'},
-  'Australia':{lat:-25,lon:133,hemi:'S'}
+  'Australia':{lat:-25,lon:133,hemi:'S'},
+  'Spain':{lat:40,lon:-4,hemi:'N'},
+  'France':{lat:47,lon:2,hemi:'N'},
+  'Poland':{lat:52,lon:19,hemi:'N'},
+  'Korea':{lat:36.5,lon:128,hemi:'N'},
+  'China':{lat:35,lon:104,hemi:'N'},
+  'Vietnam':{lat:14,lon:108,hemi:'N'},
+  'Indonesia':{lat:-7,lon:110,hemi:'N'},
+  'Argentina':{lat:-35,lon:-65,hemi:'S'},
+  'Chile':{lat:-33,lon:-71,hemi:'S'},
+  'South Africa':{lat:-30,lon:25,hemi:'S'}
 };
+/* Recipe regions are fine-grained ("Maharashtra, India"); map pins are coarse
+   ("India"). Exact or longest-substring match covers most; the rest is aliased. */
+var REGION_PIN={
+  'Oaxaca, Mexico':'Central Mexico','Andes, Peru':'Peru','Bahia, Brazil':'Brazil',
+  'Victoria, Australia':'Australia','Mendoza, Argentina':'Argentina',
+  'Salta & Jujuy, Argentina':'Argentina','Central Chile':'Chile',
+  'Western Cape, South Africa':'South Africa','Southwest Nigeria (Yoruba)':'Nigeria',
+  'Java, Indonesia':'Indonesia','China — particularly southern Chinese home cooking':'China',
+  'Sichuan, China':'China','Japan — Miyazaki Prefecture (Miyazaki City), regional version':'Japan',
+  'Kansai, Japan':'Japan','Korea (Chungcheongbuk-do, per Korean Traditional Local Food record)':'Korea',
+  'North India':'India','North India / Indian subcontinent':'India',
+  'North India / broader North and Central Indian festive cuisine':'India',
+  'Maharashtra, India':'India','Punjab, India':'India',
+  'Rajasthan and western Uttar Pradesh (documented vrat preparation)':'India',
+  'North and western India (Maharashtra and Gujarat)':'India',
+  'South India, especially Tamil Nadu':'South India',
+  'Northern Italy — Lombardy (Mantua)':'Italy','Tuscany, Italy':'Italy',
+  'Andalusia, Spain':'Spain','Seville, Andalusia, Spain':'Spain',
+  'Provence, France':'France'
+};
+function pinForRegion(r){
+  if(REGION_PIN[r])return REGION_PIN[r];
+  var best=null;
+  Object.keys(REGION_META).forEach(function(p){
+    if(r.toLowerCase().indexOf(p.toLowerCase())>=0&&(!best||p.length>best.length))best=p;
+  });
+  return best;
+}
 function regionXY(m){return [((m.lon+180)/360*1000).toFixed(1),((90-m.lat)/180*500).toFixed(1)];}
 var SEASON_COLORS={Spring:'#43a047',Summer:'#f2c230',Autumn:'#e8830c',Winter:'#ffffff',Monsoon:'#6fa8c9'};
 function seasonForHemi(season,hemi){
@@ -598,8 +636,10 @@ function initSeasonPage(){
   var season=document.body.getAttribute('data-season');if(!season)return;
   var mapBox=$('#season-map'),grid=$('#season-grid');if(!mapBox||!grid)return;
   var all=(window.RASALAYA_RECIPES||[]);
-  /* Season vs festival rule (her call 2026-10-01): festive dishes are NOT seasonal
-     mains — they live under festival collections. Season pages list everyday only. */
+  /* Season vs festival rule (refined 2026-10-01, her video call): the DEFAULT grid
+     lists everyday mains only — festive dishes live under festival collections.
+     But the REGION view has no gap: festive dishes done in this season appear
+     there too, tagged "Festive · <festival>", so Autumn + India shows Sabudana. */
   var data=all.filter(function(r){return r.season===season&&!r.festive;});
   var festThisSeason={};
   all.filter(function(r){return r.season===season&&r.festive&&r.festival;}).forEach(function(r){
@@ -608,9 +648,17 @@ function initSeasonPage(){
   });
   var selected=null;
   function regionInfo(name){
-    var has=all.filter(function(r){return r.region===name;}).length>0;
-    var inSeason=data.filter(function(r){return r.region===name;}).length>0;
+    /* Recipe regions are fine-grained ("Maharashtra, India"); pins are coarse.
+       Match through pinForRegion so India glows when its sub-regions have recipes. */
+    var has=all.filter(function(r){return pinForRegion(r.region)===name;}).length>0;
+    /* inSeason counts festive dishes too (Navratri sabudana IS an autumn dish). */
+    var inSeason=all.filter(function(r){return pinForRegion(r.region)===name&&r.season===season;}).length>0;
     return {has:has,inSeason:inSeason,season:regionSeason(name,season)};
+  }
+  function regionSeasons(name){
+    var s=[];all.forEach(function(r){
+      if(pinForRegion(r.region)===name&&s.indexOf(r.season)<0)s.push(r.season);});
+    return s;
   }
   function logInterest(name){
     try{
@@ -643,18 +691,31 @@ function initSeasonPage(){
       p.addEventListener('click',go);
       p.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();go();}});
     });
+    /* Tapping bare land (no pin) gets a gentle nudge, not silence. */
+    var land=mapBox.querySelector('.land');
+    if(land)land.addEventListener('click',function(){
+      openPopup('Where to next?',
+        'Tap a glowing pin for '+escapeHtml(season.toLowerCase())+' recipes from that region.',
+        '<a class="btn btn-primary btn-sm" href="browse.html">Browse all recipes</a>'+
+        '<button class="btn btn-outline btn-sm" data-act="close">Close</button>');
+    });
   }
   function renderList(region){
     var chip=$('#active-selection'),empty=$('#season-empty'),count=$('#season-count');
-    var list=region?data.filter(function(r){return r.region===region;}):data;
+    /* No season↔festival gap: the region view shows EVERYTHING cooked here this
+       season — everyday mains first, festive dishes after, tagged "Festive · X". */
+    var list=region?all.filter(function(r){return pinForRegion(r.region)===region&&r.season===season;}):data;
+    list=list.slice().sort(function(a,b){return (a.festive?1:0)-(b.festive?1:0);});
     grid.innerHTML='';
     list.forEach(function(r){grid.appendChild(recipeCard(r));});
     initHearts();
     if(count)count.textContent=list.length+(list.length===1?' recipe':' recipes')+(region?' in '+region:' this '+season.toLowerCase());
     if(!list.length&&region){
-      var their=regionSeason(region,season);
+      var their=regionSeason(region,season),seasons=regionSeasons(region);
       empty.innerHTML='<h3>No '+escapeHtml(season.toLowerCase())+' recipes from '+escapeHtml(region)+' yet</h3>'+
-        '<p>It\u2019s '+escapeHtml(their.toLowerCase())+' there right now. <a href="browse.html?region='+encodeURIComponent(region)+'">See all '+escapeHtml(region)+' recipes &rarr;</a></p>';
+        '<p>It\u2019s '+escapeHtml(their.toLowerCase())+' there right now — but we do have '+
+        escapeHtml(seasons.join(' & ').toLowerCase())+' recipes from '+escapeHtml(region)+
+        '. <a href="browse.html?q='+encodeURIComponent(region)+'">See all '+escapeHtml(region)+' recipes &rarr;</a></p>';
       empty.hidden=false;
     }else{empty.hidden=true;empty.innerHTML='';}
     if(region){
@@ -680,14 +741,50 @@ function initSeasonPage(){
       }else{fl.innerHTML='';}
     }
   }
+  /* Region popup (her call 2026-10-01 video): tapping a pin with no in-season
+     recipes opens a friendly popup — never a dead end, never a toast. */
+  function openPopup(title,bodyHtml,actionsHtml){
+    var veil=document.createElement('div');veil.className='modal-veil open';veil.id='region-veil';
+    veil.innerHTML='<div class="modal" role="dialog" aria-label="'+escapeHtml(title)+'">'+
+      '<button class="modal-close" aria-label="Close">&times;</button>'+
+      '<h2>'+escapeHtml(title)+'</h2><p class="lede">'+bodyHtml+'</p>'+
+      '<div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-start">'+actionsHtml+'</div></div>';
+    function close(){document.removeEventListener('keydown',onKey);veil.remove();}
+    function onKey(e){if(e.key==='Escape')close();}
+    veil.querySelector('.modal-close').addEventListener('click',close);
+    veil.addEventListener('click',function(e){if(e.target===veil)close();});
+    document.addEventListener('keydown',onKey);
+    document.body.appendChild(veil);
+    veil.querySelectorAll('[data-act="close"]').forEach(function(b){
+      b.addEventListener('click',close);});
+    var news=veil.querySelector('[data-act="news"]');
+    if(news)news.addEventListener('click',function(){
+      close();var n=document.querySelector('.news-band');
+      if(n)n.scrollIntoView({behavior:'smooth',block:'center'});});
+    return close;
+  }
+  function showRegionPopup(name,hasOther){
+    if(!hasOther){
+      openPopup('No recipes from '+name+' yet',
+        'The library is growing every season — new regions arrive with our recipe waves. '+
+        'Subscribe and we\u2019ll tell you when '+escapeHtml(name)+' lands, or share a family '+
+        'recipe to help it get there.',
+        '<button class="btn btn-primary btn-sm" data-act="news">Subscribe for updates</button>'+
+        '<a class="btn btn-outline btn-sm" href="contact.html">Share a family recipe</a>'+
+        '<button class="btn btn-sm" data-act="close" style="color:var(--muted)">Keep exploring</button>');
+    }else{
+      var their=regionSeason(name,season),seasons=regionSeasons(name);
+      openPopup('No '+season.toLowerCase()+' recipes from '+name+' yet',
+        'It\u2019s '+escapeHtml(their.toLowerCase())+' there right now — but we do have '+
+        escapeHtml(seasons.join(' & ').toLowerCase())+' recipes from '+escapeHtml(name)+'.',
+        '<a class="btn btn-primary btn-sm" href="browse.html?q='+encodeURIComponent(name)+'">See '+
+        escapeHtml(name)+'\u2019s recipes</a>'+
+        '<button class="btn btn-outline btn-sm" data-act="close">Close</button>');
+    }
+  }
   function selectRegion(name){
     var info=regionInfo(name);
-    if(!info.has){
-      var their=regionSeason(name,season);
-      toast(name+' doesn\u2019t have '+season.toLowerCase()+' recipes yet \u2014 it\u2019s '+their.toLowerCase()+' there right now. We\u2019ve noted your interest!');
-      logInterest(name);
-      return;
-    }
+    if(!info.has||!info.inSeason){showRegionPopup(name,info.has);logInterest(name);return;}
     selected=name;renderMap();renderList(name);
     $('#season-grid').scrollIntoView({behavior:'smooth',block:'start'});
   }
