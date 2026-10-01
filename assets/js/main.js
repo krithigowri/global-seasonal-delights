@@ -350,19 +350,33 @@ function renderMyRecipes(){
     renderMyRecipes();renderColls();toast('Recipe deleted.');});});
 }
 
+/* Diet taxonomy (2026-10-01): "Vegetarian on Rasalaya means no egg". New-schema
+   packets carry `diet`; the original 98 carry the old `veg` bool. */
+var DIET_LABELS={vegan:'Vegan',vegetarian:'Vegetarian','contains-egg':'Contains egg',
+  pescatarian:'Pescatarian','meat-seafood':'Meat & Seafood'};
+function dietLabel(r){return DIET_LABELS[r.diet]||(r.veg?'Vegetarian':null)}
+function dietTag(r){var l=dietLabel(r);return l?'<span class="tag veg">'+escapeHtml(l)+'</span>':''}
+function isVeg(r){return !!(r.veg||r.diet==='vegan'||r.diet==='vegetarian')}
+function baseTag(r){return r.baseRecipe?'<span class="tag base">Base recipe</span>':''}
+function metaLine(r){var b=[];if(r.calories)b.push(String.fromCharCode(8776)+r.calories+' kcal');
+  if(r.prepTime)b.push(r.prepTime+' min prep');return b.join(' '+String.fromCharCode(183)+' ')}
 function recipeCard(r){
   var a=document.createElement('article');a.className='recipe-card';
-  var alias=r.aliases&&r.aliases.length?'<div class="alias">Also known as '+escapeHtml(r.aliases[0].name)+
-    ' in '+escapeHtml(r.aliases[0].region)+'</div>':'';
+  var alias='';
+  if(r.aliases&&r.aliases.length){var a0=r.aliases[0];
+    alias='<div class="alias">Also known as '+escapeHtml(typeof a0==='string'?a0:a0.name)+
+    (typeof a0==='string'?'':' in '+escapeHtml(a0.region))+'</div>';}
   var tags='<div class="tag-row"><span class="tag">'+escapeHtml(r.region)+'</span>'+
     '<span class="tag">'+escapeHtml(r.season)+'</span><span class="tag">'+escapeHtml(cap(r.category))+'</span>'+
-    (r.veg?'<span class="tag veg">Vegetarian</span>':'')+
+    dietTag(r)+baseTag(r)+
     (r.festive?'<span class="tag festive">Festive · '+escapeHtml(r.festival||'seasonal')+'</span>':'')+
     (r.kidFriendly?'<span class="tag kid">Kids love it</span>':'')+'</div>';
+  var meta=metaLine(r);
+  var metaHtml=meta?'<div class="card-meta">'+escapeHtml(meta)+'</div>':'';
   a.innerHTML='<button class="fav-btn" data-recipe="'+r.id+'" aria-label="Save to favorites" aria-pressed="false">'+
     '<svg viewBox="0 0 24 24"><path d="M12 21s-7.5-4.9-10-9.5C.5 8 2.5 4.5 6 4.5c2.2 0 3.9 1.3 6 4 2.1-2.7 3.8-4 6-4 3.5 0 5.5 3.5 4 7-2.5 4.6-10 9.5-10 9.5z"/></svg></button>'+
-    '<img class="dish" src="assets/img/'+r.id+'.jpg" alt="'+escapeHtml(r.name)+'" loading="lazy">'+
-    '<div class="card-body"><h3>'+escapeHtml(r.name)+'</h3>'+alias+tags+'</div>'+
+    '<img class="dish" src="assets/img/'+r.id+'.jpg" alt="'+escapeHtml(r.name)+'" loading="lazy" onerror="this.onerror=null;this.src=\'assets/img/placeholder.svg\'">'+
+    '<div class="card-body"><h3>'+escapeHtml(r.name)+'</h3>'+alias+metaHtml+tags+'</div>'+
     '<a class="card-hit" href="'+r.page+'" aria-label="Open '+escapeHtml(r.name)+' recipe"></a>';
   return a;
 }
@@ -373,6 +387,7 @@ function initShare(){
   var veil=$('#share-veil');if(!veil)return;
   function open(recipeName){
     $('#share-recipe-name').textContent=recipeName||'';
+    var rf=$('#share-recipe-field');if(rf)rf.value=recipeName||'';
     veil.classList.add('open');document.body.style.overflow='hidden';
     setTimeout(function(){$('#share-email').focus()},80);
   }
@@ -389,26 +404,35 @@ function initShare(){
     var email=$('#share-email').value.trim();
     if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){err.textContent='Please enter a valid email address.';err.classList.add('show');return;}
     if(!$('#share-age').checked){err.textContent='Please confirm you are 13 or older.';err.classList.add('show');return;}
-    $('#share-done').classList.add('show');$('#share-form').style.display='none';
+    var f=$('#share-form');
+    fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},
+      body:new URLSearchParams(new FormData(f)).toString()})
+    .then(function(){$('#share-done').classList.add('show');f.style.display='none';})
+    .catch(function(){err.textContent='Something went wrong — please try again.';err.classList.add('show');});
   });
 }
 
-/* ---------- newsletter / contact / feedback (demo confirmations) ---------- */
+/* ---------- newsletter / contact / feedback (Netlify Forms capture) ---------- */
 var NL_KEY='rasalaya_newsletter';
 function getNewsletter(){try{return JSON.parse(localStorage.getItem(NL_KEY)||'{}')}catch(e){return{}}}
 function saveNewsletter(n){try{localStorage.setItem(NL_KEY,JSON.stringify(n))}catch(e){}}
+function netlifyPost(form){
+  return fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},
+    body:new URLSearchParams(new FormData(form)).toString()});
+}
 function initNewsletter(){
   $$('.news-form').forEach(function(f){
     f.addEventListener('submit',function(e){
       e.preventDefault();
       var input=f.querySelector('input[type=email]'),email=input.value.trim();
       if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){toast('Please enter a valid email address.');return;}
-      var age=f.parentElement.querySelector('.nl-age');
+      var age=f.querySelector('.nl-age');
       if(age&&!age.checked){toast('Please confirm you are 13 or older.');return;}
-      var n=getNewsletter();n[email]={ts:new Date().toISOString()};saveNewsletter(n);
-      var ok=f.parentElement.querySelector('.form-ok')||f.nextElementSibling;
-      toast('Thanks! Demo mode: no email is actually sent. Real double opt-in arrives with the backend.');
-      input.value='';
+      netlifyPost(f).then(function(){
+        toast('Thanks for subscribing!');
+        input.value='';if(age)age.checked=false;
+        var c=f.querySelector('.nl-consent');if(c)c.checked=false;
+      }).catch(function(){toast('Something went wrong — please try again.');});
     });
   });
 }
@@ -431,6 +455,7 @@ function initFeedback(){
   var f=$('#feedback-form');if(!f)return;
   var stars=$$('#fb-stars span'),rating=0;
   stars.forEach(function(s,i){s.addEventListener('click',function(){rating=i+1;
+    var fr=$('#fb-rating');if(fr)fr.value=rating;
     stars.forEach(function(x,j){x.classList.toggle('lit',j<rating)})})});
   f.addEventListener('submit',function(e){
     e.preventDefault();var err=$('#form-err');err.classList.remove('show');
@@ -440,13 +465,11 @@ function initFeedback(){
     if(!rating)return fail('Please tap a star rating.');
     if(comment.length<4)return fail('Please write a short comment.');
     if(!$('#fb-age').checked)return fail('Please confirm you are 13 or older.');
-    var u=currentUser();
-    if(u){var cm=userMap(CMTS_KEY),l=cm[u.email]||[];
-      l.unshift({recipe:document.title.split('\u2014')[0].trim(),rating:rating,comment:comment,at:new Date().toISOString()});
-      cm[u.email]=l;saveUserMap(CMTS_KEY,cm);}
-    $('#form-ok').textContent='Thanks, '+name+'! Your feedback was recorded. Demo mode: reviews are read by our team before anything appears publicly.';
-    $('#form-ok').classList.add('show');f.reset();
-    stars.forEach(function(x){x.classList.remove('lit')});rating=0;
+    netlifyPost(f).then(function(){
+      $('#form-ok').textContent='Thanks, '+name+'! Your feedback was recorded. Reviews are read by our team before anything appears publicly.';
+      $('#form-ok').classList.add('show');f.reset();
+      stars.forEach(function(x){x.classList.remove('lit')});rating=0;
+    }).catch(function(){fail('Something went wrong. Please try again.')});
   });
 }
 
@@ -468,7 +491,7 @@ function initBrowse(){
       if(state.season&&r.season!==state.season)return false;
       if(state.cats.length&&state.cats.indexOf(r.category)<0)return false;
       if(state.kid&&!r.kidFriendly)return false;
-      if(state.veg&&!r.veg)return false;
+      if(state.veg&&!isVeg(r))return false;
       if(state.festive&&!r.festive)return false;
       return true;});
     list.sort(function(a,b){if(state.sort==='az')return a.name.localeCompare(b.name);
