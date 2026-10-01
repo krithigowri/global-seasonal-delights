@@ -386,17 +386,14 @@ h1,h2,h3,.display{font-family:var(--font-d);line-height:1.2;color:var(--espresso
 .pin.season-Monsoon .dot{fill:#6fa8c9}
 .pin.rel-diff .dot{opacity:.38}
 .pin.rel-none .dot{fill:#b9b2a6;opacity:.85}
-.pin.sel .dot{animation:pinPulse 2.2s ease-in-out infinite}
-.pin.season-Spring.sel .dot{filter:drop-shadow(0 0 8px rgba(67,160,71,.95))}
-.pin.season-Summer.sel .dot{filter:drop-shadow(0 0 8px rgba(242,194,48,.95))}
-.pin.season-Autumn.sel .dot{filter:drop-shadow(0 0 8px rgba(232,131,12,.95))}
-.pin.season-Winter.sel .dot{filter:drop-shadow(0 0 8px rgba(255,255,255,.95))}
-.pin.season-Monsoon.sel .dot{filter:drop-shadow(0 0 8px rgba(111,168,201,.95))}
+/* selected = violet: its own color, distinct from all five season colors
+   (her fix 2026-10-01 — the old white glow was indistinguishable from winter pins) */
+.pin.sel .dot{fill:#8b5cf6;filter:drop-shadow(0 0 8px rgba(139,92,246,.95));animation:pinPulse 2.2s ease-in-out infinite}
 .pin:focus-visible .hit{stroke:#7a4a1e;stroke-width:2}
 @keyframes pinPulse{0%,100%{opacity:1}50%{opacity:.55}}
 .map-legend{display:flex;gap:18px;flex-wrap:wrap;margin:10px 2px 0;color:var(--muted);font-size:13px}
 .legend-dot{display:inline-block;width:11px;height:11px;border-radius:50%;margin-right:6px}
-.lg-sel{background:#fff;border:1px solid #8a8f98;box-shadow:0 0 7px rgba(255,255,255,.95),0 0 3px rgba(0,0,0,.35)}
+.lg-sel{background:#8b5cf6;border:1px solid #6d28d9;box-shadow:0 0 7px rgba(139,92,246,.9)}
 .lg-grey{background:#b9b2a6}
 .season-key{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin:8px 2px 0;color:var(--muted);font-size:12.5px}
 .season-key i{display:inline-block;width:11px;height:11px;border-radius:50%;margin-right:5px;border:1px solid rgba(0,0,0,.18);vertical-align:-1px}
