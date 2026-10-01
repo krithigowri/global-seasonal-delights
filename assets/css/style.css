@@ -325,6 +325,7 @@ h1,h2,h3,.display{font-family:var(--font-d);line-height:1.2;color:var(--espresso
 .prose p,.prose li{font-size:15.5px;margin-bottom:12px;color:var(--espresso-soft)}
 .prose ul,.prose ol{padding-left:24px;margin-bottom:14px}
 .prose .conspicuous{background:#2c1e10;color:#fdf6e3;border-radius:12px;padding:18px 22px;margin:22px 0}
+.prose .conspicuous p{color:#fdf6e3}
 .prose .conspicuous strong{color:var(--gold-soft)}
 .prose table{width:100%;border-collapse:collapse;margin:16px 0 22px;font-size:14px}
 .prose th,.prose td{border:1px solid var(--line);padding:10px 12px;text-align:left;vertical-align:top}
