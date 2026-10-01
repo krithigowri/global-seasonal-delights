@@ -663,11 +663,39 @@ function initSeasonPage(){
   renderMap();renderList(null);
 }
 
+/* ---------- recipe page: your note lives with the recipe (her spec 2026-10-01) ----------
+   Notes were only visible on the favorites page — now the recipe detail page
+   shows your note as part of the recipe itself (paid preview only). */
+function initRecipeNote(){
+  var favBtn=document.querySelector('.fav-btn-inline[data-recipe]');
+  if(!favBtn||!isPaidPreview())return;
+  var id=favBtn.getAttribute('data-recipe');
+  var anchor=document.querySelector('.parchment');
+  if(!anchor||document.getElementById('my-note-card'))return;
+  var card=document.createElement('div');
+  card.className='info-card';card.id='my-note-card';
+  function render(){
+    var notes=myMap(NOTES_KEY),note=notes[id];
+    card.innerHTML='<h2>Your note</h2>'+
+      (note?'<p class="note-text">&ldquo;'+escapeHtml(note)+'&rdquo;</p>'
+           :'<p class="micro" style="color:var(--muted)">No note yet — jot down your tweaks and they\u2019ll be here every time you open this recipe.</p>')+
+      '<div class="field" style="margin-top:10px"><textarea id="my-note-input" rows="2" placeholder="e.g. halved the sugar, extra ginger">'+escapeHtml(note||'')+'</textarea></div>'+
+      '<button class="btn btn-outline btn-sm" id="my-note-save">'+(note?'Update note':'Save note')+'</button>';
+    card.querySelector('#my-note-save').addEventListener('click',function(){
+      var v=card.querySelector('#my-note-input').value.trim(),n=myMap(NOTES_KEY);
+      if(v)n[id]=v;else delete n[id];
+      setMyMap(NOTES_KEY,n);toast(v?'Note saved.':'Note removed.');render();
+    });
+  }
+  render();
+  anchor.insertAdjacentElement('afterend',card);
+}
+
 /* ---------- boot ---------- */
 document.addEventListener('DOMContentLoaded',function(){
   seed();initNav();initCookies();initCookiePage();refreshNavAuth();
   initSignup();initSignin();initAccount();initHearts();initShare();
   initNewsletter();initContact();initFeedback();initBrowse();initKidToggle();
-  initCopyPrevention();initHeroSearch();initSeasonPage();
+  initCopyPrevention();initHeroSearch();initSeasonPage();initRecipeNote();
 });
 })();
