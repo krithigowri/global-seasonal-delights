@@ -367,6 +367,13 @@ h1,h2,h3,.display{font-family:var(--font-d);line-height:1.2;color:var(--espresso
   .grid-3,.grid-2{grid-template-columns:1fr}
   .hero-inner{padding:64px 20px 70px}
   .filter-row .field{min-width:100%}
+  /* mobile header: keep brand + actions on one line, no horizontal overflow (2026-10-01) */
+  .nav-inner{gap:12px;padding:0 16px}
+  .brand img{height:38px;width:38px}
+  .brand-name{font-size:22px}
+  .brand-tag{display:none}
+  .nav-actions{gap:8px}
+  .acct-chip span:last-child{display:none}
 }
 
 /* ---------- season map: region picker ---------- */
