@@ -1,431 +1,388 @@
-/* ============================================================
-   Rasalaya — shared frontend logic (Phase 1: static, no backend)
-   - Cookie consent banner (localStorage; per-purpose toggles)
-   - Mobile nav
-   - Browse page: loads recipes.json, filters, pills, sort, search
-   - Recipe pages: share dialog, favorites (mock), star rating,
-     feedback + newsletter mock confirmations
-   - Signup: client-side validation + mock confirmation
+/* Rasalaya v2 — shared frontend logic (static demo; no backend).
+   Demo auth lives ONLY in localStorage and NEVER stores passwords.
+   Real accounts (hashed passwords via Supabase Auth) arrive with the backend. */
+(function(){
+"use strict";
+var $=function(s,c){return (c||document).querySelector(s)};
+var $$=function(s,c){return Array.prototype.slice.call((c||document).querySelectorAll(s))};
 
-   BACKEND HOOKS (Phase 2 — Supabase):
-   - search "BACKEND:" below for every spot that will call the API.
-   ============================================================ */
-(function () {
-  "use strict";
+/* ---------- toast ---------- */
+function toast(msg){
+  var w=$('.toast-wrap');
+  if(!w){w=document.createElement('div');w.className='toast-wrap';document.body.appendChild(w);}
+  var t=document.createElement('div');t.className='toast';t.textContent=msg;w.appendChild(t);
+  setTimeout(function(){t.style.opacity='0';t.style.transition='opacity .4s';setTimeout(function(){t.remove()},450)},3200);
+}
+window.rasalayaToast=toast;
 
-  /* ---------------- Cookie consent ---------------- */
-  var CONSENT_KEY = "rasalaya_cookie_consent_v1";
-  // BACKEND: Phase 2 — POST consent events to the consent_audit table
-  // (event_type=cookie_consent, purposes array, document_version) per
-  // workspace/world-recipe-library/legal/consent-logging-spec.md
+/* ---------- cookie consent ---------- */
+var CONSENT_KEY='rasalaya_consent', CONSENT_VERSION='2026-10-01-v2';
+function getConsent(){try{return JSON.parse(localStorage.getItem(CONSENT_KEY)||'null')}catch(e){return null}}
+function setConsent(c){c.v=CONSENT_VERSION;c.ts=new Date().toISOString();
+  try{localStorage.setItem(CONSENT_KEY,JSON.stringify(c))}catch(e){}}
+function showBanner(){$('#cookie-banner').classList.add('show')}
+function hideBanner(){$('#cookie-banner').classList.remove('show')}
+function initCookies(){
+  var b=$('#cookie-banner');if(!b)return;
+  if(!getConsent())showBanner();
+  $('#cookie-accept').addEventListener('click',function(){
+    setConsent({necessary:true,analytics:true,marketing:true,method:'banner-accept'});
+    hideBanner();toast('Cookie preferences saved.');syncCookiePage();});
+  $('#cookie-reject').addEventListener('click',function(){
+    setConsent({necessary:true,analytics:false,marketing:false,method:'banner-reject'});
+    hideBanner();toast('Only necessary cookies will be used.');syncCookiePage();});
+  var s=$('[data-cookie-settings]');if(s)s.addEventListener('click',function(){location.href='cookies.html'});
+  $$('[data-cookie-settings]').forEach(function(el){el.addEventListener('click',function(){location.href='cookies.html'})});
+}
+function syncCookiePage(){
+  var c=getConsent()||{necessary:true,analytics:false,marketing:false};
+  var a=$('#ck-analytics'),m=$('#ck-marketing');
+  if(a)a.checked=!!c.analytics; if(m)m.checked=!!c.marketing;
+  var st=$('#cookie-current');if(st)st.textContent=c.ts?('Saved '+c.ts.slice(0,10)+' via '+c.method):'Not set yet';
+}
+function initCookiePage(){
+  if(!$('#cookie-save'))return;
+  syncCookiePage();
+  $('#cookie-save').addEventListener('click',function(){
+    setConsent({necessary:true,
+      analytics:$('#ck-analytics').checked,marketing:$('#ck-marketing').checked,method:'settings-page'});
+    syncCookiePage();toast('Cookie preferences saved.');});
+}
 
-  function getConsent() {
-    try { return JSON.parse(localStorage.getItem(CONSENT_KEY)); }
-    catch (e) { return null; }
-  }
-  function saveConsent(choice) {
-    choice.saved_at = new Date().toISOString();
-    try { localStorage.setItem(CONSENT_KEY, JSON.stringify(choice)); } catch (e) {}
-    // BACKEND: log cookie_consent event to Supabase consent_audit here.
-  }
+/* ---------- mobile nav ---------- */
+function initNav(){
+  var h=$('.hamburger'),l=$('.nav-links');
+  if(h&&l)h.addEventListener('click',function(){l.classList.toggle('open')});
+  var y=$('[data-year]');if(y)y.textContent=new Date().getFullYear();
+}
 
-  function buildBanner() {
-    if (getConsent()) return; // choice already stored
-    var banner = document.createElement("div");
-    banner.className = "cookie-banner";
-    banner.setAttribute("role", "dialog");
-    banner.setAttribute("aria-label", "Cookie consent");
-    banner.innerHTML =
-      "<h3>We use cookies</h3>" +
-      "<p>We use cookies to keep you signed in, remember your preferences, and " +
-      "(with your permission) understand how the library is used. Read our " +
-      '<a href="privacy.html">Privacy Policy</a>.</p>' +
-      '<div class="cookie-actions">' +
-      '<button class="btn btn-primary" data-cookie="accept">Accept all</button>' +
-      '<button class="btn btn-outline" data-cookie="reject">Reject all</button>' +
-      '<button class="btn-quiet" data-cookie="customize">Customize</button>' +
-      "</div>" +
-      '<div class="cookie-custom" hidden>' +
-      '<label class="switch"><input type="checkbox" checked disabled><span class="track"></span>Necessary (always on — sign-in, security)</label>' +
-      '<label class="switch"><input type="checkbox" data-purpose="analytics"><span class="track"></span>Analytics (helps us improve the library)</label>' +
-      '<label class="switch"><input type="checkbox" data-purpose="marketing"><span class="track"></span>Marketing (newsletter measuring, offers)</label>' +
-      '<div class="cookie-actions"><button class="btn btn-primary" data-cookie="save-custom">Save my choices</button></div>' +
-      "</div>";
-    document.body.appendChild(banner);
+/* ---------- demo auth (localStorage only; passwords NEVER stored) ---------- */
+var USERS_KEY='rasalaya_users', SESSION_KEY='rasalaya_session';
+var SEED_EMAIL='taster@rasalaya.org', SEED_PASS='taste1234';
+function getUsers(){try{return JSON.parse(localStorage.getItem(USERS_KEY)||'[]')}catch(e){return[]}}
+function saveUsers(u){try{localStorage.setItem(USERS_KEY,JSON.stringify(u))}catch(e){}}
+function seed(){var u=getUsers();
+  if(!u.some(function(x){return x.email===SEED_EMAIL})){
+    u.push({name:'Taster',email:SEED_EMAIL,demoSeed:true,createdAt:new Date().toISOString()});saveUsers(u);}}
+function currentUser(){try{var e=localStorage.getItem(SESSION_KEY);if(!e)return null;
+  return getUsers().filter(function(u){return u.email===e})[0]||null}catch(e){return null}}
+function signIn(email){try{localStorage.setItem(SESSION_KEY,email)}catch(e){}}
+function signOut(){try{localStorage.removeItem(SESSION_KEY)}catch(e){}}
+function refreshNavAuth(){
+  var slot=$('#nav-auth');if(!slot)return;var u=currentUser();
+  if(u){var initial=(u.name||u.email||'R').charAt(0).toUpperCase();
+    slot.innerHTML='<a class="acct-chip" href="account.html" title="Your account">'+
+      '<span class="acct-avatar">'+initial+'</span><span>'+escapeHtml(u.name||'Account')+'</span></a>';
+  }else{slot.innerHTML='<a class="btn btn-outline btn-sm" href="signin.html">Sign in</a>';}
+}
+function escapeHtml(s){return String(s).replace(/[&<>"']/g,function(c){
+  return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
+function ageOn(dob){var d=new Date(dob),n=new Date(),a=n.getFullYear()-d.getFullYear();
+  var m=n.getMonth()-d.getMonth();if(m<0||(m===0&&n.getDate()<d.getDate()))a--;return a}
 
-    banner.addEventListener("click", function (ev) {
-      var action = ev.target.getAttribute("data-cookie");
-      if (!action) return;
-      if (action === "accept") {
-        saveConsent({ necessary: true, analytics: true, marketing: true });
-        banner.remove();
-      } else if (action === "reject") {
-        saveConsent({ necessary: true, analytics: false, marketing: false });
-        banner.remove();
-      } else if (action === "customize") {
-        banner.querySelector(".cookie-custom").hidden = false;
-      } else if (action === "save-custom") {
-        saveConsent({
-          necessary: true,
-          analytics: !!banner.querySelector('[data-purpose="analytics"]').checked,
-          marketing: !!banner.querySelector('[data-purpose="marketing"]').checked
-        });
-        banner.remove();
-      }
-    });
-  }
-
-  /* "Cookie settings" footer links reopen the banner */
-  function wireCookieSettings() {
-    document.querySelectorAll("[data-cookie-settings]").forEach(function (el) {
-      el.addEventListener("click", function (ev) {
-        ev.preventDefault();
-        try { localStorage.removeItem(CONSENT_KEY); } catch (e) {}
-        buildBanner();
-      });
-    });
-  }
-
-  /* ---------------- Mobile nav ---------------- */
-  function wireNav() {
-    var btn = document.querySelector(".hamburger");
-    var links = document.querySelector(".nav-links");
-    if (btn && links) {
-      btn.addEventListener("click", function () {
-        links.classList.toggle("open");
-      });
-    }
-    var year = document.querySelector("[data-year]");
-    if (year) year.textContent = new Date().getFullYear();
-  }
-
-  /* ---------------- Homepage search → browse ---------------- */
-  function wireHeroSearch() {
-    var form = document.getElementById("hero-search");
-    if (!form) return;
-    form.addEventListener("submit", function (ev) {
-      ev.preventDefault();
-      var q = form.querySelector("input").value.trim();
-      window.location.href = "browse.html" + (q ? "?q=" + encodeURIComponent(q) : "");
-    });
-  }
-
-  /* ---------------- Newsletter + share + feedback mocks ---------------- */
-  function mockConfirm(form, message) {
-    form.addEventListener("submit", function (ev) {
-      ev.preventDefault();
-      // BACKEND: Phase 2 — newsletter: double opt-in flow (consent_audit
-      // marketing_optin + doi token email). Share-gate: send recipe email.
-      var done = document.createElement("div");
-      done.className = "form-success";
-      done.textContent = message;
-      form.replaceWith(done);
-    });
-  }
-  function wireMockForms() {
-    document.querySelectorAll("[data-mock-newsletter]").forEach(function (f) {
-      mockConfirm(f, "Thank you — please check your inbox to confirm your subscription.");
-    });
-    document.querySelectorAll("[data-mock-share]").forEach(function (f) {
-      mockConfirm(f, "On its way! Check your inbox for the recipe.");
-    });
-    document.querySelectorAll("[data-mock-feedback]").forEach(function (f) {
-      mockConfirm(f, "Thanks for the feedback — our cooks read every note.");
-    });
-    document.querySelectorAll("[data-mock-notify]").forEach(function (f) {
-      mockConfirm(f, "You're on the list — we'll write when Collections launch.");
-    });
-  }
-
-  /* ---------------- Share dialog ---------------- */
-  function wireShareDialog() {
-    var overlay = document.getElementById("share-overlay");
-    if (!overlay) return;
-    var openBtns = document.querySelectorAll("[data-open-share]");
-    var closeBtn = overlay.querySelector(".modal-close");
-    function open() { overlay.hidden = false; document.body.style.overflow = "hidden"; }
-    function close() { overlay.hidden = true; document.body.style.overflow = ""; }
-    openBtns.forEach(function (b) { b.addEventListener("click", open); });
-    if (closeBtn) closeBtn.addEventListener("click", close);
-    overlay.addEventListener("click", function (ev) {
-      if (ev.target === overlay) close();
-    });
-    document.addEventListener("keydown", function (ev) {
-      if (ev.key === "Escape" && !overlay.hidden) close();
-    });
-    // Brief: share dialog renders OPEN on recipe pages (mockup state).
-    open();
-  }
-
-  /* ---------------- Favorites (mock) ---------------- */
-  function wireFavorites() {
-    // BACKEND: Phase 2 — requires Supabase auth; toggle favorite row for user.
-    document.querySelectorAll(".heart-btn").forEach(function (btn) {
-      btn.addEventListener("click", function (ev) {
-        ev.preventDefault();
-        // Phase 1: no accounts yet — nudge toward signup, keep the heart visual.
-        var note = btn.parentElement.querySelector(".heart-note");
-        if (!btn.classList.contains("saved")) {
-          btn.classList.add("saved");
-          if (note) note.textContent = "Saved on this device — sign in to keep it everywhere.";
-        } else {
-          btn.classList.remove("saved");
-          if (note) note.textContent = "Sign in to save this recipe.";
-        }
-      });
-    });
-  }
-
-  /* ---------------- Star rating ---------------- */
-  function wireStars() {
-    document.querySelectorAll(".stars").forEach(function (wrap) {
-      var buttons = Array.prototype.slice.call(wrap.querySelectorAll("button"));
-      var hidden = wrap.parentElement.querySelector('input[name="rating"]');
-      buttons.forEach(function (btn, i) {
-        btn.addEventListener("click", function () {
-          buttons.forEach(function (b, j) { b.classList.toggle("lit", j <= i); });
-          if (hidden) hidden.value = i + 1;
-        });
-      });
-    });
-  }
-
-  /* ---------------- Browse page ---------------- */
-  function initBrowse() {
-    var grid = document.getElementById("recipe-grid");
-    if (!grid) return;
-
-    var params = new URLSearchParams(window.location.search);
-    var state = {
-      q: params.get("q") || "",
-      region: params.get("region") || "",
-      season: params.get("season") || "",
-      category: params.get("category") || "",
-      festive: params.get("festive") === "1",
-      kid: params.get("kid") === "1",
-      veg: params.get("veg") === "1",
-      sort: "loved"
-    };
-
-    var regionSel = document.getElementById("f-region");
-    var seasonSel = document.getElementById("f-season");
-    var sortSel = document.getElementById("f-sort");
-    var searchInput = document.getElementById("f-search");
-    var countEl = document.getElementById("result-count");
-    var pillsEl = document.getElementById("active-pills");
-    var emptyEl = document.getElementById("empty-state");
-    var ALL = [];
-
-    function artClass(i) { return "art art-" + ((i % 6) + 1); }
-
-    function cardHTML(r, i) {
-      var alias = r.aliases && r.aliases.length
-        ? '<p class="alias-line">Also known as ' + esc(r.aliases[0].name) + " in " + esc(r.aliases[0].region) + "</p>"
-        : "";
-      return (
-        '<article class="card">' +
-        '<button class="heart-btn" aria-label="Save ' + esc(r.name) + ' to favorites">' +
-        '<svg viewBox="0 0 24 24"><path d="M12 21s-7.5-4.9-10-9.5C.4 8 2.4 4.5 5.8 4.5c2 0 3.4 1.1 4.2 2.3.8-1.2 2.2-2.3 4.2-2.3 3.4 0 5.4 3.5 3.8 7-2.5 4.6-10 9.5-10 9.5z"/></svg>' +
-        "</button>" +
-        // ART PLACEHOLDER — Phase 2: replace .art div with <img src="..."> dish photography
-        '<a href="' + esc(r.page) + '" aria-label="' + esc(r.name) + '"><div class="' + artClass(i) + '">' + esc(r.name.charAt(0)) + "</div></a>" +
-        '<div class="card-body">' +
-        "<h3><a href=\"" + esc(r.page) + "\">" + esc(r.name) + "</a></h3>" +
-        alias +
-        '<div class="tag-row">' +
-        "<span class=\"tag\">" + esc(r.region) + "</span>" +
-        "<span class=\"tag\">" + esc(r.season) + "</span>" +
-        "<span class=\"tag\">" + esc(cap(r.category)) + "</span>" +
-        (r.veg ? '<span class="tag veg">Vegetarian</span>' : "") +
-        (r.festive ? '<span class="tag festive">Festive</span>' : "") +
-        "</div>" +
-        "</div></article>"
-      );
-    }
-
-    function esc(s) {
-      return String(s == null ? "" : s)
-        .replace(/&/g, "&amp;").replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;").replace(/"/g, "&quot;");
-    }
-    function cap(s) { return s.charAt(0).toUpperCase() + s.slice(1); }
-
-    function filtered() {
-      var q = state.q.trim().toLowerCase();
-      var list = ALL.filter(function (r) {
-        if (state.region && r.region !== state.region) return false;
-        if (state.season && r.season !== state.season) return false;
-        if (state.category && r.category !== state.category) return false;
-        if (state.festive && !r.festive) return false;
-        if (state.kid && !r.kidFriendly) return false;
-        if (state.veg && !r.veg) return false;
-        if (q) {
-          var hay = (r.name + " " + r.region + " " + r.season + " " +
-            (r.aliases || []).map(function (a) { return a.name + " " + a.region; }).join(" ")).toLowerCase();
-          if (hay.indexOf(q) === -1) return false;
-        }
-        return true;
-      });
-      if (state.sort === "az") list.sort(function (a, b) { return a.name.localeCompare(b.name); });
-      else if (state.sort === "season") list.sort(function (a, b) { return a.season.localeCompare(b.season); });
-      return list;
-    }
-
-    function renderPills() {
-      var pills = [];
-      function add(label, clear) {
-        pills.push({ label: label, clear: clear });
-      }
-      if (state.q) add('Search: "' + state.q + '"', function () { state.q = ""; searchInput.value = ""; });
-      if (state.region) add(state.region, function () { state.region = ""; regionSel.value = ""; });
-      if (state.season) add(state.season, function () { state.season = ""; seasonSel.value = ""; });
-      if (state.category) add(cap(state.category), function () { state.category = ""; syncCatChips(); });
-      if (state.festive) add("Festive", function () { state.festive = false; syncFestiveChip(); });
-      if (state.kid) add("Kid-friendly", function () { state.kid = false; document.getElementById("f-kid").checked = false; });
-      if (state.veg) add("Vegetarian", function () { state.veg = false; document.getElementById("f-veg").checked = false; });
-      pillsEl.innerHTML = "";
-      pills.forEach(function (p) {
-        var s = document.createElement("span");
-        s.className = "pill";
-        s.innerHTML = "<span></span>";
-        s.firstChild.textContent = p.label;
-        var x = document.createElement("button");
-        x.textContent = "×";
-        x.setAttribute("aria-label", "Remove filter " + p.label);
-        x.addEventListener("click", function () { p.clear(); render(); });
-        s.appendChild(x);
-        pillsEl.appendChild(s);
-      });
-      if (pills.length > 1) {
-        var c = document.createElement("button");
-        c.className = "clear-all";
-        c.textContent = "Clear all";
-        c.addEventListener("click", function () {
-          state.q = ""; state.region = ""; state.season = ""; state.category = "";
-          state.festive = false; state.kid = false; state.veg = false;
-          searchInput.value = ""; regionSel.value = ""; seasonSel.value = "";
-          document.getElementById("f-kid").checked = false;
-          document.getElementById("f-veg").checked = false;
-          syncCatChips(); syncFestiveChip(); render();
-        });
-        pillsEl.appendChild(c);
-      }
-    }
-
-    function render() {
-      var list = filtered();
-      grid.innerHTML = list.map(cardHTML).join("");
-      countEl.textContent = "Showing " + list.length + " of " + ALL.length + " sample recipes";
-      emptyEl.hidden = list.length !== 0;
-      renderPills();
-      wireFavorites(); // re-wire hearts on freshly rendered cards
-    }
-
-    function syncCatChips() {
-      document.querySelectorAll("[data-cat]").forEach(function (ch) {
-        ch.setAttribute("aria-pressed", ch.getAttribute("data-cat") === state.category ? "true" : "false");
-      });
-    }
-    function syncFestiveChip() {
-      var ch = document.querySelector("[data-festive]");
-      if (ch) ch.setAttribute("aria-pressed", state.festive ? "true" : "false");
-    }
-
-    fetch("recipes.json")
-      .then(function (res) { return res.json(); })
-      .then(function (data) {
-        ALL = data.recipes || [];
-        // Populate region + season dropdowns from data
-        var regions = [], seasons = [];
-        ALL.forEach(function (r) {
-          if (regions.indexOf(r.region) === -1) regions.push(r.region);
-          if (seasons.indexOf(r.season) === -1) seasons.push(r.season);
-        });
-        regions.sort().forEach(function (rg) {
-          var o = document.createElement("option");
-          o.value = rg; o.textContent = rg; regionSel.appendChild(o);
-        });
-        seasons.sort().forEach(function (s) {
-          var o = document.createElement("option");
-          o.value = s; o.textContent = s; seasonSel.appendChild(o);
-        });
-        // Apply URL-param state to controls
-        regionSel.value = state.region; seasonSel.value = state.season;
-        searchInput.value = state.q;
-        document.getElementById("f-kid").checked = state.kid;
-        document.getElementById("f-veg").checked = state.veg;
-        syncCatChips(); syncFestiveChip();
-        render();
-      })
-      .catch(function () {
-        grid.innerHTML = "";
-        emptyEl.hidden = false;
-        emptyEl.querySelector("p").textContent =
-          "Could not load the recipe index. Serve this site over http (e.g. python3 -m http.server) rather than file:// and try again.";
-      });
-
-    regionSel.addEventListener("change", function () { state.region = regionSel.value; render(); });
-    seasonSel.addEventListener("change", function () { state.season = seasonSel.value; render(); });
-    sortSel.addEventListener("change", function () { state.sort = sortSel.value; render(); });
-    searchInput.addEventListener("input", function () { state.q = searchInput.value; render(); });
-    document.getElementById("f-kid").addEventListener("change", function (e) { state.kid = e.target.checked; render(); });
-    document.getElementById("f-veg").addEventListener("change", function (e) { state.veg = e.target.checked; render(); });
-    document.querySelectorAll("[data-cat]").forEach(function (ch) {
-      ch.addEventListener("click", function () {
-        var v = ch.getAttribute("data-cat");
-        state.category = (state.category === v) ? "" : v;
-        syncCatChips(); render();
-      });
-    });
-    var fch = document.querySelector("[data-festive]");
-    if (fch) fch.addEventListener("click", function () {
-      state.festive = !state.festive; syncFestiveChip(); render();
-    });
-  }
-
-  /* ---------------- Signup validation ---------------- */
-  function initSignup() {
-    var form = document.getElementById("signup-form");
-    if (!form) return;
-    form.addEventListener("submit", function (ev) {
-      ev.preventDefault();
-      var ok = true;
-      function setErr(id, msg) {
-        var el = document.getElementById(id);
-        el.textContent = msg || "";
-        if (msg) ok = false;
-      }
-      var email = form.querySelector('input[name="email"]').value.trim();
-      var pw = form.querySelector('input[name="password"]').value;
-      var agree = form.querySelector('input[name="agree"]').checked;
-      setErr("err-email", /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) ? "" : "Please enter a valid email address.");
-      setErr("err-password", pw.length >= 8 ? "" : "Password must be at least 8 characters.");
-      setErr("err-agree", agree ? "" : "Please agree to the Terms to create your account.");
-      if (!ok) return;
-      // BACKEND: Phase 2 — Supabase Auth signUp + insert consent_audit rows
-      // (terms_accept v1.0 + privacy_ack, unchecked_checkbox_click, with
-      // document SHA-256 hash per legal/consent-logging-spec.md).
-      var done = document.createElement("div");
-      done.className = "form-success";
-      done.style.color = "var(--espresso)";
-      done.style.border = "1px solid var(--line)";
-      done.style.background = "var(--card)";
-      done.textContent = "Account created (demo) — check your inbox to verify your email.";
-      form.replaceWith(done);
-    });
-  }
-
-  /* ---------------- boot ---------------- */
-  document.addEventListener("DOMContentLoaded", function () {
-    buildBanner();
-    wireCookieSettings();
-    wireNav();
-    wireHeroSearch();
-    wireMockForms();
-    wireShareDialog();
-    wireFavorites();
-    wireStars();
-    initBrowse();
-    initSignup();
+/* signup */
+function initSignup(){
+  var f=$('#signup-form');if(!f)return;seed();
+  f.addEventListener('submit',function(e){
+    e.preventDefault();var err=$('#form-err');err.classList.remove('show');
+    var name=$('#su-name').value.trim(),email=$('#su-email').value.trim().toLowerCase(),
+        pw=$('#su-pass').value,dob=$('#su-dob').value,agree=$('#su-agree').checked;
+    function fail(m){err.textContent=m;err.classList.add('show');err.scrollIntoView({block:'center'})}
+    if(name.length<2)return fail('Please enter your name.');
+    if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email))return fail('Please enter a valid email address.');
+    if(pw.length<8)return fail('Password must be at least 8 characters.');
+    if(!dob)return fail('Please enter your date of birth.');
+    if(ageOn(dob)<13)return fail('You must be at least 13 years old to create an account.');
+    if(!agree)return fail('Please check the "I agree" box to accept the Terms of Service and Privacy Policy.');
+    var users=getUsers();
+    if(users.some(function(u){return u.email===email}))return fail('An account with this email already exists in demo mode. Try signing in.');
+    users.push({name:name,email:email,dob:dob,agreedTerms:'2026-10-01-v2',
+      agreedAt:new Date().toISOString(),createdAt:new Date().toISOString()});
+    saveUsers(users);signIn(email);refreshNavAuth();
+    $('#form-ok').textContent='Account created — welcome, '+name+'! Demo mode: no confirmation email is actually sent. Real double opt-in arrives with the backend.';
+    $('#form-ok').classList.add('show');
+    setTimeout(function(){location.href='account.html'},1400);
   });
+}
+/* signin */
+function initSignin(){
+  var f=$('#signin-form');if(!f)return;seed();
+  var fill=$('#demo-fill');
+  if(fill)fill.addEventListener('click',function(){$('#si-email').value=SEED_EMAIL;$('#si-pass').value=SEED_PASS;});
+  f.addEventListener('submit',function(e){
+    e.preventDefault();var err=$('#form-err');err.classList.remove('show');
+    var email=$('#si-email').value.trim().toLowerCase(),pw=$('#si-pass').value;
+    function fail(m){err.textContent=m;err.classList.add('show')}
+    if(email===SEED_EMAIL){ if(pw!==SEED_PASS)return fail('Incorrect password for the demo account.');
+      signIn(email);refreshNavAuth();location.href='account.html';return;}
+    var u=getUsers().filter(function(x){return x.email===email})[0];
+    if(!u)return fail('No demo account found for this email. Create one on the signup page first.');
+    /* demo: registered demo users sign in by email; passwords are not stored in demo mode */
+    signIn(email);refreshNavAuth();location.href='account.html';
+  });
+}
+/* account page + delete flow */
+function initAccount(){
+  if(!$('#account-page'))return;
+  var u=currentUser();
+  if(!u){toast('Please sign in first.');location.href='signin.html';return;}
+  $('#acct-name').textContent=u.name||'Member';
+  $('#acct-email').textContent=u.email;
+  $('#acct-since').textContent=(u.createdAt||'').slice(0,10);
+  renderFavs();
+  var nl=$('#acct-newsletter');
+  if(nl){var prefs=getNewsletter();nl.checked=!!prefs[u.email];
+    nl.addEventListener('change',function(){var p=getNewsletter();
+      if(nl.checked){p[u.email]={ts:new Date().toISOString()}}else{delete p[u.email]}
+      saveNewsletter(p);toast(nl.checked?'Subscribed to the newsletter.':'Unsubscribed from the newsletter.');});}
+  $('#signout-btn').addEventListener('click',function(){signOut();refreshNavAuth();
+    toast('Signed out.');setTimeout(function(){location.href='index.html'},600);});
+  var dz=$('#delete-btn'),cb=$('#delete-confirm');
+  dz.addEventListener('click',function(){cb.classList.add('show');dz.disabled=true;});
+  $('#delete-cancel').addEventListener('click',function(){cb.classList.remove('show');dz.disabled=false;});
+  $('#delete-yes').addEventListener('click',function(){
+    var email=u.email;
+    try{[USERS_KEY,SESSION_KEY].forEach(function(k){localStorage.removeItem(k)});
+      var f=getFavs();delete f[email];saveFavs(f);
+      var p=getNewsletter();delete p[email];saveNewsletter(p);
+    }catch(e){}
+    seed(); /* keep the seeded tester available */
+    toast('Your demo account and all local data were deleted.');
+    setTimeout(function(){location.href='index.html'},900);
+  });
+}
+
+/* ---------- favorites ---------- */
+var FAVS_KEY='rasalaya_favs';
+function getFavs(){try{return JSON.parse(localStorage.getItem(FAVS_KEY)||'{}')}catch(e){return{}}}
+function saveFavs(f){try{localStorage.setItem(FAVS_KEY,JSON.stringify(f))}catch(e){}}
+function myFavs(){var u=currentUser();if(!u)return[];return getFavs()[u.email]||[]}
+function isFav(id){return myFavs().indexOf(id)>-1}
+function toggleFav(id,btn){
+  var u=currentUser();
+  if(!u){toast('Sign in to save favorites.');setTimeout(function(){location.href='signin.html'},900);return;}
+  var f=getFavs(),list=f[u.email]||[],i=list.indexOf(id);
+  if(i>-1){list.splice(i,1);toast('Removed from favorites.')}else{list.push(id);toast('Saved to favorites.')}
+  f[u.email]=list;saveFavs(f);paintHearts();
+  if($('#account-page'))renderFavs();
+}
+function paintHearts(){
+  $$('.fav-btn').forEach(function(b){
+    b.classList.toggle('active',isFav(b.getAttribute('data-recipe')));
+    b.setAttribute('aria-pressed',isFav(b.getAttribute('data-recipe'))?'true':'false');});
+  $$('.fav-btn-inline').forEach(function(b){
+    var on=isFav(b.getAttribute('data-recipe'));
+    b.classList.toggle('btn-leaf',on);b.classList.toggle('btn-outline',!on);
+    b.textContent=on?'Saved to favorites':'Save to favorites';});
+}
+function initHearts(){
+  /* Hearts are their own control: stopPropagation so a heart tap NEVER follows the card link. */
+  $$('.fav-btn, .fav-btn-inline').forEach(function(b){
+    if(b.dataset.bound)return;b.dataset.bound='1';
+    b.addEventListener('click',function(e){e.preventDefault();e.stopPropagation();
+      toggleFav(b.getAttribute('data-recipe'),b);});
+  });
+  paintHearts();
+}
+function renderFavs(){
+  var box=$('#fav-list');if(!box)return;var list=myFavs(),data=window.RASALAYA_RECIPES||[];
+  if(!list.length){box.innerHTML='<div class="empty-state"><h2>No favorites yet</h2>'+
+    '<p>Tap the heart on any recipe to save it here.</p><a class="btn btn-primary" href="browse.html">Browse recipes</a></div>';return;}
+  box.innerHTML='';
+  list.forEach(function(id){
+    var r=data.filter(function(x){return x.id===id})[0];if(!r)return;
+    box.appendChild(recipeCard(r));
+  });
+  initHearts();
+}
+
+/* ---------- recipe cards (single click navigates; share opens ONLY from Share button) ---------- */
+function recipeCard(r){
+  var a=document.createElement('article');a.className='recipe-card';
+  var alias=r.aliases&&r.aliases.length?'<div class="alias">Also known as '+escapeHtml(r.aliases[0].name)+
+    ' in '+escapeHtml(r.aliases[0].region)+'</div>':'';
+  var tags='<div class="tag-row"><span class="tag">'+escapeHtml(r.region)+'</span>'+
+    '<span class="tag">'+escapeHtml(r.season)+'</span><span class="tag">'+escapeHtml(cap(r.category))+'</span>'+
+    (r.veg?'<span class="tag veg">Vegetarian</span>':'')+
+    (r.festive?'<span class="tag festive">Festive</span>':'')+
+    (r.kidFriendly?'<span class="tag kid">Kid-friendly</span>':'')+'</div>';
+  a.innerHTML='<button class="fav-btn" data-recipe="'+r.id+'" aria-label="Save to favorites" aria-pressed="false">'+
+    '<svg viewBox="0 0 24 24"><path d="M12 21s-7.5-4.9-10-9.5C.5 8 2.5 4.5 6 4.5c2.2 0 3.9 1.3 6 4 2.1-2.7 3.8-4 6-4 3.5 0 5.5 3.5 4 7-2.5 4.6-10 9.5-10 9.5z"/></svg></button>'+
+    '<img class="dish" src="assets/img/'+r.id+'.jpg" alt="'+escapeHtml(r.name)+'" loading="lazy">'+
+    '<div class="card-body"><h3>'+escapeHtml(r.name)+'</h3>'+alias+tags+'</div>'+
+    '<a class="card-hit" href="'+r.page+'" aria-label="Open '+escapeHtml(r.name)+' recipe"></a>';
+  return a;
+}
+function cap(s){return s.charAt(0).toUpperCase()+s.slice(1)}
+
+/* ---------- share dialog — opens ONLY from an explicit Share button click ---------- */
+function initShare(){
+  var veil=$('#share-veil');if(!veil)return;
+  function open(recipeName){
+    $('#share-recipe-name').textContent=recipeName||'';
+    veil.classList.add('open');document.body.style.overflow='hidden';
+    setTimeout(function(){$('#share-email').focus()},80);
+  }
+  function close(){veil.classList.remove('open');document.body.style.overflow='';}
+  $$('[data-share-open]').forEach(function(b){
+    b.addEventListener('click',function(e){e.preventDefault();e.stopPropagation();
+      open(b.getAttribute('data-share-open'));});
+  });
+  veil.addEventListener('click',function(e){if(e.target===veil)close()});
+  $('#share-close').addEventListener('click',close);
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')close()});
+  $('#share-form').addEventListener('submit',function(e){
+    e.preventDefault();var err=$('#share-err');err.classList.remove('show');
+    var email=$('#share-email').value.trim();
+    if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){err.textContent='Please enter a valid email address.';err.classList.add('show');return;}
+    if(!$('#share-age').checked){err.textContent='Please confirm you are 13 or older.';err.classList.add('show');return;}
+    $('#share-done').classList.add('show');$('#share-form').style.display='none';
+  });
+}
+
+/* ---------- newsletter / contact / feedback (demo confirmations) ---------- */
+var NL_KEY='rasalaya_newsletter';
+function getNewsletter(){try{return JSON.parse(localStorage.getItem(NL_KEY)||'{}')}catch(e){return{}}}
+function saveNewsletter(n){try{localStorage.setItem(NL_KEY,JSON.stringify(n))}catch(e){}}
+function initNewsletter(){
+  $$('.news-form').forEach(function(f){
+    f.addEventListener('submit',function(e){
+      e.preventDefault();
+      var input=f.querySelector('input[type=email]'),email=input.value.trim();
+      if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){toast('Please enter a valid email address.');return;}
+      var age=f.parentElement.querySelector('.nl-age');
+      if(age&&!age.checked){toast('Please confirm you are 13 or older.');return;}
+      var n=getNewsletter();n[email]={ts:new Date().toISOString()};saveNewsletter(n);
+      var ok=f.parentElement.querySelector('.form-ok')||f.nextElementSibling;
+      toast('Thanks! Demo mode: no email is actually sent. Real double opt-in arrives with the backend.');
+      input.value='';
+    });
+  });
+}
+function initContact(){
+  var f=$('#contact-form');if(!f)return;
+  f.addEventListener('submit',function(e){
+    e.preventDefault();var err=$('#form-err');err.classList.remove('show');
+    var topic=$('#c-topic').value,name=$('#c-name').value.trim(),
+        email=$('#c-email').value.trim(),msg=$('#c-message').value.trim();
+    function fail(m){err.textContent=m;err.classList.add('show')}
+    if(!topic)return fail('Please choose a topic.');
+    if(name.length<2)return fail('Please enter your name.');
+    if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email))return fail('Please enter a valid email address.');
+    if(msg.length<10)return fail('Please write a message of at least 10 characters.');
+    $('#form-ok').textContent='Message received — thank you, '+name+'. Demo mode: this stays in your browser; real delivery to our inbox arrives with the backend.';
+    $('#form-ok').classList.add('show');f.reset();
+  });
+}
+function initFeedback(){
+  var f=$('#feedback-form');if(!f)return;
+  var stars=$$('#fb-stars span'),rating=0;
+  stars.forEach(function(s,i){s.addEventListener('click',function(){rating=i+1;
+    stars.forEach(function(x,j){x.classList.toggle('lit',j<rating)})})});
+  f.addEventListener('submit',function(e){
+    e.preventDefault();var err=$('#form-err');err.classList.remove('show');
+    var name=$('#fb-name').value.trim(),comment=$('#fb-comment').value.trim();
+    function fail(m){err.textContent=m;err.classList.add('show')}
+    if(name.length<2)return fail('Please enter your name.');
+    if(!rating)return fail('Please tap a star rating.');
+    if(comment.length<4)return fail('Please write a short comment.');
+    if(!$('#fb-age').checked)return fail('Please confirm you are 13 or older.');
+    $('#form-ok').textContent='Thanks, '+name+'! Your feedback was recorded. Demo mode: reviews are read by our team before anything appears publicly.';
+    $('#form-ok').classList.add('show');f.reset();
+    stars.forEach(function(x){x.classList.remove('lit')});rating=0;
+  });
+}
+
+/* ---------- browse filters (sticky bar) ---------- */
+function initBrowse(){
+  var grid=$('#browse-grid');if(!grid)return;
+  var data=(window.RASALAYA_RECIPES||[]).slice();
+  var q=(new URLSearchParams(location.search).get('q')||'').toLowerCase();
+  var state={q:q,region:'',season:'',cats:[],kid:false,veg:false,festive:false,sort:'loved'};
+  var si=$('#f-search');if(si&&q)si.value=q;
+  function apply(){
+    var list=data.filter(function(r){
+      if(state.q){var hay=(r.name+' '+r.region+' '+r.season+' '+r.category+' '+
+        r.ingredients.groups.map(function(g){return g.items.join(' ')}).join(' ')).toLowerCase();
+        if(hay.indexOf(state.q)<0)return false;}
+      if(state.region&&r.region!==state.region)return false;
+      if(state.season&&r.season!==state.season)return false;
+      if(state.cats.length&&state.cats.indexOf(r.category)<0)return false;
+      if(state.kid&&!r.kidFriendly)return false;
+      if(state.veg&&!r.veg)return false;
+      if(state.festive&&!r.festive)return false;
+      return true;});
+    list.sort(function(a,b){if(state.sort==='az')return a.name.localeCompare(b.name);
+      if(state.sort==='season')return a.season.localeCompare(b.season);
+      return (b.loves||0)-(a.loves||0);});
+    grid.innerHTML='';
+    $('#result-count').textContent=list.length+(list.length===1?' recipe':' recipes');
+    if(!list.length){$('#empty-state').style.display='block';}
+    else{$('#empty-state').style.display='none';list.forEach(function(r){grid.appendChild(recipeCard(r))});}
+    paintPills();initHearts();
+  }
+  function paintPills(){
+    var box=$('#active-pills');box.innerHTML='';
+    function pill(label,clear){var p=document.createElement('span');p.className='pill';
+      p.innerHTML=escapeHtml(label)+'<button aria-label="Remove filter">&times;</button>';
+      p.querySelector('button').addEventListener('click',clear);box.appendChild(p);}
+    if(state.q)pill('Search: '+state.q,function(){state.q='';si.value='';apply()});
+    if(state.region)pill(state.region,function(){state.region='';$('#f-region').value='';apply()});
+    if(state.season)pill(state.season,function(){state.season='';$('#f-season').value='';apply()});
+    state.cats.forEach(function(c){pill(cap(c),function(){
+      state.cats=state.cats.filter(function(x){return x!==c});
+      $$('.chip[data-cat]').forEach(function(ch){if(ch.getAttribute('data-cat')===c)ch.classList.remove('on')});apply()})});
+    if(state.kid)pill('Kid-friendly',function(){state.kid=false;$('#f-kid').checked=false;apply()});
+    if(state.veg)pill('Vegetarian',function(){state.veg=false;$('#f-veg').checked=false;apply()});
+    if(state.festive)pill('Festive',function(){state.festive=false;$('#f-festive').checked=false;apply()});
+  }
+  if(si)si.addEventListener('input',function(){state.q=si.value.trim().toLowerCase();apply()});
+  $('#f-region').addEventListener('change',function(e){state.region=e.target.value;apply()});
+  $('#f-season').addEventListener('change',function(e){state.season=e.target.value;apply()});
+  $('#f-sort').addEventListener('change',function(e){state.sort=e.target.value;apply()});
+  $$('.chip[data-cat]').forEach(function(ch){ch.addEventListener('click',function(){
+    var c=ch.getAttribute('data-cat'),i=state.cats.indexOf(c);
+    if(i>-1){state.cats.splice(i,1);ch.classList.remove('on')}else{state.cats.push(c);ch.classList.add('on')}
+    apply()})});
+  $('#f-kid').addEventListener('change',function(e){state.kid=e.target.checked;apply()});
+  $('#f-veg').addEventListener('change',function(e){state.veg=e.target.checked;apply()});
+  $('#f-festive').addEventListener('change',function(e){state.festive=e.target.checked;apply()});
+  apply();
+}
+
+/* ---------- kid-friendly toggle on recipe page ---------- */
+function initKidToggle(){
+  var t=$('#kid-toggle');if(!t)return;
+  t.addEventListener('change',function(){
+    $('#kid-card').style.display=t.checked?'block':'none';
+    if(t.checked)$('#kid-card').scrollIntoView({behavior:'smooth',block:'center'});});
+}
+
+/* ---------- COPY-PREVENTION: recipe card text is non-selectable; copy/cut/context-menu blocked ---------- */
+function initCopyPrevention(){
+  $$('.parchment').forEach(function(card){
+    ['copy','cut'].forEach(function(ev){
+      card.addEventListener(ev,function(e){e.preventDefault();
+        toast('Sharing instead of copying keeps this library free — use the Share button.');});});
+    card.addEventListener('contextmenu',function(e){e.preventDefault();
+      toast('Right-click is disabled on recipes — use Share to send this recipe.');});
+    card.addEventListener('dragstart',function(e){e.preventDefault()});
+  });
+}
+
+/* ---------- hero search ---------- */
+function initHeroSearch(){
+  var f=$('#hero-search');if(!f)return;
+  f.addEventListener('submit',function(e){e.preventDefault();
+    var q=f.querySelector('input').value.trim();
+    location.href='browse.html'+(q?'?q='+encodeURIComponent(q):'');});
+}
+
+/* ---------- boot ---------- */
+document.addEventListener('DOMContentLoaded',function(){
+  seed();initNav();initCookies();initCookiePage();refreshNavAuth();
+  initSignup();initSignin();initAccount();initHearts();initShare();
+  initNewsletter();initContact();initFeedback();initBrowse();initKidToggle();
+  initCopyPrevention();initHeroSearch();
+});
 })();
