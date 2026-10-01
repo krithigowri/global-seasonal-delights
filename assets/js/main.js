@@ -581,7 +581,12 @@ var REGION_META={
   'Indonesia':{lat:-7,lon:110,hemi:'N'},
   'Argentina':{lat:-35,lon:-65,hemi:'S'},
   'Chile':{lat:-33,lon:-71,hemi:'S'},
-  'South Africa':{lat:-30,lon:25,hemi:'S'}
+  'South Africa':{lat:-30,lon:25,hemi:'S'},
+  'United Kingdom':{lat:53.5,lon:-2,hemi:'N'},
+  'Ireland':{lat:53,lon:-8,hemi:'N'},
+  'Germany':{lat:51,lon:10,hemi:'N'},
+  'Austria':{lat:47.5,lon:14,hemi:'N'},
+  'United States':{lat:39,lon:-98,hemi:'N'}
 };
 /* Recipe regions are fine-grained ("Maharashtra, India"); map pins are coarse
    ("India"). Exact or longest-substring match covers most; the rest is aliased. */
@@ -601,7 +606,26 @@ var REGION_PIN={
   'South India, especially Tamil Nadu':'South India',
   'Northern Italy — Lombardy (Mantua)':'Italy','Tuscany, Italy':'Italy',
   'Andalusia, Spain':'Spain','Seville, Andalusia, Spain':'Spain',
-  'Provence, France':'France'
+  'Provence, France':'France',
+  'Bihar, India':'India','West Bengal, India':'India','Karnataka, India':'India',
+  'Tamil Nadu, India':'India','Uttar Pradesh, India':'India','Rajasthan, India':'India',
+  'Mithila region (Bihar, India & Nepal Terai)':'India',
+  'Central Mexico, including Matlatzinca communities in Estado de México':'Central Mexico',
+  'Central and southern Mexico':'Central Mexico','Jalisco, Mexico':'Central Mexico',
+  'Mexico City / central Mexico':'Central Mexico','Mexico, especially central Mexico':'Central Mexico',
+  'Puebla, Mexico':'Central Mexico',
+  'England':'United Kingdom','England & Ireland':'United Kingdom','Lancashire, England':'United Kingdom',
+  'Northern England':'United Kingdom','Yorkshire, England':'United Kingdom',
+  'Ireland':'Ireland',
+  'Germany':'Germany','Rhineland, Germany':'Germany',
+  'Bavaria, Germany, and Austria':'Germany',
+  'Germany (Rotkohl in the north, Blaukraut in Bavaria and the south)':'Germany',
+  'Germany (the Poznań, Poland version, Rogale Świętomarcińskie, is a separate protected regional specialty)':'Germany',
+  'Rhineland, Germany, and Vienna, Austria':'Germany',
+  'United States':'United States','Midwest, USA':'United States',
+  'New England / United States':'United States','New England, USA':'United States',
+  'New England, United States':'United States','New Jersey, USA':'United States',
+  'North America':'United States'
 };
 function pinForRegion(r){
   if(REGION_PIN[r])return REGION_PIN[r];
@@ -819,11 +843,22 @@ function initRecipeNote(){
   anchor.insertAdjacentElement('afterend',card);
 }
 
+/* ---------- related recipes: show-more toggle ---------- */
+function initRelatedToggle(){
+  var btn=$('#related-toggle'),more=$('#related-more');
+  if(!btn||!more)return;
+  btn.addEventListener('click',function(){
+    var opening=more.hidden;
+    more.hidden=!opening;
+    btn.innerHTML=opening?'Show fewer &uarr;':'Show '+btn.getAttribute('data-n')+' more &darr;';
+  });
+}
+
 /* ---------- boot ---------- */
 document.addEventListener('DOMContentLoaded',function(){
   seed();initNav();initCookies();initCookiePage();refreshNavAuth();
   initSignup();initSignin();initAccount();initHearts();initShare();
   initNewsletter();initContact();initFeedback();initBrowse();initKidToggle();
-  initCopyPrevention();initHeroSearch();initSeasonPage();initRecipeNote();
+  initCopyPrevention();initHeroSearch();initSeasonPage();initRecipeNote();initRelatedToggle();
 });
 })();
