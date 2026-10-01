@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Browse recipes — Rasalaya</title>
+  <meta name="description" content="Browse the Rasalaya recipe library by region, season, and category.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<header class="site-nav">
+  <div class="nav-inner">
+    <a class="brand" href="index.html">
+      <img src="assets/logo.png" alt="Rasalaya logo">
+      <span><span class="brand-name">Rasalaya</span><br><span class="brand-tag">Recipes without borders</span></span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="browse.html">Recipes</a>
+      <a href="index.html#festivals">Festivals</a>
+      <a href="browse.html">Regions</a>
+      <a href="about.html">About</a>
+    </nav>
+    <span class="nav-spacer"></span>
+    <a class="nav-search" href="browse.html" aria-label="Search recipes">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.5" y2="16.5"/></svg>
+    </a>
+    <a class="btn btn-outline nav-signin" href="signup.html">Sign in</a>
+    <button class="hamburger" aria-label="Open menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
+    </button>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <div class="page-head">
+      <p class="section-kicker">The library</p>
+      <h1>Browse recipes</h1>
+      <p class="result-count" id="result-count">Loading the shelves…</p>
+    </div>
+
+    <div class="filter-bar" role="search" aria-label="Recipe filters">
+      <div>
+        <label for="f-search">Search</label><br>
+        <input type="search" id="f-search" placeholder="Dish, region, ingredient…" style="padding:9px 12px;border:1.5px solid var(--line);border-radius:10px;background:var(--card);font-size:.9rem;min-width:180px;">
+      </div>
+      <div>
+        <label for="f-region">Region</label><br>
+        <select id="f-region"><option value="">All regions</option></select>
+      </div>
+      <div>
+        <label for="f-season">Season</label><br>
+        <select id="f-season"><option value="">All seasons</option></select>
+      </div>
+      <div>
+        <label>Category</label><br>
+        <span style="display:inline-flex;gap:6px;">
+          <button class="chip" data-cat="food" aria-pressed="false" style="padding:7px 14px;">Food</button>
+          <button class="chip" data-cat="snack" aria-pressed="false" style="padding:7px 14px;">Snack</button>
+          <button class="chip" data-cat="drink" aria-pressed="false" style="padding:7px 14px;">Drink</button>
+        </span>
+      </div>
+      <div>
+        <label>&nbsp;</label><br>
+        <button class="chip" data-festive aria-pressed="false" style="padding:7px 14px;">Festive</button>
+      </div>
+      <div>
+        <label>&nbsp;</label><br>
+        <span style="display:inline-flex;gap:16px;">
+          <label class="switch"><input type="checkbox" id="f-kid"><span class="track"></span>Kid-friendly</label>
+          <label class="switch"><input type="checkbox" id="f-veg"><span class="track"></span>Vegetarian</label>
+        </span>
+      </div>
+    </div>
+
+    <div class="pills" id="active-pills" aria-live="polite"></div>
+
+    <div class="sort-row">
+      <label for="f-sort" style="font-size:.85rem;font-weight:600;color:var(--espresso-soft);margin-right:8px;align-self:center;">Sort</label>
+      <select id="f-sort" style="font-size:.9rem;padding:9px 12px;border:1.5px solid var(--line);border-radius:10px;background:var(--card);">
+        <option value="loved">Most loved</option>
+        <option value="az">A–Z</option>
+        <option value="season">By season</option>
+      </select>
+    </div>
+
+    <div class="recipe-grid" id="recipe-grid" style="margin-bottom:24px;"></div>
+
+    <div class="empty-state" id="empty-state" hidden>
+      <h3>No recipes match — try fewer filters</h3>
+      <p>Loosen a filter or two and the shelves will fill again.</p>
+    </div>
+
+    <p style="text-align:center;color:var(--espresso-soft);font-size:.9rem;margin:40px 0 64px;">
+      Showing sample recipes while the first content wave is prepared.<br>
+      The full library opens soon — every region, every season.
+    </p>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">
+        <img src="assets/logo.png" alt="Rasalaya logo">
+        <span>Rasalaya</span>
+      </div>
+      <p>Recipes without borders.<br>From every hearth, to yours.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Explore</h4>
+      <ul>
+        <li><a href="browse.html">Recipes</a></li>
+        <li><a href="index.html#festivals">Festivals</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="premium.html">Collections (coming soon)</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Trust</h4>
+      <ul>
+        <li><a href="privacy.html">Privacy</a></li>
+        <li><a href="terms.html">Terms</a></li>
+        <li><a href="recipe-mysore-pak.html#feedback">Feedback</a></li>
+        <li><a href="https://www.instagram.com/global.seasonal.delights" target="_blank" rel="noopener">Contact (Instagram)</a></li>
+        <li><button class="linklike" data-cookie-settings>Cookie settings</button></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-base">
+    <span>Recipes are AI-researched and community-reviewed.</span>
+    <span>© <span data-year>2026</span> Rasalaya</span>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>

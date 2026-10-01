@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create your account — Rasalaya</title>
+  <meta name="description" content="Create a free Rasalaya account to save favorites and get seasonal recipes.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<header class="site-nav">
+  <div class="nav-inner">
+    <a class="brand" href="index.html">
+      <img src="assets/logo.png" alt="Rasalaya logo">
+      <span><span class="brand-name">Rasalaya</span><br><span class="brand-tag">Recipes without borders</span></span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="browse.html">Recipes</a>
+      <a href="index.html#festivals">Festivals</a>
+      <a href="browse.html">Regions</a>
+      <a href="about.html">About</a>
+    </nav>
+    <span class="nav-spacer"></span>
+    <a class="nav-search" href="browse.html" aria-label="Search recipes">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.5" y2="16.5"/></svg>
+    </a>
+    <a class="btn btn-outline nav-signin" href="signup.html">Sign in</a>
+    <button class="hamburger" aria-label="Open menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
+    </button>
+  </div>
+</header>
+
+<main>
+  <div class="auth-wrap">
+    <h1>Join Rasalaya</h1>
+    <p>Free forever. Save favorites, get festival recipes in your inbox.</p>
+    <div class="form-card">
+      <form id="signup-form" novalidate>
+        <div class="field">
+          <label for="su-email">Email</label>
+          <input type="email" id="su-email" name="email" placeholder="you@example.com" autocomplete="email">
+          <p class="error" id="err-email"></p>
+        </div>
+        <div class="field">
+          <label for="su-password">Password</label>
+          <input type="password" id="su-password" name="password" placeholder="At least 8 characters" autocomplete="new-password">
+          <p class="error" id="err-password"></p>
+        </div>
+        <!-- REQUIRED clickwrap checkbox: unchecked by default, links adjacent.
+             BACKEND (Phase 2): on submit, record consent_audit rows
+             (terms_accept + privacy_ack, v1.0, unchecked_checkbox_click). -->
+        <div class="checkbox-row">
+          <input type="checkbox" id="su-agree" name="agree">
+          <label for="su-agree">I agree to the <a href="terms.html">Terms of Service</a> and have read the <a href="privacy.html">Privacy Policy</a>.</label>
+        </div>
+        <p class="error" id="err-agree"></p>
+        <button class="btn btn-primary" type="submit" style="width:100%;">Create free account</button>
+        <p class="form-note" style="text-align:center;margin-top:14px;color:var(--espresso-soft);">
+          Already have an account? <a href="signup.html">Sign in</a> (sign-in arrives with accounts in Phase 2).
+        </p>
+      </form>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">
+        <img src="assets/logo.png" alt="Rasalaya logo">
+        <span>Rasalaya</span>
+      </div>
+      <p>Recipes without borders.<br>From every hearth, to yours.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Explore</h4>
+      <ul>
+        <li><a href="browse.html">Recipes</a></li>
+        <li><a href="index.html#festivals">Festivals</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="premium.html">Collections (coming soon)</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Trust</h4>
+      <ul>
+        <li><a href="privacy.html">Privacy</a></li>
+        <li><a href="terms.html">Terms</a></li>
+        <li><a href="recipe-mysore-pak.html#feedback">Feedback</a></li>
+        <li><a href="https://www.instagram.com/global.seasonal.delights" target="_blank" rel="noopener">Contact (Instagram)</a></li>
+        <li><button class="linklike" data-cookie-settings>Cookie settings</button></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-base">
+    <span>Recipes are AI-researched and community-reviewed.</span>
+    <span>© <span data-year>2026</span> Rasalaya</span>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>
