@@ -819,11 +819,22 @@ function initRecipeNote(){
   anchor.insertAdjacentElement('afterend',card);
 }
 
+/* ---------- related recipes: show-more toggle ---------- */
+function initRelatedToggle(){
+  var btn=$('#related-toggle'),more=$('#related-more');
+  if(!btn||!more)return;
+  btn.addEventListener('click',function(){
+    var opening=more.hidden;
+    more.hidden=!opening;
+    btn.innerHTML=opening?'Show fewer &uarr;':'Show '+btn.getAttribute('data-n')+' more &darr;';
+  });
+}
+
 /* ---------- boot ---------- */
 document.addEventListener('DOMContentLoaded',function(){
   seed();initNav();initCookies();initCookiePage();refreshNavAuth();
   initSignup();initSignin();initAccount();initHearts();initShare();
   initNewsletter();initContact();initFeedback();initBrowse();initKidToggle();
-  initCopyPrevention();initHeroSearch();initSeasonPage();initRecipeNote();
+  initCopyPrevention();initHeroSearch();initSeasonPage();initRecipeNote();initRelatedToggle();
 });
 })();
