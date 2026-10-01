@@ -370,6 +370,12 @@ function initCopyPrevention(){
       toast('Right-click is disabled on recipes — use Share to send this recipe.');});
     card.addEventListener('dragstart',function(e){e.preventDefault()});
   });
+  document.addEventListener('keydown',function(e){
+    if(!(e.ctrlKey||e.metaKey)||e.key.toLowerCase()!=='c')return;
+    var t=e.target&&e.target.closest?e.target.closest('.parchment'):null;
+    if(t){e.preventDefault();
+      toast('Sharing instead of copying keeps this library free \u2014 use the Share button.');}
+  });
 }
 
 /* ---------- hero search ---------- */
