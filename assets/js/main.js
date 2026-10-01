@@ -358,7 +358,7 @@ function recipeCard(r){
     '<span class="tag">'+escapeHtml(r.season)+'</span><span class="tag">'+escapeHtml(cap(r.category))+'</span>'+
     (r.veg?'<span class="tag veg">Vegetarian</span>':'')+
     (r.festive?'<span class="tag festive">Festive</span>':'')+
-    (r.kidFriendly?'<span class="tag kid">Kid-friendly</span>':'')+'</div>';
+    (r.kidFriendly?'<span class="tag kid">Kids love it</span>':'')+'</div>';
   a.innerHTML='<button class="fav-btn" data-recipe="'+r.id+'" aria-label="Save to favorites" aria-pressed="false">'+
     '<svg viewBox="0 0 24 24"><path d="M12 21s-7.5-4.9-10-9.5C.5 8 2.5 4.5 6 4.5c2.2 0 3.9 1.3 6 4 2.1-2.7 3.8-4 6-4 3.5 0 5.5 3.5 4 7-2.5 4.6-10 9.5-10 9.5z"/></svg></button>'+
     '<img class="dish" src="assets/img/'+r.id+'.jpg" alt="'+escapeHtml(r.name)+'" loading="lazy">'+
@@ -491,7 +491,7 @@ function initBrowse(){
     state.cats.forEach(function(c){pill(cap(c),function(){
       state.cats=state.cats.filter(function(x){return x!==c});
       $$('.chip[data-cat]').forEach(function(ch){if(ch.getAttribute('data-cat')===c)ch.classList.remove('on')});apply()})});
-    if(state.kid)pill('Kid-friendly',function(){state.kid=false;$('#f-kid').checked=false;apply()});
+    if(state.kid)pill('Kids love it',function(){state.kid=false;$('#f-kid').checked=false;apply()});
     if(state.veg)pill('Vegetarian',function(){state.veg=false;$('#f-veg').checked=false;apply()});
     if(state.festive)pill('Festive',function(){state.festive=false;$('#f-festive').checked=false;apply()});
   }
@@ -509,7 +509,7 @@ function initBrowse(){
   apply();
 }
 
-/* ---------- kid-friendly toggle on recipe page ---------- */
+/* ---------- kids-love-it toggle on recipe page ---------- */
 function initKidToggle(){
   var t=$('#kid-toggle');if(!t)return;
   t.addEventListener('change',function(){
