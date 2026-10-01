@@ -389,3 +389,15 @@ h1,h2,h3,.display{font-family:var(--font-d);line-height:1.2;color:var(--espresso
 .lg-grey{background:#b9b2a6}
 .sel-chip-row{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:20px 0 6px}
 .sel-chip{background:#fffdf6;border:1px solid rgba(120,84,40,.25);border-radius:999px;padding:8px 18px;font-size:14px;box-shadow:var(--shadow)}
+
+/* ---------- account: paid preview ---------- */
+.paid-tag{display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:var(--gold);color:#fff;border-radius:999px;padding:3px 12px;vertical-align:middle;margin-left:6px}
+.note-box{margin:-6px 0 22px;background:#fffdf6;border:1px solid rgba(120,84,40,.22);border-radius:0 0 14px 14px;padding:10px 16px 14px}
+.note-box summary{cursor:pointer;font-size:14px;color:var(--espresso-soft);font-weight:600}
+.note-box textarea{width:100%;margin:10px 0;border:1px solid var(--line);border-radius:10px;padding:10px 12px;font:inherit;font-size:14px;background:#fff;box-sizing:border-box}
+.coll-card{margin-bottom:14px}
+.chip-row{display:flex;gap:8px;flex-wrap:wrap}
+.chip-pick{display:inline-flex;align-items:center;gap:6px;background:#f4ecda;border:1px solid rgba(120,84,40,.3);border-radius:999px;padding:5px 8px 5px 14px;font-size:13.5px}
+.chip-pick button{border:none;background:var(--espresso);color:#fff;border-radius:50%;width:20px;height:20px;line-height:1;cursor:pointer;font-size:13px}
+#new-recipe .filter-row{display:flex;gap:10px;flex-wrap:wrap}
+#new-recipe .filter-row .field{flex:1;min-width:160px}

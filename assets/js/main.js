@@ -129,7 +129,7 @@ function initAccount(){
   $('#acct-name').textContent=u.name||'Member';
   $('#acct-email').textContent=u.email;
   $('#acct-since').textContent=(u.createdAt||'').slice(0,10);
-  renderFavs();
+  renderFavs();renderComments();renderPaid();
   var nl=$('#acct-newsletter');
   if(nl){var prefs=getNewsletter();nl.checked=!!prefs[u.email];
     nl.addEventListener('change',function(){var p=getNewsletter();
@@ -145,6 +145,8 @@ function initAccount(){
     try{[USERS_KEY,SESSION_KEY].forEach(function(k){localStorage.removeItem(k)});
       var f=getFavs();delete f[email];saveFavs(f);
       var p=getNewsletter();delete p[email];saveNewsletter(p);
+      [NOTES_KEY,COLLS_KEY,MYREC_KEY,CMTS_KEY].forEach(function(k){
+        var m=userMap(k);delete m[email];saveUserMap(k,m);});
     }catch(e){}
     seed(); /* keep the seeded tester available */
     toast('Your demo account and all local data were deleted.');
@@ -189,14 +191,165 @@ function renderFavs(){
   if(!list.length){box.innerHTML='<div class="empty-state"><h2>No favorites yet</h2>'+
     '<p>Tap the heart on any recipe to save it here.</p><a class="btn btn-primary" href="browse.html">Browse recipes</a></div>';return;}
   box.innerHTML='';
+  var paid=isPaidPreview(),notes=paid?myMap(NOTES_KEY):{};
   list.forEach(function(id){
     var r=data.filter(function(x){return x.id===id})[0];if(!r)return;
-    box.appendChild(recipeCard(r));
+    var wrap=document.createElement('div');wrap.appendChild(recipeCard(r));
+    if(paid){
+      var d=document.createElement('details');d.className='note-box';
+      d.innerHTML='<summary>'+(notes[id]?'\u270E Edit note':'\u270E Add a note (paid)')+'</summary>'+
+        '<textarea data-note="'+id+'" rows="2" placeholder="e.g. halved the ghee next time, extra cardamom">'+escapeHtml(notes[id]||'')+'</textarea>'+
+        '<button class="btn btn-outline btn-sm" data-savenote="'+id+'">Save note</button>';
+      wrap.appendChild(d);
+    }
+    box.appendChild(wrap);
   });
   initHearts();
+  if(paid)box.querySelectorAll('[data-savenote]').forEach(function(b){
+    b.addEventListener('click',function(){
+      var id=b.getAttribute('data-savenote'),
+          v=box.querySelector('textarea[data-note="'+id+'"]').value.trim(),
+          n=myMap(NOTES_KEY);
+      if(v)n[id]=v;else delete n[id];
+      setMyMap(NOTES_KEY,n);toast('Note saved.');renderFavs();});});
 }
 
 /* ---------- recipe cards (single click navigates; share opens ONLY from Share button) ---------- */
+
+/* ---------- paid preview: notes, collections, my recipes, comments (demo, test account only) ---------- */
+var NOTES_KEY='rasalaya_notes', COLLS_KEY='rasalaya_colls', MYREC_KEY='rasalaya_myrecipes', CMTS_KEY='rasalaya_comments';
+function userMap(key){try{return JSON.parse(localStorage.getItem(key)||'{}')}catch(e){return{}}}
+function saveUserMap(key,m){try{localStorage.setItem(key,JSON.stringify(m))}catch(e){}}
+function myMap(key){var u=currentUser();if(!u)return{};var m=userMap(key);return m[u.email]||{}}
+function setMyMap(key,val){var u=currentUser();if(!u)return;var m=userMap(key);m[u.email]=val;saveUserMap(key,m)}
+function isPaidPreview(){var u=currentUser();return !!(u&&u.email===SEED_EMAIL)}
+function recipeName(id){
+  var data=(window.RASALAYA_RECIPES||[]),r=data.filter(function(x){return x.id===id})[0];
+  if(r)return r.name;
+  var mine=myMap(MYREC_KEY),m=(Array.isArray(mine)?mine:[]).filter(function(x){return x.id===id})[0];
+  return m?m.name:id;
+}
+function renderComments(){
+  var box=$('#comment-list');if(!box)return;var l=myMap(CMTS_KEY);
+  if(!l||!l.length){box.innerHTML='<p class="map-sub">No comments yet — open a recipe, tap the stars and tell us how it turned out.</p>';return;}
+  box.innerHTML=l.map(function(c){
+    return '<div class="info-card" style="margin-bottom:12px"><div style="display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;align-items:center"><strong>'+
+      escapeHtml(c.recipe)+'</strong><span style="color:var(--gold);font-size:15px;letter-spacing:2px">'+
+      '★★★★★'.slice(0,c.rating)+'<span style="opacity:.25">'+'★★★★★'.slice(0,5-c.rating)+'</span></span></div>'+
+      '<p style="margin:8px 0 4px">'+escapeHtml(c.comment)+'</p>'+
+      '<p class="micro" style="color:var(--muted);margin:0">'+escapeHtml((c.at||'').slice(0,10))+'</p></div>';
+  }).join('');
+}
+function renderPaid(){
+  var box=$('#paid-section');if(!box)return;var u=currentUser();if(!u)return;
+  if(!isPaidPreview()){
+    box.innerHTML='<div class="empty-state"><h2>Under construction</h2>'+
+      '<p>Collections — your own beautifully organized recipe books, personal notes on every dish, and space for your own recipes — will be a paid tier, launching once our free library proves itself. Favorites are free forever.</p>'+
+      '<form class="news-form" id="paid-notify"><div class="field"><input type="email" id="paid-notify-email" placeholder="you@example.com" aria-label="Email for launch notification"></div>'+
+      '<button class="btn btn-primary btn-sm" type="submit">Notify me at launch</button></form></div>';
+    $('#paid-notify').addEventListener('submit',function(e){e.preventDefault();
+      var em=$('#paid-notify-email').value.trim();
+      if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(em)){toast('Please enter a valid email address.');return;}
+      var n=getNewsletter();n[em]={ts:new Date().toISOString(),paidNotify:true};saveNewsletter(n);
+      toast('Thanks! We\u2019ll email you when Collections launch.');$('#paid-notify').reset();});
+    return;
+  }
+  box.innerHTML='<div class="demo-badge" style="margin-bottom:18px;border-color:#2c6e31">PAID PREVIEW — visible only on the test account. Everyone else sees \u201cunder construction\u201d.</div>'+
+    '<div id="coll-list"></div>'+
+    '<form id="new-coll" style="display:flex;gap:10px;margin:14px 0 34px;flex-wrap:wrap"><div class="field" style="flex:1;min-width:220px"><input type="text" id="new-coll-name" placeholder="New collection — e.g. Diwali 2026 menu" aria-label="New collection name"></div>'+
+    '<button class="btn btn-primary btn-sm" type="submit">Create collection</button></form>'+
+    '<h3 style="font-size:1.15rem;margin-bottom:10px">My recipes</h3>'+
+    '<p class="map-sub" style="margin-bottom:10px">Your own recipes, kept in your account. Only you can see them.</p>'+
+    '<div id="myrec-list"></div>'+
+    '<form id="new-recipe" class="info-card" style="margin-top:14px"><h3 style="font-size:1.05rem;margin-bottom:12px">Add your own recipe</h3>'+
+    '<div class="filter-row"><div class="field"><input type="text" id="mr-name" placeholder="Dish name" aria-label="Dish name"></div>'+
+    '<div class="field"><input type="text" id="mr-region" placeholder="Region — e.g. Tamil Nadu" aria-label="Region"></div></div>'+
+    '<div class="filter-row" style="margin-top:10px"><div class="field"><select id="mr-season" aria-label="Season"><option value="">Season</option><option>Spring</option><option>Summer</option><option>Autumn</option><option>Winter</option></select></div>'+
+    '<div class="field"><select id="mr-cat" aria-label="Category"><option value="">Category</option><option value="food">Food</option><option value="snack">Snack</option><option value="drink">Drink</option></select></div></div>'+
+    '<div class="field" style="margin-top:10px"><textarea id="mr-ing" rows="3" placeholder="Ingredients — one per line"></textarea></div>'+
+    '<div class="field" style="margin-top:10px"><textarea id="mr-method" rows="3" placeholder="Method — one step per line"></textarea></div>'+
+    '<div class="field" style="margin-top:10px"><textarea id="mr-note" rows="2" placeholder="Your note — e.g. halved the ghee, added extra cardamom (optional)"></textarea></div>'+
+    '<button class="btn btn-primary btn-sm" type="submit" style="margin-top:12px">Save my recipe</button></form>';
+  renderColls();renderMyRecipes();
+  $('#new-coll').addEventListener('submit',function(e){e.preventDefault();
+    var name=$('#new-coll-name').value.trim();
+    if(name.length<2){toast('Give your collection a name.');return;}
+    var c=myColls();c.push({id:'c'+Date.now(),name:name,items:[]});setMyMap(COLLS_KEY,c);
+    $('#new-coll-name').value='';renderColls();toast('Collection created.');});
+  $('#new-recipe').addEventListener('submit',function(e){e.preventDefault();
+    var name=$('#mr-name').value.trim();
+    if(name.length<2){toast('Give your recipe a name.');return;}
+    var lines=function(id){return $('#'+id).value.split('\n').map(function(x){return x.trim()}).filter(Boolean)};
+    var r={id:'my'+Date.now(),name:name,region:$('#mr-region').value.trim()||'My kitchen',
+      season:$('#mr-season').value||'—',cat:$('#mr-cat').value||'food',
+      ingredients:lines('mr-ing'),method:lines('mr-method'),note:$('#mr-note').value.trim(),mine:true,
+      at:new Date().toISOString()};
+    var l=myMyRecipes();l.unshift(r);setMyMap(MYREC_KEY,l);
+    ['mr-name','mr-region','mr-ing','mr-method','mr-note'].forEach(function(id){$('#'+id).value=''});
+    renderMyRecipes();toast('Recipe saved to My recipes.');});
+}
+function myColls(){var c=myMap(COLLS_KEY);return Array.isArray(c)?c:[]}
+function myMyRecipes(){var l=myMap(MYREC_KEY);return Array.isArray(l)?l:[]}
+function favOptions(exclude){
+  var data=(window.RASALAYA_RECIPES||[]),mine=myMyRecipes(),opts=[];
+  myFavs().forEach(function(id){var r=data.filter(function(x){return x.id===id})[0];
+    if(r&&exclude.indexOf(id)<0)opts.push({id:id,name:r.name+' (library)'})});
+  mine.forEach(function(r){if(exclude.indexOf(r.id)<0)opts.push({id:r.id,name:r.name+' (mine)'})});
+  return opts;
+}
+function renderColls(){
+  var box=$('#coll-list');if(!box)return;var colls=myColls();
+  if(!colls.length){box.innerHTML='<p class="map-sub">No collections yet — create one above, then add recipes to it.</p>';return;}
+  box.innerHTML='';
+  colls.forEach(function(c){
+    var d=document.createElement('div');d.className='info-card coll-card';
+    var chips=c.items.map(function(id){
+      return '<span class="chip-pick">'+escapeHtml(recipeName(id))+
+        ' <button aria-label="Remove" data-unpick="'+c.id+'|'+id+'">×</button></span>'}).join('')||'<span class="map-sub">Empty — add recipes below.</span>';
+    var opts=favOptions(c.items).map(function(o){
+      return '<option value="'+o.id+'">'+escapeHtml(o.name)+'</option>'}).join('');
+    d.innerHTML='<div style="display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap">'+
+      '<h3 style="font-size:1.1rem;margin:0">'+escapeHtml(c.name)+'</h3>'+
+      '<button class="btn btn-outline btn-sm" data-delcoll="'+c.id+'">Delete</button></div>'+
+      '<div class="chip-row" style="margin:12px 0">'+chips+'</div>'+
+      (opts?'<div style="display:flex;gap:10px;flex-wrap:wrap"><div class="field" style="flex:1;min-width:180px"><select data-addsel="'+c.id+'" aria-label="Add a recipe"><option value="">Add a recipe…</option>'+opts+'</select></div></div>'
+           :'<p class="micro" style="color:var(--muted)">Save some favorites (or add your own recipes) to fill this collection.</p>');
+    box.appendChild(d);
+  });
+  box.querySelectorAll('[data-unpick]').forEach(function(b){b.addEventListener('click',function(){
+    var p=b.getAttribute('data-unpick').split('|'),colls=myColls(),
+        c=colls.filter(function(x){return x.id===p[0]})[0];
+    if(c){c.items=c.items.filter(function(i){return i!==p[1]});setMyMap(COLLS_KEY,colls);renderColls();}});});
+  box.querySelectorAll('[data-delcoll]').forEach(function(b){b.addEventListener('click',function(){
+    var colls=myColls().filter(function(x){return x.id!==b.getAttribute('data-delcoll')});
+    setMyMap(COLLS_KEY,colls);renderColls();toast('Collection deleted.');});});
+  box.querySelectorAll('[data-addsel]').forEach(function(s){s.addEventListener('change',function(){
+    if(!s.value)return;var colls=myColls(),c=colls.filter(function(x){return x.id===s.getAttribute('data-addsel')})[0];
+    if(c&&c.items.indexOf(s.value)<0){c.items.push(s.value);setMyMap(COLLS_KEY,colls);renderColls();toast('Added to '+c.name+'.');}});});
+}
+function renderMyRecipes(){
+  var box=$('#myrec-list');if(!box)return;var l=myMyRecipes();
+  if(!l.length){box.innerHTML='<p class="map-sub">No recipes yet — add your first below.</p>';return;}
+  box.innerHTML='';
+  l.forEach(function(r){
+    var d=document.createElement('div');d.className='info-card';
+    d.innerHTML='<div style="display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap">'+
+      '<h3 style="font-size:1.1rem;margin:0">'+escapeHtml(r.name)+'</h3>'+
+      '<button class="btn btn-outline btn-sm" data-delrec="'+r.id+'">Delete</button></div>'+
+      '<p class="micro" style="color:var(--muted);margin:6px 0 0">'+escapeHtml(r.region)+' · '+escapeHtml(r.season)+
+      (r.note?'<br><strong>Your note:</strong> '+escapeHtml(r.note):'')+'</p>';
+    box.appendChild(d);
+  });
+  box.querySelectorAll('[data-delrec]').forEach(function(b){b.addEventListener('click',function(){
+    var l=myMyRecipes().filter(function(x){return x.id!==b.getAttribute('data-delrec')});
+    setMyMap(MYREC_KEY,l);
+    var colls=myColls(),changed=false;
+    colls.forEach(function(c){var n=c.items.filter(function(i){return i!==b.getAttribute('data-delrec')});
+      if(n.length!==c.items.length){c.items=n;changed=true}});
+    if(changed)setMyMap(COLLS_KEY,colls);
+    renderMyRecipes();renderColls();toast('Recipe deleted.');});});
+}
+
 function recipeCard(r){
   var a=document.createElement('article');a.className='recipe-card';
   var alias=r.aliases&&r.aliases.length?'<div class="alias">Also known as '+escapeHtml(r.aliases[0].name)+
@@ -287,6 +440,10 @@ function initFeedback(){
     if(!rating)return fail('Please tap a star rating.');
     if(comment.length<4)return fail('Please write a short comment.');
     if(!$('#fb-age').checked)return fail('Please confirm you are 13 or older.');
+    var u=currentUser();
+    if(u){var cm=userMap(CMTS_KEY),l=cm[u.email]||[];
+      l.unshift({recipe:document.title.split('\u2014')[0].trim(),rating:rating,comment:comment,at:new Date().toISOString()});
+      cm[u.email]=l;saveUserMap(CMTS_KEY,cm);}
     $('#form-ok').textContent='Thanks, '+name+'! Your feedback was recorded. Demo mode: reviews are read by our team before anything appears publicly.';
     $('#form-ok').classList.add('show');f.reset();
     stars.forEach(function(x){x.classList.remove('lit')});rating=0;
