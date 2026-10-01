@@ -67,7 +67,7 @@ h1,h2,h3,.display{font-family:var(--font-d);line-height:1.2;color:var(--espresso
 /* ---------- hero ---------- */
 .hero{position:relative;border-radius:0 0 28px 28px;overflow:hidden;margin:0 12px;
   box-shadow:var(--shadow-lg)}
-.hero-bg{position:absolute;inset:0;background:url('img/hero.jpg') center/cover}
+.hero-bg{position:absolute;inset:0;background:url('../img/hero.jpg') center/cover}
 .hero-bg::after{content:"";position:absolute;inset:0;
   background:linear-gradient(180deg,rgba(30,18,8,.55),rgba(30,18,8,.25) 45%,rgba(30,18,8,.62))}
 .hero-inner{position:relative;z-index:2;max-width:1180px;margin:0 auto;padding:88px 24px 96px;color:#fff;text-align:center}
