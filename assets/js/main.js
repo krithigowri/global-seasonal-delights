@@ -58,8 +58,12 @@ function initNav(){
 
 /* ---------- demo auth (localStorage only; passwords NEVER stored) ---------- */
 var USERS_KEY='rasalaya_users', SESSION_KEY='rasalaya_session';
+var SEED_EMAIL='tester@rasalaya.org', SEED_PASS='taste-test-2026'; /* private test login: only reachable via signin.html?tester=1, never shown in the UI */
 function getUsers(){try{return JSON.parse(localStorage.getItem(USERS_KEY)||'[]')}catch(e){return[]}}
 function saveUsers(u){try{localStorage.setItem(USERS_KEY,JSON.stringify(u))}catch(e){}}
+function seed(){var u=getUsers();
+  if(!u.some(function(x){return x.email===SEED_EMAIL})){
+    u.push({name:'Tester',email:SEED_EMAIL,demoSeed:true,createdAt:new Date().toISOString()});saveUsers(u);}}
 function currentUser(){try{var e=localStorage.getItem(SESSION_KEY);if(!e)return null;
   return getUsers().filter(function(u){return u.email===e})[0]||null}catch(e){return null}}
 function signIn(email){try{localStorage.setItem(SESSION_KEY,email)}catch(e){}}
@@ -103,10 +107,24 @@ function initSignup(){
 /* signin */
 function initSignin(){
   var f=$('#signin-form');if(!f)return;
+  /* private test login: only visible with ?tester=1 (or #tester) in the URL — never shown to visitors */
+  var tester=/[?&#]tester(=1)?\b/.test(location.search+location.hash);
+  if(tester){
+    seed();
+    var hint=document.createElement('div');
+    hint.className='demo-hint';
+    hint.innerHTML='Private test account:<br><code>'+SEED_EMAIL+'</code> / <code>'+SEED_PASS+'</code> '
+      +'<button class="btn btn-outline btn-sm" id="demo-fill" type="button">Fill in</button>';
+    f.parentNode.insertBefore(hint,f);
+    var fill=$('#demo-fill');
+    if(fill)fill.addEventListener('click',function(){$('#si-email').value=SEED_EMAIL;$('#si-pass').value=SEED_PASS;});
+  }
   f.addEventListener('submit',function(e){
     e.preventDefault();var err=$('#form-err');err.classList.remove('show');
     var email=$('#si-email').value.trim().toLowerCase(),pw=$('#si-pass').value;
     function fail(m){err.textContent=m;err.classList.add('show')}
+    if(email===SEED_EMAIL){ if(pw!==SEED_PASS)return fail('Incorrect password for the test account.');
+      signIn(email);refreshNavAuth();location.href='account.html';return;}
     var u=getUsers().filter(function(x){return x.email===email})[0];
     if(!u)return fail('No demo account found for this email. Create one on the signup page first.');
     /* demo: registered demo users sign in by email; passwords are not stored in demo mode */
@@ -213,7 +231,7 @@ function userMap(key){try{return JSON.parse(localStorage.getItem(key)||'{}')}cat
 function saveUserMap(key,m){try{localStorage.setItem(key,JSON.stringify(m))}catch(e){}}
 function myMap(key){var u=currentUser();if(!u)return{};var m=userMap(key);return m[u.email]||{}}
 function setMyMap(key,val){var u=currentUser();if(!u)return;var m=userMap(key);m[u.email]=val;saveUserMap(key,m)}
-function isPaidPreview(){return false} /* paid tier not launched; no preview accounts */
+function isPaidPreview(){var u=currentUser();return !!(u&&u.email===SEED_EMAIL)} /* private tester gets the paid preview */
 function recipeName(id){
   var data=(window.RASALAYA_RECIPES||[]),r=data.filter(function(x){return x.id===id})[0];
   if(r)return r.name;
