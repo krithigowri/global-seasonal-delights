@@ -58,12 +58,8 @@ function initNav(){
 
 /* ---------- demo auth (localStorage only; passwords NEVER stored) ---------- */
 var USERS_KEY='rasalaya_users', SESSION_KEY='rasalaya_session';
-var SEED_EMAIL='taster@rasalaya.org', SEED_PASS='taste1234';
 function getUsers(){try{return JSON.parse(localStorage.getItem(USERS_KEY)||'[]')}catch(e){return[]}}
 function saveUsers(u){try{localStorage.setItem(USERS_KEY,JSON.stringify(u))}catch(e){}}
-function seed(){var u=getUsers();
-  if(!u.some(function(x){return x.email===SEED_EMAIL})){
-    u.push({name:'Taster',email:SEED_EMAIL,demoSeed:true,createdAt:new Date().toISOString()});saveUsers(u);}}
 function currentUser(){try{var e=localStorage.getItem(SESSION_KEY);if(!e)return null;
   return getUsers().filter(function(u){return u.email===e})[0]||null}catch(e){return null}}
 function signIn(email){try{localStorage.setItem(SESSION_KEY,email)}catch(e){}}
@@ -82,7 +78,7 @@ function ageOn(dob){var d=new Date(dob),n=new Date(),a=n.getFullYear()-d.getFull
 
 /* signup */
 function initSignup(){
-  var f=$('#signup-form');if(!f)return;seed();
+  var f=$('#signup-form');if(!f)return;
   f.addEventListener('submit',function(e){
     e.preventDefault();var err=$('#form-err');err.classList.remove('show');
     var name=$('#su-name').value.trim(),email=$('#su-email').value.trim().toLowerCase(),
@@ -106,15 +102,11 @@ function initSignup(){
 }
 /* signin */
 function initSignin(){
-  var f=$('#signin-form');if(!f)return;seed();
-  var fill=$('#demo-fill');
-  if(fill)fill.addEventListener('click',function(){$('#si-email').value=SEED_EMAIL;$('#si-pass').value=SEED_PASS;});
+  var f=$('#signin-form');if(!f)return;
   f.addEventListener('submit',function(e){
     e.preventDefault();var err=$('#form-err');err.classList.remove('show');
     var email=$('#si-email').value.trim().toLowerCase(),pw=$('#si-pass').value;
     function fail(m){err.textContent=m;err.classList.add('show')}
-    if(email===SEED_EMAIL){ if(pw!==SEED_PASS)return fail('Incorrect password for the demo account.');
-      signIn(email);refreshNavAuth();location.href='account.html';return;}
     var u=getUsers().filter(function(x){return x.email===email})[0];
     if(!u)return fail('No demo account found for this email. Create one on the signup page first.');
     /* demo: registered demo users sign in by email; passwords are not stored in demo mode */
@@ -148,7 +140,6 @@ function initAccount(){
       [NOTES_KEY,COLLS_KEY,MYREC_KEY,CMTS_KEY].forEach(function(k){
         var m=userMap(k);delete m[email];saveUserMap(k,m);});
     }catch(e){}
-    seed(); /* keep the seeded tester available */
     toast('Your demo account and all local data were deleted.');
     setTimeout(function(){location.href='index.html'},900);
   });
@@ -222,7 +213,7 @@ function userMap(key){try{return JSON.parse(localStorage.getItem(key)||'{}')}cat
 function saveUserMap(key,m){try{localStorage.setItem(key,JSON.stringify(m))}catch(e){}}
 function myMap(key){var u=currentUser();if(!u)return{};var m=userMap(key);return m[u.email]||{}}
 function setMyMap(key,val){var u=currentUser();if(!u)return;var m=userMap(key);m[u.email]=val;saveUserMap(key,m)}
-function isPaidPreview(){var u=currentUser();return !!(u&&u.email===SEED_EMAIL)}
+function isPaidPreview(){return false} /* paid tier not launched; no preview accounts */
 function recipeName(id){
   var data=(window.RASALAYA_RECIPES||[]),r=data.filter(function(x){return x.id===id})[0];
   if(r)return r.name;
@@ -879,7 +870,7 @@ function initRelatedToggle(){
 
 /* ---------- boot ---------- */
 document.addEventListener('DOMContentLoaded',function(){
-  seed();initNav();initCookies();initCookiePage();refreshNavAuth();
+  initNav();initCookies();initCookiePage();refreshNavAuth();
   initSignup();initSignin();initAccount();initHearts();initShare();
   initNewsletter();initContact();initFeedback();initBrowse();initKidToggle();
   initCopyPrevention();initHeroSearch();initSeasonPage();initRecipeNote();initRelatedToggle();
