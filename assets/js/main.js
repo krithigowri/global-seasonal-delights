@@ -886,11 +886,81 @@ function initRelatedToggle(){
   });
 }
 
+/* ---------- homepage festive tab (monthly festival-calendar logic) ----------
+   Current month's festivals only; rolls forward to the next month that has
+   any (her call). Locked per-year months come from the embedded
+   #festival-calendar-data payload (recomputed yearly by
+   refresh-festival-dates.py); the hardcoded Oct/Nov/Dec map is the standing
+   backup when the payload is missing or unreadable. Names only — no dates. */
+var MONTH_LABELS=['','January','February','March','April','May','June','July',
+  'August','September','October','November','December'];
+function initFestiveTab(){
+  var tabs=document.getElementById('festive-tabs'),
+      monthGrid=document.getElementById('festive-month-grid'),
+      allGrid=document.getElementById('festive-all-grid'),
+      monthBtn=document.getElementById('festive-tab-month');
+  if(!tabs||!monthGrid||!allGrid||!monthBtn)return;
+  var btns=tabs.querySelectorAll('[data-tab]');
+  function select(which){
+    btns.forEach(function(b){
+      var on=b.getAttribute('data-tab')===which;
+      b.classList.toggle('on',on);b.setAttribute('aria-selected',on?'true':'false');
+    });
+    monthGrid.hidden=(which!=='month');allGrid.hidden=(which!=='all');
+  }
+  btns.forEach(function(b){
+    b.addEventListener('click',function(){select(b.getAttribute('data-tab'))});
+  });
+  var data=null;
+  try{data=JSON.parse(document.getElementById('festival-calendar-data').textContent)}catch(e){data=null}
+  if(!data||!data.meta){
+    /* Backup path: the builder baked the hardcoded Oct/Nov/Dec mapping into
+       the month grid at build time. Keep that static grid untouched; only
+       the tab switching above is active. */
+    return;
+  }
+  var locked=data.locked||{},meta=data.meta;
+  function cardHtml(key){
+    var m=meta[key];if(!m)return '';
+    return '<a class="col-card" href="festival-'+key+'.html"><img src="assets/img/'+
+      escapeHtml(m.img)+'" alt="'+escapeHtml(m.name)+'"><div class="col-body"><h3>'+
+      escapeHtml(m.name)+'</h3><p class="why">'+escapeHtml(m.why)+'</p><p class="mt">'+
+      '<span class="count-pill">'+escapeHtml(m.count)+'</span></p></div></a>';
+  }
+  function keysFor(m,year){
+    var ents=locked[String(year)]||{},out=[];
+    Object.keys(ents).forEach(function(k){
+      var e=ents[k];
+      if(e&&e.month===m&&meta[k])out.push(k);
+    });
+    return out;
+  }
+  var now=new Date(),found=[],foundM=now.getMonth()+1,foundY=now.getFullYear(),rolled=false;
+  for(var ahead=0;ahead<12;ahead++){
+    var m=((now.getMonth()+ahead)%12)+1,
+        y=now.getFullYear()+Math.floor((now.getMonth()+ahead)/12);
+    var keys=keysFor(m,y);
+    if(keys.length){found=keys;foundM=m;foundY=y;rolled=ahead>0;break}
+  }
+  if(!found.length){ /* years past the locked data: wrap the Oct/Nov/Dec backup pattern */
+    var backup=data.backup||{};
+    for(var b=0;b<12;b++){
+      var bm=((now.getMonth()+b)%12)+1;
+      var bkeys=(backup[String(bm)]||[]).filter(function(k){return meta[k]});
+      if(bkeys.length){found=bkeys;foundM=bm;foundY=now.getFullYear();rolled=b>0;break}
+    }
+  }
+  if(!found.length)return; /* nothing anywhere: keep the baked grid */
+  monthGrid.innerHTML=found.map(cardHtml).join('');
+  monthBtn.textContent=(rolled?'Coming up in ':'This month: ')+MONTH_LABELS[foundM];
+}
+
 /* ---------- boot ---------- */
 document.addEventListener('DOMContentLoaded',function(){
   initNav();initCookies();initCookiePage();refreshNavAuth();
   initSignup();initSignin();initAccount();initHearts();initShare();
   initNewsletter();initContact();initFeedback();initBrowse();initKidToggle();
   initCopyPrevention();initHeroSearch();initSeasonPage();initRecipeNote();initRelatedToggle();
+  initFestiveTab();
 });
 })();

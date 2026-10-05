@@ -134,6 +134,10 @@ h1,h2,h3,.display{font-family:var(--font-d);line-height:1.2;color:var(--espresso
 .chip:hover{border-color:var(--terra);transform:translateY(-2px)}
 .chip.on{background:linear-gradient(180deg,#d95c28,var(--terra));color:#fff;border-color:var(--terra-dark)}
 
+/* homepage festive tab */
+.tab-row{display:flex;flex-wrap:wrap;gap:12px;margin:0 0 20px}
+button.chip{font-family:var(--font-b)}
+
 /* ---------- newsletter band ---------- */
 .news-band{margin:70px 12px 0;border-radius:24px;overflow:hidden;position:relative;
   background:linear-gradient(135deg,var(--terra) 0%,#a83f16 60%,#7e2f0f 100%);
