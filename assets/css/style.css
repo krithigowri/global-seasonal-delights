@@ -288,6 +288,11 @@ button.chip{font-family:var(--font-b)}
 .info-card summary::-webkit-details-marker{display:none}
 .info-card summary::after{content:"+";float:right;color:var(--terra);font-size:1.6rem}
 .info-card[open] summary::after{content:"–"}
+
+/* festival food-story block (story + small source reference) */
+.fest-story{margin:20px 0 28px}
+.story-src{font-size:12.5px;color:var(--muted);margin-top:10px}
+.story-src a{color:var(--terra);text-decoration:underline}
 .sources{font-size:14.5px;color:var(--muted);margin-top:8px}
 .sources a{font-weight:600}
 .disclosure{background:#f4ecda;border-left:4px solid var(--gold);border-radius:0 12px 12px 0;
