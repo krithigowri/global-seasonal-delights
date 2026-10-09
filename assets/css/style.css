@@ -88,6 +88,9 @@ h1,h2,h3,.display{font-family:var(--font-d);line-height:1.2;color:var(--espresso
 .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:26px}
 .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
 .grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+/* hidden must beat display:grid — the festive tab toggles grids via the hidden
+   attribute, and author display:grid overrides the UA [hidden]{display:none} */
+.grid-4[hidden]{display:none}
 .col-card{position:relative;border-radius:var(--r);overflow:hidden;background:var(--card);
   box-shadow:var(--shadow);transition:transform .18s ease,box-shadow .18s ease;display:block;color:var(--espresso)}
 .col-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-lg)}
