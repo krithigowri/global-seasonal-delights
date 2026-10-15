@@ -58,12 +58,12 @@ function initNav(){
 
 /* ---------- demo auth (localStorage only; passwords NEVER stored) ---------- */
 var USERS_KEY='rasalaya_users', SESSION_KEY='rasalaya_session';
-var SEED_EMAIL='taster@rasalaya.org', SEED_PASS='taste1234';
+var SEED_EMAIL='tester@rasalaya.org', SEED_PASS='taste-test-2026'; /* private test login: only reachable via signin.html?tester=1, never shown in the UI */
 function getUsers(){try{return JSON.parse(localStorage.getItem(USERS_KEY)||'[]')}catch(e){return[]}}
 function saveUsers(u){try{localStorage.setItem(USERS_KEY,JSON.stringify(u))}catch(e){}}
 function seed(){var u=getUsers();
   if(!u.some(function(x){return x.email===SEED_EMAIL})){
-    u.push({name:'Taster',email:SEED_EMAIL,demoSeed:true,createdAt:new Date().toISOString()});saveUsers(u);}}
+    u.push({name:'Tester',email:SEED_EMAIL,demoSeed:true,createdAt:new Date().toISOString()});saveUsers(u);}}
 function currentUser(){try{var e=localStorage.getItem(SESSION_KEY);if(!e)return null;
   return getUsers().filter(function(u){return u.email===e})[0]||null}catch(e){return null}}
 function signIn(email){try{localStorage.setItem(SESSION_KEY,email)}catch(e){}}
@@ -82,7 +82,7 @@ function ageOn(dob){var d=new Date(dob),n=new Date(),a=n.getFullYear()-d.getFull
 
 /* signup */
 function initSignup(){
-  var f=$('#signup-form');if(!f)return;seed();
+  var f=$('#signup-form');if(!f)return;
   f.addEventListener('submit',function(e){
     e.preventDefault();var err=$('#form-err');err.classList.remove('show');
     var name=$('#su-name').value.trim(),email=$('#su-email').value.trim().toLowerCase(),
@@ -106,14 +106,24 @@ function initSignup(){
 }
 /* signin */
 function initSignin(){
-  var f=$('#signin-form');if(!f)return;seed();
-  var fill=$('#demo-fill');
-  if(fill)fill.addEventListener('click',function(){$('#si-email').value=SEED_EMAIL;$('#si-pass').value=SEED_PASS;});
+  var f=$('#signin-form');if(!f)return;
+  /* private test login: only visible with ?tester=1 (or #tester) in the URL — never shown to visitors */
+  var tester=/[?&#]tester(=1)?\b/.test(location.search+location.hash);
+  if(tester){
+    seed();
+    var hint=document.createElement('div');
+    hint.className='demo-hint';
+    hint.innerHTML='Private test account:<br><code>'+SEED_EMAIL+'</code> / <code>'+SEED_PASS+'</code> '
+      +'<button class="btn btn-outline btn-sm" id="demo-fill" type="button">Fill in</button>';
+    f.parentNode.insertBefore(hint,f);
+    var fill=$('#demo-fill');
+    if(fill)fill.addEventListener('click',function(){$('#si-email').value=SEED_EMAIL;$('#si-pass').value=SEED_PASS;});
+  }
   f.addEventListener('submit',function(e){
     e.preventDefault();var err=$('#form-err');err.classList.remove('show');
     var email=$('#si-email').value.trim().toLowerCase(),pw=$('#si-pass').value;
     function fail(m){err.textContent=m;err.classList.add('show')}
-    if(email===SEED_EMAIL){ if(pw!==SEED_PASS)return fail('Incorrect password for the demo account.');
+    if(email===SEED_EMAIL){ if(pw!==SEED_PASS)return fail('Incorrect password for the test account.');
       signIn(email);refreshNavAuth();location.href='account.html';return;}
     var u=getUsers().filter(function(x){return x.email===email})[0];
     if(!u)return fail('No demo account found for this email. Create one on the signup page first.');
@@ -148,7 +158,6 @@ function initAccount(){
       [NOTES_KEY,COLLS_KEY,MYREC_KEY,CMTS_KEY].forEach(function(k){
         var m=userMap(k);delete m[email];saveUserMap(k,m);});
     }catch(e){}
-    seed(); /* keep the seeded tester available */
     toast('Your demo account and all local data were deleted.');
     setTimeout(function(){location.href='index.html'},900);
   });
@@ -222,7 +231,7 @@ function userMap(key){try{return JSON.parse(localStorage.getItem(key)||'{}')}cat
 function saveUserMap(key,m){try{localStorage.setItem(key,JSON.stringify(m))}catch(e){}}
 function myMap(key){var u=currentUser();if(!u)return{};var m=userMap(key);return m[u.email]||{}}
 function setMyMap(key,val){var u=currentUser();if(!u)return;var m=userMap(key);m[u.email]=val;saveUserMap(key,m)}
-function isPaidPreview(){var u=currentUser();return !!(u&&u.email===SEED_EMAIL)}
+function isPaidPreview(){var u=currentUser();return !!(u&&u.email===SEED_EMAIL)} /* private tester gets the paid preview */
 function recipeName(id){
   var data=(window.RASALAYA_RECIPES||[]),r=data.filter(function(x){return x.id===id})[0];
   if(r)return r.name;
@@ -877,11 +886,81 @@ function initRelatedToggle(){
   });
 }
 
+/* ---------- homepage festive tab (monthly festival-calendar logic) ----------
+   Current month's festivals only; rolls forward to the next month that has
+   any (her call). Locked per-year months come from the embedded
+   #festival-calendar-data payload (recomputed yearly by
+   refresh-festival-dates.py); the hardcoded Oct/Nov/Dec map is the standing
+   backup when the payload is missing or unreadable. Names only — no dates. */
+var MONTH_LABELS=['','January','February','March','April','May','June','July',
+  'August','September','October','November','December'];
+function initFestiveTab(){
+  var tabs=document.getElementById('festive-tabs'),
+      monthGrid=document.getElementById('festive-month-grid'),
+      allGrid=document.getElementById('festive-all-grid'),
+      monthBtn=document.getElementById('festive-tab-month');
+  if(!tabs||!monthGrid||!allGrid||!monthBtn)return;
+  var btns=tabs.querySelectorAll('[data-tab]');
+  function select(which){
+    btns.forEach(function(b){
+      var on=b.getAttribute('data-tab')===which;
+      b.classList.toggle('on',on);b.setAttribute('aria-selected',on?'true':'false');
+    });
+    monthGrid.hidden=(which!=='month');allGrid.hidden=(which!=='all');
+  }
+  btns.forEach(function(b){
+    b.addEventListener('click',function(){select(b.getAttribute('data-tab'))});
+  });
+  var data=null;
+  try{data=JSON.parse(document.getElementById('festival-calendar-data').textContent)}catch(e){data=null}
+  if(!data||!data.meta){
+    /* Backup path: the builder baked the hardcoded Oct/Nov/Dec mapping into
+       the month grid at build time. Keep that static grid untouched; only
+       the tab switching above is active. */
+    return;
+  }
+  var locked=data.locked||{},meta=data.meta;
+  function cardHtml(key){
+    var m=meta[key];if(!m)return '';
+    return '<a class="col-card" href="festival-'+key+'.html"><img src="assets/img/'+
+      escapeHtml(m.img)+'" alt="'+escapeHtml(m.name)+'"><div class="col-body"><h3>'+
+      escapeHtml(m.name)+'</h3><p class="why">'+escapeHtml(m.why)+'</p><p class="mt">'+
+      '<span class="count-pill">'+escapeHtml(m.count)+'</span></p></div></a>';
+  }
+  function keysFor(m,year){
+    var ents=locked[String(year)]||{},out=[];
+    Object.keys(ents).forEach(function(k){
+      var e=ents[k];
+      if(e&&e.month===m&&meta[k])out.push(k);
+    });
+    return out;
+  }
+  var now=new Date(),found=[],foundM=now.getMonth()+1,foundY=now.getFullYear(),rolled=false;
+  for(var ahead=0;ahead<12;ahead++){
+    var m=((now.getMonth()+ahead)%12)+1,
+        y=now.getFullYear()+Math.floor((now.getMonth()+ahead)/12);
+    var keys=keysFor(m,y);
+    if(keys.length){found=keys;foundM=m;foundY=y;rolled=ahead>0;break}
+  }
+  if(!found.length){ /* years past the locked data: wrap the Oct/Nov/Dec backup pattern */
+    var backup=data.backup||{};
+    for(var b=0;b<12;b++){
+      var bm=((now.getMonth()+b)%12)+1;
+      var bkeys=(backup[String(bm)]||[]).filter(function(k){return meta[k]});
+      if(bkeys.length){found=bkeys;foundM=bm;foundY=now.getFullYear();rolled=b>0;break}
+    }
+  }
+  if(!found.length)return; /* nothing anywhere: keep the baked grid */
+  monthGrid.innerHTML=found.map(cardHtml).join('');
+  monthBtn.textContent=(rolled?'Coming up in ':'This month: ')+MONTH_LABELS[foundM];
+}
+
 /* ---------- boot ---------- */
 document.addEventListener('DOMContentLoaded',function(){
-  seed();initNav();initCookies();initCookiePage();refreshNavAuth();
+  initNav();initCookies();initCookiePage();refreshNavAuth();
   initSignup();initSignin();initAccount();initHearts();initShare();
   initNewsletter();initContact();initFeedback();initBrowse();initKidToggle();
   initCopyPrevention();initHeroSearch();initSeasonPage();initRecipeNote();initRelatedToggle();
+  initFestiveTab();
 });
 })();
