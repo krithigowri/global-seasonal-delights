@@ -88,6 +88,9 @@ h1,h2,h3,.display{font-family:var(--font-d);line-height:1.2;color:var(--espresso
 .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:26px}
 .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
 .grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+/* hidden must beat display:grid — the festive tab toggles grids via the hidden
+   attribute, and author display:grid overrides the UA [hidden]{display:none} */
+.grid-4[hidden]{display:none}
 .col-card{position:relative;border-radius:var(--r);overflow:hidden;background:var(--card);
   box-shadow:var(--shadow);transition:transform .18s ease,box-shadow .18s ease;display:block;color:var(--espresso)}
 .col-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-lg)}
@@ -133,6 +136,10 @@ h1,h2,h3,.display{font-family:var(--font-d);line-height:1.2;color:var(--espresso
   box-shadow:inset 0 1px 0 #fff;transition:all .15s;font-family:var(--font-b)}
 .chip:hover{border-color:var(--terra);transform:translateY(-2px)}
 .chip.on{background:linear-gradient(180deg,#d95c28,var(--terra));color:#fff;border-color:var(--terra-dark)}
+
+/* homepage festive tab */
+.tab-row{display:flex;flex-wrap:wrap;gap:12px;margin:0 0 20px}
+button.chip{font-family:var(--font-b)}
 
 /* ---------- newsletter band ---------- */
 .news-band{margin:70px 12px 0;border-radius:24px;overflow:hidden;position:relative;
@@ -284,6 +291,11 @@ h1,h2,h3,.display{font-family:var(--font-d);line-height:1.2;color:var(--espresso
 .info-card summary::-webkit-details-marker{display:none}
 .info-card summary::after{content:"+";float:right;color:var(--terra);font-size:1.6rem}
 .info-card[open] summary::after{content:"–"}
+
+/* festival food-story block (story + small source reference) */
+.fest-story{margin:20px 0 28px}
+.story-src{font-size:12.5px;color:var(--muted);margin-top:10px}
+.story-src a{color:var(--terra);text-decoration:underline}
 .sources{font-size:14.5px;color:var(--muted);margin-top:8px}
 .sources a{font-weight:600}
 .disclosure{background:#f4ecda;border-left:4px solid var(--gold);border-radius:0 12px 12px 0;
@@ -330,6 +342,7 @@ h1,h2,h3,.display{font-family:var(--font-d);line-height:1.2;color:var(--espresso
 .prose ul,.prose ol{padding-left:24px;margin-bottom:14px}
 .prose .conspicuous{background:#2c1e10;color:#fdf6e3;border-radius:12px;padding:18px 22px;margin:22px 0}
 .prose .conspicuous p{color:#fdf6e3}
+.about-logo{display:block;width:190px;max-width:52vw;height:auto;margin:2px auto 20px}
 .prose .conspicuous strong{color:var(--gold-soft)}
 .prose table{width:100%;border-collapse:collapse;margin:16px 0 22px;font-size:14px}
 .prose th,.prose td{border:1px solid var(--line);padding:10px 12px;text-align:left;vertical-align:top}

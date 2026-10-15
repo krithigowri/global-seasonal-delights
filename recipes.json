@@ -1,5 +1,5 @@
 {
- "_note": "Live recipe data: 98 recipes (45 prior + 53 October festival wave, 2026-10-01). Schema: id, name, aliases[{name,region}], region, season, seasonWhy, category (food|snack|drink), veg, vegNote, kidFriendly, festive, festival, vratCompatible, story, sources[{name,url}], ingredients[{group,items[]}], method[], kidVersion{title,text}, page.",
+ "_note": "Live recipe data: 222 recipes (195 prior + 27 Oct 2-13 IG wave, 2026-10-14). Schema: id, name, aliases[{name,region}], region, season, seasonWhy, category (food|snack|drink), veg, vegNote, kidFriendly, festive, festival, vratCompatible, story, sources[{name,url}], ingredients[{title,items[]}], method[], kidVersion{title,text}, page. Base recipes (base-*): diet, dietNote, alcoholic, calories, prepTime, baseRecipe:true, no kidVersion (see base-sourdough).",
  "recipes": [
   {
    "id": "baingan-bharta",
@@ -2822,7 +2822,7 @@
    "festive": false,
    "festival": null,
    "vratCompatible": null,
-   "veg": true,
+   "veg": false,
    "vegNote": "VEGETARIAN: YES — with an important note: use vegetarian-certified Parmesan or vegetarian hard cheese, because many traditional Parmesan cheeses use animal-derived rennet. The recipe below assumes vegetarian-certified Parmesan.",
    "kidVersion": {
     "title": "Kids love it",
@@ -2889,7 +2889,9 @@
    ],
    "page": "recipe-pumpkin-gnocchi.html",
    "aliases": [],
-   "kidFriendly": true
+   "kidFriendly": true,
+   "diet": "contains-egg",
+   "dietNote": "Contains egg"
   },
   {
    "id": "sabudana-khichdi",
@@ -3558,10 +3560,12 @@
     }
    ],
    "story": "By 1862, parkin and treacle toffee, along with potatoes baked in the fire, had become the traditional foods of Guy Fawkes Night in the north of England, and in Leeds 5 November was known as Parkin Night. The scholar Jennifer Stead, cited on Wikipedia, ties the link between Guy Fawkes and parkin to the bonfire itself.",
-   "veg": true,
+   "veg": false,
    "vegNote": "Ingredient list below (oatmeal, black treacle, golden syrup, butter, eggs) has no meat or fish; note that some older recipes use lard, which is why butter is specified here.",
    "vratCompatible": false,
-   "page": "recipe-yorkshire-parkin.html"
+   "page": "recipe-yorkshire-parkin.html",
+   "diet": "contains-egg",
+   "dietNote": "Contains egg"
   },
   {
    "aliases": [
@@ -4225,10 +4229,12 @@
     }
    ],
    "story": "The figure originally represented a bishop, either St. Martin or St. Nicholas, which is why early versions held a bishop's crook. How the crook became a clay pipe is disputed: one account says it was changed in the 17th and 18th centuries under Reformation influence to remove religious imagery, while another says the pipe appeared only in the 19th century, when a Westerwald clay-pipe factory in trouble began supplying toy pipes to bakers. Both accounts appear in the sources below, so treat the pipe's origin as uncertain.",
-   "veg": true,
+   "veg": false,
    "vegNote": "Sweet yeast dough made with flour, milk, butter, egg and sugar, decorated with raisins; no meat or gelatine.",
    "vratCompatible": false,
-   "page": "recipe-weckmann.html"
+   "page": "recipe-weckmann.html",
+   "diet": "contains-egg",
+   "dietNote": "Contains egg"
   },
   {
    "aliases": [],
@@ -4296,10 +4302,12 @@
     }
    ],
    "story": "The shape is explained two ways: it may recall the horseshoe or hoofprint of St. Martin's horse, or it may be half a pretzel, standing for half of his divided cloak. The best-documented horseshoe story belongs to Poznań, Poland, where according to local tradition a baker created the poppy-seed pastry in 1891 after a parish priest urged people to follow St. Martin's example and help the poor. The Poznań rogale have held EU protected geographical indication status since 2008.",
-   "veg": true,
+   "veg": false,
    "vegNote": "Yeast dough with flour, milk, butter, egg and sugar; no meat, fish or gelatine. The Poznań version, by contrast, is a different filled pastry (poppy seed, almonds, nuts).",
    "vratCompatible": false,
-   "page": "recipe-martinshoernchen.html"
+   "page": "recipe-martinshoernchen.html",
+   "diet": "contains-egg",
+   "dietNote": "Contains egg"
   },
   {
    "aliases": [],
@@ -4919,10 +4927,12 @@
     }
    ],
    "story": "Early American settlers made primitive versions of pumpkin pie by stewing spiced pumpkin pulp in milk directly inside hollowed-out pumpkin shells over open fires.",
-   "veg": true,
+   "veg": false,
    "vegNote": "Vegetarian custard pie prepared with pumpkin puree, milk/cream, eggs, sugar, and autumn spices.",
    "vratCompatible": false,
-   "page": "recipe-pumpkin-pie.html"
+   "page": "recipe-pumpkin-pie.html",
+   "diet": "contains-egg",
+   "dietNote": "Contains egg"
   },
   {
    "aliases": [
@@ -5096,10 +5106,12 @@
     }
    ],
    "story": "Soul cakes gave birth to modern trick-or-treating: medieval 'souling' children went door-to-door singing and praying for souls in exchange for small spiced soul cakes.",
-   "veg": true,
+   "veg": false,
    "vegNote": "Sweet vegetarian spice cakes made from flour, butter, sugar, spices, raisins, and egg yolk.",
    "vratCompatible": false,
-   "page": "recipe-soul-cakes.html"
+   "page": "recipe-soul-cakes.html",
+   "diet": "contains-egg",
+   "dietNote": "Contains egg"
   },
   {
    "aliases": [
@@ -5157,10 +5169,12 @@
     }
    ],
    "story": "Traditional Halloween Barmbrack contains hidden fortune-telling objects baked inside: a ring signified marriage within a year, a coin brought wealth, and a pea meant poor fortune.",
-   "veg": true,
+   "veg": false,
    "vegNote": "Vegetarian spiced tea loaf made with dried fruit, black tea, spices, flour, egg, and sugar.",
    "vratCompatible": false,
-   "page": "recipe-barmbrack.html"
+   "page": "recipe-barmbrack.html",
+   "diet": "contains-egg",
+   "dietNote": "Contains egg"
   },
   {
    "aliases": [
@@ -5246,7 +5260,7 @@
    "festive": true,
    "festival": "Día de los Muertos",
    "vratCompatible": false,
-   "veg": true,
+   "veg": false,
    "vegNote": "The documented orange-and-anise form contains wheat, eggs, milk, butter, sugar and flavorings, but no meat or fish.",
    "kidFriendly": false,
    "kidVersion": {
@@ -5313,7 +5327,9 @@
      "url": "https://www.gob.mx/inpi/es/articulos/el-origen-del-pan-de-muerto-y-las-variedades-regionales"
     }
    ],
-   "page": "recipe-pan-de-muerto.html"
+   "page": "recipe-pan-de-muerto.html",
+   "diet": "contains-egg",
+   "dietNote": "Contains egg"
   },
   {
    "id": "calaveras-de-azucar",
@@ -6200,7 +6216,7 @@
    "festive": true,
    "festival": "Thanksgiving",
    "vratCompatible": false,
-   "veg": true,
+   "veg": false,
    "vegNote": "The documented casserole uses sweet potatoes, eggs, butter, brown sugar, spices and pecans, with no meat or fish.",
    "kidFriendly": true,
    "kidVersion": {
@@ -6257,7 +6273,9 @@
      "url": "https://www.smithsonianmag.com/arts-culture/where-does-your-thanksgiving-meal-come-from-138705036/"
     }
    ],
-   "page": "recipe-sweet-potato-casserole.html"
+   "page": "recipe-sweet-potato-casserole.html",
+   "diet": "contains-egg",
+   "dietNote": "Contains egg"
   },
   {
    "id": "thanksgiving-pumpkin-pie",
@@ -6279,7 +6297,7 @@
    "festive": true,
    "festival": "Thanksgiving",
    "vratCompatible": false,
-   "veg": true,
+   "veg": false,
    "vegNote": "The classic pie contains pumpkin, dairy, eggs, sugar, spices and pastry ingredients, with no meat or fish.",
    "kidFriendly": true,
    "kidVersion": {
@@ -6342,7 +6360,9 @@
      "url": "https://www.smithsonianmag.com/history/how-formerly-ubiquitous-pumpkin-became-once-year-treat-180970860/"
     }
    ],
-   "page": "recipe-thanksgiving-pumpkin-pie.html"
+   "page": "recipe-thanksgiving-pumpkin-pie.html",
+   "diet": "contains-egg",
+   "dietNote": "Contains egg"
   },
   {
    "aliases": [
@@ -6797,7 +6817,7 @@
    "name": "Bhog Khichuri",
    "region": "West Bengal, India",
    "season": "Autumn",
-   "seasonWhy": "Durga Puja (Durgotsava: Shashthi to Vijayadashami) is confirmed for 16-20 October 2026 per the Drik Panchang 2026 panchang calendar. It is the Sharadiya (autumn) festival, falling in the cool post-monsoon months when new harvest Gobindobhog rice is abundant; the khichuri is the centerpiece of the Ashtami mahabhog offered to the goddess.",
+   "seasonWhy": "Durga Puja (Durgotsava: Shashthi to Vijayadashami) falls 17-21 October 2026. It is the Sharadiya (autumn) festival, falling in the cool post-monsoon months when new harvest Gobindobhog rice is abundant; the khichuri is the centerpiece of the Ashtami mahabhog offered to the goddess.",
    "sources": [
     {
      "name": "First Timer Cook - Bhogar Khichuri (Bengali Durga Puja special)",
@@ -6872,7 +6892,7 @@
    "name": "Labra",
    "region": "West Bengal, India",
    "season": "Autumn",
-   "seasonWhy": "Durga Puja (Durgotsava: Shashthi to Vijayadashami) is confirmed for 16-20 October 2026 per the Drik Panchang 2026 panchang calendar. Labra, the five-plus vegetable medley, is cooked as part of the Sharadiya (autumn) Puja bhog from the season's post-monsoon vegetables and is served alongside bhoger khichuri in the mahabhog.",
+   "seasonWhy": "Durga Puja (Durgotsava: Shashthi to Vijayadashami) falls 17-21 October 2026. Labra, the five-plus vegetable medley, is cooked as part of the Sharadiya (autumn) Puja bhog from the season's post-monsoon vegetables and is served alongside bhoger khichuri in the mahabhog.",
    "sources": [
     {
      "name": "Slurrp - Bengali Labra Recipe For Your Vegetarian Durga Puja Feast",
@@ -6926,7 +6946,7 @@
    "name": "Begun Bhaja",
    "region": "West Bengal, India",
    "season": "Autumn",
-   "seasonWhy": "Durga Puja (Durgotsava: Shashthi to Vijayadashami) is confirmed for 16-20 October 2026 per the Drik Panchang 2026 panchang calendar. Begun bhaja is a permanent fixture of the Sharadiya (autumn) Puja bhog - pandals distribute the crisp fried brinjal slices with the khichuri as part of the prasad.",
+   "seasonWhy": "Durga Puja (Durgotsava: Shashthi to Vijayadashami) falls 17-21 October 2026. Begun bhaja is a permanent fixture of the Sharadiya (autumn) Puja bhog - pandals distribute the crisp fried brinjal slices with the khichuri as part of the prasad.",
    "sources": [
     {
      "name": "Boldsky - Durga Puja Special: Begun Bhaja Recipe",
@@ -7002,7 +7022,7 @@
    "name": "Luchi Alur Dom",
    "region": "West Bengal, India",
    "season": "Autumn",
-   "seasonWhy": "Durga Puja (Durgotsava: Shashthi to Vijayadashami) is confirmed for 16-20 October 2026 per the Drik Panchang 2026 panchang calendar. Luchi and alur dom is the classic Sharadiya (autumn) Puja morning food - eaten before heading out to pandal-hop, and the festive niramish (no onion, no garlic) version is cooked through the Puja days.",
+   "seasonWhy": "Durga Puja (Durgotsava: Shashthi to Vijayadashami) falls 17-21 October 2026. Luchi and alur dom is the classic Sharadiya (autumn) Puja morning food - eaten before heading out to pandal-hop, and the festive niramish (no onion, no garlic) version is cooked through the Puja days.",
    "sources": [
     {
      "name": "Global Bihari - Noolen Alur Niramish Dum (pujo special)",
@@ -7065,7 +7085,7 @@
    "name": "Tomato Khejur Chutney",
    "region": "West Bengal, India",
    "season": "Autumn",
-   "seasonWhy": "Durga Puja (Durgotsava: Shashthi to Vijayadashami) is confirmed for 16-20 October 2026 per the Drik Panchang 2026 panchang calendar. The sweet-sour tomato chutney is the classic closing course of the Sharadiya (autumn) Puja bhog plate - served after the khichuri and labra to finish the meal with sweetness, a core rule of the Bengali meal order.",
+   "seasonWhy": "Durga Puja (Durgotsava: Shashthi to Vijayadashami) falls 17-21 October 2026. The sweet-sour tomato chutney is the classic closing course of the Sharadiya (autumn) Puja bhog plate - served after the khichuri and labra to finish the meal with sweetness, a core rule of the Bengali meal order.",
    "sources": [
     {
      "name": "Kitchen Mai - Tomato khejur chatni (Bengali tomato chutney)",
@@ -7122,7 +7142,7 @@
    "name": "Chaler Payesh",
    "region": "West Bengal, India",
    "season": "Autumn",
-   "seasonWhy": "Durga Puja (Durgotsava: Shashthi to Vijayadashami) is confirmed for 16-20 October 2026 per the Drik Panchang 2026 panchang calendar. Payesh - called poromanno, 'the supreme food' - is the traditional dessert offered as bhog to the goddess during the Sharadiya (autumn) Puja and served at the end of the Ashtami mahabhog.",
+   "seasonWhy": "Durga Puja (Durgotsava: Shashthi to Vijayadashami) falls 17-21 October 2026. Payesh - called poromanno, 'the supreme food' - is the traditional dessert offered as bhog to the goddess during the Sharadiya (autumn) Puja and served at the end of the Ashtami mahabhog.",
    "sources": [
     {
      "name": "Kitchen of Debjani - Chaler Payesh or Bengali Rice Kheer",
@@ -7192,7 +7212,7 @@
    "name": "Roshogolla",
    "region": "West Bengal, India",
    "season": "Autumn",
-   "seasonWhy": "Durga Puja (Durgotsava: Shashthi to Vijayadashami) is confirmed for 16-20 October 2026 per the Drik Panchang 2026 panchang calendar. Roshogolla is Bengal's signature sweet of celebration and no Sharadiya (autumn) Puja is complete without it - it is bought by the kilo, offered as bhog and pressed into the hands of every guest through the festival.",
+   "seasonWhy": "Durga Puja (Durgotsava: Shashthi to Vijayadashami) falls 17-21 October 2026. Roshogolla is Bengal's signature sweet of celebration and no Sharadiya (autumn) Puja is complete without it - it is bought by the kilo, offered as bhog and pressed into the hands of every guest through the festival.",
    "sources": [
     {
      "name": "Food Viva - Rasgulla Recipe (Bengali Rosogolla)",
@@ -9604,7 +9624,7 @@
     "Sayur Lemak"
    ],
    "region": "Java, Indonesia",
-   "season": "Dry season",
+   "season": "Dry-season",
    "seasonWhy": "The dry season is Java's harvest abundance — chayote, long beans, eggplant and cabbage at their peak, simmered in fresh coconut milk.",
    "category": "food",
    "festive": false,
@@ -12791,6 +12811,2008 @@
    ],
    "story": "Bal mithai is fondly called the chocolate of Uttarakhand — dark-brown khoya cubes rolled in tiny white sugar balls.",
    "page": "recipe-uttarakhand-bal-mithai.html"
+  },
+  {
+   "aliases": [
+    {
+     "name": "Faina",
+     "region": "Uruguay"
+    }
+   ],
+   "category": "food",
+   "festival": null,
+   "festive": false,
+   "id": "faina",
+   "ingredients": {
+    "groups": [
+     {
+      "items": [
+       "250 g harina de garbanzo [chickpea flour / gram flour]",
+       "750 ml cold water",
+       "3 tbsp extra-virgin olive oil (aceite de oliva [olive oil])",
+       "1 tsp fine salt",
+       "1/2 tsp freshly ground black pepper (pimienta negra [black pepper])",
+       "Optional: 1 tsp dried oregano (orégano [oregano])"
+      ],
+      "title": "The batter (whisked first)"
+     },
+     {
+      "items": [
+       "2 tbsp olive oil, for greasing the tray"
+      ],
+      "title": "For the pan"
+     },
+     {
+      "items": [
+       "400 g ripe tomatoes (tomate [tomato]), crushed — or canned crushed tomatoes",
+       "1 clove ajo [garlic], minced",
+       "2 tbsp olive oil",
+       "1/2 tsp dried oregano",
+       "Salt to taste",
+       "150 g mozzarella, torn or grated"
+      ],
+      "title": "The tomato-cheese topping"
+     }
+    ]
+   },
+   "kidFriendly": true,
+   "kidVersion": {
+    "text": "Plain fainá wedges with just melted mozzarella — the classic kid order at Montevideo pizzerias; they can also be baked in a muffin tin as mini rounds. Allergy: legumes (chickpea). Naturally gluten-free, nut-free, soy-free.",
+    "title": "Kids love it"
+   },
+   "method": [
+    "Whisk the chickpea flour with the water until completely smooth — no lumps. Whisk in the olive oil, salt, pepper (and oregano). Let the batter rest 30 minutes (up to 2 hours) at room temperature; the flour hydrates and the interior stays creamy.",
+    "Meanwhile make the topping: warm the olive oil, soften the garlic 1 minute, add the crushed tomatoes, oregano and salt; simmer 12–15 minutes until thick and jammy.",
+    "Place a heavy oven tray (or cast-iron pan) in the oven and heat to 230°C (450°F) — tray ripping hot is the trick to a crisp base.",
+    "Oil the hot tray well, pour in the batter in a thin, even layer. Bake 18–22 minutes until the top is golden with dark freckles and the edges are crisp.",
+    "Spread the tomato sauce over, scatter the mozzarella, and return to the oven 3–5 minutes (or under the broiler) until the cheese melts and bubbles.",
+    "Rest 5 minutes, slice into wedges. Serve hot — on its own, or pizza a caballo style: a slice of fainá laid on top of your pizza slice."
+   ],
+   "name": "Fainá — Uruguayan chickpea flatbread with roasted tomato & melted mozzarella",
+   "page": "recipe-faina.html",
+   "region": "Uruguay",
+   "season": "Spring",
+   "seasonWhy": "Fainá is a year-round Uruguayan pizzeria staple; October's spring is picnic and pizzeria season in Montevideo, and the topping uses ripe tomatoes (or good canned) with early-spring herbs.",
+   "sources": [
+    {
+     "name": "PMQ Pizza Magazine — 'How to Make Faina' (Uruguayan pizza-maker interview)",
+     "url": "https://www.pmq.com/how-to-make-faina/"
+    },
+    {
+     "name": "TasteAtlas — Fainá",
+     "url": "https://www.tasteatlas.com/faina"
+    },
+    {
+     "name": "Travel Food Atlas — fainá recipe cross-check",
+     "url": "https://travelfoodatlas.com/faina-recipe"
+    }
+   ],
+   "story": "Fainá sailed from Genoa with Ligurian immigrants in the late 1800s — fainâ is the Genovese-dialect name for the chickpea flatbread they recreated in the New World. In Uruguay it became pizzeria ritual: order pizza a caballo ('horseback pizza') and the waiter lays a slice of fainá right on top of your pizza slice. Montevideo families eat it communally, pizza a la pala — a yard-long pizza cut into many small slices, with fainá on the side.",
+   "veg": true,
+   "vegNote": "The traditional fainá base is fully plant-based (chickpea flour, water, olive oil, salt, pepper); the mozzarella is an optional traditional topping layer."
+  },
+  {
+   "aliases": [
+    {
+     "name": "Garrapinada",
+     "region": "Uruguay"
+    }
+   ],
+   "category": "snack",
+   "festival": null,
+   "festive": false,
+   "id": "garrapinada",
+   "ingredients": {
+    "groups": [
+     {
+      "items": [
+       "2 cups raw maní [peanuts], peeled and unsalted",
+       "1 cup azúcar [sugar]",
+       "1/3 cup water",
+       "1 tsp vainilla [vanilla extract] (the traditional flavoring per the Montevideo guide)",
+       "A good pinch of salt"
+      ],
+      "title": "In the skillet (all in together)"
+     },
+     {
+      "items": [
+       "Parchment paper or a lightly oiled baking tray"
+      ],
+      "title": "For cooling"
+     }
+    ]
+   },
+   "kidFriendly": true,
+   "kidVersion": {
+    "text": "The dish IS the kid version — Montevideo kids buy paper cones of garrapiñada from plaza vendors; at home, serve warm in small paper cones for the street-cart effect. Allergy: peanuts — major allergen; do not substitute within this dish. Gluten-free, dairy-free, soy-free.",
+    "title": "Kids love it"
+   },
+   "method": [
+    "Line a baking tray with parchment paper and set it aside.",
+    "Combine the peanuts, sugar, water, vanilla and salt in a large heavy skillet. Set over medium heat and stir continuously — the sugar dissolves and the mixture comes to a gentle boil.",
+    "Keep stirring as the water evaporates. The syrup will seize and turn sandy-crystalline around the peanuts — this is supposed to happen; do not stop.",
+    "Lower the heat slightly and keep stirring: the crystallized sugar melts again into a golden, glossy caramel that coats every peanut. Stop when the coating is deep amber, not dark.",
+    "Immediately scrape onto the parchment tray, separate the peanuts quickly with a spatula, and let cool completely. Break apart into individual pieces. Store in an airtight jar."
+   ],
+   "name": "Garrapiñada — Montevideo caramelized-sugar peanuts",
+   "page": "recipe-garrapinada.html",
+   "region": "Uruguay",
+   "season": "Spring",
+   "seasonWhy": "Garrapiñada is a year-round street sweet; October's spring ferias (fairs) and plaza season in Montevideo is when street vendors' carts are at their busiest — the spring-snack tie.",
+   "sources": [
+    {
+     "name": "descubrimontevideo.uy — official Montevideo gastronomy guide (garrapiñada as must-try street sweet)",
+     "url": null
+    },
+    {
+     "name": "AmigoFoods blog — garrapiñada step-by-step cross-check",
+     "url": "https://blog.amigofoods.com/index.php/argentine-foods/garrapinadas/"
+    },
+    {
+     "name": "The Kosher Foodies — candied-peanut method cross-check",
+     "url": "https://thekosherfoodies.com/candied-peanuts/"
+    }
+   ],
+   "story": "Garrapiñada is Montevideo's street-cart sweet: vendors sell sugar-crusted peanuts on the plazas and the Rambla, and the city's official gastronomy guide lists it as a must-try alongside mate and the alfajor. The magic is a two-act sugar performance — first it crystallizes into a sandy shell, then it melts into glass. A shared Río de la Plata tradition, proudly Uruguayan.",
+   "veg": true,
+   "vegNote": "The traditional garrapiñada contains only peanuts, sugar, water and vanilla — no egg, butter, dairy or honey in any documented traditional form."
+  },
+  {
+   "aliases": [],
+   "category": "food",
+   "festival": null,
+   "festive": false,
+   "id": "misir-wot",
+   "ingredients": {
+    "groups": [
+     {
+      "items": [
+       "2 tbsp niter kibbeh [Ethiopian spiced clarified butter — butter simmered with ginger, garlic, korarima (Ethiopian cardamom), fenugreek, and turmeric, then strained]",
+       "Fasting-table variation (traditional): replace with an equal amount of neutral oil or olive oil — during Orthodox fasting periods (tsom), observant cooks make the same wot with oil instead of butter; that is the authentic vegan form. Either fat is traditional; this recipe uses niter kibbeh."
+      ],
+      "title": "Cooking fat (first in)"
+     },
+     {
+      "items": [
+       "1 large yellow onion (about 150 g), finely chopped",
+       "3 cloves garlic, minced",
+       "1 tbsp fresh ginger (zinjibil [fresh ginger root]), finely grated",
+       "2 tbsp berbere [Ethiopian spice blend — fiery, earthy, aromatic; the soul of the dish] (see homemade blend below, or good store-bought; heat varies by brand — start at 1.5 tbsp if heat-shy)",
+       "1 small tomato (about 100 g), finely chopped, or 1 tbsp tomato paste — the softening, sweetening agent in wot"
+      ],
+      "title": "Aromatics + spices (bloomed in the fat)"
+     },
+     {
+      "items": [
+       "1½ cups (300 g) misir [red lentils — the small, orange, quick-cooking lentil], picked over and rinsed until the water runs clear (no splitting needed; they disintegrate into the stew's creamy body)",
+       "3 cups water (plus more as needed) — no stock needed; the spices carry the flavor",
+       "1 tsp fine sea salt, plus more to taste"
+      ],
+      "title": "Lentils + liquid (the body of the stew)"
+     },
+     {
+      "items": [
+       "1 tsp sweet paprika — dried sweet red pepper powder; no heat, purely for the signature deep red color",
+       "Squeeze of lime or lemon juice (about 1 tsp) — brightens the finished stew",
+       "To serve: injera [Ethiopian sourdough flatbread, traditionally made from teff grain — spongy, tangy, used as both plate and utensil]; rice or any flatbread works as a substitute"
+      ],
+      "title": "Finishing"
+     },
+     {
+      "items": [
+       "4 tsp coriander seeds",
+       "2 tsp cumin seeds",
+       "2 tsp fenugreek seeds [small, bitter-sweet, maple-scented seeds — the defining note of berbere]",
+       "2 tsp black peppercorns",
+       "2 tsp green cardamom pods, seeds only (or a pinch of korarima [Ethiopian cardamom] if available)",
+       "10 whole cloves",
+       "2 tsp cayenne powder [dried hot red chili]",
+       "6 tbsp sweet paprika",
+       "1 tsp ground ginger",
+       "1 tsp ground cinnamon",
+       "½ tsp ground nutmeg",
+       "2 tsp ground turmeric",
+       "2 tsp fine salt",
+       "Method: toast the whole seeds (coriander, cumin, fenugreek, peppercorns, cardamom, cloves) in a dry skillet 2–3 minutes until fragrant, cool, then grind to a fine powder. Whisk in the pre-ground spices and salt. Store airtight in a cool, dark place. Store-bought note: a good-quality berbere from an Ethiopian/Eritrean grocer is fully traditional and saves the work."
+      ],
+      "title": "Berbere blend — spelled out (makes about ½ cup; keeps 6 months airtight)"
+     }
+    ]
+   },
+   "kidFriendly": true,
+   "kidVersion": {
+    "text": "The mild family pot: Ethiopian children grow up eating misir wot from the shared platter — families simply hold back the heat, making the same stew with only 1 tsp berbere (skip the cayenne in the homemade blend) and relying on sweet paprika for the familiar red color. Allergy: legumes (red lentils); dairy via niter kibbeh (the traditional oil/fasting variation is dairy-free). Naturally gluten-free.",
+    "title": "Kids love it"
+   },
+   "method": [
+    "Rinse the misir [red lentils] in several changes of cold water until the water runs clear; drain and set aside.",
+    "Melt the niter kibbeh [spiced clarified butter] in a heavy pot or Dutch oven over medium heat. Add the finely chopped onion and cook, stirring often, 6–8 minutes until soft, golden, and translucent. Patience here builds the stew's sweetness — do not rush to brown.",
+    "Stir in the garlic and ginger; cook 1 minute until fragrant. Add the berbere [Ethiopian spice blend] and the chopped tomato (or tomato paste); stir well and cook 3–4 minutes, splashing in 2–3 tbsp water as needed so the spices toast without scorching. The mixture should turn a deep, glossy red.",
+    "Stir in the rinsed lentils and salt, coating them in the spice base. Pour in the 3 cups water and bring to a gentle boil.",
+    "Reduce to low, partially cover, and simmer 30–40 minutes, stirring every 5–10 minutes and adding water a splash at a time if it thickens too fast. The lentils should lose their shape entirely and the stew should be thick and porridge-like, deep red.",
+    "Stir in the sweet paprika and the squeeze of lime/lemon juice. Taste for salt; adjust. Rest 5 minutes off the heat — the stew thickens as it cools.",
+    "Ladle over or alongside injera [sourdough flatbread], family-style. Traditionally eaten communally, scooped up with torn pieces of injera."
+   ],
+   "name": "Misir Wot — Ethiopian red lentil stew with berbere",
+   "page": "recipe-misir-wot.html",
+   "region": "Ethiopia",
+   "season": "Autumn",
+   "seasonWhy": "Early October is the fresh lentil harvest window in Ethiopia (mid-September to October), and the meher harvest — the season behind the bulk of national crop production — is beginning. Misir wot is a year-round staple, but the new harvest meeting the fasting table makes early October its natural peak season.",
+   "sources": [
+    {
+     "name": "MedCrave Online — peer-reviewed review of lentil production in Ethiopia (harvest window)",
+     "url": "https://medcraveonline.com/APAR/lentil-lens-culinaris-medikus-current-status-and-future-prospect-of-production-in-ethiopia.html"
+    },
+    {
+     "name": "FEWS NET — Ethiopia Food Security Outlook (meher harvest timing)",
+     "url": "https://reliefweb.int/report/ethiopia/ethiopia-food-security-outlook-peak-lean-season-emerges-el-nino-stalls-kiremt-rains-risking-seasonal-recovery-june-2026-january-2027"
+    }
+   ],
+   "story": "Ethiopia's Orthodox Church observes some 180 mandatory fasting days a year — the strictest fasting calendar of any church — during which observant Ethiopians eat no meat, dairy, or eggs. That is why Ethiopian cuisine has one of the world's deepest vegetarian repertoires, and lentil stews like misir wot sit at the very center of the fasting table, ladled onto shared injera platters. With lentils coming out of the ground in September–October, early October is when the new harvest meets the fasting table.",
+   "veg": true,
+   "vegNote": "The traditional form is fully plant-based during Orthodox fasting periods (oil instead of niter kibbeh); with niter kibbeh (spiced clarified butter) it is vegetarian. Berbere, lentils, onion, garlic, ginger and tomato contain no meat, egg or fish in any documented traditional form."
+  },
+  {
+   "aliases": [],
+   "category": "snack",
+   "festival": null,
+   "festive": false,
+   "id": "kolo",
+   "ingredients": {
+    "groups": [
+     {
+      "items": [
+       "2 cups (400 g) whole barley (gebs [barley]) — whole-grain/hulled; the market type sold as senef kolo [roasting barley] is the classic kolo grain. Do NOT use quick/instant barley.",
+       "3 cups water + a pinch of salt, for the brief parboil"
+      ],
+      "title": "The grains (into the pan first)"
+     },
+     {
+      "items": [
+       "1–2 tbsp neutral vegetable oil or olive oil (oil, NOT niter kibbeh [spiced clarified butter] — keeps this the plain traditional plant-based form)",
+       "1 tsp fine sea salt, more to taste",
+       "1 tsp berbere [hot Ethiopian chili spice blend] — OPTIONAL; omit for a plain classic or for children"
+      ],
+      "title": "Seasonings (added after roasting, off or on low heat)"
+     },
+     {
+      "items": [
+       "¼ cup (35 g) raw peanuts — minor mix-in only, per traditional mixes",
+       "3 tbsp suf [safflower seeds — the striped oilseed sold in Ethiopian markets as 'sunflower seed'; may substitute hulled sunflower seeds outside Ethiopia]",
+       "Optional: ¼ cup roasted chickpeas (shimbra [chickpeas]) for the classic multi-grain kolo mix"
+      ],
+      "title": "Optional mix-ins (roasted separately, combined at the end)"
+     }
+    ]
+   },
+   "kidFriendly": true,
+   "kidVersion": {
+    "text": "Kolo is an everyday all-ages snack in Ethiopia — the honest kid version is simply the plain form: omit the berbere/chili, keep salt light, and skip the peanuts for small children (choking + allergy). Children eat the same roasted barley; there is no separate kid recipe. Allergy: barley = GLUTEN — a major allergen and the soul of this dish; do not substitute within it. Peanuts = major allergen (optional mix-in; omit freely).",
+    "title": "Kids love it"
+   },
+   "method": [
+    "Wash and parboil the barley: rinse in several changes of cold water until the water runs mostly clear. Bring 3 cups of water with a pinch of salt to a rolling boil, add the barley, and boil 5 minutes. Drain well and let it steam-dry in the colander a few minutes — dry grains roast crisply instead of steaming.",
+    "Dry-roast the barley: heat a wide, heavy pan (cast iron is ideal) over low–medium heat. Add the barley in a single layer. Toast, stirring and shaking constantly, 12–18 minutes, until deep golden, strongly nutty-smelling, with a few grains crackling or popping. Keep the heat gentle — scorched barley turns bitter. Work in batches if the pan crowds.",
+    "Roast the mix-ins: toast the peanuts over low heat 3–4 minutes until fragrant and lightly golden; do the same with the suf seeds until creamy-colored and aromatic. Remove each before they darken.",
+    "Season while warm: return everything to the warm (off-heat) pan. Drizzle over the oil and toss so every grain glistens. Sprinkle the salt (and berbere, if using) and toss again. The residual heat blooms the spices and helps them cling.",
+    "Cool and store: spread on a tray and cool completely — kolo crisps up fully as it cools. Store sealed in a glass jar at room temperature; keeps 2–3 weeks if kept dry."
+   ],
+   "name": "Kolo — Ethiopian roasted barley snack",
+   "page": "recipe-kolo.html",
+   "region": "Ethiopia",
+   "season": "Autumn",
+   "seasonWhy": "Kolo is a year-round snack, but October is when highland families roast the new meher barley crop — kolo is the highlands' way of eating the new barley harvest, and the meher season accounts for the bulk of Ethiopia's annual grain production.",
+   "sources": [
+    {
+     "name": "USDA FAS — Grain and Feed Annual, Ethiopia (meher season share of grain production)",
+     "url": "https://apps.fas.usda.gov/newgainapi/api/report/downloadreportbyfilename?filename=Grain and Feed Annual_Addis Ababa_Ethiopia_3-24-2015.pdf"
+    },
+    {
+     "name": "FEWS NET — Ethiopia Food Security Outlook (meher harvest timing)",
+     "url": "https://reliefweb.int/report/ethiopia/ethiopia-food-security-outlook-peak-lean-season-emerges-el-nino-stalls-kiremt-rains-risking-seasonal-recovery-june-2026-january-2027"
+    },
+    {
+     "name": "MDPI Water — barley and short-season cereals in the meher season",
+     "url": "https://mdpi.com/2073-4441/11/12/2571"
+    },
+    {
+     "name": "Sara Bayou, ethiopian-food.org — barley roasted as kolo",
+     "url": "https://ethiopian-food.org/besso-smoothie-recipe/"
+    }
+   ],
+   "story": "Kolo is the highlands' harvest-season traveler: families roast the new meher barley crop each October and carry the crunchy grains in a pouch for journeys, market days, and long afternoons — roasted grain keeps for weeks without spoiling. It is the classic companion to buna (Ethiopian coffee): a handful of kolo is served alongside the coffee ceremony's fresh-roasted brew, and street vendors sell it wrapped in paper cones.",
+   "veg": true,
+   "vegNote": "The traditional plain kolo contains only roasted grains, seeds, peanuts, salt, oil and optionally berbere — no meat, egg, butter, dairy or honey. This recipe uses the plain plant-based form (not the 'kolo be kibbeh' butter variant)."
+  },
+  {
+   "alcoholic": true,
+   "aliases": [],
+   "category": "drink",
+   "festival": null,
+   "festive": false,
+   "id": "tej",
+   "ingredients": {
+    "groups": [
+     {
+      "items": [
+       "About 3 lbs honey + 9 cups water (1 part honey to 3 parts water)"
+      ],
+      "title": "Honey + water"
+     },
+     {
+      "items": [
+       "kitel [gesho leaves], ground",
+       "entchet [gesho stems], for the boiled draw-off",
+       "Wild yeast from the gesho does the fermenting — no commercial yeast needed"
+      ],
+      "title": "Gesho [Ethiopian hops]"
+     }
+    ]
+   },
+   "kidFriendly": false,
+   "method": [
+    "Mix the honey, water, and ground gesho kitel [leaves]; let stand 3 days at room temperature.",
+    "Draw off about 6 cups; boil with gesho entchet [stems] about 15 min, cool, and pour back into the vessel.",
+    "Seal and ferment about 2 weeks at room temperature — the wild yeast does the work.",
+    "Strain through cheesecloth and serve chilled — sweet or dry, depending on the maker."
+   ],
+   "name": "Tej — Ethiopia's honey wine with gesho",
+   "page": "recipe-tej.html",
+   "region": "Ethiopia",
+   "season": "Autumn",
+   "seasonWhy": "Tej is brewed for the great occasions of the Ethiopian calendar; early October sits in the sweet afterglow of Meskel — the September honey holiday — deep in meher harvest season, when honey flows.",
+   "sources": [
+    {
+     "name": "Sara Bayou, ethiopian-food.org — 'Tej Recipe: How To Make Traditional Ethiopian Honey Wine'",
+     "url": "https://ethiopian-food.org/tej-recipe/"
+    },
+    {
+     "name": "Wikipedia — Tej",
+     "url": "https://en.wikipedia.org/wiki/Tej"
+    },
+    {
+     "name": "Ezega — 'Celebrating Ethiopian Meskel'",
+     "url": "https://www.ezega.com/News/NewsDetails/7266/Celebrating-Ethiopian-Meskel"
+    }
+   ],
+   "story": "Tej is Ethiopia's national drink — homebrewed, never originally commercial — and legend says the Queen of Sheba carried it as a gift to King Solomon. It is brewed for every great occasion: Christmas, New Year (Enkutatash), Epiphany (Timkat), Easter (Fasika), weddings — and Meskel, the Finding of the True Cross. Meskel, the great honey holiday, comes in late September — and early October is its sweet afterglow.",
+   "veg": true
+  },
+  {
+   "aliases": [
+    {
+     "name": "Kiveve",
+     "region": "Paraguay"
+    }
+   ],
+   "category": "food",
+   "festival": null,
+   "festive": false,
+   "id": "kiveve",
+   "ingredients": {
+    "groups": [
+     {
+      "items": [
+       "1 kg (about 2.2 lb) andai [calabaza squash — a dense, sweet, orange-fleshed winter squash; substitute kabocha or butternut squash], peeled, seeded, and cut into chunks",
+       "3 cups water, to cover (add a splash more if needed)"
+      ],
+      "title": "The squash (first in — the base)"
+     },
+     {
+      "items": [
+       "1 tbsp cane sugar (the traditional sweetness level — every documented traditional recipe includes sugar; up to 2 tbsp for a dessert-leaning bowl, but a fully sugar-free version would be an invention)",
+       "200 g (about 1¼ cups) harina de maíz [fine corn flour — Paraguayan-style, between corn starch and corn flour in grind; NOT cornstarch], sifted — added a spoonful at a time, in a thin rain, stirring constantly so it never lumps"
+      ],
+      "title": "Sweetener + thickener (stirred in once the squash is mashed smooth)"
+     },
+     {
+      "items": [
+       "1 tsp fine sea salt, more to taste"
+      ],
+      "title": "Seasoning"
+     },
+     {
+      "items": [
+       "150 g queso paraguay [Paraguayan cheese — a soft, mild, slightly tangy fresh cheese; substitute whole-milk ricotta or farmer's cheese (vegetarian-rennet)], crumbled or finely chopped — stirred in off the heat until softened through",
+       "2 tbsp manteca [butter] (or neutral corn/vegetable oil)",
+       "Warm milk, passed at the table — traditional serving: each diner pours milk into their own bowl to taste"
+      ],
+      "title": "Dairy finish (off the hard simmer — enriches, never splits)"
+     }
+    ]
+   },
+   "kidFriendly": true,
+   "kidVersion": {
+    "text": "The documented traditional kid-friendly serving IS the same dish — a small warm bowl with milk poured at the table to each person's taste. Kivevé is already kid-shaped: soft, warm, mildly sweet, spoonable. Allergy: dairy (queso paraguay + milk + butter — the defining trio; no dairy-free substitution within this dish). Naturally gluten-free. Contains a small amount of added sugar.",
+    "title": "Kids love it"
+   },
+   "method": [
+    "Put the andai [calabaza squash] chunks in a heavy pot with the water and salt. Bring to a boil, then lower to a steady simmer and cook 15–20 minutes until the squash is very tender and falls apart at a poke.",
+    "Mash the squash directly in the pot — in its own cooking water — with a potato masher until smooth. A few small soft lumps are traditional; blend only if you want it silkier.",
+    "Return to medium-low heat. Stir in the sugar and manteca [butter] until melted through.",
+    "Sift in the harina de maíz [fine corn flour] gradually, in a thin rain, stirring constantly with a wooden spoon. Cook 8–10 minutes, stirring, until the corn flour is fully cooked and the mixture turns creamy like polenta — it should pull slightly from the sides of the pot and hold soft ribbons.",
+    "Stir in the crumbled queso paraguay [Paraguayan cheese] for a minute until softened and melted through, then take the pot off the heat. Rest 5 minutes — kivevé thickens as it settles.",
+    "Serve warm (room temperature is also traditional) in bowls, family-style, with warm milk passed at the table — each diner pours milk in to taste. A hearty bowl on its own; the mild sweetness is the dish, not a dessert add-on."
+   ],
+   "name": "Kivevé — Paraguayan squash-and-cornmeal bowl",
+   "page": "recipe-kiveve.html",
+   "region": "Paraguay",
+   "season": "Spring",
+   "seasonWhy": "October is planting season for andai in Paraguay, not fresh harvest — but the stored harvest keeps last season's hard-rind squash in markets for months, and the Karai Octubre jopara tradition puts zapallo and queso paraguay in Paraguayan pots at the start of the month. An honestly framed stored-crop tie.",
+   "sources": [
+    {
+     "name": "Garden Betty / Gardening Know How — andai planting, harvest and storage (agronomy cross-check)",
+     "url": null
+    },
+    {
+     "name": "Crónica (Paraguay) — Karai Octubre jopara tradition coverage",
+     "url": "https://cronica.com.py/2026/09/30/jopara-una-tradicion-que-se-va-apagando-entre-las-nuevas-generaciones/"
+    }
+   ],
+   "story": "Kivevé is one of Paraguay's oldest home dishes, born in the Guaraní-Jesuit Missions of the colonial era and carried through Paraguay's hard 19th century, when home cooks stretched scarce meals with squash, cornmeal, and fresh cheese. Its name comes from the Guaraní word for 'reddish' — a nod to the deep-orange flesh of the andai (calabaza squash) at its heart. Traditionally cooked in clay pots and served warm or cool with milk poured at the table, it is remembered as the most famous vegetarian dish in Paraguayan cooking — a sweet-savory staple of grandmothers' kitchens, and a workhorse of meat-free Lenten cooking.",
+   "veg": true,
+   "vegNote": "The canonical kivevé contains only squash, corn flour, sugar, salt, cheese, milk, and butter/oil — no meat, egg, or fish in any documented traditional form; the vegetarian form is the traditional form. Fresh-cheese substitute note: use ricotta or farmer's cheese, or verify vegetarian rennet."
+  },
+  {
+   "aliases": [
+    {
+     "name": "Mbeju",
+     "region": "Paraguay"
+    }
+   ],
+   "category": "snack",
+   "festival": null,
+   "festive": false,
+   "id": "mbeju",
+   "ingredients": {
+    "groups": [
+     {
+      "items": [
+       "500 g (about 4 cups) almidón de mandioca [cassava/tapioca starch — the fine white starch extracted from bitter cassava root; NOT tapioca pearls and not sweet cassava flour]",
+       "1 tsp fine sea salt"
+      ],
+      "title": "The dry base (into the bowl first)"
+     },
+     {
+      "items": [
+       "100 g manteca [butter], at room temperature — rubbed through the starch with the fingertips until the mixture resembles coarse, damp sand. Note: some traditional cooks use grasa de cerdo [pork fat/lard] here; this recipe deliberately uses the standard, documented manteca [butter] form, keeping it vegetarian."
+      ],
+      "title": "The fat (rubbed in by hand)"
+     },
+     {
+      "items": [
+       "250 g queso paraguay [Paraguayan cheese — firm, salty, fresh cow's-milk cheese; substitute mild feta or queso fresco], crumbled or finely grated"
+      ],
+      "title": "The cheese (folded in last, before the griddle)"
+     }
+    ]
+   },
+   "kidFriendly": true,
+   "kidVersion": {
+    "text": "Mbejú is an everyday all-ages Paraguayan snack: children eat it for merienda (afternoon snack) and at school in exactly the same form — hot off the plancha, cheese and all. Paraguayan cook Emi Báez documents the kid-pleasing household variation mbejú relleno — mozzarella tucked into the center for a melty middle — served with warm milk or cocido. Allergy: dairy (queso paraguay + butter — the soul of the dish; no substitution within it). Naturally gluten-free; cassava is a rare allergen but flag it.",
+    "title": "Kids love it"
+   },
+   "method": [
+    "In a large bowl, whisk the almidón de mandioca [cassava/tapioca starch] with the salt. Add the room-temperature manteca [butter] and rub it through with your fingertips — lift, crumble, repeat — until the mixture looks like coarse, damp sand and holds together loosely when squeezed. There is no liquid in mbejú; the 'dough' stays crumbly by design.",
+    "Fold in the crumbled queso paraguay [Paraguayan cheese] evenly. The mixture should still be crumbly, not a kneaded dough.",
+    "Heat a heavy skillet or plancha over medium heat (no oil — the butter in the mixture does the work). The pan is ready when a pinch of the mixture sizzles gently on contact.",
+    "Scoop a handful of the mixture (about 80 g) into the pan and press it flat with a spatula into a thin disc, about 12–15 cm across and under 1 cm thick. The crumbly edges are correct — they crisp.",
+    "Cook 3–4 minutes per side until deeply golden with crisp, lacy edges, pressing lightly with the spatula. The starch sets on the heat; the cheese melts into pockets.",
+    "Slide onto a plate and serve hot. Mbejú waits for no one — it is at its best straight off the plancha, with mate or coffee."
+   ],
+   "name": "Mbejú — Paraguayan cassava-starch cheese griddle breads",
+   "page": "recipe-mbeju.html",
+   "region": "Paraguay",
+   "season": "Spring",
+   "seasonWhy": "Mbejú is year-round tyra comfort food with no true October season; the honest October angle is 'spring milk, new mandioca going in the ground' — spring is peak fresh-milk season in the subtropical Southern Cone, when fresh queso paraguay is most abundant, and cassava starch is a year-round market staple.",
+   "sources": [
+    {
+     "name": "Tridge / CIAT via Paraguay's Ministry of Agriculture — mandioca as year-round staple crop",
+     "url": null
+    }
+   ],
+   "story": "Mbejú is one of the oldest snacks on the Paraguayan table — a Guaraní-inheritance griddle bread that predates the oven, made from the cassava starch that is the backbone of the Paraguayan pantry. It is the egg-free sibling of chipa (corn-starch cheese breads): same beloved cheese, same plancha-crisped edges, but crumbly by design, pressed thin and eaten hot. On San Juan festival nights in June, street stalls griddle mbejú alongside chipa for the crowds — and on any ordinary October afternoon, it is simply the merienda that comes off the hot pan.",
+   "veg": true,
+   "vegNote": "This recipe uses the documented butter-based, egg-free household variant ('mbejú de manteca') — a named traditional form, not an adaptation; no egg, meat, or fish. (The oldest encyclopedic form lists egg and pork fat.)"
+  },
+  {
+   "aliases": [],
+   "category": "food",
+   "festival": null,
+   "festive": false,
+   "id": "mujadara",
+   "ingredients": {
+    "groups": [
+     {
+      "items": [
+       "1½ cups brown lentils [whole masoor dal — small brown lentils that hold their shape; NOT red lentils], rinsed and picked over",
+       "4½ cups water"
+      ],
+      "title": "The lentils (first in — the base)"
+     },
+     {
+      "items": [
+       "1 cup long-grain rice (basmati works), rinsed",
+       "1½ tsp fine sea salt",
+       "1 tsp ground cumin [warm, earthy spice]",
+       "½ tsp ground allspice [behar helou — sweet-pungent Levantine spice]",
+       "¼ tsp ground cinnamon",
+       "½ tsp black pepper"
+      ],
+      "title": "The rice (in once the lentils are half-tender)"
+     },
+     {
+      "items": [
+       "3 large yellow onions, halved and thinly sliced",
+       "⅓ cup olive oil, plus 2 tbsp more for the pot"
+      ],
+      "title": "The onions (caramelized separately — the crown of the dish)"
+     },
+     {
+      "items": [
+       "Plain whole-milk yogurt, for passing at the table",
+       "Lemon wedges",
+       "Warm pita bread"
+      ],
+      "title": "To serve"
+     }
+    ]
+   },
+   "kidFriendly": true,
+   "kidVersion": {
+    "text": "Mujadara is everyday Lebanese family food — children eat the same dish, drawn by the sweet caramelized onions, with yogurt spooned over. No separate kid recipe needed. Allergy: naturally gluten-free; dairy only if yogurt is served (skip it for dairy-free — the dish itself is vegan).",
+    "title": "Kids love it"
+   },
+   "method": [
+    "Put the lentils and water in a heavy pot. Bring to a boil, then lower to a steady simmer and cook 15 minutes — the lentils should be half-tender, still holding their shape.",
+    "Stir in the rice, salt, cumin, allspice [behar helou], cinnamon, and pepper. Add the 2 tbsp olive oil. Return to a gentle boil, then cover, lower the heat, and cook 18–20 minutes until the rice is tender and the water is absorbed. Rest covered 10 minutes off the heat.",
+    "While the pot simmers, caramelize the onions: heat the ⅓ cup olive oil in a wide skillet over medium-high heat. Add the sliced onions with a pinch of salt and cook, stirring every few minutes, 20–25 minutes until deep golden-brown and sweet — not pale, not burnt. (A splash of water loosens any sticking.)",
+    "Fluff the lentils and rice with a fork and pile onto a wide platter. Crown generously with the caramelized onions and their oil.",
+    "Serve warm or at room temperature with yogurt, lemon wedges, and pita — each diner spoons yogurt over their own portion."
+   ],
+   "name": "Mujadara — Lebanese lentils-and-rice with caramelized onions",
+   "page": "recipe-mujadara.html",
+   "region": "Lebanon",
+   "season": "Autumn",
+   "seasonWhy": "October in the Levant is autumn pantry season: lentils, rice, and onions are stored-harvest staples. Mujadara is the classic dish that turns stored lentils into a meal — stored-crop cooking, not a fresh-harvest claim.",
+   "sources": [
+    {
+     "name": "Green Prophet — October Middle East produce (autumn pantry season)",
+     "url": null
+    }
+   ],
+   "story": "Mujadara is one of the oldest recorded dishes in Arab cooking — a lentil-and-grain dish appears in the 13th-century Kitab al-Tabikh (Book of Dishes) of Baghdad, and the dish is often linked to the biblical 'mess of pottage.' Known across the Levant as the poor man's feast, it fed families through Lent and lean months on nothing but lentils, rice, and onions — and its Arab proverb is famous: 'hunger makes even mujadara taste like meat.' The caramelized onion crown is the whole point: patience turned into sweetness.",
+   "veg": true,
+   "vegNote": "Canonical mujadara contains only lentils, rice, onions, olive oil, salt, and spices — no meat, egg, or fish; the vegetarian form is the traditional form. Dairy appears only as optional yogurt at the table."
+  },
+  {
+   "aliases": [],
+   "category": "snack",
+   "festival": null,
+   "festive": false,
+   "id": "falafel",
+   "ingredients": {
+    "groups": [
+     {
+      "items": [
+       "1 cup dried chickpeas [kabuli chana — large cream chickpeas; must be dried, NOT canned — canned chickpeas make the mixture fall apart]"
+      ],
+      "title": "The soak (night before)"
+     },
+     {
+      "items": [
+       "½ small yellow onion, roughly chopped",
+       "3 cloves garlic",
+       "¾ cup flat-leaf parsley leaves [fresh, not dried]",
+       "½ cup cilantro leaves"
+      ],
+      "title": "The green grind (into the food processor)"
+     },
+     {
+      "items": [
+       "1 tsp ground cumin",
+       "1 tsp ground coriander [dried seeds of the cilantro plant]",
+       "1 tsp fine sea salt",
+       "½ tsp black pepper",
+       "¼ tsp cayenne (optional)",
+       "1 tsp baking soda [leavening — makes the centers fluffy]",
+       "1–2 tbsp all-purpose flour, only if the mixture feels loose (or chickpea flour to keep it gluten-free)"
+      ],
+      "title": "The seasoning (pulsed through the grind)"
+     },
+     {
+      "items": [
+       "Neutral vegetable oil, for deep-frying (about 3 cups)"
+      ],
+      "title": "The fry"
+     },
+     {
+      "items": [
+       "⅓ cup tahini [sesame-seed paste]",
+       "2 tbsp lemon juice [fresh]",
+       "1 small clove garlic, minced",
+       "½ tsp salt",
+       "3–4 tbsp warm water, to thin to a pourable sauce"
+      ],
+      "title": "Tahini sauce (taratoor) — whisked while the oil heats"
+     }
+    ]
+   },
+   "kidFriendly": true,
+   "kidVersion": {
+    "text": "Falafel is the Levantine kids' street-food favorite — smaller balls tucked into pita with tahini (or plain, for picky eaters). Same recipe, smaller shape. Allergy: sesame (tahini — the soul of the sauce); gluten only if wheat flour is used (chickpea flour keeps it gluten-free).",
+    "title": "Kids love it"
+   },
+   "method": [
+    "Night before: cover the dried chickpeas with several inches of cold water and soak 12–24 hours. Drain very well — pat dry.",
+    "In a food processor, pulse the drained chickpeas to a coarse crumb (not a paste). Add the onion, garlic, parsley, and cilantro; pulse to a fine, even green crumb. Add the cumin, coriander, salt, pepper, cayenne, and baking soda; pulse to combine. If loose, work in flour a spoonful at a time. Chill 30 minutes (or up to a day).",
+    "Whisk the tahini sauce: tahini + lemon juice + garlic + salt, then warm water a spoonful at a time until it loosens into a pourable cream. Taste — it should be nutty, lemony, garlicky.",
+    "Heat the oil to 175°C (350°F) — a pinch of mixture should sizzle dramatically on contact. Pack the mixture tightly into small balls or patties (about 1½ inches).",
+    "Fry in batches 3–4 minutes, turning once, until deep golden and crisp. Drain on paper towels; salt while hot.",
+    "Serve hot — in pita with tahini sauce, tomato, and pickles, or as-is with the sauce for dipping."
+   ],
+   "name": "Falafel — crisp chickpea fritters with tahini sauce",
+   "page": "recipe-falafel.html",
+   "region": "Lebanon",
+   "season": "Autumn",
+   "seasonWhy": "Falafel is year-round street food with no true October season; the honest tie is the autumn pantry — stored chickpeas plus fresh herbs, which grow through Lebanon's mild autumn.",
+   "sources": [
+    {
+     "name": "General Levantine agronomy — chickpeas as stored pantry staple; fresh herbs through the mild autumn",
+     "url": null
+    }
+   ],
+   "story": "Falafel's origins are deliciously contested: Egypt claims it as ta'ameya (fava-bean fritters), eaten by Coptic Christians as Lenten food in place of meat — while the Levant perfected the chickpea version now known worldwide. What isn't contested: it conquered the region from street carts, not restaurants — ground fresh each morning, fried to order, wrapped in bread with pickles. The one non-negotiable rule every source agrees on: dried chickpeas, soaked overnight. Never canned.",
+   "veg": true,
+   "vegNote": "Classic Lebanese falafel contains only chickpeas, herbs, onion, garlic, spices, baking soda, and oil — no egg. Tahini sauce is sesame + lemon + garlic. No meat, egg, or fish anywhere in the recipe."
+  },
+  {
+   "aliases": [],
+   "category": "food",
+   "festival": null,
+   "festive": false,
+   "id": "sopa-de-quinua",
+   "ingredients": {
+    "groups": [
+     {
+      "items": [
+       "6 tbsp habas secas [dried broad beans], rinsed and soaked overnight",
+       "3 pieces chuño [freeze-dried potatoes — potatoes trampled and frozen on the Altiplano, then sun-dried], rinsed and soaked overnight, squeezed and broken into pieces",
+       "6 cups water (the broth base)"
+      ],
+      "title": "The long soak (night before)"
+     },
+     {
+      "items": [
+       "3 tbsp vegetable oil",
+       "3 medium carrots, chopped",
+       "1 medium onion with green top, chopped",
+       "1 medium tomato, chopped",
+       "1 deep plate of chigua [tender young quinoa leaves], chopped",
+       "½ tsp dried orégano",
+       "3 cloves ajo [garlic], minced"
+      ],
+      "title": "The toasted sofrito [sautéed base] (first in the pot)"
+     },
+     {
+      "items": [
+       "~1 cup quinoa (20 heaped tbsp), rinsed very well in several changes of water until no foam remains, checked for stones"
+      ],
+      "title": "The grain (into the simmer)"
+     },
+     {
+      "items": [
+       "10 medium potatoes, quartered",
+       "Salt to taste",
+       "Arvejas [green peas] — optional add-in"
+      ],
+      "title": "The vegetables (added once the grain simmers)"
+     },
+     {
+      "items": [
+       "Finely chopped fresh parsley"
+      ],
+      "title": "To finish"
+     }
+    ]
+   },
+   "kidFriendly": true,
+   "kidVersion": {
+    "text": "Bolivian quinoa soups are genuinely children's food — a Bolivian quinoa recetario (recipe collection) documents these soups as suitable for children from 7 months and 1 year onward; this is real daily fare for Andean kids. Allergy: naturally gluten-free and dairy-free; no egg; no common allergens as written. Rinse quinoa well — the unwashed saponin coating is bitter and mildly irritating.",
+    "title": "Kids love it"
+   },
+   "method": [
+    "Night before: soak the habas and chuño (overnight or several hours), then drain.",
+    "In a large pot, heat the oil and toast the carrots, quinoa leaves, onion, tomato, oregano, and garlic together, stirring, until fragrant and lightly browned — this toasted sofrito is the flavor base.",
+    "Rinse the quinoa thoroughly until the water runs without foam (removes the bitter saponin [natural soapy coating] on the grains) and pick out any grit.",
+    "Add the 6 cups water to the pot with the toasted vegetables, the quinoa, the soaked chuño, and the soaked broad beans. Bring to a boil, then simmer until the quinoa bursts open ('reviente' — the little white tails appear), adding salt partway.",
+    "Add the quartered potatoes (and peas, if using) and cook until potatoes, chuño, and quinoa are all tender.",
+    "Take off the heat, ladle into deep bowls, and top with finely chopped fresh parsley."
+   ],
+   "name": "Sopa de quinua — hearty Andean quinoa soup with chuño and broad beans",
+   "page": "recipe-sopa-de-quinua.html",
+   "region": "Bolivia",
+   "season": "Spring",
+   "seasonWhy": "October is planting season for quinoa on the Altiplano (sowing October–November, harvest March–April) — not harvest. This is highland pantry cooking: stored quinoa from the last harvest, dried habas, chuño, stored potatoes. While new quinoa goes into the ground, the highlands cook the pantry.",
+   "sources": [
+    {
+     "name": "FAO — quinoa cultivation guide (Altiplano sowing/harvest calendar)",
+     "url": "https://www.fao.org/fileadmin/templates/aiq2013/res/en/cultivo_quinua_en.pdf"
+    },
+    {
+     "name": "The Fern — Bolivian quinoa crop calendar coverage",
+     "url": "https://thefern.org/2014/10/quinoa-quarrel/"
+    }
+   ],
+   "story": "Quinoa was domesticated more than 5,000 years ago around Lake Titicaca, on this very Altiplano. The Inca called it chisaya mama (mother of all grains) and held it sacred; Spanish colonizers suppressed it in favor of wheat, and it survived on smallholder highland plots. It was nearly lost to the wider world until NASA studied it as a candidate space crop and the UN declared an International Year of Quinoa — with Bolivia still growing it on the same Altiplano among the world's top producers. The soup itself — quinoa simmered with chuño and habas — is how highland families have stretched the pantry through cold months for generations.",
+   "veg": true,
+   "vegNote": "The meat-free sopa de quinua form is independently documented — quinoa, broad beans, carrot, quinoa leaves, onion, tomato, potatoes, chuño, oil, oregano, garlic, water, salt. No meat, egg, or fish in the recipe as presented (oil chosen over wira [rendered fat])."
+  },
+  {
+   "aliases": [],
+   "category": "snack",
+   "festival": null,
+   "festive": false,
+   "id": "llauchas",
+   "ingredients": {
+    "groups": [
+     {
+      "items": [
+       "3 cups sifted harina de trigo [wheat flour]",
+       "4 tbsp manteca vegetal [vegetable shortening]",
+       "1 tsp salt",
+       "2 tsp sugar (1 tsp for blooming the yeast)",
+       "1 tbsp fresh or dry yeast",
+       "1½ cups warm water"
+      ],
+      "title": "The dough (first — mixed and set to rise)"
+     },
+     {
+      "items": [
+       "1 piece butter",
+       "1 tbsp flour",
+       "2 tbsp ají colorado [red chili pepper paste]",
+       "Water as needed",
+       "1 medium mild cheese [queso criollo/fresh cheese — not very salty], crumbled or grated",
+       "1 spoonful extra flour"
+      ],
+      "title": "The creamy cheese filling (while the dough rises)"
+     },
+     {
+      "items": [
+       "Water for sealing edges",
+       "2 tbsp ají colorado molido [ground red chili paste] cooked in a little hot oil — the red paint"
+      ],
+      "title": "To seal & paint (last)"
+     }
+    ]
+   },
+   "kidFriendly": true,
+   "kidVersion": {
+    "text": "Llauchas are a genuine La Paz children's breakfast staple — kids buy them warm from street vendors on the way to school, eaten with api. The natural kid tweak is the real one: a mild version without the ají paint (plain golden), which is how many kids already eat them. Allergy: contains gluten (wheat) and dairy (cheese, butter); no egg in this documented form. The chili paint is the main kid-irritant — skip it for the kid version.",
+    "title": "Kids love it"
+   },
+   "method": [
+    "Work the flour and shortening together until manageable. Bloom the yeast in ½ cup warm water with 1 tsp sugar; dissolve the salt and remaining sugar in the rest of the warm water. Combine everything and knead like bread dough until smooth; form egg-sized balls, cover with cloths, and rest in a warm place until doubled.",
+    "For the filling: cook the red chili paste in a little hot oil and divide in two. In a saucepan, melt the butter, add the flour, and cook gently, stirring, at least two minutes; add one portion of the cooked chili and enough water to make a thin, yogurt-like liquid; cool. Mix in the crumbled cheese — it should be creamy and thick.",
+    "Stretch each risen ball with an uslero [rolling pin] into an oval about ½ cm thick. Spoon the cheese mixture on one half, brush the edges with water, fold over, press well, and crimp the edge (repulgar [to crimp the pastry edge]) with the reserved cooked chili.",
+    "Bake at high heat (200°C / 390°F) 20–30 minutes until golden and the base is browned. Serve hot — classically with a cup of api [thick hot drink of purple corn — api morado — with cinnamon, the classic llaucha companion]."
+   ],
+   "name": "Llauchas — La Paz cheese pastries, eaten with api",
+   "page": "recipe-llauchas.html",
+   "region": "Bolivia",
+   "season": "Spring",
+   "seasonWhy": "Llauchas are year-round La Paz street food with no harvest season; the honest tie is the Altiplano spring-morning context — cold October mornings before the rains are when warm llauchas sell out at vendor stands.",
+   "sources": [
+    {
+     "name": "La Paz food-guide coverage — llaucha vendor stands (e.g. Doña Angélica's)",
+     "url": null
+    }
+   ],
+   "story": "Unlike salteña — whose origin is documented — the llaucha has no documented origin story; its invention is not recorded in Bolivian food histories, and none is invented here. What is documented is its place in La Paz life: warm, cheesy pastries sold from stands at dawn, the smell 'hard to walk past,' eaten with api as the iconic Altiplano breakfast. Family recipes are famously guarded secrets — famous vendors draw queues of locals every morning. The honest beat: some dishes are famous for where they're from; the llaucha is famous for when — cold mornings in La Paz.",
+   "veg": true,
+   "vegNote": "The egg-free cheese-filled llaucha form is independently documented — flour, yeast, water, shortening, cheese, butter, chili paste, no egg anywhere. No meat, egg, or fish in the recipe as presented. Contains gluten and dairy."
+  },
+  {
+   "aliases": [],
+   "category": "food",
+   "festival": null,
+   "festive": false,
+   "id": "mote-de-queso",
+   "ingredients": {
+    "groups": [
+     {
+      "items": [
+       "~1 kg ñame espino [yam — a starchy tropical tuber, floury like a mealy potato] (ñame criollo also traditional), peeled and cut in small cubes",
+       "2 liters water",
+       "2 tsp salt",
+       "2 ajíes dulces [mild sweet peppers] (topito), chopped",
+       "3 stalks cebollín [scallions / green onion], chopped",
+       "3 cloves ajo [garlic], minced (half here, half in the sofrito)"
+      ],
+      "title": "The ñame base (first in the pot)"
+     },
+     {
+      "items": [
+       "2 tbsp vegetable oil",
+       "1 cebolla roja [red onion], finely chopped",
+       "the remaining garlic",
+       "1 more ají dulce, chopped"
+      ],
+      "title": "The sofrito [sautéed base] (while the ñame simmers)"
+     },
+     {
+      "items": [
+       "Juice of 1 limón [lime]",
+       "½ cup leche de coco [coconut milk]",
+       "300 g queso costeño [salty coastal cheese — firm, very salty], cut in ~2 cm cubes (half now, half to finish)"
+      ],
+      "title": "The enrichment (into the simmering ñame)"
+     },
+     {
+      "items": [
+       "The remaining queso costeño cubes",
+       "½ cup suero costeño [tangy fermented coastal cream — like a thin, salty sour cream]",
+       "Optional traditional garnish: a few hojas de bleo [aromatic leaves of the bleo shrub, a coastal aromatic]"
+      ],
+      "title": "To finish"
+     }
+    ]
+   },
+   "kidFriendly": true,
+   "kidVersion": {
+    "text": "No separate kid version — and none needed. Mote de queso is everyday family food on the Caribbean coast, eaten by children from the same pot. The ají dulce is sweet, not hot, so the classic recipe needs no de-spicing. Allergy: contains dairy (queso costeño, suero costeño; coconut milk is fine); naturally gluten-free; no egg, no meat, no fish. Very salty cheese — go light for little ones.",
+    "title": "Kids love it"
+   },
+   "method": [
+    "Put the ñame cubes, water, salt, ajíes dulces, cebollín, and half the garlic in a large pot. Bring to a boil, then simmer ~30 minutes, stirring occasionally so the starch doesn't catch, until the ñame is completely soft.",
+    "Meanwhile, make the sofrito: warm the oil on low, soften the cebolla roja, remaining garlic, and ají dulce ~15 minutes until sweet and translucent — never browned.",
+    "Thicken the soup the coastal way: scoop out 2–3 ladles of ñame with broth, blend smooth, and return to the pot (or mash right in the pot) — the yam's own starch is the thickener.",
+    "Stir in the lime juice, coconut milk, and half the cheese cubes; simmer ~10 minutes until the cheese softens.",
+    "Stir in the sofrito and the suero costeño; cook 5 more minutes. Taste for salt LAST — queso costeño is very salty.",
+    "Ladle into deep bowls, top with the remaining cheese cubes and bleo leaves if using. The classic plate: arroz blanco [white rice] and aguacate [avocado] alongside."
+   ],
+   "name": "Mote de queso — creamy yam-and-coastal-cheese soup",
+   "page": "recipe-mote-de-queso.html",
+   "region": "Colombia",
+   "season": "Monsoon",
+   "seasonWhy": "October is climatologically one of the rainiest months on Colombia's Caribbean coast — the peak of the second rainy season (invierno). This is rainy-season comfort cooking: a thick, tangy yam-and-cheese soup for the wettest weeks of the year.",
+   "sources": [
+    {
+     "name": "IDEAM (Colombia's meteorological institute) — October rainfall, Caribbean region (second rainy season peak)",
+     "url": "http://www.ideam.gov.co/web/sala-de-prensa/noticias/-/asset_publisher/LdWW0ECY1uxz/content/para-la-segunda-temporada-de-lluvias-se-estiman-lluvias-sobre-lo-normal-en-gran-parte-del-pais"
+    },
+    {
+     "name": "CONtexto Ganadero / Organización de Cadena Nacional del Ñame — ñame growers",
+     "url": null
+    }
+   ],
+   "story": "The ñame crossed the Atlantic from Africa with enslaved people and took root in the Zenú lowlands of Córdoba and Sucre — the exact departments that claim this soup. Mote de queso is called the culinary insignia of Colombia's Caribbean coast; the Sinú variant adds eggplant and coconut milk. Some 30,000 Colombian families grow ñame, mostly smallholders in Bolívar, Córdoba, and Sucre — the tuber at the center of this bowl is the region's staple crop.",
+   "veg": true,
+   "vegNote": "The traditional mote de queso form is independently documented — ñame, coastal cheese, suero costeño, onion, garlic, sweet pepper, coconut milk, lime, oil, salt. No meat, egg, or fish in the recipe as presented. Contains dairy."
+  },
+  {
+   "aliases": [],
+   "category": "snack",
+   "festival": null,
+   "festive": false,
+   "id": "patacones-con-hogao",
+   "ingredients": {
+    "groups": [
+     {
+      "items": [
+       "3 plátanos verdes [green plantains — the starchy cooking banana, used fully unripe], peeled and cut in ~3 cm rounds",
+       "~500 ml vegetable oil, for frying",
+       "Salt, to finish"
+      ],
+      "title": "The plantains (first — the double fry)"
+     },
+     {
+      "items": [
+       "2 tbsp vegetable oil",
+       "200 g cebolla larga [scallions], finely chopped (the traditional hogao base; white onion also used)",
+       "3–4 tomates maduros [ripe tomatoes], diced small",
+       "2 cloves ajo [garlic], minced",
+       "½ tsp comino molido [ground cumin]",
+       "Salt to taste; a pinch of sugar if the tomatoes are sharp"
+      ],
+      "title": "The hogao [Colombia's slow-cooked sofrito] (while the plantains fry)"
+     }
+    ]
+   },
+   "kidFriendly": true,
+   "kidVersion": {
+    "text": "No separate kid version — and none needed. Patacones are standard family antojo food across Colombia; children eat them as-is, and the classic hogao carries no chili heat (cumin + sweet tomato only). Allergy: naturally gluten-free, dairy-free, egg-free; fried in vegetable oil. Serve warm — they lose crunch as they cool.",
+    "title": "Kids love it"
+   },
+   "method": [
+    "Heat the oil to ~160–170 °C. Fry the plantain rounds 8–10 minutes, turning once, until lightly golden but NOT crisp. Lift out and drain.",
+    "Smash each round while hot to ~1 cm thick — a tostonera [plantain press], or between two boards.",
+    "Raise the heat to ~180 °C and fry the smashed rounds again, 3–4 minutes per side, until deep golden and crisp. Drain on paper and salt immediately.",
+    "Meanwhile, make the hogao: soften the cebolla larga and garlic in the 2 tbsp oil with salt; add the tomato and cumin; cook on low ~20 minutes, stirring, until thick, dark orange, and almost dry — the slow reduction is what makes it hogao and not just tomato sauce.",
+    "Spoon a generous tablespoon of hot hogao over each warm patacón. Serve immediately, while the crunch lasts."
+   ],
+   "name": "Patacones con hogao — twice-fried green plantains with tomato-onion sofrito",
+   "page": "recipe-patacones-con-hogao.html",
+   "region": "Colombia",
+   "season": "Monsoon",
+   "seasonWhy": "Plátano is a year-round tropical staple on the coast, harvested continuously — the honest tie is rainy-season antojo (craving) weather: hot, humid October days when crisp patacones with slow-cooked hogao hit the spot.",
+   "sources": [
+    {
+     "name": "IDEAM — October rainfall, Caribbean region (same rainy-season source as the main slot)",
+     "url": "http://www.ideam.gov.co/web/sala-de-prensa/noticias/-/asset_publisher/LdWW0ECY1uxz/content/para-la-segunda-temporada-de-lluvias-se-estiman-lluvias-sobre-lo-normal-en-gran-parte-del-pais"
+    },
+    {
+     "name": "granreceta.com — hogao etymology (ahogar/rehogar)",
+     "url": null
+    }
+   ],
+   "story": "The name tells the method: hogao comes from the old verbs ahogar and rehogar (to smother, to slow-cook) — the dish is named for its slow 20-minute reduction, and it is the mother sauce of Colombian cooking, the base under countless coastal and Andean dishes. The twice-fried green plantain is the Caribbean's great crisp — Colombia's coastal antojito, a technique shared across the Caribbean (tostones), built on the coast's staple starch.",
+   "veg": true,
+   "vegNote": "The traditional patacones-con-hogao form is independently documented — green plantain, oil, salt, tomato, scallion/onion, garlic, cumin. No meat, egg, or fish in the recipe as presented. Naturally gluten-free and dairy-free."
+  },
+  {
+   "aliases": [
+    {
+     "name": "Imam bayildi",
+     "region": "Turkey"
+    }
+   ],
+   "category": "food",
+   "festival": null,
+   "festive": false,
+   "id": "imam-bayildi",
+   "ingredients": {
+    "groups": [
+     {
+      "items": [
+       "4 medium eggplants (patlıcan [eggplant])",
+       "1 tbsp salt (for drawing out moisture)",
+       "120 ml (½ cup) extra-virgin olive oil, divided"
+      ],
+      "title": "Eggplants"
+     },
+     {
+      "items": [
+       "2 large onions (soğan [onion]), thinly sliced",
+       "2 long green peppers (sivri biber [long green peppers]), diced",
+       "4 cloves garlic (sarımsak [garlic]), sliced",
+       "4 ripe tomatoes (domates [tomato]), peeled and diced",
+       "2 tbsp tomato paste (domates salçası [tomato paste])",
+       "1 tsp sugar",
+       "½ tsp ground cinnamon",
+       "½ tsp salt + ¼ tsp black pepper (karabiber [black pepper])"
+      ],
+      "title": "Filling"
+     },
+     {
+      "items": [
+       "½ cup flat-leaf parsley (maydanoz [parsley]), chopped",
+       "Juice of ½ lemon (limon [lemon])",
+       "½ cup hot water"
+      ],
+      "title": "To finish"
+     }
+    ]
+   },
+   "kidFriendly": true,
+   "kidVersion": {
+    "text": "Yes, natural — the filling is mild and sweet (onions, tomatoes, a pinch of sugar); skip the black pepper and cinnamon for young kids and serve warm instead of cold. Allergy: nightshades (eggplant, tomato, pepper); no gluten, no nuts, no dairy in the dish itself (yogurt is a serving suggestion).",
+    "title": "Kids love it"
+   },
+   "method": [
+    "Stripe-peel the eggplants (alternating strips of skin), cut a lengthwise slit in each without cutting through, salt generously inside, and rest 30 minutes. Rinse and pat dry.",
+    "Roast at 200°C (400°F) brushed generously with olive oil, 30–40 minutes, until soft, wrinkled, and lightly golden.",
+    "Meanwhile, soften the onions in olive oil over medium-low heat until golden, about 15 minutes. Add peppers and garlic, cook 3 minutes. Add tomatoes, tomato paste, sugar, cinnamon, salt, and pepper; simmer 10 minutes until thick.",
+    "Open the slits and stuff each eggplant with the filling. Nestle in a baking dish, pour the hot water around them, and drizzle the remaining olive oil over the top.",
+    "Cover and bake at 175°C (350°F) for 30 minutes until everything is melting-tender.",
+    "Cool to room temperature and serve cold or at room temperature — it is better the next day. Serve with bread and a spoon of thick yogurt on the side."
+   ],
+   "name": "İmam bayıldı — eggplant braised in olive oil, stuffed with onion and tomato",
+   "page": "recipe-imam-bayildi.html",
+   "region": "Turkey",
+   "season": "Autumn",
+   "seasonWhy": "Eggplants sit at the tail of their mid-summer-to-fall season; tomatoes, peppers, and onions are still abundant in October markets — the autumn shoulder season.",
+   "sources": [
+    {
+     "name": "specialtyproduce.com — Turkish eggplant seasons/availability",
+     "url": null
+    },
+    {
+     "name": "Green Prophet — Middle East October produce",
+     "url": null
+    },
+    {
+     "name": "Tripadvisor Türkiye forum — September produce",
+     "url": null
+    }
+   ],
+   "story": "'İmam bayıldı' means 'the imam fainted' — one telling says he swooned at the deliciousness, another that he fainted at the staggering amount of olive oil the dish demands. A zeytinyağlı classic: cooked in olive oil, eaten cold, always better the next day.",
+   "veg": true,
+   "vegNote": "A zeytinyağlı classic: cooked in olive oil, with no meat, egg, or dairy in the dish itself (yogurt is a serving suggestion)."
+  },
+  {
+   "aliases": [
+    {
+     "name": "Mercimek koftesi",
+     "region": "Turkey"
+    }
+   ],
+   "category": "snack",
+   "festival": null,
+   "festive": false,
+   "id": "mercimek-koftesi",
+   "ingredients": {
+    "groups": [
+     {
+      "items": [
+       "1½ cups red lentils (kırmızı mercimek [red lentils])",
+       "3 cups water",
+       "¾ cup fine bulgur (ince bulgur [fine bulgur wheat])"
+      ],
+      "title": "Lentils & bulgur"
+     },
+     {
+      "items": [
+       "1 large onion, finely chopped",
+       "3 tbsp olive oil",
+       "1 tbsp tomato paste (domates salçası [tomato paste])",
+       "1 tbsp red pepper paste (biber salçası [red pepper paste])",
+       "1 tsp ground cumin (kimyon [cumin])",
+       "1 tsp paprika",
+       "½ tsp red pepper flakes (pul biber [Aleppo-style pepper flakes]) — optional, for heat",
+       "1½ tsp salt"
+      ],
+      "title": "Onion paste"
+     },
+     {
+      "items": [
+       "½ cup flat-leaf parsley, chopped",
+       "¼ cup fresh mint (nane [mint]), chopped",
+       "4 green onions (taze soğan [spring onions]), chopped",
+       "Juice of 1 lemon",
+       "1 tbsp pomegranate molasses (nar ekşisi [pomegranate sour]) — optional"
+      ],
+      "title": "Fresh finish"
+     },
+     {
+      "items": [
+       "Lettuce leaves (marul [lettuce])",
+       "Lemon wedges"
+      ],
+      "title": "To serve"
+     }
+    ]
+   },
+   "kidFriendly": true,
+   "kidVersion": {
+    "text": "Yes, natural — skip the pul biber for a mild version; kids can shape the balls themselves (hands-on, no cooking involved at that stage). Allergy: contains gluten (bulgur wheat); no nuts, no dairy, no egg.",
+    "title": "Kids love it"
+   },
+   "method": [
+    "Rinse the lentils; simmer in the water until very soft and fully absorbed, about 20 minutes.",
+    "Off the heat, stir in the fine bulgur, cover, and rest 20–30 minutes until the bulgur swells and softens.",
+    "Soften the onion in olive oil until golden, 5 minutes. Stir in both pastes, cumin, paprika, pepper flakes, and salt; cook 2 minutes until fragrant.",
+    "Add the onion mixture to the lentil-bulgur pot and knead well with your hands until pliable. Fold in the parsley, mint, green onions, lemon juice, and pomegranate molasses.",
+    "With damp hands, shape oval balls (about 30 g each), pressing lightly with your fingers for the traditional indents.",
+    "Serve at room temperature on lettuce leaves with lemon wedges — eat each ball wrapped in a lettuce leaf with a squeeze of lemon."
+   ],
+   "name": "Mercimek köftesi — red lentil and fine-bulgur balls",
+   "page": "recipe-mercimek-koftesi.html",
+   "region": "Turkey",
+   "season": "Autumn",
+   "seasonWhy": "Red lentils and bulgur are pantry staples; parsley, mint, spring onions, and lemons are in season in autumn.",
+   "sources": [
+    {
+     "name": "Green Prophet — Middle East October produce (autumn herbs and lemons)",
+     "url": null
+    }
+   ],
+   "story": "'Köfte' usually means meatball — but mercimek köftesi has never seen meat. The name honors the shape. It's a çay saati staple: lentil balls rolled by hand, eaten wrapped in lettuce with lemon, made for lingering over tea.",
+   "veg": true
+  },
+  {
+   "aliases": [],
+   "category": "food",
+   "festival": null,
+   "festive": false,
+   "id": "repe-lojano",
+   "ingredients": {
+    "groups": [
+     {
+      "items": [
+       "2 tbsp vegetable oil",
+       "1 white onion, finely diced",
+       "2 garlic cloves, crushed"
+      ],
+      "title": "For the refrito [sautéed onion-and-garlic flavor base]"
+     },
+     {
+      "items": [
+       "8 cups water",
+       "6 plátanos verdes [green plantains] — or 10 guineos verdes [green bananas, the more traditional and delicately flavored option], peeled and cut into chunks",
+       "(Optional, extra creaminess) 1–2 small potatoes, peeled and diced"
+      ],
+      "title": "For the soup body"
+     },
+     {
+      "items": [
+       "½ cup milk or cream",
+       "4 oz quesillo [fresh farmer's cheese] — queso fresco or mozzarella substitute — crumbled",
+       "½ cup fresh cilantro [coriander leaf], finely chopped",
+       "Salt to taste"
+      ],
+      "title": "To finish"
+     },
+     {
+      "items": [
+       "Ripe avocado slices, extra cheese slices, and ají [Ecuadorian hot sauce]"
+      ],
+      "title": "To serve"
+     }
+    ]
+   },
+   "kidFriendly": true,
+   "kidVersion": {
+    "text": "Lojano families serve children the same soup, simply without the ají and with salt added lightly at the end — the mild, cheesy, naturally creamy texture is already kid-friendly. The split-pea variant (arvejas con guineo [split peas with green banana]) is the common protein-boosted version for children. Allergy: contains dairy (milk/cream, cheese). Avocado garnish = tree-fruit allergy flag (rare). Gluten-free, nut-free, egg-free.",
+    "title": "Kids love it"
+   },
+   "method": [
+    "Warm the oil in a large soup pot over medium heat. Add diced onion and crushed garlic; cook, stirring, until onion is soft and translucent, about 5 minutes — the refrito base.",
+    "Pour in the water and bring to a full rolling boil.",
+    "Peel the plantains under running water (keeps sticky sap off hands, stops flesh darkening); cut into chunks and add in batches, letting water return to a boil between batches. Add potato now if using.",
+    "Simmer over medium-high heat, stirring occasionally, until plantain is fully tender — about 20 minutes (slightly less for green bananas).",
+    "Still in the pot, gently mash some soft plantain chunks against the side to thicken the broth.",
+    "Crumble the cheese into the soup; stir until it softens into the broth. Pour in milk/cream, add chopped cilantro, salt to taste. Warm through once more; take off heat.",
+    "Serve hot with avocado slices, extra cheese, and ají on the side."
+   ],
+   "name": "Repe lojano — creamy green-plantain soup",
+   "page": "recipe-repe-lojano.html",
+   "region": "Ecuador",
+   "season": "Spring",
+   "seasonWhy": "October opens the Andean rain season, bringing tender fresh cilantro and herbs; the warm creamy soup suits cool spring evenings in Loja.",
+   "sources": [
+    {
+     "name": "Ecuadorian agronomy — green plantain/guineo as year-round lowland staples; October opens the Andean rain season",
+     "url": null
+    }
+   ],
+   "story": "Repe is the signature soup of Loja in Ecuador's Southern Andes — so central the word repe itself is the locals' name for the green bananas it is made from. Born of the Loja home kitchen, it turns one humble staple — starchy green banana or plantain — into a silky, cheesy soup finished with milk and cilantro. Served with avocado slices and ají as the opening bowl of the midday almuerzo, Loja's main meal of the day.",
+   "veg": true
+  },
+  {
+   "aliases": [],
+   "category": "snack",
+   "festival": null,
+   "festive": false,
+   "id": "humitas-ecuatorianas",
+   "ingredients": {
+    "groups": [
+     {
+      "items": [
+       "8–10 large corn husks [the papery leaves around the cob] (reserved from the corn), plus extra husks torn into thin strips for ties",
+       "6 ears fresh choclo [fresh Andean corn, tender and sweet — regular fresh sweet corn works], husks and silk removed, kernels cut from the cobs",
+       "1 cup crumbled queso fresco [fresh white cheese, mild and salty], divided",
+       "1 small white onion, finely minced",
+       "3 tbsp melted mantequilla [butter], cooled slightly",
+       "½ cup milk (as needed for the grind)",
+       "1 tsp polvo de hornear [baking powder]",
+       "1 tsp salt",
+       "1 tbsp sugar (optional, for a sweeter cake)",
+       "2–3 tbsp fine cornmeal, only if the batter is runny"
+      ],
+      "title": "Humitas (makes ~12)"
+     }
+    ]
+   },
+   "kidFriendly": true,
+   "kidVersion": {
+    "text": "Humitas dulces — a documented traditional sweet variant (cocina-ecuatoriana.com): add 1 extra tbsp sugar per batch and a splash more milk; otherwise identical. Kids unwrap their own steamy parcel like a present; it lands like a sweet corn cake.",
+    "title": "Kids love it"
+   },
+   "method": [
+    "Soften the husks: drop the large husks and tie strips into a pot of boiling water for 2 minutes; drain and set aside.",
+    "Grind the corn: blend kernels with milk in batches into a thick, creamy paste with a little texture left.",
+    "Mix the batter: stir in minced onion, melted butter, baking powder, salt, and optional sugar. Fold in ½ cup of the cheese. If the batter runs off a spoon, add cornmeal a spoonful at a time and rest 5 minutes.",
+    "Wrap: overlap two large husks; spoon ~¼ cup batter onto the center, press a spoonful of remaining cheese into the middle, cover with a little more batter. Fold sides in, fold up the pointed end, tie gently with a husk strip. Repeat (makes ~12).",
+    "Steam: set a steamer basket in a deep pot with water below the rack (a tall tamalera [tall tamale-steamer pot] is traditional). Stand humitas upright or slightly tilted, opening side up, cover with leftover husks, lid on; steam over steady heat 40–45 minutes. Open one to check — center should be set, not liquid.",
+    "Rest 10 minutes, unwrap, serve hot. In Ecuador humitas are eaten for breakfast or the afternoon merienda [afternoon snack], usually with black coffee."
+   ],
+   "name": "Humitas ecuatorianas — steamed fresh-corn cakes in corn husks",
+   "page": "recipe-humitas-ecuatorianas.html",
+   "region": "Ecuador",
+   "season": "Spring",
+   "seasonWhy": "Fresh choclo (fresh Andean corn) is the spring harvest food of the Andean Sierra; humitas are traditionally made when corn is in season — October's early-spring corn is exactly the crop.",
+   "sources": [
+    {
+     "name": "Ecuadorian Andes food coverage — humitas as the spring-season snack; fresh choclo as spring harvest food",
+     "url": null
+    },
+    {
+     "name": "cocina-ecuatoriana.com — humitas dulces (documented sweet variant)",
+     "url": null
+    }
+   ],
+   "story": "The name comes from the Quechua word 'humint'a', and humitas are pre-Hispanic Andean cooking — ground tender corn steamed in its own husks. Colonial-era chronicler Inca Garcilaso de la Vega described them as small corn cakes shared as gifts at festivities. Today they are a breakfast and afternoon-merienda staple across the Ecuadorian Andes — each family making them a little sweet or a little salty, always unwrapped at the table and eaten with coffee.",
+   "veg": true
+  },
+  {
+   "aliases": [],
+   "category": "food",
+   "festival": null,
+   "festive": false,
+   "id": "locro-de-papa",
+   "ingredients": {
+    "groups": [
+     {
+      "items": [
+       "2 tbsp vegetable oil",
+       "1 white onion, diced",
+       "2 garlic cloves, minced",
+       "2 tsp ground cumin",
+       "1 tsp achiote [annatto — a red-orange seed spice that gives the golden color] powder"
+      ],
+      "title": "For the refrito [seasoned onion base]"
+     },
+     {
+      "items": [
+       "10 medium potatoes — papa chola [starchy Andean potato] if available, otherwise russet or Yukon gold — half cut small, half in larger chunks",
+       "Salt"
+      ],
+      "title": "For the soup body"
+     },
+     {
+      "items": [
+       "7 cups water"
+      ],
+      "title": "The liquid"
+     },
+     {
+      "items": [
+       "1 cup whole milk",
+       "1 cup queso fresco [fresh white cheese], grated or crumbled",
+       "1 bunch cilantro leaves, minced",
+       "Salt to taste"
+      ],
+      "title": "To finish"
+     },
+     {
+      "items": [
+       "Sliced avocado, extra queso fresco, maiz tostado [toasted corn nuts] or cancha, chopped green onions, ají [Ecuadorian hot sauce]"
+      ],
+      "title": "To serve"
+     }
+    ]
+   },
+   "kidFriendly": true,
+   "kidVersion": {
+    "text": "Locro is Quito's family comfort soup — children eat it as-is, served plain without the ají. No distinct kid recipe exists in the sources; the genuine kid version is the same soup, mild.",
+    "title": "Kids love it"
+   },
+   "method": [
+    "Heat the oil in a large soup pot over medium heat. Sauté the onion, garlic, cumin, and achiote about 5 minutes, until the onion is tender — the refrito.",
+    "Add the potatoes; toss to coat in the refrito and cook about 5 minutes, stirring.",
+    "Pour in the water, bring to a boil, then simmer until the potatoes are very tender — about 25 minutes.",
+    "Mash in the pot with a masher — leave some chunks; the soup should be creamy, not fully smooth.",
+    "Lower the heat, stir in the milk, and cook about 5 minutes.",
+    "Stir in the cheese and cilantro; take off the heat.",
+    "Serve warm with avocado slices, scallions, extra cheese, maiz tostado, and ají on the side."
+   ],
+   "name": "Locro de papa — Quito's creamy potato-and-cheese soup",
+   "page": "recipe-locro-de-papa.html",
+   "region": "Ecuador",
+   "season": "Monsoon",
+   "seasonWhy": "October is the transition into the Sierra rainy season (invierno); the tie is rainy-season comfort — locro is 'especially popular on colder days' — not an October harvest claim (potato, chochos, and morocho corn are year-round Sierra staples).",
+   "sources": [
+    {
+     "name": "INAMHI via Ecuador en Directo — October transition into the Sierra rainy season",
+     "url": null
+    },
+    {
+     "name": "TasteAtlas — locro ('especially popular on colder days')",
+     "url": null
+    }
+   ],
+   "story": "'Locro' comes from the Quechua word 'ruqru' (stew) — this is a pre-Hispanic Andean stew rooted in potato domestication some 7,000 years ago, first printed in a mid-19th-century cookbook. Quito turned it into its signature comfort food: the golden potato soup the city reaches for on cold, rainy days, always finished with milk and queso fresco and served with avocado and maiz tostado.",
+   "veg": true,
+   "vegNote": "The posted Quito classic uses water + milk only — no meat, egg, or fish. Disclosed: some regional variants add pork skin, greens, offal, or shrimp; those are documented variants, not this recipe."
+  },
+  {
+   "aliases": [
+    {
+     "name": "Cevichocho",
+     "region": "Ecuador"
+    }
+   ],
+   "category": "snack",
+   "festival": null,
+   "festive": false,
+   "id": "ceviche-de-chochos",
+   "ingredients": {
+    "groups": [
+     {
+      "items": [
+       "4 cups cured chochos [Andean lupini beans] — the cured ready-to-eat kind (jarred/brined, rinsed; ~20 oz). Raw chochos are bitter and inedible until debittered by days of soaking and boiling — always buy them cured.",
+       "1 red onion, thinly sliced (soaked 10 min in salted warm water, then rinsed)",
+       "2–3 tomatoes, thinly sliced",
+       "Juice of 8–10 small limes, plus juice of 2 oranges",
+       "¼–½ cup tomato sauce or ketchup, to taste",
+       "1 small bunch cilantro, finely chopped",
+       "2 tbsp light olive oil",
+       "Salt to taste"
+      ],
+      "title": "The marinate bowl"
+     },
+     {
+      "items": [
+       "maiz tostado [toasted corn nuts], chifles [green plantain chips], avocado slices, ají [Ecuadorian hot sauce]"
+      ],
+      "title": "To serve"
+     }
+    ]
+   },
+   "kidFriendly": true,
+   "kidVersion": {
+    "text": "Children verifiably eat cevichocho as-is — Otavalo reporting shows teenagers in school uniforms crowding street stalls for it. The kid serving is the same bowl, mild version without hot sauce.",
+    "title": "Kids love it"
+   },
+   "method": [
+    "Soak the sliced onion in salted warm water for 10 minutes, then rinse well — this removes the bitterness. (This + the tomato-onion-lime mixture is the curtido [lime-pickled onion-tomato salad].)",
+    "In a large bowl, combine the chochos, onion, tomato slices, cilantro, lime juice, orange juice, tomato sauce, olive oil, and salt.",
+    "Cover and chill 1–2 hours so the flavors infuse. Street style: place chochos in a bowl, spoon over a pre-made curtido, and let the eater mix it up.",
+    "Serve cold with maiz tostado, chifles, avocado, and hot sauce."
+   ],
+   "name": "Ceviche de chochos (cevichocho) — Sierra lupini-bean ceviche",
+   "page": "recipe-ceviche-de-chochos.html",
+   "region": "Ecuador",
+   "season": "Monsoon",
+   "seasonWhy": "Chochos (Andean lupini beans) are a year-round Sierra staple — no harvest claim; the tie is Otavalo street-snack culture on bright October mornings at the start of the rainy season.",
+   "sources": [
+    {
+     "name": "Laylita.com — cevichocho among the most popular street foods in the Ecuadorian Sierra",
+     "url": null
+    },
+    {
+     "name": "Wanderlog — Quito listing (traditional ingredients)",
+     "url": null
+    },
+    {
+     "name": "McClatchy travel reporting — cevichocho as Otavalo street snack",
+     "url": null
+    }
+   ],
+   "story": "Chocho is Lupinus mutabilis, domesticated in the Andes some 1,500 years ago in pre-Incan times — a Quechua staple so ancient the Spanish taxed it. Cevichocho is the Sierra's answer to coastal ceviche, born in the highlands precisely because it doesn't depend on coastal seafood. In Otavalo's craft-market streets, vendors sell it in pint-sized bowls with maiz tostado and chifles.",
+   "veg": true
+  },
+  {
+   "aliases": [],
+   "category": "drink",
+   "festival": null,
+   "festive": false,
+   "id": "morocho-dulce",
+   "ingredients": {
+    "groups": [
+     {
+      "items": [
+       "2 cups cracked morocho corn [cracked white Andean corn] (morocho partido; cracked white hominy corn substitutes), soaked overnight (8–12 h) in 6 cups water"
+      ],
+      "title": "Overnight soak"
+     },
+     {
+      "items": [
+       "8 cups (~2 L) whole milk",
+       "3–4 cinnamon sticks",
+       "¼–½ cup sugar or grated panela [unrefined cane sugar], to taste",
+       "½ cup raisins (optional)"
+      ],
+      "title": "For the pot"
+     },
+     {
+      "items": [
+       "Ground cinnamon, for dusting"
+      ],
+      "title": "To serve"
+     }
+    ]
+   },
+   "kidFriendly": true,
+   "kidVersion": {
+    "text": "Explicitly kid-recommended — a university gastronomy thesis on morocho production concludes it should be consumed by children (it contains no gluten). The traditional morocho is a family drink; the kid version is the same drink, naturally kid-friendly and gluten-free, served to children.",
+    "title": "Kids love it"
+   },
+   "method": [
+    "Rinse the morocho; soak overnight (8–12 h) in 6 cups water.",
+    "Drain. Put the soaked corn and the 8 cups of milk in a heavy pot.",
+    "Simmer on low about 3 hours, stirring occasionally (frequently in the last 30 minutes), until the grains are very soft and tender.",
+    "Add the sugar/panela, raisins, and cinnamon sticks; cook 20–30 more minutes, stirring often.",
+    "Serve hot, dusted with ground cinnamon. (Faster variant: pressure-cook the corn in water first, then simmer ~30 minutes in 4–6 cups milk.)"
+   ],
+   "name": "Morocho dulce — sweet white-corn milk drink",
+   "page": "recipe-morocho-dulce.html",
+   "region": "Ecuador",
+   "season": "Monsoon",
+   "seasonWhy": "Morocho corn is available year-round — no false harvest claim; the tie is rainy-afternoon comfort: morocho is the ideal companion for cold afternoons, especially in the Sierra.",
+   "sources": [
+    {
+     "name": "Universidad Tecnológica Equinoccial gastronomy thesis — morocho production (year-round availability; kid-recommended)",
+     "url": null
+    },
+    {
+     "name": "ecuador4.mundos — morocho as the ideal companion for cold Sierra afternoons",
+     "url": null
+    }
+   ],
+   "story": "Morocho corn is 'muruchu' in Quechua — a hard white Andean maize variety. Gastronomic researchers trace morocho drinks to pre-Hispanic times; the modern milk-cinnamon-sugar version was created after Spanish contact introduced dairy and sweet spices. A historian records that it was long made in homes before becoming a market-stall staple only about 40 years ago — and field studies place morocho-corn production in the northern Sierra provinces Quito and Otavalo sit in. Served thick — 'a smoothie you can eat with a spoon' — classically paired with empanadas de viento (wind-blown cheese empanadas).",
+   "veg": true
+  },
+  {
+   "aliases": [],
+   "category": "food",
+   "festival": null,
+   "festive": false,
+   "id": "kashk-e-bademjan",
+   "ingredients": {
+    "groups": [
+     {
+      "items": [
+       "3 large globe eggplants (bademjan [eggplant]) — about 2.5 lbs / 1.2 kg, firm with shiny skin",
+       "Salt, for salting the slices",
+       "Vegetable or olive oil, for frying"
+      ],
+      "title": "Stage 1 — the eggplant"
+     },
+     {
+      "items": [
+       "2 large yellow onions, thinly sliced",
+       "5–6 garlic cloves (sir [garlic]), minced",
+       "1 tsp ground turmeric (zardchoobeh [turmeric])",
+       "½ tsp freshly ground black pepper, plus salt to taste",
+       "½ cup hot water"
+      ],
+      "title": "Stage 2 — onion & aromatics"
+     },
+     {
+      "items": [
+       "¾ cup kashk [fermented dried yogurt whey — traditional preserved dairy, sold as dried balls or liquid in Middle Eastern grocers], loosened with 3 tbsp hot water"
+      ],
+      "title": "Stage 3 — the dairy finish"
+     },
+     {
+      "items": [
+       "3 tbsp dried mint (na'na khoshk [dried mint]), fried briefly in 2 tbsp oil → na'na dagh [crispy fried mint oil]",
+       "Caramelized onion ribbons — reserved piyaz dagh [deep-fried golden onions]",
+       "Seer dagh [fried garlic slices] and a pinch of za'feran [saffron] bloomed in hot water (optional but classic luxury garnish)",
+       "½ cup walnuts, toasted and coarsely chopped"
+      ],
+      "title": "Stage 4 — garnishes (fried at the end, added last)"
+     },
+     {
+      "items": [
+       "Warm naan-e sangak [stone-baked Persian flatbread], lavash, or barbari",
+       "sabzi khordan [fresh herb platter] and sliced radishes"
+      ],
+      "title": "To serve"
+     }
+    ]
+   },
+   "kidFriendly": true,
+   "kidVersion": {
+    "text": "No distinct kid-specific recipe exists in the sources — Iranian families serve kashk-e bademjan to children as part of the family spread. The genuine kid version is the same dish: soft mashed texture, mild, scooped up with bread — naturally kid-accessible; a child's portion can be topped with less garlic/mint garnish.",
+    "title": "Kids love it"
+   },
+   "method": [
+    "Peel the eggplants and slice lengthwise into ¾-inch slabs. Salt generously on all sides and rest 30 minutes to draw out bitterness; rinse and pat very dry.",
+    "Shallow-fry the eggplant slices in hot oil until golden on both sides (traditional; oven-roasting at 400°F/200°C for ~40 min is the lighter variant some Persian cooks use). Drain on paper towels.",
+    "In the same pan (or fresh oil), fry the sliced onions low and slow until deeply golden and sweet — this is piyaz dagh. Scoop out 2 tbsp for garnish.",
+    "Add the garlic, turmeric, and salt; cook 2 minutes until fragrant.",
+    "Return the eggplant to the pan and mash it into the onions with a potato masher — keep it slightly rustic, not puréed. Add the hot water, cover, and simmer on low 15–20 minutes until thick and melting.",
+    "Loosen the kashk with hot water in a small pot, warm it through, then fold it into the eggplant. Simmer 5 more minutes until creamy and rich. Taste for salt (kashk is already salty).",
+    "Bloom the saffron in hot water; fry the dried mint in hot oil just seconds until fragrant (it burns fast — na'na dagh); fry the garlic slices golden.",
+    "Plate warm: drizzle kashk over the top and scatter the reserved onions, fried mint, garlic, saffron, and toasted walnuts. Serve with warm bread, herbs, and radishes."
+   ],
+   "name": "Kashk-e bademjan — silky Persian eggplant folded through tangy kashk",
+   "page": "recipe-kashk-e-bademjan.html",
+   "region": "Iran",
+   "season": "Autumn",
+   "seasonWhy": "Iran's walnut harvest runs late August through late October — walnut is a signature garnish here, so October walnuts are freshly harvested. Eggplant is a summer crop and October sits at the tail end; mint, onions, garlic, turmeric and saffron are year-round staples.",
+   "sources": [
+    {
+     "name": "Commodity Board Europe — Iran walnut harvest window (late August–late October)",
+     "url": null
+    },
+    {
+     "name": "Samin Nosrat, NYT Cooking — eggplant as quintessential summer food in Iran",
+     "url": null
+    },
+    {
+     "name": "Yekta Persian Market — eggplant as summer crop",
+     "url": null
+    }
+   ],
+   "story": "Kashk-e bademjan — literally 'kashk and eggplant' — is likely Qajar-era, served as an appetizer or a main with fresh bread. Kashk itself is one of humanity's oldest preserved foods: thousands of years a staple of the Iranian diet, made from cheese-making leftovers (butter churned out of doogh [yogurt drink], water drained off, the remainder sun-dried into hard balls sold in bazaars), the main protein source of Iran's nomad peoples — fermented, salted, dried, it kept without refrigeration. The dish is also Persian culinary logic in a bowl: eggplant is 'warm' (garm [hot-natured food]) in the hot-cold balance, so cooling mint and tangy kashk tame it.",
+   "veg": true,
+   "vegNote": "The traditional vegetarian form: eggplant, kashk (fermented dairy), onions, garlic, mint, walnuts, saffron. Disclosed: some regional/restaurant variants mix in ground lamb or stir in an egg — those are documented variants, not this recipe."
+  },
+  {
+   "aliases": [],
+   "category": "snack",
+   "festival": null,
+   "festive": false,
+   "id": "sholeh-zard",
+   "ingredients": {
+    "groups": [
+     {
+      "items": [
+       "1½ cups short-grain white rice (jasmine or basmati also work), rinsed until water runs clear",
+       "8 cups water, plus 2 more cups as needed",
+       "Pinch of salt"
+      ],
+      "title": "Rice cook-down"
+     },
+     {
+      "items": [
+       "½ teaspoon zaferan [saffron] threads (the red stigmas of the saffron crocus — the world's most valuable spice)",
+       "2 tablespoons hot water"
+      ],
+      "title": "Saffron bloom (bloom while the rice cooks)"
+     },
+     {
+      "items": [
+       "2 to 2½ cups granulated sugar (2 cups for moderate, 2½ for the festive original sweetness)"
+      ],
+      "title": "Sugar simmer"
+     },
+     {
+      "items": [
+       "1 teaspoon ground hel [cardamom] (the pod's warm, citrusy seed spice)",
+       "¼ cup golab [rosewater] (rose-petal distillate — a fragrant liquid made by steaming rose petals)",
+       "½ cup khalal-e badam [slivered almonds]",
+       "2 tablespoons neutral cooking oil, warmed (traditional; gives the surface its sheen)"
+      ],
+      "title": "The finish (stir-in)"
+     },
+     {
+      "items": [
+       "Ground darcheen [cinnamon] — for the classic calligraphy patterns",
+       "2 tablespoons chopped pesteh [pistachios]",
+       "2 tablespoons slivered almonds + a few dried rose petals (optional)"
+      ],
+      "title": "To serve"
+     }
+    ]
+   },
+   "kidFriendly": true,
+   "kidVersion": {
+    "text": "There is no distinct kid recipe — sholeh zard is itself a classic childhood dessert in Iranian homes. Children eat exactly the same dish, portioned smaller into little bowls.",
+    "title": "Kids love it"
+   },
+   "method": [
+    "Put the rinsed rice and 8 cups water in a large heavy pot with the salt. Bring to a boil, skim the white foam as it rises. Cover and simmer on medium-low 35–45 minutes until the grains have completely collapsed and turned mushy — you should barely see whole grains. Stir occasionally so it doesn't catch. Add the extra 2 cups of hot water if the pot runs dry.",
+    "Meanwhile bloom the saffron: grind the threads in a mortar to a powder (grinding releases far more colour and aroma than whole threads) and dissolve in 2 tablespoons of hot water — it will turn a deep amber-red.",
+    "Stir the sugar into the soft rice. Simmer 20–25 minutes more, stirring occasionally, until the sugar fully dissolves and the mixture thickens. Gentle strokes, not vigorous beating — that keeps the silky texture.",
+    "Stir in the bloomed saffron water (watch it turn sunset-gold), the warmed oil, almonds, cardamom, and rosewater. Mix well, cover, and simmer on low 15–20 minutes until it holds its shape like a soft pudding when spooned. Rosewater always goes in last — its perfume evaporates in long cooking.",
+    "Immediately spoon into a large shallow serving dish or individual bowls. Chill at least 2 hours (it firms up and the flavours settle). Traditionally served cold, though warm is also eaten.",
+    "Dust cinnamon through a stencil to write names or geometric patterns, and scatter pistachios, almonds, and rose petals."
+   ],
+   "name": "Sholeh zard — the golden Persian saffron rice pudding",
+   "page": "recipe-sholeh-zard.html",
+   "region": "Iran",
+   "season": "Autumn",
+   "seasonWhy": "The Khorasan saffron harvest — source of the world's saffron — runs late October through November, peaking in early November; farmers handpick purple crocus flowers before sunrise. Rosewater and almond/pistachio garnishes are year-round pantry staples; the October tie is saffron.",
+   "sources": [
+    {
+     "name": "presstv.co.uk — Khorasan saffron harvest report (Qaenat/South Khorasan)",
+     "url": null
+    },
+    {
+     "name": "rove.me — saffron harvest calendar (peak early November)",
+     "url": null
+    },
+    {
+     "name": "tehrantelegraph.com — North Khorasan saffron harvest",
+     "url": null
+    }
+   ],
+   "story": "In Iran, sholeh zard is famously cooked as nazri (votive/charity food): families make a whole pot to fulfil a nazr (religious vow) — giving thanks for health or an answered prayer — and distribute the bowls free to neighbours, often hand-delivering them door to door. It is a staple of Ramadan iftar (the meal breaking the day's fast) and of Muharram mourning ceremonies, served free to mourners. The cinnamon decoration is itself ritual: names and geometric patterns stencilled in cinnamon onto the surface. TasteAtlas named it the best pudding in the world by audience vote.",
+   "veg": true
+  },
+  {
+   "aliases": [],
+   "category": "food",
+   "festival": null,
+   "festive": false,
+   "id": "durban-vegetable-curry",
+   "ingredients": {
+    "groups": [
+     {
+      "items": [
+       "2 tbsp ghee [clarified butter] (or neutral oil to make it fully vegan)",
+       "1 large onion, sliced",
+       "2 sprigs curry leaves [karapincha — aromatic Indian bay-like leaves]"
+      ],
+      "title": "Stage 1 — the tempering"
+     },
+     {
+      "items": [
+       "2 tsp crushed ginger and garlic",
+       "2–3 tbsp Durban curry powder [Durban-specific hot curry-powder blend — household compositions vary; typically turmeric, cumin, coriander, fennel, garam masala with higher chilli heat than standard curry powder]",
+       "1 large tomato, chopped",
+       "1 tsp ground cumin (jeera [whole or ground cumin seeds])",
+       "1 tsp turmeric",
+       "Salt to taste"
+      ],
+      "title": "Stage 2 — masala base"
+     },
+     {
+      "items": [
+       "3 medium potatoes, peeled and cubed",
+       "400 g green beans, trimmed and sliced",
+       "2 carrots, diced",
+       "Hot water, in small splashes"
+      ],
+      "title": "Stage 3 — the spring vegetables"
+     },
+     {
+      "items": [
+       "½ cup peas (added in the last 8–10 minutes)",
+       "1 tsp garam masala [warming north-Indian spice blend — black cardamom, cinnamon, cloves]",
+       "Chopped dhania [fresh coriander leaves], to finish"
+      ],
+      "title": "Stage 4 — finish"
+     },
+     {
+      "items": [
+       "Fluffy steamed rice or soft roti"
+      ],
+      "title": "To serve"
+     }
+    ]
+   },
+   "kidFriendly": true,
+   "kidVersion": {
+    "text": "Real — same dish, milder. Durban Indian households adjust the heat to suit the family as standard practice; children eat these curries with rice or roti at family tables. No distinct kid recipe exists or is needed.",
+    "title": "Kids love it"
+   },
+   "method": [
+    "Heat the ghee. Brown the sliced onion with the curry leaves 6–8 minutes — deeper than light golden for a veg curry.",
+    "Add the crushed ginger-garlic, 30 seconds. Add the Durban curry powder and cook 1 minute, splashing in a little water so the spices don't catch.",
+    "Add the chopped tomato, ground cumin, turmeric and salt; cook ~5 minutes into a thick masala base.",
+    "Add the potatoes, green beans and carrots. Cover and cook on medium-low 25–30 minutes, stirring occasionally, adding only small splashes of hot water — the finished curry should carry a thick masala, not a watery gravy.",
+    "Add the peas for the last 8–10 minutes (frozen peas need only warming through).",
+    "Finish with the garam masala and chopped dhania. Serve hot with rice or roti — the home format is side by side, not bunny-style (the hollowed-loaf bunny is the takeaway/street format)."
+   ],
+   "name": "Durban vegetable curry — spring green beans, potatoes and carrots in a Durban masala",
+   "page": "recipe-durban-vegetable-curry.html",
+   "region": "South Africa",
+   "season": "Spring",
+   "seasonWhy": "October-market produce throughout: carrots, peas, potatoes and tomatoes in spring; green beans, peas and cauliflower on the spring list — the honest spring-vegetable tie.",
+   "sources": [
+    {
+     "name": "boozyfoodie.co.za — SA seasonal chart (spring vegetables)",
+     "url": null
+    },
+    {
+     "name": "amcsa.co.za — spring produce list",
+     "url": null
+    },
+    {
+     "name": "National Geographic — Durban bunny-chow feature (vegetarian-first history)",
+     "url": null
+    }
+   ],
+   "story": "Durban's curry tradition grew from the indentured Indian labourers brought to Natal — the first ship the Truro — and by the late 19th century Indians dominated Durban's fresh-produce market. The documented heart of that tradition is vegetarian: the earliest bunnies centred on sugar (red-speckled) beans and broad beans, with meat bunnies arriving about a decade later. Patel's Vegetarian Refreshment Room on Dr Yusuf Dadoo (Grey) Street claims the original veg bunny chow. This spring-vegetable curry keeps that home-cooking lineage in the pot.",
+   "veg": true,
+   "vegNote": "The vegetarian form is independently documented as traditional Durban home cooking (ghee or oil; many Durban curry houses cook meat versions, but the vegetarian form is the documented home form). Use oil to make it fully vegan."
+  },
+  {
+   "aliases": [],
+   "category": "snack",
+   "festival": null,
+   "festive": false,
+   "id": "durban-samoosa",
+   "ingredients": {
+    "groups": [
+     {
+      "items": [
+       "5 medium potatoes, boiled, drained, lightly mashed (keep texture)",
+       "2 tbsp oil",
+       "1 small onion, finely chopped",
+       "1 tsp ginger-garlic paste",
+       "1 green chilli, finely chopped (optional — omit for a milder batch)",
+       "1 tsp cumin seeds (jeera [cumin seeds])",
+       "1 tsp turmeric",
+       "1 tsp chilli powder",
+       "1 tsp ground cumin",
+       "1 tsp ground coriander (dhania powder [ground coriander seed])",
+       "1 tsp garam masala [warming north-Indian spice blend]",
+       "1 tsp salt",
+       "½ cup peas (classic Durban inclusion)",
+       "½ cup fresh coriander leaves (dhania [fresh coriander leaves]), chopped",
+       "1 tbsp lemon juice"
+      ],
+      "title": "The filling"
+     },
+     {
+      "items": [
+       "24 samoosa pur strips [pre-made thin wheat pastry strips — the South African convention; from-scratch = maida [refined wheat flour] dough with oil and salt, rolled and cut]",
+       "Flour-and-water paste, for sealing",
+       "Oil, for deep-frying"
+      ],
+      "title": "The pastry"
+     },
+     {
+      "items": [
+       "Tamarind pulp + dates or jaggery [unrefined cane sugar], simmered with ground cumin, ginger and a little chilli, strained"
+      ],
+      "title": "Tamarind chutney (served alongside)"
+     }
+    ]
+   },
+   "kidFriendly": true,
+   "kidVersion": {
+    "text": "Real and documented — potato samoosas are a listed lunchbox food; Durban Indian children eat them as-is with chutney. No distinct kid recipe exists or is needed — the lunchbox serving with the tamarind-chutney dunk is the kid version.",
+    "title": "Kids love it"
+   },
+   "method": [
+    "Boil the potatoes, drain and lightly mash — keep some texture.",
+    "Heat the oil; sizzle the cumin seeds, then cook the onion until soft and lightly golden.",
+    "Add the ginger-garlic paste and green chilli (if using), 1 minute.",
+    "Lower the heat; add the turmeric, chilli powder, ground cumin, dhania powder, garam masala and salt — 30 seconds, with a splash of water if dry.",
+    "Add the potatoes and peas; cook a few minutes to coat and dry out. Cool completely before folding (hot filling softens the pastry).",
+    "Fold the samoosa pur strips into triangle pockets, fill, and seal with the flour paste.",
+    "Deep-fry in batches in medium-hot oil until golden and crisp; drain on paper. Serve warm with tamarind chutney."
+   ],
+   "name": "Durban-style vegetable samoosa — crisp potato-and-pea samoosas with tamarind chutney",
+   "page": "recipe-durban-samoosa.html",
+   "region": "South Africa",
+   "season": "Spring",
+   "seasonWhy": "Potatoes, onions and peas in spring; citrus as spring fruit — October-market produce throughout the filling and chutney.",
+   "sources": [
+    {
+     "name": "masalafactory.co.za — potato samoosas (traditional form and occasions)",
+     "url": null
+    },
+    {
+     "name": "hasmart.co.za — potato-pea filling and method cross-check",
+     "url": null
+    },
+    {
+     "name": "Saveur — Raghavan Iyer's potato-pea filling; Durban samoosa culture",
+     "url": null
+    }
+   ],
+   "story": "In Durban, the samosa 'mutated into the samoosa' — a localised spelling, pastry and street-food culture unique to the city. They are a fixture of the Grey Street / Victoria Street Indian quarter, the historic hub of Durban's Indian business and social life, and the snack of family gatherings, Eid tables, Diwali sweets-spreads, tea time and school lunchboxes — a living thread back to the indentured labourers who arrived on the Truro and adapted Indian food to local produce.",
+   "veg": true
+  },
+  {
+   "alcoholic": false,
+   "aliases": [],
+   "baseRecipe": true,
+   "calories": 190,
+   "category": "food",
+   "diet": "vegetarian",
+   "dietNote": "flour, yogurt, oil or ghee; butter or ghee for brushing — use oil instead of ghee for dairy-free; egg-free",
+   "festive": false,
+   "id": "base-naan",
+   "ingredients": {
+    "groups": [
+     {
+      "items": [
+       "3 cups maida [refined wheat flour] (or all-purpose)",
+       "1 tsp instant yeast (or 1 tsp baking powder + 1/2 tsp baking soda)",
+       "1 tsp sugar",
+       "1 tsp salt"
+      ],
+      "title": "Dough"
+     },
+     {
+      "items": [
+       "3/4 cup warm water",
+       "1/4 cup plain yogurt [dahi]",
+       "2 tbsp oil or melted ghee [clarified butter]"
+      ],
+      "title": "Wet mix"
+     },
+     {
+      "items": [
+       "melted ghee or butter, for brushing",
+       "1 tsp nigella seeds [kalonji] (optional)",
+       "chopped dhania [fresh coriander leaves] (optional)"
+      ],
+      "title": "Finish"
+     }
+    ]
+   },
+   "kidFriendly": false,
+   "method": [
+    "Whisk the flour, yeast (or baking powder + soda), sugar and salt in a large bowl.",
+    "Add the warm water, yogurt and oil; mix to a soft dough and knead 8-10 minutes until smooth.",
+    "Cover and rest in a warm spot 1 hour, until doubled.",
+    "Divide into 8 balls; roll each into a teardrop, 1/4 inch thick.",
+    "Cook on a hot dry tawa [flat griddle] or skillet 1-2 minutes per side until puffed with charred spots; press gently to help it puff.",
+    "Brush hot with ghee; scatter nigella and coriander if using. Serve warm."
+   ],
+   "name": "Home-Style Naan — soft tandoor-style flatbread from the stovetop",
+   "page": "recipe-base-naan.html",
+   "prepTime": 20,
+   "region": "India",
+   "season": "All-year",
+   "seasonWhy": "A base recipe — made year-round; the everyday flatbread behind curries in every season.",
+   "sources": [
+    {
+     "name": "GSD base-recipe card GSD-BASE-005 — AI researched recipe",
+     "url": null
+    }
+   ],
+   "story": "The base behind every good curry: naan is the classic partner for rich, saucy dishes — tear a piece, scoop, repeat. Soft, puffy, blistered tandoor-style flatbread made right on the stovetop, no tandoor needed — the dough is simple: flour, yogurt, a little yeast and warm water, kneaded smooth and rested until doubled, then rolled into teardrops and cooked hot on a dry griddle until puffed with golden charred spots."
+  },
+  {
+   "aliases": [],
+   "category": "food",
+   "festival": null,
+   "festive": false,
+   "id": "sayur-asem",
+   "ingredients": {
+    "groups": [
+     {
+      "items": [
+       "1.5 litres water",
+       "150 g tamarind pulp (asam jawa [tamarind pulp]), soaked in 300 ml warm water 10 minutes, squeezed and strained"
+      ],
+      "title": "The tamarind base"
+     },
+     {
+      "items": [
+       "5 shallots (bawang merah [shallots])",
+       "3 garlic cloves (bawang putih [garlic])",
+       "2 candlenuts (kemiri [candlenuts])",
+       "2–3 red chilies (cabai merah [red chilies]) — use fewer for a milder pot, or leave whole for aroma-only heat"
+      ],
+      "title": "The spice paste (bumbu halus [ground spice paste]) — ground smooth"
+     },
+     {
+      "items": [
+       "2 cm galangal (lengkuas [galangal]), bruised",
+       "2 Indonesian bay leaves (daun salam [Indonesian bay leaves])"
+      ],
+      "title": "Aromatics for the pot (bruised, not ground)"
+     },
+     {
+      "items": [
+       "1 sweet corn (jagung manis [sweet corn]), cut into 3–4 rounds",
+       "50 g melinjo nuts (melinjo [belinjo — nuts of the gnetum tree]; optional — outside Indonesia, use extra peanuts)",
+       "1 handful peanuts (kacang tanah [peanuts])"
+      ],
+      "title": "Stage 1 — hard vegetables (longest cook)"
+     },
+     {
+      "items": [
+       "1 chayote (labu siam [chayote squash]), peeled and cut into chunks"
+      ],
+      "title": "Stage 2 — medium vegetables"
+     },
+     {
+      "items": [
+       "4 long beans (kacang panjang [long beans]), cut into 5 cm lengths",
+       "100 g melinjo leaves (daun melinjo [melinjo leaves] — or spinach as substitute)"
+      ],
+      "title": "Stage 3 — quick vegetables"
+     },
+     {
+      "items": [
+       "1–2 tbsp palm sugar (gula merah [palm sugar]), to taste",
+       "Salt, to taste"
+      ],
+      "title": "Seasoning"
+     },
+     {
+      "items": [
+       "Steamed jasmine rice",
+       "Classic sides (not part of the dish): fried tempeh, sambal"
+      ],
+      "title": "To serve"
+     }
+    ]
+   },
+   "kidFriendly": true,
+   "kidVersion": {
+    "text": "Real — same soup, milder. Sundanese children eat sayur asem with rice as everyday family food; the documented kid-friendly technique is leaving the chilies whole for aroma (lifted out before serving) or simply using fewer. No distinct kid recipe exists or is needed.",
+    "title": "Kids love it"
+   },
+   "method": [
+    "Soak the tamarind pulp in warm water 10 minutes; squeeze well, strain, and set the tamarind water aside.",
+    "Grind the shallots, garlic, candlenuts and chilies (with a pinch of salt) into a smooth paste, adding a splash of water to ease blending.",
+    "Bring the 1.5 litres of water to a boil. Stir in the spice paste, bruised galangal and daun salam; simmer 5 minutes to release the aromatics.",
+    "Add the sweet corn, melinjo nuts and peanuts; simmer ~10 minutes until starting to soften.",
+    "Add the chayote; simmer ~10 minutes until tender.",
+    "Stir in the tamarind water, palm sugar and salt. Add the long beans and melinjo leaves; cook 3–5 minutes until the beans turn bright green and everything is tender.",
+    "Taste and adjust — the broth should be tangy, savory and lightly sweet, in that order. Serve hot over steamed jasmine rice."
+   ],
+   "name": "Sayur asem — Sundanese tamarind vegetable soup with sweet corn, chayote, long beans and peanuts",
+   "page": "recipe-sayur-asem.html",
+   "region": "Indonesia",
+   "season": "Dry-season",
+   "seasonWhy": "The seasonal tie is the season's turn itself: a light, tangy, hydrating soup for the lingering dry heat — the pot Java cooks while waiting on the rains, with the wet season delayed past October.",
+   "sources": [
+    {
+     "name": "Reuters via BMKG — wet season delayed, dry season extended (the season's turn)",
+     "url": null
+    },
+    {
+     "name": "jawawa.id via BMKG Yogyakarta — rainless days and forecast rains",
+     "url": null
+    },
+    {
+     "name": "delishglobe.com — terasi-free tamarind vegetable soup (traditional form)",
+     "url": null
+    }
+   ],
+   "story": "Sayur asem ('sour vegetables') is the everyday soup of Sundanese home kitchens in West Java — built on whatever the market has, with one non-negotiable: the clear tamarind broth. Melinjo — nuts and leaves of the gnetum tree — is the classic Sundanese marker; peanuts stand in where melinjo can't be found. It is the soup of the season's turn: light and hydrating through the dry heat, and the pot Java reaches for while waiting on the rains. Served over rice with fried tempeh and sambal on the side — the home trio, each a side, not the dish.",
+   "veg": true,
+   "vegNote": "This version follows the documented terasi-free Sundanese home form — water-based broth, no animal product at any step. (Terasi [fermented shrimp paste] is a variable home addition in some recipes, not used here.)"
+  },
+  {
+   "aliases": [],
+   "category": "snack",
+   "festival": null,
+   "festive": false,
+   "id": "klepon",
+   "ingredients": {
+    "groups": [
+     {
+      "items": [
+       "110 g glutinous rice flour (tepung ketan [glutinous rice flour])",
+       "25 g tapioca starch",
+       "20 g icing sugar (or 1 tbsp sugar)",
+       "100 ml pandan juice (daun pandan [pandan leaves] blended with water, strained) — or water + ½ tsp pandan paste"
+      ],
+      "title": "The dough"
+     },
+     {
+      "items": [
+       "60 g palm sugar (gula jawa [palm sugar]), finely chopped or grated"
+      ],
+      "title": "The filling"
+     },
+     {
+      "items": [
+       "65 g fresh grated coconut (kelapa parut [grated coconut]), steamed 5 minutes",
+       "Pinch of salt"
+      ],
+      "title": "The coating"
+     }
+    ]
+   },
+   "kidFriendly": true,
+   "kidVersion": {
+    "text": "Real and inherent — klepon IS the kid snack of Java's markets; no distinct kid recipe exists or is needed. One honest note: serve slightly cooled — the molten palm-sugar center is hot.",
+    "title": "Kids love it"
+   },
+   "method": [
+    "Steam the grated coconut 5 minutes (delays staling); toss with the salt, cover to keep it from drying.",
+    "Finely chop or grate the palm sugar so it melts evenly inside the balls.",
+    "Mix the glutinous rice flour, tapioca starch and sugar; add the pandan juice and knead into a smooth, pliable, non-sticky dough.",
+    "Divide into ~28 portions (~9 g each). Flatten each in your palm, place ~⅓ tsp palm sugar in the center, seal completely and roll gently into a ball — seal well or the sugar leaks.",
+    "Drop into gently boiling water in batches over medium-low heat; cook ~15 minutes (gentle heat melts the sugar), then raise to medium until the balls float to the surface.",
+    "Lift out with a slotted spoon, drain, and roll immediately in the warm salted coconut. Serve at room temperature."
+   ],
+   "name": "Klepon — pandan glutinous-rice balls with a molten palm-sugar center, rolled in salted coconut",
+   "page": "recipe-klepon.html",
+   "region": "Indonesia",
+   "season": "Dry-season",
+   "seasonWhy": "Klepon is a year-round pasar (market) snack made fresh daily — no seasonal harvest claim; the tie is the afternoon-tea moment in the lingering dry heat.",
+   "sources": [
+    {
+     "name": "mykitchen101en.com — klepon/onde-onde (Javanese origin; traditional form)",
+     "url": null
+    },
+    {
+     "name": "theindofork.com — klepon's cultural note (festive times and everyday delight)",
+     "url": null
+    }
+   ],
+   "story": "Klepon originated in Java and the name travels: it is sold as onde-onde across Malaysia, Singapore, Brunei and parts of Indonesia, with cousins all over Southeast Asia — Thailand's khanom tom (pandan coconut rice balls) is the same idea under another name. The signature is the molten center: bite in and the palm sugar rushes out. A pasar staple made fresh daily, and a fixture of festive tables too — proof that the simplest ingredients make the most joyful snacks.",
+   "veg": true
   }
  ]
 }
