@@ -359,7 +359,8 @@ function renderMyRecipes(){
     renderMyRecipes();renderColls();toast('Recipe deleted.');});});
 }
 
-/* Diet taxonomy (2026-10-01): "Vegetarian on Rasalaya means no egg". New-schema
+/* Diet taxonomy (2026-10-15): library is ALL DIETS — vegetarian, vegan, contains-egg,
+   pescatarian, meat & seafood. "Vegetarian" means no egg, no meat, no fish. New-schema
    packets carry `diet`; the original 98 carry the old `veg` bool. */
 var DIET_LABELS={vegan:'Vegan',vegetarian:'Vegetarian','contains-egg':'Contains egg',
   pescatarian:'Pescatarian','meat-seafood':'Meat & Seafood'};
@@ -416,6 +417,7 @@ function initShare(){
     var f=$('#share-form');
     fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},
       body:new URLSearchParams(new FormData(f)).toString()})
+    .then(function(res){if(!res.ok)throw new Error('HTTP '+res.status);})
     .then(function(){$('#share-done').classList.add('show');f.style.display='none';})
     .catch(function(){err.textContent='Something went wrong — please try again.';err.classList.add('show');});
   });
@@ -427,7 +429,8 @@ function getNewsletter(){try{return JSON.parse(localStorage.getItem(NL_KEY)||'{}
 function saveNewsletter(n){try{localStorage.setItem(NL_KEY,JSON.stringify(n))}catch(e){}}
 function netlifyPost(form){
   return fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},
-    body:new URLSearchParams(new FormData(form)).toString()});
+    body:new URLSearchParams(new FormData(form)).toString()})
+    .then(function(res){if(!res.ok)throw new Error('HTTP '+res.status);return res;});
 }
 function initNewsletter(){
   $$('.news-form').forEach(function(f){
@@ -437,6 +440,8 @@ function initNewsletter(){
       if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){toast('Please enter a valid email address.');return;}
       var age=f.querySelector('.nl-age');
       if(age&&!age.checked){toast('Please confirm you are 13 or older.');return;}
+      var consent=f.querySelector('.nl-consent');
+      if(consent&&!consent.checked){toast('Please tick the newsletter consent box to subscribe.');return;}
       netlifyPost(f).then(function(){
         toast('Thanks for subscribing!');
         input.value='';if(age)age.checked=false;
