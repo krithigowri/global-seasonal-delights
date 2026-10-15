@@ -490,6 +490,17 @@ function initFeedback(){
 /* ---------- browse filters (sticky bar) ---------- */
 function initBrowse(){
   var grid=$('#browse-grid');if(!grid)return;
+  /* Collapse the sticky filter bar on scroll-down (mobile): keeps search visible,
+     hides the chip/toggle row until the user scrolls back up. */
+  var bar=document.querySelector('.filter-bar'),lastY=window.scrollY||0;
+  if(bar){
+    window.addEventListener('scroll',function(){
+      var y=window.scrollY||0;
+      if(y>140&&y>lastY+4){bar.classList.add('collapsed');}
+      else if(y<lastY-4||y<=140){bar.classList.remove('collapsed');}
+      lastY=y;
+    },{passive:true});
+  }
   var data=(window.RASALAYA_RECIPES||[]).slice();
   var q=(new URLSearchParams(location.search).get('q')||'').toLowerCase();
   var rq=(new URLSearchParams(location.search).get('region')||'');

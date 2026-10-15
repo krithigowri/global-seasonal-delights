@@ -76,7 +76,8 @@ h1,h2,h3,.display{font-family:var(--font-d);line-height:1.2;color:var(--espresso
   opacity:.95;margin:10px 0 30px;text-shadow:0 2px 10px rgba(0,0,0,.4)}
 .hero-search{display:flex;max-width:560px;margin:0 auto 22px;background:rgba(255,255,255,.96);
   border-radius:999px;padding:6px;box-shadow:0 12px 32px rgba(0,0,0,.3),inset 0 1px 0 #fff}
-.hero-search input{flex:1;border:0;background:none;padding:12px 20px;font-size:16px;outline:none;color:var(--espresso)}
+.hero-search input{flex:1;min-width:0;border:0;background:none;padding:12px 20px;font-size:16px;outline:none;color:var(--espresso)}
+.hero-search button{flex:none;white-space:nowrap}
 .hero-cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
 
 /* ---------- sections & cards ---------- */
@@ -308,7 +309,11 @@ button.chip{font-family:var(--font-b)}
 .filter-bar{position:sticky;top:var(--nav-h);z-index:150;margin:18px 0 8px;
   background:linear-gradient(180deg,rgba(255,253,246,.97),rgba(250,243,223,.97));
   backdrop-filter:blur(8px);border:1px solid var(--line);border-radius:18px;
-  box-shadow:var(--shadow);padding:16px 20px}
+  box-shadow:var(--shadow);padding:16px 20px;transition:padding .25s ease}
+.filter-bar .filter-row{transition:opacity .2s ease,max-height .25s ease;overflow:hidden;max-height:200px}
+/* collapse on scroll (mobile): hide the chip/toggle row, keep search visible */
+.filter-bar.collapsed{padding:10px 16px}
+.filter-bar.collapsed .filter-row.collapse-row{opacity:0;max-height:0;margin-top:0!important;pointer-events:none}
 .filter-row{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
 .filter-row .field{margin:0;min-width:150px;flex:1}
 .filter-row select{width:100%;padding:11px 14px;border-radius:12px;border:1.5px solid var(--line);
@@ -383,6 +388,8 @@ button.chip{font-family:var(--font-b)}
 @media (max-width:600px){
   .grid-3,.grid-2{grid-template-columns:1fr}
   .hero-inner{padding:64px 20px 70px}
+  .hero-search{margin-left:16px;margin-right:16px;max-width:none}
+  .hero-search input{padding:12px 14px;font-size:15px}
   .filter-row .field{min-width:100%}
   /* mobile header: keep brand + actions on one line, no horizontal overflow (2026-10-01) */
   .nav-inner{gap:12px;padding:0 16px}
@@ -397,7 +404,7 @@ button.chip{font-family:var(--font-b)}
 .map-section{margin:6px 0 4px}
 .map-sub{color:var(--muted);max-width:660px}
 .worldmap{width:100%;height:auto;display:block;background:linear-gradient(180deg,#f8f2e2,#eee1c6);border-radius:18px;border:1px solid rgba(120,84,40,.18);box-shadow:var(--shadow)}
-.worldmap .land{fill:#d9c9a8;opacity:.55}
+.worldmap .land{fill:#c9b586;opacity:.85}
 .pin{cursor:pointer;outline:none}
 .pin .hit{fill:transparent}
 .pin .dot{stroke:#fff;stroke-width:2}
