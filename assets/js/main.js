@@ -493,8 +493,14 @@ function initBrowse(){
   /* Collapse the sticky filter bar on scroll-down (mobile): keeps search visible,
      hides the chip/toggle row until the user scrolls back up. */
   var bar=document.querySelector('.filter-bar'),lastY=window.scrollY||0;
+  /* Collapse is mobile-only (600px breakpoint in style.css): on wider viewports
+     the full bar stays put, and a resize away from mobile restores it. */
+  var mobileQuery=window.matchMedia('(max-width: 600px)');
+  function uncollapse(){if(bar)bar.classList.remove('collapsed');}
+  if(mobileQuery.addEventListener){mobileQuery.addEventListener('change',function(){if(!mobileQuery.matches)uncollapse();});}
   if(bar){
     window.addEventListener('scroll',function(){
+      if(!mobileQuery.matches){uncollapse();return;}
       var y=window.scrollY||0;
       if(y>140&&y>lastY+4){bar.classList.add('collapsed');}
       else if(y<lastY-4||y<=140){bar.classList.remove('collapsed');}
