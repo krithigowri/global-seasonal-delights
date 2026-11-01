@@ -310,10 +310,10 @@ button.chip{font-family:var(--font-b)}
   background:linear-gradient(180deg,rgba(255,253,246,.97),rgba(250,243,223,.97));
   backdrop-filter:blur(8px);border:1px solid var(--line);border-radius:18px;
   box-shadow:var(--shadow);padding:16px 20px;transition:padding .25s ease}
-.filter-bar .filter-row{transition:opacity .2s ease,max-height .25s ease;overflow:hidden;max-height:200px}
+.filter-bar .filter-row.collapse-row{transition:opacity .2s ease,max-height .25s ease,visibility 0s 0s;overflow:hidden;max-height:200px;visibility:visible}
 /* collapse on scroll (mobile): hide the chip/toggle row, keep search visible */
 .filter-bar.collapsed{padding:10px 16px}
-.filter-bar.collapsed .filter-row.collapse-row{opacity:0;max-height:0;margin-top:0!important;pointer-events:none}
+.filter-bar.collapsed .filter-row.collapse-row{opacity:0;max-height:0;margin-top:0!important;pointer-events:none;visibility:hidden;transition:opacity .2s ease,max-height .25s ease,visibility 0s .25s}
 .filter-row{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
 .filter-row .field{margin:0;min-width:150px;flex:1}
 .filter-row select{width:100%;padding:11px 14px;border-radius:12px;border:1.5px solid var(--line);
