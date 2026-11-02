@@ -1,0 +1,28 @@
+name: Gemini Coding Agent
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+  issues:
+    types: [opened, reopened]
+  issue_comment:
+    types: [created]
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+
+jobs:
+  gemini-agent:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Run Gemini CLI Agent
+        uses: google-github-actions/run-gemini-cli@v0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
