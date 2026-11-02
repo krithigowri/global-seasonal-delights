@@ -1,28 +1,37 @@
-name: Gemini Coding Agent
+name: Gemini Coding Agent (manual, quota-limited)
 
 on:
-  pull_request:
-    types: [opened, synchronize]
-  issues:
-    types: [opened, reopened]
-  issue_comment:
-    types: [created]
+  workflow_dispatch:
 
 permissions:
-  contents: write
-  pull-requests: write
-  issues: write
+  contents: read
 
 jobs:
   gemini-agent:
     runs-on: ubuntu-latest
+    timeout-minutes: 5
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Run Gemini CLI Agent
+      - name: Run bounded Gemini smoke test
         uses: google-github-actions/run-gemini-cli@v0
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-        env:
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          gemini_api_key: ${{ secrets.GEMINI_API_KEY }}
+          gemini_model: gemini-3.5-flash-lite
+          prompt: >-
+            This is a one-time integration smoke test. Use the list_directory
+            tool to inspect only the repository root. Return a concise report
+            with the repository root entry names and the exact phrase
+            "GEMINI_SMOKE_TEST_OK". Do not modify files, run commands, call
+            external services, or create GitHub comments or issues.
+          settings: |-
+            {
+              "model": {
+                "name": "gemini-3.5-flash-lite",
+                "maxSessionTurns": 2
+              },
+              "tools": {
+                "core": ["list_directory"]
+              }
+            }
