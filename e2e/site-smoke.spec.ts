@@ -40,11 +40,15 @@ test('browse search filters the recipe results and opens a recipe', async ({ pag
   await expect(cards.first().locator('h3')).toContainText('Baingan Bharta');
   await expect(page.locator('#result-count')).toContainText('recipe');
 
+  // Dismiss the first-visit cookie dialog so it cannot cover the recipe card link.
+  const cookieReject = page.locator('#cookie-reject');
+  if (await cookieReject.isVisible()) await cookieReject.click();
+
   const recipeLink = cards.first().locator('a.card-hit');
   await expect(recipeLink).toHaveAttribute('href', /recipe-/);
   await recipeLink.click();
   await expect(page.locator('main h1')).toContainText('Baingan Bharta');
-  await expect(page.getByRole('heading', { name: /Ingredients/i })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Method', exact: true })).toBeVisible();
 });
 
 test('mobile navigation opens and exposes the primary links', async ({ page }, testInfo) => {
