@@ -29,3 +29,30 @@ test('festival collections page displays collection links', async ({ page }) => 
   await expect(page.getByRole('link', { name: /Diwali/ }).first())
     .toHaveAttribute('href', 'festival-diwali.html');
 });
+
+test('browse search filters the recipe results and opens a recipe', async ({ page }) => {
+  await page.goto('/browse.html');
+  const search = page.locator('#f-search');
+  await search.fill('Baingan Bharta');
+
+  const cards = page.locator('#browse-grid .recipe-card');
+  await expect(cards.first()).toBeVisible();
+  await expect(cards.first().locator('h3')).toContainText('Baingan Bharta');
+  await expect(page.locator('#result-count')).toContainText('recipe');
+
+  const recipeLink = cards.first().locator('a.card-hit');
+  await expect(recipeLink).toHaveAttribute('href', /recipe-/);
+  await recipeLink.click();
+  await expect(page.locator('main h1')).toContainText('Baingan Bharta');
+  await expect(page.getByRole('heading', { name: /Ingredients/i })).toBeVisible();
+});
+
+test('mobile navigation opens and exposes the primary links', async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name !== 'chromium-mobile', 'Mobile-only navigation behavior');
+  await page.goto('/');
+  const menuButton = page.getByRole('button', { name: 'Open menu' });
+  await menuButton.click();
+  const navigation = page.getByRole('navigation', { name: 'Primary' });
+  await expect(navigation).toBeVisible();
+  await expect(navigation.getByRole('link', { name: 'Recipes' })).toBeVisible();
+});
