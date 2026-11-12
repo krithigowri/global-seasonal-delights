@@ -443,3 +443,39 @@ button.chip{font-family:var(--font-b)}
 .chip-pick button{border:none;background:var(--espresso);color:#fff;border-radius:50%;width:20px;height:20px;line-height:1;cursor:pointer;font-size:13px}
 #new-recipe .filter-row{display:flex;gap:10px;flex-wrap:wrap}
 #new-recipe .filter-row .field{flex:1;min-width:160px}
+
+/* ---------- Kitchen Rescues widget (Part A, issue #20) ---------- */
+/* Widget-only .kr-* rules, copied verbatim from KR_CSS in
+   build-site-v2.py so recipe pages (which link this file, not the
+   inline KR_CSS) render the widget styled. Keep the two copies
+   identical until B-PR7 removes the inline duplicate; the Part A
+   test module pins them in sync. */
+.kr-badge{font-size:.68rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;border-radius:999px;padding:.3rem .7rem;white-space:nowrap}
+.kr-badge.mild{color:#3f5a33;background:linear-gradient(180deg,#eef4e7,#dde9d2);border:1px solid #b9c9a6;box-shadow:inset 0 1px 0 #fff}
+.kr-badge.severe{color:#fff;background:linear-gradient(180deg,#cf4438,#B3261E 55%,#8f1a15);border:1px solid #8f1a15;box-shadow:inset 0 1px 0 rgba(255,255,255,.3)}
+.kr-rescue-item h3{font-family:Georgia,"Times New Roman",serif;font-size:1.22rem;line-height:1.25;color:#3E2A18}
+.kr-paths{display:flex;gap:.45rem;margin-top:auto;flex-wrap:wrap}
+.kr-path-pill{display:inline-flex;align-items:center;gap:.35rem;font-size:.75rem;font-weight:700;border-radius:999px;padding:.32rem .7rem;border:1px solid}
+.kr-path-pill svg{width:.85rem;height:.85rem}
+.kr-path-pill.save{color:#3f5a33;border-color:#b9c9a6;background:linear-gradient(180deg,#f1f6ea,#e2edda)}
+.kr-path-pill.save svg{fill:#3f5a33}
+.kr-path-pill.second{color:#7a5a17;border-color:#e0c37e;background:linear-gradient(180deg,#fdf3dc,#f7e7c2)}
+.kr-path-pill.second svg{fill:#7a5a17}
+.kr-path-pill.discard{color:#fff;border-color:#8f1a15;background:linear-gradient(180deg,#cf4438,#B3261E 55%,#8f1a15)}
+.kr-path-pill.discard svg{fill:#fff}
+.kr-rescue-item .kr-link{font-size:.88rem;font-weight:700;color:#C2491D;margin-top:.15rem}
+.kr-rescue{background:#FFFDF7;border:1px solid #e7dab9;border-radius:1.2rem;overflow:hidden;
+background-image:linear-gradient(180deg,rgba(255,255,255,.7),rgba(255,255,255,0) 45%);
+box-shadow:0 5px 16px rgba(62,42,24,.1),inset 0 1px 0 #fff;margin:1.6rem 0}
+.kr-rescue-head{display:flex;align-items:center;gap:.7rem;padding:1.1rem 1.2rem;
+background:linear-gradient(180deg,#ffe3cf,#ffd7b8);border-bottom:1px solid #e8b98d}
+.kr-rescue-head svg{flex:none;width:1.7rem;height:1.7rem;fill:#9E3713}
+.kr-rescue-head h2{font-family:Georgia,"Times New Roman",serif;font-size:1.25rem;color:#7a2f0e}
+.kr-rescue-head p{font-size:.82rem;color:#8a5a33}
+.kr-rescue-item{display:block;text-decoration:none;color:inherit;padding:1rem 1.2rem;border-bottom:1px solid #efe4c8}
+.kr-rescue-item:last-child{border-bottom:none}
+.kr-rescue-item:hover{background:#fffaf0}
+.kr-rescue-item .kr-row{display:flex;align-items:flex-start;justify-content:space-between;gap:.7rem}
+.kr-rescue-item .kr-why{font-size:.87rem;color:#6b543c;margin:.25rem 0 .55rem}
+.kr-rescue-foot{padding:.9rem 1.2rem;background:#fbf4e2;border-top:1px solid #e7dab9;font-size:.84rem;color:#8a6f4e}
+.kr-rescue-foot a{color:#C2491D;font-weight:700;text-decoration:none}
